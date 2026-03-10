@@ -737,11 +737,11 @@ After each task, update `progress.md` with:
 - [x] i18n/gu.json has all keys matching en.json
 - [x] Gujarati text reads naturally for Gujarat audience
 - [x] SEO keywords are in Gujarati
-- [ ] Git commit: `feat(content): T12 — Gujarati translations for all services`
+- [x] Git commit: `feat(content): T12 — Gujarati translations for all services`
 
 ---
 
-### - [ ] T13: Write 6 Initial Blog Posts (English)
+### - [x] T13: Write 6 Initial Blog Posts (English)
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** R2
 
@@ -762,10 +762,10 @@ After each task, update `progress.md` with:
 4. Save as JSON at `src/content/blog/en/`
 
 **Validate:**
-- [ ] 6 blog posts created with full content
-- [ ] Each has proper SEO meta, tags, categories
-- [ ] Content is informative and authoritative
-- [ ] Each references relevant services
+- [x] 6 blog posts created with full content
+- [x] Each has proper SEO meta, tags, categories
+- [x] Content is informative and authoritative
+- [x] Each references relevant services
 - [ ] Git commit: `feat(content): T13 — 6 initial blog posts in English`
 
 ---

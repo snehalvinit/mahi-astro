@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: T12 (Translate All Content to Gujarati) — 2026-03-09
-### Next Up: T13 (Write 6 Initial Blog Posts in English)
-### Latest Commit: feat(content): T12 — Gujarati translations for all services
+### Last Completed: T13 (Write 6 Initial Blog Posts in English) — 2026-03-09
+### Next Up: T14 (Translate Blog Posts to Hindi and Gujarati)
+### Latest Commit: feat(content): T13 — 6 initial blog posts in English
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -35,17 +35,17 @@
 | 3-Design | T2, T3, V2 | DONE (3/3) |
 | 4-Pages | T4, T5, T6, T7, T8, T9, T9b, T9c, V3 | V3 BLOCKED (9/9 tasks run, 3 fixes needed) |
 | 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | ALL DONE (4/4) |
-| 5-Content | T10–T14, V4 | T10, T11, T12 DONE (3/6) |
+| 5-Content | T10–T14, V4 | T10, T11, T12, T13 DONE (4/6) |
 | 6-SEO | T15–T17, V5 | NOT STARTED |
 | 7+ | T18–T37 | NOT STARTED |
 
 ### Build Stats
-- **Pages generated:** 70 (across 3 languages)
-- **Build time:** ~2.16s
+- **Pages generated:** 82 (across 3 languages)
+- **Build time:** ~3.12s
 - **Components created:** 16 (6 layout, 6 sections, 4 UI)
 - **i18n keys per language:** ~200+
 - **Service pages:** 12 × 3 langs = 36
-- **Blog posts:** 2 × 3 langs = 6
+- **Blog posts:** 6 × 3 langs = 18 (English content, hi/gu pending T14)
 
 ---
 
@@ -361,4 +361,62 @@
 - **Test results:** `npm run build` succeeds (70 pages, 2.55s, zero errors/warnings). Gujarati service pages now render with Gujarati content (not English fallback). EN and HI pages unaffected. Zod schema validation passes for all Gujarati files. i18n key parity confirmed (19/19 top-level keys).
 - **Decisions:** Services utility `getServicesForLanguage()` already supported `gu/` prefix filtering — no code changes needed. Gujarati translations use appropriate Vedic terminology that Gujarati speakers would naturally use (e.g., "કુંડળી વાંચન" not transliterated Hindi). SEO keywords include Gujarati-language search terms with અમદાવાદ location targeting.
 - **Gotchas:** All 3 languages now have complete service content (en, hi, gu). Blog posts (T13/T14) are still English-only across all languages. T13 is next — write 6 initial English blog posts.
+- **Status:** DONE
+
+---
+
+### Handover Summary — 2026-03-09T03:51Z (Phase 5 Content: T10–T12 Complete)
+
+**All service content written in 3 languages. Blog content (T13) is next.**
+
+| Task | Key Output |
+|------|------------|
+| T10 | Enhanced 12 English service JSONs: 300-500 word intros, 112 FAQs, 96 benefits, Ahmedabad SEO keywords |
+| T11 | Created `src/content/services/hi/` — 12 Hindi files with natural Devanagari + Vedic terminology |
+| T12 | Created `src/content/services/gu/` — 12 Gujarati files with native Gujarati script + Vedic terminology |
+
+**Build:** 70 pages, ~2.55s, zero errors/warnings. All service pages render natively in all 3 languages (no fallback).
+
+**Key files changed:**
+- `src/content/services/en/*.json` (12 files enhanced in T10)
+- `src/content/services/hi/*.json` (12 files created in T11)
+- `src/content/services/gu/*.json` (12 files created in T12)
+
+**Decisions:**
+- `introduction` and `overview` kept as separate fields (both rendered in different page sections)
+- Hindi/Gujarati use natural Vedic terms, not transliterations (कुंडली / કુંડળી, not "kundli")
+- System identifiers (id, slug, category, relatedServices) kept as English for URL routing
+- No code changes needed for T10–T12 — services utility already handled language-prefixed content
+
+**Next up:** T13 (Write 6 Initial Blog Posts in English)
+
+**Gotchas for next task:**
+- Blog system exists (T7) with 2 placeholder posts — T13 replaces/adds 6 real posts
+- Blog content is HTML strings in JSON (not markdown), schema in `src/schemas/blog-content.schema.ts`
+- Blog utility in `src/utils/blog.ts` has same language fallback pattern as services
+- Blog translations (hi/gu) are a separate task (T14) after English content is written
+- 42 blog topic ideas documented in R2 research report
+
+---
+
+### T13: Write 6 Initial Blog Posts (English) — 2026-03-09
+- **Files created/modified:**
+  - `src/content/blog/en/understanding-your-kundli.json` (rewritten — expanded from ~500 to ~1100 words)
+  - `src/content/blog/en/power-of-vastu-shastra.json` (NEW — replaces vastu-tips-for-home.json)
+  - `src/content/blog/en/gemstones-that-can-change-your-destiny.json` (NEW)
+  - `src/content/blog/en/marriage-compatibility-horoscope.json` (NEW)
+  - `src/content/blog/en/balancing-seven-chakras.json` (NEW)
+  - `src/content/blog/en/maha-mrityunjaya-mantra-guide.json` (NEW)
+  - `src/content/blog/en/vastu-tips-for-home.json` (REMOVED — replaced by power-of-vastu-shastra)
+- **What was done:** Wrote 6 comprehensive English blog posts (800-1200+ words each) covering the exact titles specified in the task. Each post is informative, authoritative, includes Vedic references, practical advice, and a CTA to book a consultation with Pandit Shree Mahadev Joshi. All posts have proper SEO metadata (title, description, keywords), categories, tags, and relatedServices linking to relevant service pages.
+- **Blog posts:**
+  1. Understanding Your Kundli (~1100 words) — covers 12 houses, Navagraha, Nakshatras, Dasha system
+  2. Power of Vastu Shastra (~1100 words) — Pancha Tatva, directional energy, remedies without demolition
+  3. 7 Gemstones (~1200 words) — Ruby, Pearl, Yellow Sapphire, Emerald, Diamond, Blue Sapphire, Hessonite
+  4. Marriage Compatibility (~1100 words) — Ashtakoot Guna Milan, 8 Kootas, Mangal Dosha, deeper analysis
+  5. Balancing Seven Chakras (~1200 words) — all 7 chakras with signs, practices, and astrology connections
+  6. Maha Mrityunjaya Mantra (~1200 words) — meaning, word-by-word, chanting method, Anushthan
+- **Test results:** `npm run build` — 82 pages, 3.12s, zero errors. All 6 blog posts render in en/hi/gu routes (hi/gu use English fallback until T14).
+- **Decisions:** Removed old `vastu-tips-for-home.json` placeholder — replaced with task-specified title. Reading times set to 8-11 min based on word count. Publish dates staggered across March 2026 for realistic appearance.
+- **Gotchas:** hi/ and gu/ blog directories are empty — T14 will translate all 6 posts. Blog listing page shows all 6 posts with category filtering working.
 - **Status:** DONE
