@@ -9,6 +9,7 @@ import SectionHeading from '../../components/ui/SectionHeading.astro';
 import Button from '../../components/ui/Button.astro';
 import EventCard from '../../components/sections/EventCard.astro';
 import SubscribeSection from '../../components/sections/SubscribeSection.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
 import { supportedLanguages, isValidLanguage, getTranslations } from '../../utils/i18n';
 import type { SupportedLanguage } from '../../utils/i18n';
 import { siteConfig } from '../../data/site-config';
@@ -60,11 +61,7 @@ const pastEvents = events.filter((e: any) => e.type === 'event' && e.status === 
     <!-- Hero Banner -->
     <section class="hero-dark py-16 md:py-24">
       <div class="container-wide text-center">
-        <nav class="mb-6 text-sm text-cream/60" aria-label="Breadcrumb">
-          <a href={`/${currentLang}/`} class="hover:text-gold transition-colors">{t.header.home}</a>
-          <span class="mx-2">/</span>
-          <span class="text-gold">{ep.title}</span>
-        </nav>
+        <Breadcrumbs lang={currentLang} items={[{ label: t.header.home, href: `/${currentLang}/` }, { label: ep.title, href: `/${currentLang}/events` }]} variant="dark" />
         <h1 class="font-heading text-4xl md:text-5xl font-bold text-gold mb-4">
           {ep.title}
         </h1>

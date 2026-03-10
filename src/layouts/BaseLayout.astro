@@ -1,7 +1,7 @@
 ---
 import type { SupportedLanguage } from '../utils/i18n';
-import { getTranslations, getAlternateLanguages } from '../utils/i18n';
-import { siteConfig } from '../data/site-config';
+import { getTranslations } from '../utils/i18n';
+import SEOHead from '../components/SEOHead.astro';
 import CookieConsent from '../components/layout/CookieConsent.astro';
 import '../styles/global.css';
 
@@ -9,14 +9,21 @@ export interface Props {
   lang: SupportedLanguage;
   title?: string;
   description?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  article?: {
+    publishDate: string;
+    author: string;
+    tags: string[];
+  };
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { lang, title, description } = Astro.props;
+const { lang, title, description, ogImage, ogType, article, jsonLd } = Astro.props;
 const t = getTranslations(lang);
 const pageTitle = title || t.meta.title;
 const pageDescription = description || t.meta.description;
-const alternateLanguages = getAlternateLanguages(lang);
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const canonicalPath = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -24,22 +31,20 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={pageDescription} />
     <meta name="keywords" content={t.meta.keywords} />
-    <meta name="author" content={siteConfig.astrologer.name} />
 
     <title>{pageTitle}</title>
 
-    <link rel="canonical" href={canonicalUrl.href} />
-    <link rel="alternate" hreflang={lang} href={canonicalUrl.href} />
-    {alternateLanguages.map((altLang) => (
-      <link
-        rel="alternate"
-        hreflang={altLang}
-        href={new URL(`/${altLang}${Astro.url.pathname.replace(/^\/(en|hi|gu)/, '')}`, Astro.site).href}
-      />
-    ))}
-    <link rel="alternate" hreflang="x-default" href={new URL(`/en${Astro.url.pathname.replace(/^\/(en|hi|gu)/, '')}`, Astro.site).href} />
+    <SEOHead
+      lang={lang}
+      title={pageTitle}
+      description={pageDescription}
+      canonicalPath={canonicalPath}
+      ogImage={ogImage}
+      ogType={ogType}
+      article={article}
+      jsonLd={jsonLd}
+    />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 

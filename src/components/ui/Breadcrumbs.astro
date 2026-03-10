@@ -1,0 +1,51 @@
+---
+import type { SupportedLanguage } from '../../utils/i18n';
+import { breadcrumbSchema } from '../../utils/schema';
+
+export interface BreadcrumbItem {
+  label: string;
+  href: string;
+}
+
+export interface Props {
+  lang: SupportedLanguage;
+  items: BreadcrumbItem[];
+  variant?: 'light' | 'dark';
+}
+
+const { lang, items, variant = 'dark' } = Astro.props;
+
+const schemaItems = items.map((item) => ({
+  name: item.label,
+  url: item.href,
+}));
+
+const textClass = variant === 'dark'
+  ? 'text-cream/60'
+  : 'text-purple/60';
+const linkClass = variant === 'dark'
+  ? 'hover:text-gold transition-colors'
+  : 'hover:text-gold transition-colors';
+const activeClass = variant === 'dark'
+  ? 'text-gold'
+  : 'text-indigo font-medium';
+---
+
+<nav class={`text-sm ${textClass} mb-6`} aria-label="Breadcrumb">
+  <ol class="flex flex-wrap items-center gap-1">
+    {items.map((item, index) => (
+      <li class="flex items-center gap-1">
+        {index > 0 && <span class="mx-1">/</span>}
+        {index < items.length - 1 ? (
+          <a href={item.href} class={linkClass}>
+            {item.label}
+          </a>
+        ) : (
+          <span class={activeClass}>{item.label}</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema(schemaItems))} />

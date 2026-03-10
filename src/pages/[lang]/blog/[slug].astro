@@ -7,11 +7,13 @@ import WhatsAppButton from '../../../components/layout/WhatsAppButton.astro';
 import BottomBar from '../../../components/layout/BottomBar.astro';
 import Button from '../../../components/ui/Button.astro';
 import Card from '../../../components/ui/Card.astro';
+import Breadcrumbs from '../../../components/ui/Breadcrumbs.astro';
 import CTASection from '../../../components/sections/CTASection.astro';
 import { supportedLanguages, isValidLanguage, getTranslations } from '../../../utils/i18n';
 import { getBlogPostsForLanguage, getAllBlogSlugs, getBlogPostBySlug, formatDate } from '../../../utils/blog';
 import { getServiceBySlug } from '../../../utils/services';
 import { siteConfig } from '../../../data/site-config';
+import { articleSchema } from '../../../utils/schema';
 import type { SupportedLanguage } from '../../../utils/i18n';
 
 export async function getStaticPaths() {
@@ -61,12 +63,22 @@ const encodedTitle = encodeURIComponent(post.title);
 const whatsappShare = `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`;
 const facebookShare = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
 const twitterShare = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
+
+const blogJsonLd = articleSchema(post, currentLang);
+const breadcrumbItems = [
+  { label: t.header.home, href: `/${currentLang}/` },
+  { label: t.header.blog, href: `/${currentLang}/blog/` },
+  { label: post.title, href: `/${currentLang}/blog/${post.slug}` },
+];
 ---
 
 <BaseLayout
   lang={currentLang}
   title={`${post.seo.title} — ${t.hero.brandName}`}
   description={post.seo.description}
+  ogType="article"
+  article={{ publishDate: post.publishDate, author: post.author, tags: post.tags }}
+  jsonLd={blogJsonLd}
 >
   <SiteHeader slot="header" lang={currentLang} />
   <MenuOverlay slot="header" lang={currentLang} />
@@ -74,13 +86,7 @@ const twitterShare = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=
   <!-- Hero Banner -->
   <section class="hero-dark py-12 md:py-20">
     <div class="container-wide max-w-4xl mx-auto">
-      <nav class="text-sm text-cream/60 mb-6" aria-label="Breadcrumb">
-        <a href={`/${currentLang}/`} class="hover:text-gold transition-colors">{t.header.home}</a>
-        <span class="mx-2">/</span>
-        <a href={`/${currentLang}/blog/`} class="hover:text-gold transition-colors">{t.header.blog}</a>
-        <span class="mx-2">/</span>
-        <span class="text-gold">{post.title}</span>
-      </nav>
+      <Breadcrumbs lang={currentLang} items={breadcrumbItems} variant="dark" />
       <div class="flex items-center gap-3 mb-4 text-sm text-cream/60">
         <span class="bg-gold/20 text-gold px-3 py-1 rounded-full font-semibold text-xs">
           {post.category}

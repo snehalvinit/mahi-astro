@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: V4 (Verify All Content in All Languages) — 2026-03-09
-### Next Up: T15 (Implement SEO — Schema Markup, Meta Tags, Sitemap, Hreflang)
-### Latest Commit: `verify(content): V4 — all content verified in all languages`
+### Last Completed: T15 (Implement SEO — Schema Markup, Meta Tags, Sitemap, Hreflang) — 2026-03-09
+### Next Up: T16 (Add Analytics, Structured Data, Open Graph)
+### Latest Commit: `feat(seo): T15 — schema markup, meta tags, sitemap, hreflang`
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -36,13 +36,13 @@
 | 4-Pages | T4, T5, T6, T7, T8, T9, T9b, T9c, V3 | V3 BLOCKED (9/9 tasks run, 3 fixes needed) |
 | 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | ALL DONE (4/4) |
 | 5-Content | T10–T14, V4 | ALL DONE (6/6) — V4 PASSED |
-| 6-SEO | T15–T17, V5 | NOT STARTED |
+| 6-SEO | T15–T17, V5 | T15 DONE, T16–T17 pending |
 | 7+ | T18–T37 | NOT STARTED |
 
 ### Build Stats
 - **Pages generated:** 82 (across 3 languages)
-- **Build time:** ~3.12s
-- **Components created:** 16 (6 layout, 6 sections, 4 UI)
+- **Build time:** ~3.60s
+- **Components created:** 18 (6 layout, 6 sections, 5 UI, 1 SEO)
 - **i18n keys per language:** ~200+
 - **Service pages:** 12 × 3 langs = 36
 - **Blog posts:** 6 × 3 langs = 18 (all languages complete)
@@ -524,9 +524,91 @@
 - **Build:** 82 pages, ~3.72s, zero errors/warnings
 - **Status:** PASSED — Phase 5 Content fully verified
 
-**Next up:** V4 (Verify All Content in All Languages)
+---
 
-**Gotchas for next task:**
-- V4 should verify: all 36 service pages render correct language content, all 18 blog pages render correct language content, no English fallback where translated content exists, SEO metadata present in all languages, Zod schema validation passes, category/tag filtering works on blog listing
-- After V4: Phase 6 SEO (T15–T17, V5)
-- Placeholders still needing real values: Formspree endpoints, Google Analytics ID, astrologer photo, Google Reviews/JustDial URLs, Google Maps exact address
+## Task History
+
+### V4: Verify All Content in All Languages — 2026-03-09T20:33-07:00
+- **Files:** `.tasks/mahi-astro/progress.md`, `.tasks/mahi-astro/tasks.md`
+- **What was done:** Comprehensive verification of all content across 3 languages — checked 36 service pages, 18 blog posts, translation key parity (432 keys each), Hindi/Gujarati font loading, and SEO meta tags. All checks passed with zero issues.
+- **Test results:** ALL PASSED — 36 service pages (12×3 langs), 18 blog pages (6×3 langs), i18n key parity, fonts, SEO meta. Build: 82 pages in ~3.72s, zero errors/warnings.
+- **Decisions:** OG/Twitter Card tags deferred to T15/T16 (Phase 6 SEO) as planned. Phase 5 Content declared complete.
+- **Gotchas:** Placeholders still needing real values: Formspree endpoints, Google Analytics ID, astrologer photo, Google Reviews/JustDial URLs, Google Maps exact address. OG/Twitter tags not yet present — scoped to Phase 6.
+- **Status:** DONE
+
+---
+
+### Handover Summary — 2026-03-10T03:33Z (Phase 5 Complete, V4 Passed)
+
+**Phase 5 (Content) is fully done and verified. Ready for Phase 6 (SEO).**
+
+| Phase | Tasks | Status |
+|-------|-------|--------|
+| 1-Research | R1, R2, R3 | DONE |
+| 2-Foundation | T1, V1 | DONE |
+| 3-Design | T2, T3, V2 | DONE |
+| 4-Pages | T4–T9c, V3, FX-3a/b/c, VFX-3 | DONE |
+| 5-Content | T10–T14, V4 | DONE |
+| **6-SEO** | **T15–T17, V5** | **NEXT** |
+
+**Next task: T15 — Implement SEO (Schema Markup, Meta Tags, Sitemap, Hreflang)**
+
+**Key context for T15:**
+- SEO meta (title, description, keywords, canonical, hreflang) already present on all pages
+- OG/Twitter Card tags still needed (not yet implemented)
+- Schema.org markup (LocalBusiness, Person, Service, BlogPosting) needed
+- Sitemap generation and robots.txt needed
+- Hreflang already working (en/hi/gu/x-default) — just needs sitemap integration
+
+**Outstanding placeholders:**
+- Formspree form endpoints
+- Google Analytics ID
+- Astrologer photo URL
+- Google Reviews / JustDial URLs
+- Google Maps exact address
+
+---
+
+### T15: Implement SEO — Schema Markup, Meta Tags, Sitemap, Hreflang — 2026-03-09
+
+**What was done:**
+- Created `src/components/SEOHead.astro` — centralized SEO component with dynamic meta titles, descriptions, canonical URLs, hreflang (en/hi/gu/x-default), Open Graph tags, Twitter Card tags, and article meta for blog posts
+- Created `src/utils/schema.ts` — JSON-LD schema helpers: `localBusinessSchema`, `personSchema`, `serviceSchema`, `articleSchema`, `faqSchema`, `breadcrumbSchema`, `websiteSchema`
+- Created `src/components/ui/Breadcrumbs.astro` — reusable breadcrumb component with BreadcrumbList schema markup, light/dark variants
+- Created `public/robots.txt` — allows all crawlers, links to sitemap-index.xml
+- Updated `src/layouts/BaseLayout.astro` — replaced inline meta/hreflang with SEOHead, added props for ogImage, ogType, article, jsonLd
+- Updated all page files to use Breadcrumbs component (replaced 8 inline breadcrumb navs)
+- Added JSON-LD to: homepage (LocalBusiness + WebSite), about (Person), service pages (Service + FAQPage), blog posts (Article)
+- Sitemap already configured in astro.config.mjs with i18n locales — generates `sitemap-index.xml`
+
+**Files created:**
+- `src/components/SEOHead.astro`
+- `src/utils/schema.ts`
+- `src/components/ui/Breadcrumbs.astro`
+- `public/robots.txt`
+
+**Files modified:**
+- `src/layouts/BaseLayout.astro`
+- `src/pages/[lang]/index.astro`
+- `src/pages/[lang]/about.astro`
+- `src/pages/[lang]/services/[slug].astro`
+- `src/pages/[lang]/services/index.astro`
+- `src/pages/[lang]/blog/[slug].astro`
+- `src/pages/[lang]/blog/index.astro`
+- `src/pages/[lang]/testimonials.astro`
+- `src/pages/[lang]/events.astro`
+- `src/pages/[lang]/privacy-policy.astro`
+
+**Decisions:**
+- SEOHead is a child of `<head>` in BaseLayout, not a replacement — keeps existing font/icon links separate
+- JSON-LD schemas use hardcoded SITE_URL constant (`https://believeastrology.com`) for consistency
+- Breadcrumbs component emits its own `<script type="application/ld+json">` for BreadcrumbList schema
+- OG image defaults to `/images/og-default.jpg` (placeholder — real image still needed)
+
+**Gotchas:**
+- OG image placeholder (`/images/og-default.jpg`) does not yet exist — needs real image for social sharing
+- Google Analytics not yet added (deferred to T16)
+- Social media profile URLs in siteConfig are empty strings — fill when available
+
+**Build:** 82 pages in ~3.60s, zero errors/warnings.
+**Status:** DONE

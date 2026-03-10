@@ -804,7 +804,7 @@ After each task, update `progress.md` with:
 
 ## PHASE 6 — SEO Optimization
 
-### - [ ] T15: Implement SEO — Schema Markup, Meta Tags, Sitemap, Hreflang
+### - [x] T15: Implement SEO — Schema Markup, Meta Tags, Sitemap, Hreflang
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** V3
 
@@ -827,12 +827,12 @@ After each task, update `progress.md` with:
 5. Add breadcrumbs component with schema markup
 
 **Validate:**
-- [ ] All pages have unique meta titles and descriptions per language
-- [ ] hreflang tags present on every page for all 3 languages
-- [ ] JSON-LD validates at schema.org validator
-- [ ] Sitemap generates with correct URLs
-- [ ] robots.txt is accessible
-- [ ] Git commit: `feat(seo): T15 — schema markup, meta tags, sitemap, hreflang`
+- [x] All pages have unique meta titles and descriptions per language
+- [x] hreflang tags present on every page for all 3 languages
+- [x] JSON-LD validates at schema.org validator
+- [x] Sitemap generates with correct URLs
+- [x] robots.txt is accessible
+- [x] Git commit: `feat(seo): T15 — schema markup, meta tags, sitemap, hreflang`
 
 ---
 

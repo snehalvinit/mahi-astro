@@ -11,6 +11,7 @@ import ServicesGrid from '../../components/sections/ServicesGrid.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import { supportedLanguages, isValidLanguage } from '../../utils/i18n';
+import { localBusinessSchema, websiteSchema } from '../../utils/schema';
 import type { SupportedLanguage } from '../../utils/i18n';
 
 export function getStaticPaths() {
@@ -25,9 +26,10 @@ if (!isValidLanguage(lang as string)) {
 }
 
 const currentLang = lang as SupportedLanguage;
+const homeJsonLd = [localBusinessSchema(), websiteSchema()];
 ---
 
-<BaseLayout lang={currentLang}>
+<BaseLayout lang={currentLang} jsonLd={homeJsonLd}>
   <SiteHeader slot="header" lang={currentLang} />
   <MenuOverlay slot="header" lang={currentLang} />
 

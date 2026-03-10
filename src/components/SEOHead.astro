@@ -1,0 +1,96 @@
+---
+import type { SupportedLanguage } from '../utils/i18n';
+import { supportedLanguages } from '../utils/i18n';
+import { siteConfig } from '../data/site-config';
+
+export interface Props {
+  lang: SupportedLanguage;
+  title: string;
+  description: string;
+  canonicalPath: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  article?: {
+    publishDate: string;
+    author: string;
+    tags: string[];
+  };
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  lang,
+  title,
+  description,
+  canonicalPath,
+  ogImage = '/images/og-default.jpg',
+  ogType = 'website',
+  article,
+  jsonLd,
+} = Astro.props;
+
+const siteUrl = Astro.site?.origin || 'https://believeastrology.com';
+const canonicalUrl = `${siteUrl}${canonicalPath}`;
+const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+
+// Strip lang prefix to get the path suffix for alternate URLs
+const pathSuffix = canonicalPath.replace(/^\/(en|hi|gu)/, '');
+
+const localeMap: Record<SupportedLanguage, string> = {
+  en: 'en_IN',
+  hi: 'hi_IN',
+  gu: 'gu_IN',
+};
+
+// Prepare JSON-LD array
+const jsonLdItems = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
+---
+
+<!-- Primary Meta Tags -->
+<meta name="description" content={description} />
+<meta name="author" content={siteConfig.astrologer.name} />
+
+<!-- Canonical & Hreflang -->
+<link rel="canonical" href={canonicalUrl} />
+{supportedLanguages.map((altLang) => (
+  <link
+    rel="alternate"
+    hreflang={altLang}
+    href={`${siteUrl}/${altLang}${pathSuffix}`}
+  />
+))}
+<link rel="alternate" hreflang="x-default" href={`${siteUrl}/en${pathSuffix}`} />
+
+<!-- Open Graph -->
+<meta property="og:type" content={ogType} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:locale" content={localeMap[lang]} />
+<meta property="og:site_name" content={siteConfig.name} />
+{supportedLanguages.filter((l) => l !== lang).map((altLang) => (
+  <meta property="og:locale:alternate" content={localeMap[altLang]} />
+))}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />
+
+<!-- Article meta (for blog posts) -->
+{article && (
+  <>
+    <meta property="article:published_time" content={article.publishDate} />
+    <meta property="article:author" content={article.author} />
+    {article.tags.map((tag) => (
+      <meta property="article:tag" content={tag} />
+    ))}
+  </>
+)}
+
+<!-- JSON-LD Structured Data -->
+{jsonLdItems.map((item) => (
+  <script type="application/ld+json" set:html={JSON.stringify(item)} />
+))}

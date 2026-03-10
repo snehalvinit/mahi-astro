@@ -10,6 +10,7 @@ import Button from '../../components/ui/Button.astro';
 import { supportedLanguages, isValidLanguage, getTranslations } from '../../utils/i18n';
 import type { SupportedLanguage } from '../../utils/i18n';
 import { siteConfig } from '../../data/site-config';
+import { personSchema } from '../../utils/schema';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -25,9 +26,10 @@ if (!isValidLanguage(lang as string)) {
 const currentLang = lang as SupportedLanguage;
 const t = getTranslations(currentLang);
 const whatsappUrl = `${siteConfig.contact.whatsapp}?text=${encodeURIComponent(t.whatsapp.prefill)}`;
+const aboutJsonLd = { '@context': 'https://schema.org', ...personSchema() };
 ---
 
-<BaseLayout lang={currentLang} title={`${t.about.title} | ${t.meta.title}`} description={t.about.subtitle}>
+<BaseLayout lang={currentLang} title={`${t.about.title} | ${t.meta.title}`} description={t.about.subtitle} jsonLd={aboutJsonLd}>
   <SiteHeader slot="header" lang={currentLang} />
   <MenuOverlay slot="header" lang={currentLang} />
 
