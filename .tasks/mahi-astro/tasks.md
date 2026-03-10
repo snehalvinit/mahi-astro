@@ -766,11 +766,11 @@ After each task, update `progress.md` with:
 - [x] Each has proper SEO meta, tags, categories
 - [x] Content is informative and authoritative
 - [x] Each references relevant services
-- [ ] Git commit: `feat(content): T13 — 6 initial blog posts in English`
+- [x] Git commit: `feat(content): T13 — 6 initial blog posts in English`
 
 ---
 
-### - [ ] T14: Translate Blog Posts to Hindi and Gujarati
+### - [x] T14: Translate Blog Posts to Hindi and Gujarati
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** T13
 
@@ -781,9 +781,9 @@ After each task, update `progress.md` with:
 4. Ensure cultural appropriateness of examples and references
 
 **Validate:**
-- [ ] 12 translated blog files created (6 Hindi + 6 Gujarati)
-- [ ] Translations read naturally
-- [ ] SEO meta localized
+- [x] 12 translated blog files created (6 Hindi + 6 Gujarati)
+- [x] Translations read naturally
+- [x] SEO meta localized
 - [ ] Git commit: `feat(content): T14 — blog posts translated to Hindi and Gujarati`
 
 ---

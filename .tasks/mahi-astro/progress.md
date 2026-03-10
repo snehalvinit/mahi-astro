@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: T13 (Write 6 Initial Blog Posts in English) — 2026-03-09
-### Next Up: T14 (Translate Blog Posts to Hindi and Gujarati)
-### Latest Commit: feat(content): T13 — 6 initial blog posts in English
+### Last Completed: T14 (Translate Blog Posts to Hindi and Gujarati) — 2026-03-09
+### Next Up: V4 (Verify All Content in All Languages)
+### Latest Commit: feat(content): T14 — blog posts translated to Hindi and Gujarati
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -35,7 +35,7 @@
 | 3-Design | T2, T3, V2 | DONE (3/3) |
 | 4-Pages | T4, T5, T6, T7, T8, T9, T9b, T9c, V3 | V3 BLOCKED (9/9 tasks run, 3 fixes needed) |
 | 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | ALL DONE (4/4) |
-| 5-Content | T10–T14, V4 | T10, T11, T12, T13 DONE (4/6) |
+| 5-Content | T10–T14, V4 | T10, T11, T12, T13, T14 DONE (5/6) |
 | 6-SEO | T15–T17, V5 | NOT STARTED |
 | 7+ | T18–T37 | NOT STARTED |
 
@@ -45,7 +45,7 @@
 - **Components created:** 16 (6 layout, 6 sections, 4 UI)
 - **i18n keys per language:** ~200+
 - **Service pages:** 12 × 3 langs = 36
-- **Blog posts:** 6 × 3 langs = 18 (English content, hi/gu pending T14)
+- **Blog posts:** 6 × 3 langs = 18 (all languages complete)
 
 ---
 
@@ -420,3 +420,38 @@
 - **Decisions:** Removed old `vastu-tips-for-home.json` placeholder — replaced with task-specified title. Reading times set to 8-11 min based on word count. Publish dates staggered across March 2026 for realistic appearance.
 - **Gotchas:** hi/ and gu/ blog directories are empty — T14 will translate all 6 posts. Blog listing page shows all 6 posts with category filtering working.
 - **Status:** DONE
+
+---
+
+### Handover Summary — 2026-03-10T03:00Z (Phase 5 Content: T10–T13 Complete)
+
+**All service content (3 langs) and 6 English blog posts done. Blog translations (T14) are next.**
+
+| Task | Key Output |
+|------|------------|
+| T10 | Enhanced 12 English service JSONs: 300-500 word intros, 112 FAQs, 96 benefits, Ahmedabad SEO keywords |
+| T11 | 12 Hindi service files — natural Devanagari + Vedic terms |
+| T12 | 12 Gujarati service files — native script + Vedic terms |
+| T13 | 6 English blog posts (800-1200 words each): Kundli, Vastu, Gemstones, Marriage, Chakras, Maha Mrityunjaya |
+
+**Build:** 82 pages, ~3.12s, zero errors/warnings.
+
+**Key files:**
+- Services: `src/content/services/{en,hi,gu}/*.json` (36 files total)
+- Blog: `src/content/blog/en/*.json` (6 files — was 2 placeholders, now 6 real posts)
+- Removed: `src/content/blog/en/vastu-tips-for-home.json` (replaced by `power-of-vastu-shastra.json`)
+
+**Decisions:**
+- Blog content is HTML strings in JSON (matching service content pattern)
+- Publish dates staggered across March 2026 for realism
+- Reading times 8-11 min based on word count
+- No code changes in T10–T13 — existing utilities handled everything
+
+**Next up:** T14 (Translate 6 Blog Posts to Hindi and Gujarati)
+
+**Gotchas for next task:**
+- `src/content/blog/hi/` and `src/content/blog/gu/` directories don't exist yet
+- Blog utility `getBlogPostsForLanguage()` in `src/utils/blog.ts` uses same language fallback as services
+- Blog schema in `src/schemas/blog-content.schema.ts` — all fields same as English
+- hi/gu blog routes currently show English content as fallback
+- 82 pages total now (was 70 after Phase 4)
