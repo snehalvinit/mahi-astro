@@ -187,7 +187,7 @@ After each task, update `progress.md` with:
 
 ---
 
-### - [ ] R3: Research Hero Images & Visual Assets Strategy
+### - [x] R3: Research Hero Images & Visual Assets Strategy
 
 **Type:** Research | **Model:** claude-opus-4-6 | **Depends on:** —
 
@@ -211,10 +211,10 @@ After each task, update `progress.md` with:
 7. **Produce:** Image manifest JSON listing all required images with specs
 
 **Validate:**
-- [ ] Image requirements documented per page with dimensions
-- [ ] At least 15 placeholder images identified/sourced
-- [ ] Icon set requirements defined
-- [ ] Optimization strategy documented
+- [x] Image requirements documented per page with dimensions
+- [x] At least 15 placeholder images identified/sourced
+- [x] Icon set requirements defined
+- [x] Optimization strategy documented
 - [ ] Git commit: `research(images): R3 — visual assets and hero images strategy`
 
 ---

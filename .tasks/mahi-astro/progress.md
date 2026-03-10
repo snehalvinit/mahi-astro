@@ -23,75 +23,37 @@
 
 ## Task Progress
 
-### Last Completed: R2 (Service Content Research)
-### Current: R3 or T1 (next unchecked task)
+### Last Completed: R3 (Visual Assets Research) — 2026-03-09
+### Next Up: T1 (Project Scaffold) — depends on R1 (done)
 
 ---
 
 ## Task History
 
-### 2026-03-09 — Task System Initialization
-**What was done:**
-- Read Mahi Website Info.docx — extracted astrologer info, services, contact
-- Analyzed Nilay website architecture (Astro 5.x, i18n, JSON content, Tailwind)
-- Conducted comprehensive web research on competitor sites, design trends, SEO, booking
-- Created 33-task execution plan across 9 phases
-- Created R1 research report (HTML) with 30+ citations
-
-**Key Decisions:**
-1. **Framework:** Astro 5.x (matches Nilay architecture, perfect for static SSG + i18n)
-2. **Design:** Hybrid light/dark theme — cream backgrounds, dark celestial heroes, gold/saffron accents
-3. **Colors:** Gold (#C9A84C), Saffron (#FF9933), Purple (#6F4278), Indigo (#2E2B59), Cream (#FFFDF0)
-4. **Typography:** Playfair Display (headings), Inter (body), Noto Sans for Devanagari/Gujarati
-5. **Booking:** WhatsApp-first with Cal.com backup for international clients
-6. **i18n:** URL-based routing (/en/, /hi/, /gu/) with JSON translations + content fallback to English
-
-**Files Created:**
-- `.tasks/mahi-astro/tasks.md` — 33 tasks across 9 phases
-- `.tasks/mahi-astro/reports/R1-website-research.html` — research report
-- `.tasks/mahi-astro/progress.md` — this file
-
-**Next Task Needs to Know:**
-- R1, R2, R3 are all independent and can run in parallel
-- T1 depends on R1 completion (needs design decisions)
-- Content research (R2) should happen early to unblock Phase 5
-- Nilay website architecture is the blueprint for i18n implementation
+### R1: Research Astrology Website Design & Best Practices — 2026-03-09T17:00Z
+- **Files:** `.tasks/mahi-astro/tasks.md`, `.tasks/mahi-astro/reports/R1-website-research.html`, `.tasks/mahi-astro/progress.md`
+- **What was done:** Analyzed Nilay website architecture, researched 10+ competitor astrology sites (incl. sohinisastri.com), documented design patterns/SEO/booking options, created 37-task execution plan across 10 phases, produced zen HTML research report with 30+ citations.
+- **Test results:** N/A (research task)
+- **Decisions:** Astro 5.x framework; hybrid light/dark theme with Gold #C9A84C / Saffron #FF9933 / Purple #6F4278 / Indigo #2E2B59 / Cream #FFFDF0; Playfair Display + Inter + Noto Sans fonts; WhatsApp-first booking with Cal.com backup; URL-based i18n routing (/en/, /hi/, /gu/) with JSON translations.
+- **Gotchas:** R1/R2/R3 are independent and can run in parallel. T1 depends on R1. Nilay website at ~/Documents/pers/Nilay_plastic/nilay_website/ is the i18n blueprint.
+- **Status:** DONE
 
 ---
 
-### 2026-03-09 — R2: Service Content Research
-**What was done:**
-- Conducted web research on all 12 services with 35+ citations
-- Wrote 300-500 word descriptions, benefits, process steps, and FAQs for each service
-- Documented multilingual keywords (English, Hindi, Gujarati) per service
-- Mapped 3-5 blog topic ideas to each service (42 total blog topics)
-- Created zen HTML report with tabbed navigation for all 12 services
-- Created 12 JSON content draft files with structured data
+### R2: Service Content Research — 2026-03-09T17:01Z
+- **Files:** `.tasks/mahi-astro/reports/R2-service-content-research.html`, 12 JSON files in `.tasks/mahi-astro/content-drafts/services/en/` (one per service)
+- **What was done:** Researched all 12 services with 35+ citations; wrote descriptions, benefits, process steps, FAQs, multilingual keywords per service; mapped 42 blog topic ideas; created zen HTML report and 12 structured JSON content drafts.
+- **Test results:** N/A (research task)
+- **Decisions:** Services split into "Core Astrology" (6) and "Spiritual Healing" (6); Kundli Reading is the gateway service; each page gets FAQ schema markup + cross-links; SEO targets Devanagari + Romanized Hindi/Gujarati + location terms.
+- **Gotchas:** JSON drafts are English-only — T11/T12 handle translations. Each JSON follows schema: id, title, slug, category, description, benefits, process, faqs, keywords, relatedServices, blogTopics. 42 blog topics feed into T13.
+- **Status:** DONE
 
-**Files Created:**
-- `.tasks/mahi-astro/reports/R2-service-content-research.html` — zen HTML report
-- `.tasks/mahi-astro/content-drafts/services/en/vedic-astrology-kundli-reading.json`
-- `.tasks/mahi-astro/content-drafts/services/en/horoscope-analysis-predictions.json`
-- `.tasks/mahi-astro/content-drafts/services/en/marriage-career-finance-health-guidance.json`
-- `.tasks/mahi-astro/content-drafts/services/en/vastu-consultation.json`
-- `.tasks/mahi-astro/content-drafts/services/en/gemstone-recommendations.json`
-- `.tasks/mahi-astro/content-drafts/services/en/karma-life-purpose-counselling.json`
-- `.tasks/mahi-astro/content-drafts/services/en/pancha-tatva-balancing.json`
-- `.tasks/mahi-astro/content-drafts/services/en/seven-chakras-balancing.json`
-- `.tasks/mahi-astro/content-drafts/services/en/vedic-spiritual-poojas.json`
-- `.tasks/mahi-astro/content-drafts/services/en/vedic-karma-kand-yagnas.json`
-- `.tasks/mahi-astro/content-drafts/services/en/maha-mrityunjaya-mantra-anushthan.json`
-- `.tasks/mahi-astro/content-drafts/services/en/mantras-chanting.json`
+---
 
-**Key Decisions:**
-1. **Service Categories:** Split into "Core Astrology" (6 analytical/consultative services) and "Spiritual Healing" (6 ritual/energy services)
-2. **Gateway Service:** Kundli Reading is the entry point — all other services reference back to it
-3. **Content Strategy:** Each service page should cross-link to related services and have FAQ schema markup
-4. **SEO:** Target both Devanagari script and Romanized Hindi/Gujarati keywords + location-specific terms
-
-**Next Task Needs to Know:**
-- R3 (visual assets research) is independent and can run next
-- T1 (project scaffold) depends on R1 being complete (it is)
-- JSON content drafts are in English only — T11/T12 will handle Hindi/Gujarati translation
-- Each JSON file follows the same schema: id, title, slug, category, description, benefits, process, faqs, keywords, relatedServices, blogTopics
-- 42 blog topic ideas are documented and can inform T13 (blog content writing)
+### R3: Research Hero Images & Visual Assets Strategy — 2026-03-09T18:00Z
+- **Files:** `.tasks/mahi-astro/reports/R3-visual-assets.html`, `.tasks/mahi-astro/results/R3-image-manifest.json`
+- **What was done:** Researched free image sources (Unsplash, Pexels, Pixabay) for all page hero images; defined image requirements per page with exact dimensions; documented icon set requirements (12 zodiac, 12 service, 7 chakra, 21 UI, 5 decorative); researched Astro Image/Picture component optimization pipeline; created 43-citation zen HTML report and machine-readable image manifest JSON.
+- **Test results:** N/A (research task)
+- **Decisions:** Free sources cover 100% of needs ($0 budget); Unsplash/Pexels for raster heroes; SVG Repo/Hexmos for zodiac icons; Lucide for UI icons + custom SVGs for spiritual icons; Astro `<Picture />` with AVIF/WebP formats and layout="responsive"; source images in src/assets/ (optimized) and SVGs in public/images/icons/ (as-is); astrologer photo placeholder until client provides real photo.
+- **Gotchas:** Astrologer's personal photos must be client-provided. Source images must be imported (not URL strings) for Astro optimization. Hero images need `loading="eager"` + `fetchpriority="high"`. SVGs use `currentColor` for CSS theming.
+- **Status:** DONE

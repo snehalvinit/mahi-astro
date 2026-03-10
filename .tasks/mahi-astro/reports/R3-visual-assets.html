@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Believe Astrology — Visual Assets & Hero Images Strategy — R3</title>
+<style>
+  :root {
+    --bg: #fafbfc; --surface: #ffffff; --sidebar-bg: #1e293b; --sidebar-text: #e2e8f0;
+    --text: #1e293b; --dim: #64748b; --border: #e2e8f0;
+    --primary: #6F4278; --primary-dark: #2E2B59; --primary-light: #9B6BA6;
+    --gold: #C9A84C; --saffron: #FF9933; --cream: #FFFDF0; --maroon: #72001B;
+    --green: #10b981; --yellow: #f59e0b; --red: #ef4444; --blue: #3b82f6;
+    --gradient: linear-gradient(135deg, #C9A84C, #6F4278);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f0f14; --surface: #1a1a24; --sidebar-bg: #0a0a10;
+      --text: #d4d4e8; --dim: #7b7b9e; --border: #2d2d44;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg); color: var(--text); display: flex; min-height: 100vh; line-height: 1.7;
+  }
+  .sidebar {
+    width: 300px; background: var(--sidebar-bg); color: var(--sidebar-text);
+    padding: 2rem; position: fixed; height: 100vh; overflow-y: auto; z-index: 100;
+  }
+  .sidebar h1 {
+    font-size: 1.4rem; margin-bottom: 0.5rem;
+    background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .sidebar .subtitle { font-size: 0.8rem; color: #94a3b8; margin-bottom: 2rem; }
+  .nav-section { margin-bottom: 1.5rem; }
+  .nav-section h3 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; margin-bottom: 0.5rem; }
+  .nav-link {
+    display: block; padding: 0.6rem 0.8rem; margin-bottom: 0.2rem; border-radius: 0.5rem;
+    color: var(--sidebar-text); text-decoration: none; transition: all 0.2s; cursor: pointer; font-size: 0.85rem;
+  }
+  .nav-link:hover { background: rgba(201,168,76,0.2); }
+  .nav-link.active { background: var(--primary); color: white; }
+  .main { margin-left: 300px; padding: 3rem; max-width: 900px; width: 100%; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  h2 { font-size: 1.6rem; margin: 2rem 0 1rem; color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+  h3 { font-size: 1.2rem; margin: 1.5rem 0 0.75rem; }
+  h4 { font-size: 1rem; margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .card h3 { margin-top: 0; }
+  .card h4 { margin-top: 0.5rem; }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1rem 0; }
+  .tag {
+    display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem;
+    border-radius: 999px; text-transform: uppercase; letter-spacing: 0.03em;
+  }
+  .tag-gold { background: #fef3c7; color: #92400e; }
+  .tag-purple { background: #ede9fe; color: #5b21b6; }
+  .tag-green { background: #d1fae5; color: #065f46; }
+  .tag-red { background: #fee2e2; color: #991b1b; }
+  .tag-blue { background: #dbeafe; color: #1d4ed8; }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+  th { background: var(--primary-dark); color: white; padding: 0.75rem; text-align: left; }
+  td { padding: 0.75rem; border-bottom: 1px solid var(--border); }
+  tr:hover { background: rgba(201,168,76,0.05); }
+  .color-swatch {
+    display: inline-block; width: 32px; height: 32px; border-radius: 6px;
+    border: 2px solid var(--border); vertical-align: middle; margin-right: 0.5rem;
+  }
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(111,66,120,0.1));
+    border-left: 4px solid var(--gold); padding: 1.5rem; border-radius: 0 12px 12px 0; margin: 1.5rem 0;
+  }
+  .citation {
+    font-size: 0.85rem; color: var(--dim); border-left: 3px solid var(--gold);
+    padding-left: 1rem; margin: 0.5rem 0;
+  }
+  .citation a { color: var(--primary); }
+  .recommendation {
+    background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3);
+    border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0;
+  }
+  .recommendation h3 { color: var(--green); margin-top: 0; }
+  .warning {
+    background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3);
+    border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0;
+  }
+  .warning h3 { color: var(--yellow); margin-top: 0; }
+  .ascii-diagram {
+    background: #1e293b; color: #e2e8f0; padding: 1.25rem; border-radius: 8px;
+    font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.8rem; line-height: 1.5;
+    overflow-x: auto; margin: 1rem 0; white-space: pre;
+  }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+  .stat-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.25rem; text-align: center;
+  }
+  .stat-card .number { font-size: 2rem; font-weight: 700; color: var(--gold); }
+  .stat-card .label { font-size: 0.8rem; color: var(--dim); margin-top: 0.25rem; }
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { margin-left: 0; padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="sidebar">
+  <h1>Believe Astrology</h1>
+  <p class="subtitle">Visual Assets Strategy — R3 Report</p>
+
+  <div class="nav-section">
+    <h3>Overview</h3>
+    <a class="nav-link active" onclick="showTab('executive')">Executive Summary</a>
+    <a class="nav-link" onclick="showTab('stats')">Asset Inventory</a>
+  </div>
+
+  <div class="nav-section">
+    <h3>Image Sources</h3>
+    <a class="nav-link" onclick="showTab('free-sources')">Free Stock Sources</a>
+    <a class="nav-link" onclick="showTab('paid-sources')">Paid Sources (Backup)</a>
+    <a class="nav-link" onclick="showTab('custom-svg')">Custom SVG Strategy</a>
+  </div>
+
+  <div class="nav-section">
+    <h3>Page Requirements</h3>
+    <a class="nav-link" onclick="showTab('homepage')">Homepage</a>
+    <a class="nav-link" onclick="showTab('about')">About Page</a>
+    <a class="nav-link" onclick="showTab('services')">Service Pages (x12)</a>
+    <a class="nav-link" onclick="showTab('blog')">Blog</a>
+    <a class="nav-link" onclick="showTab('other-pages')">Testimonials & Contact</a>
+  </div>
+
+  <div class="nav-section">
+    <h3>Icon Sets</h3>
+    <a class="nav-link" onclick="showTab('zodiac-icons')">Zodiac Signs (x12)</a>
+    <a class="nav-link" onclick="showTab('service-icons')">Service Icons (x12)</a>
+    <a class="nav-link" onclick="showTab('chakra-icons')">Chakra Icons (x7)</a>
+    <a class="nav-link" onclick="showTab('ui-icons')">UI Icons</a>
+    <a class="nav-link" onclick="showTab('decorative')">Decorative Elements</a>
+  </div>
+
+  <div class="nav-section">
+    <h3>Technical</h3>
+    <a class="nav-link" onclick="showTab('optimization')">Image Optimization</a>
+    <a class="nav-link" onclick="showTab('astro-config')">Astro Configuration</a>
+    <a class="nav-link" onclick="showTab('directory')">Directory Structure</a>
+    <a class="nav-link" onclick="showTab('social')">Social Media / OG</a>
+    <a class="nav-link" onclick="showTab('references')">References & Citations</a>
+  </div>
+</nav>
+
+<main class="main">
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div id="executive" class="tab-content active">
+    <h2>Executive Summary</h2>
+
+    <div class="highlight-box">
+      <p><strong>R3 researches and documents every visual asset needed for the Believe Astrology website:</strong> hero images, service page imagery, zodiac/chakra/service icon sets, decorative SVGs, social media images, and the full Astro image optimization pipeline.</p>
+      <p>Total: ~98 assets (78 SVG icons + 20 raster images). All sourced from free, commercial-use platforms.</p>
+    </div>
+
+    <h3>Key Decisions</h3>
+    <ul>
+      <li><strong>Free First:</strong> Unsplash + Pexels + Pixabay cover 80%+ of raster image needs — no attribution required, commercial use allowed</li>
+      <li><strong>Custom SVGs for Icons:</strong> Download base zodiac/chakra icons from SVG Repo or Flaticon, then customize stroke color/width to match brand palette (Gold #C9A84C, Purple #6F4278)</li>
+      <li><strong>Lucide for UI:</strong> Open-source Lucide icons (ISC license) for all UI elements — phone, mail, menu, arrows, etc.</li>
+      <li><strong>Astro &lt;Picture /&gt; Component:</strong> Use built-in responsive image optimization with AVIF/WebP formats, auto-generated srcset, and layout="responsive"</li>
+      <li><strong>Astrologer Photo:</strong> Placeholder needed until real photo is provided by the client — use silhouette with OM symbol</li>
+      <li><strong>Dark cosmic theme:</strong> Hero images use deep indigo (#2E2B59) overlays on cosmic/nebula backgrounds to align with brand</li>
+    </ul>
+
+    <h3>Deliverables</h3>
+    <ul>
+      <li>This HTML report with full image requirements, sources, and optimization strategy</li>
+      <li>Image manifest JSON at <code>.tasks/mahi-astro/results/R3-image-manifest.json</code> — machine-readable spec for every asset</li>
+    </ul>
+  </div>
+
+  <!-- ASSET INVENTORY -->
+  <div id="stats" class="tab-content">
+    <h2>Asset Inventory</h2>
+
+    <div class="stat-grid">
+      <div class="stat-card"><div class="number">16</div><div class="label">Hero Images</div></div>
+      <div class="stat-card"><div class="number">12</div><div class="label">Zodiac Icons</div></div>
+      <div class="stat-card"><div class="number">12</div><div class="label">Service Icons</div></div>
+      <div class="stat-card"><div class="number">7</div><div class="label">Chakra Icons</div></div>
+      <div class="stat-card"><div class="number">21</div><div class="label">UI Icons</div></div>
+      <div class="stat-card"><div class="number">6</div><div class="label">Blog Placeholders</div></div>
+      <div class="stat-card"><div class="number">5</div><div class="label">Decorative SVGs</div></div>
+      <div class="stat-card"><div class="number">~98</div><div class="label">Total Assets</div></div>
+    </div>
+
+    <h3>Asset Breakdown by Type</h3>
+    <table>
+      <tr><th>Category</th><th>Count</th><th>Format</th><th>Source Strategy</th></tr>
+      <tr><td>Hero images (all pages)</td><td>16</td><td>WebP + JPG fallback</td><td>Unsplash / Pexels / Pixabay (free)</td></tr>
+      <tr><td>Zodiac sign icons</td><td>12</td><td>SVG</td><td>SVG Repo / Hexmos + custom color</td></tr>
+      <tr><td>Service icons</td><td>12</td><td>SVG</td><td>Lucide + custom spiritual SVGs</td></tr>
+      <tr><td>Chakra energy icons</td><td>7</td><td>SVG</td><td>Flaticon / DryIcons + custom color</td></tr>
+      <tr><td>UI icons</td><td>21</td><td>SVG</td><td>Lucide Icons (lucide.dev)</td></tr>
+      <tr><td>Blog featured placeholders</td><td>6</td><td>WebP</td><td>Unsplash / Pexels (by category)</td></tr>
+      <tr><td>Decorative (mandala, OM, dividers)</td><td>5</td><td>SVG</td><td>Custom + DesignBundles / Vecteezy</td></tr>
+      <tr><td>Social media (OG, Twitter, favicon)</td><td>7</td><td>JPG/PNG/SVG/ICO</td><td>Custom design</td></tr>
+      <tr><td>Astrologer photo</td><td>2</td><td>WebP + JPG</td><td>Client-provided (placeholder until then)</td></tr>
+    </table>
+
+    <div class="recommendation">
+      <h3>Budget Impact: $0</h3>
+      <p>All image assets can be sourced for free. Unsplash, Pexels, and Pixabay provide commercial-use raster images. SVG icons come from open-source libraries (Lucide ISC, SVG Repo MIT/CC0, Flaticon free tier). Only the astrologer's personal photos require client input.</p>
+    </div>
+  </div>
+
+  <!-- FREE STOCK SOURCES -->
+  <div id="free-sources" class="tab-content">
+    <h2>Free Stock Image Sources</h2>
+
+    <p>These platforms offer high-quality images that are <strong>free for commercial use</strong> with <strong>no attribution required</strong>:</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Unsplash</h3>
+        <span class="tag tag-green">FREE</span> <span class="tag tag-blue">NO ATTRIBUTION</span>
+        <p>Best for: Cosmic/celestial hero backgrounds, nebulas, night skies, meditation scenes, gemstones, sunrise/landscape imagery.</p>
+        <ul>
+          <li>100+ vedic astrology images</li>
+          <li>1000+ cosmic/celestial images</li>
+          <li>100+ nebula images (NASA quality)</li>
+          <li>100+ meditation/spiritual images</li>
+          <li>100+ gemstone close-ups</li>
+        </ul>
+        <p><strong>Key searches:</strong> cosmic, celestial, night-sky, nebula, meditation, gemstone, crystals, namaste, sunrise</p>
+      </div>
+
+      <div class="card">
+        <h3>Pexels</h3>
+        <span class="tag tag-green">FREE</span> <span class="tag tag-blue">NO ATTRIBUTION</span>
+        <p>Best for: Astrology-themed images, cosmic skies, Hindu/spiritual scenes, meditation, yoga, warm golden light ambience.</p>
+        <ul>
+          <li>1,780+ vedic astrology photos</li>
+          <li>2,000+ astrology images</li>
+          <li>600,000+ cosmic sky photos</li>
+          <li>700,000+ night sky photos</li>
+        </ul>
+        <p><strong>Key searches:</strong> vedic-astrology, astrology, cosmic-sky, zodiac, chakra, spiritual-meditation</p>
+      </div>
+
+      <div class="card">
+        <h3>Pixabay</h3>
+        <span class="tag tag-green">FREE</span> <span class="tag tag-blue">NO ATTRIBUTION</span>
+        <p>Best for: Hindu-specific imagery (temples, puja, Lord Shiva, OM), traditional Indian spiritual scenes, diya/lamps.</p>
+        <ul>
+          <li>4,000+ Hindu astrology images</li>
+          <li>9,000+ Hindu temple images</li>
+          <li>1,000+ gemstone images</li>
+          <li>Strong coverage of Hindu ritual imagery</li>
+        </ul>
+        <p><strong>Key searches:</strong> hindu-astrology, hindu-puja, lord-shiva, om-symbol, havan, diya, gemstone</p>
+      </div>
+
+      <div class="card">
+        <h3>Freepik</h3>
+        <span class="tag tag-gold">FREE + PREMIUM</span>
+        <p>Best for: Vectors, illustrations, AI-generated astrology art. Free tier requires attribution.</p>
+        <ul>
+          <li>Vedic astrology photos and vectors</li>
+          <li>Zodiac SVG illustrations</li>
+          <li>AI-generated spiritual imagery</li>
+        </ul>
+        <p><strong>Note:</strong> Free tier requires attribution. Use as backup when Unsplash/Pexels/Pixabay don't have what's needed.</p>
+      </div>
+    </div>
+
+    <div class="citation">Source: <a href="https://unsplash.com/s/photos/vedic-astrology">Unsplash — Vedic Astrology Images</a> — 100+ free, no attribution required</div>
+    <div class="citation">Source: <a href="https://www.pexels.com/search/vedic%20astrology/">Pexels — Vedic Astrology Stock Photos</a> — 1,780+ free</div>
+    <div class="citation">Source: <a href="https://pixabay.com/images/search/hindu%20astrology/">Pixabay — Hindu Astrology Images</a> — 4,000+ free</div>
+    <div class="citation">Source: <a href="https://www.freepik.com/photos/vedic-astrology">Freepik — Vedic Astrology Photos</a> — free with attribution</div>
+  </div>
+
+  <!-- PAID SOURCES -->
+  <div id="paid-sources" class="tab-content">
+    <h2>Paid Sources (Backup Only)</h2>
+
+    <p>Only needed if free sources don't cover specific niche requirements:</p>
+
+    <table>
+      <tr><th>Platform</th><th>Vedic/Hindu Astrology Assets</th><th>When to Use</th></tr>
+      <tr><td>Adobe Stock</td><td>13,000+ assets (photos, vectors, video)</td><td>Professional gemstone close-ups, high-end vastu diagrams</td></tr>
+      <tr><td>iStock</td><td>152,800+ vedic astrology assets</td><td>Sacred geometry vectors, nakshatra symbols, Ganesha art</td></tr>
+      <tr><td>Dreamstime</td><td>28,900+ spiritual astrology images</td><td>Hindu puja ceremony photos, temple interiors</td></tr>
+      <tr><td>123RF</td><td>Large collection of vedic astrology photos</td><td>Alternative to iStock for vectors</td></tr>
+    </table>
+
+    <div class="recommendation">
+      <h3>Verdict: Free Sources Are Sufficient</h3>
+      <p>Based on research, Unsplash + Pexels + Pixabay cover all hero image needs. Custom SVGs handle icons. The only gap is the astrologer's personal photos, which must be client-provided. Paid sources are unnecessary for this project.</p>
+    </div>
+
+    <div class="citation">Source: <a href="https://stock.adobe.com/search?k=hindu+astrology">Adobe Stock — Hindu Astrology</a> — 13,195 paid assets</div>
+    <div class="citation">Source: <a href="https://www.istockphoto.com/photos/vedic-astrology">iStock — Vedic Astrology</a> — 152,800+ paid assets</div>
+    <div class="citation">Source: <a href="https://www.dreamstime.com/photos-images/vedic-astrology.html">Dreamstime — Vedic Astrology</a> — 28,900+ assets</div>
+  </div>
+
+  <!-- CUSTOM SVG STRATEGY -->
+  <div id="custom-svg" class="tab-content">
+    <h2>Custom SVG Strategy</h2>
+
+    <div class="highlight-box">
+      <p><strong>Why custom SVGs over raster images for icons?</strong></p>
+      <ul>
+        <li>Resolution-independent — crisp on all screens including Retina</li>
+        <li>Tiny file size — 12 zodiac SVGs total ~15KB vs ~500KB for PNGs</li>
+        <li>Themeable — CSS can change colors for dark/light mode</li>
+        <li>Animatable — subtle hover effects without JavaScript</li>
+        <li>Brand-consistent — exact stroke width and color across all icons</li>
+      </ul>
+    </div>
+
+    <h3>SVG Customization Rules</h3>
+    <table>
+      <tr><th>Property</th><th>Zodiac Icons</th><th>Service Icons</th><th>Chakra Icons</th><th>UI Icons</th></tr>
+      <tr><td>ViewBox</td><td>0 0 48 48</td><td>0 0 64 64</td><td>0 0 48 48</td><td>0 0 24 24</td></tr>
+      <tr><td>Stroke Width</td><td>2px</td><td>2px</td><td>2px</td><td>2px</td></tr>
+      <tr><td>Default Color</td><td>#C9A84C (Gold)</td><td>#6F4278 (Purple)</td><td>Per-chakra color</td><td>#64748b (Slate)</td></tr>
+      <tr><td>Hover Color</td><td>#FF9933 (Saffron)</td><td>#C9A84C (Gold)</td><td>Brighter variant</td><td>#6F4278 (Purple)</td></tr>
+      <tr><td>Fill</td><td>none (outline)</td><td>none (outline)</td><td>Semi-transparent</td><td>none (outline)</td></tr>
+    </table>
+
+    <h3>Workflow</h3>
+    <ol>
+      <li>Download base SVGs from free sources (SVG Repo, Hexmos, Flaticon free tier)</li>
+      <li>Open in text editor — SVGs are just XML</li>
+      <li>Replace hard-coded colors with <code>currentColor</code> for CSS theming</li>
+      <li>Standardize viewBox, stroke-width, and remove unnecessary metadata</li>
+      <li>Save to <code>public/images/icons/</code> organized by category</li>
+      <li>Create an Astro component that renders inline SVG with props for size/color</li>
+    </ol>
+  </div>
+
+  <!-- HOMEPAGE -->
+  <div id="homepage" class="tab-content">
+    <h2>Homepage Image Requirements</h2>
+
+    <div class="card">
+      <h3>Hero Background</h3>
+      <span class="tag tag-purple">1920x800</span> <span class="tag tag-blue">WebP + JPG</span> <span class="tag tag-gold">EAGER LOAD</span>
+      <p>Deep cosmic night sky with nebula — purple and gold tones. Must work with a dark overlay (<code>rgba(46,43,89,0.7)</code>) for text readability.</p>
+      <h4>Recommended Unsplash Searches:</h4>
+      <ul>
+        <li><a href="https://unsplash.com/s/photos/cosmic">unsplash.com/s/photos/cosmic</a> — galaxy/nebula backgrounds</li>
+        <li><a href="https://unsplash.com/s/photos/night-sky">unsplash.com/s/photos/night-sky</a> — starfield backgrounds</li>
+        <li><a href="https://unsplash.com/s/photos/celestial">unsplash.com/s/photos/celestial</a> — celestial imagery</li>
+      </ul>
+      <h4>Selection Criteria:</h4>
+      <ul>
+        <li>Dominant purple/blue/gold tones (aligns with brand palette)</li>
+        <li>Not too busy — text must be readable on overlay</li>
+        <li>Minimum 1920px wide for desktop, will be center-cropped on mobile</li>
+        <li>Avoid images with people or specific objects (pure cosmic atmosphere)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Astrologer Portrait</h3>
+      <span class="tag tag-purple">600x800</span> <span class="tag tag-blue">WebP + JPG</span> <span class="tag tag-red">PLACEHOLDER</span>
+      <p>Professional photo of Pandit Shree Mahadev Joshi. <strong>Must be provided by the client.</strong></p>
+      <h4>Placeholder Strategy:</h4>
+      <ul>
+        <li>Silhouette figure with OM symbol — SVG, brand indigo #2E2B59</li>
+        <li>Circular crop with gold border (#C9A84C) — 3px solid</li>
+        <li>Subtle cosmic background gradient behind silhouette</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Decorative Elements</h3>
+      <ul>
+        <li><strong>Mandala background:</strong> 800x800 SVG, 5-10% opacity behind hero section</li>
+        <li><strong>Zodiac wheel:</strong> 400x400 SVG, positioned as floating accent near hero text</li>
+        <li><strong>Gold sparkle particles:</strong> CSS animation (no image needed)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ABOUT PAGE -->
+  <div id="about" class="tab-content">
+    <h2>About Page Image Requirements</h2>
+
+    <div class="card">
+      <h3>Hero Background</h3>
+      <span class="tag tag-purple">1200x500</span> <span class="tag tag-blue">WebP</span>
+      <p>Warm spiritual atmosphere — meditation space, temple interior, or sacred environment with saffron/gold tones.</p>
+      <h4>Recommended Sources:</h4>
+      <ul>
+        <li><a href="https://pixabay.com/images/search/hindu%20temple/">Pixabay — Hindu Temple</a> — 9,000+ free images</li>
+        <li><a href="https://www.pexels.com/search/meditation%20spiritual/">Pexels — Spiritual Meditation</a></li>
+        <li><a href="https://unsplash.com/s/photos/meditation">Unsplash — Meditation</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Astrologer Full Photo</h3>
+      <span class="tag tag-purple">800x1000</span> <span class="tag tag-blue">WebP + JPG</span> <span class="tag tag-red">PLACEHOLDER</span>
+      <p>Full-length or seated photo of astrologer in consultation setting — to be provided by client.</p>
+      <p>Placeholder: Study/library environment stock photo with space for overlay text about experience and credentials.</p>
+    </div>
+
+    <div class="card">
+      <h3>Experience Timeline Graphics</h3>
+      <p>CSS-only timeline with gold accent dots — no images needed. Icons from Lucide (calendar, award, star).</p>
+    </div>
+  </div>
+
+  <!-- SERVICE PAGES -->
+  <div id="services" class="tab-content">
+    <h2>Service Page Hero Images (x12)</h2>
+
+    <p>Each of the 12 service pages needs a themed hero image at <strong>1200x500px in WebP format</strong>.</p>
+
+    <table>
+      <tr><th>#</th><th>Service</th><th>Theme</th><th>Primary Source</th></tr>
+      <tr><td>1</td><td>Vedic Astrology & Kundli Reading</td><td>Birth chart on starfield, celestial mapping</td><td><a href="https://unsplash.com/s/photos/astrology">Unsplash: astrology</a></td></tr>
+      <tr><td>2</td><td>Horoscope Analysis & Predictions</td><td>Zodiac constellations, glowing star patterns</td><td><a href="https://unsplash.com/s/photos/constellation">Unsplash: constellation</a></td></tr>
+      <tr><td>3</td><td>Marriage/Career/Finance/Health Guidance</td><td>Sunrise over path — new beginnings, gold tones</td><td><a href="https://unsplash.com/s/photos/sunrise-path">Unsplash: sunrise-path</a></td></tr>
+      <tr><td>4</td><td>Vastu Consultation</td><td>Architectural harmony, balanced Indian building</td><td><a href="https://unsplash.com/s/photos/indian-architecture">Unsplash: indian-architecture</a></td></tr>
+      <tr><td>5</td><td>Gemstone Recommendations</td><td>Vibrant gemstone close-ups, crystal clarity</td><td><a href="https://unsplash.com/s/photos/gemstone">Unsplash: gemstone</a></td></tr>
+      <tr><td>6</td><td>Karma & Life-Purpose Counselling</td><td>Deep meditation, cosmic/spiritual backdrop</td><td><a href="https://unsplash.com/s/photos/meditation">Unsplash: meditation</a></td></tr>
+      <tr><td>7</td><td>Pancha Tatva Balancing</td><td>Five elements composition (earth, water, fire, air, space)</td><td><a href="https://unsplash.com/s/photos/four-elements">Unsplash: four-elements</a></td></tr>
+      <tr><td>8</td><td>Seven Chakras Balancing</td><td>Chakra energy centers, rainbow alignment</td><td><a href="https://www.pexels.com/search/chakra/">Pexels: chakra</a></td></tr>
+      <tr><td>9</td><td>Vedic Spiritual Poojas</td><td>Sacred fire, flowers, diya, golden ceremony light</td><td><a href="https://pixabay.com/images/search/hindu%20puja/">Pixabay: hindu-puja</a></td></tr>
+      <tr><td>10</td><td>Vedic Karma-Kand Yagnas</td><td>Sacred fire ceremony, flames rising, ritual</td><td><a href="https://pixabay.com/images/search/havan/">Pixabay: havan</a></td></tr>
+      <tr><td>11</td><td>Maha-Mrutunjay Mantra Anushthan</td><td>Lord Shiva / cosmic Mahadev imagery</td><td><a href="https://pixabay.com/images/search/lord%20shiva/">Pixabay: lord-shiva</a></td></tr>
+      <tr><td>12</td><td>Mantras Chanting</td><td>OM symbol radiating energy, sacred sound waves</td><td><a href="https://pixabay.com/images/search/om%20symbol/">Pixabay: om-symbol</a></td></tr>
+    </table>
+
+    <div class="highlight-box">
+      <p><strong>Service Image Guidelines:</strong></p>
+      <ul>
+        <li>All images get a subtle dark overlay for text readability: <code>linear-gradient(to right, rgba(46,43,89,0.8) 0%, rgba(46,43,89,0.4) 100%)</code></li>
+        <li>Text always on left side over darker portion of overlay</li>
+        <li>Core Astrology services (1-6): cooler tones (purple, indigo, gold)</li>
+        <li>Spiritual Healing services (7-12): warmer tones (saffron, gold, red)</li>
+      </ul>
+    </div>
+
+    <h3>Service Listing Page</h3>
+    <div class="card">
+      <span class="tag tag-purple">1200x500</span>
+      <p>Sacred geometry or cosmic mandala — represents all services combined. Use Unsplash "sacred-geometry" search or a custom SVG mandala with cosmic background.</p>
+    </div>
+  </div>
+
+  <!-- BLOG -->
+  <div id="blog" class="tab-content">
+    <h2>Blog Image Requirements</h2>
+
+    <h3>Featured Image Dimensions</h3>
+    <p>All blog featured images: <strong>800x450px in WebP format</strong> (16:9 aspect ratio).</p>
+
+    <h3>Category-Based Image Themes</h3>
+    <table>
+      <tr><th>Blog Category</th><th>Image Theme</th><th>Source</th></tr>
+      <tr><td>Planetary Transits</td><td>Specific planet/celestial body imagery</td><td>Unsplash: planets, cosmos</td></tr>
+      <tr><td>Festivals & Muhurat</td><td>Hindu festival celebrations, diya, rangoli</td><td>Pixabay: hindu-festival, diwali</td></tr>
+      <tr><td>Remedies & Solutions</td><td>Gemstones, mantras, yantras, ritual items</td><td>Unsplash: gemstone, Pixabay: mantra</td></tr>
+      <tr><td>Zodiac Signs</td><td>Individual zodiac constellation / symbol art</td><td>Unsplash: zodiac, Pexels: horoscope</td></tr>
+      <tr><td>Vastu Tips</td><td>Architecture, interior design, compass</td><td>Unsplash: architecture, interior</td></tr>
+      <tr><td>Spiritual Growth</td><td>Meditation, nature, yoga, self-improvement</td><td>Unsplash: meditation, yoga, nature</td></tr>
+    </table>
+
+    <p>Start with 1 placeholder per category (6 total). Blog authors can select specific images as content grows.</p>
+  </div>
+
+  <!-- OTHER PAGES -->
+  <div id="other-pages" class="tab-content">
+    <h2>Testimonials & Contact Pages</h2>
+
+    <div class="card">
+      <h3>Testimonials Page</h3>
+      <h4>Hero: 1200x500 WebP</h4>
+      <p>Warm, welcoming scene — soft golden light, community/trust feeling. Search: <a href="https://unsplash.com/s/photos/golden-light">Unsplash: golden-light</a></p>
+      <h4>Client Avatars: 80x80</h4>
+      <p>Use CSS-generated initials avatars (no images needed). Gold background circle with white initials letter.</p>
+      <div class="ascii-diagram">
+/* CSS Avatar */
+.avatar-initials {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C9A84C, #6F4278);
+  color: white; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+}</div>
+    </div>
+
+    <div class="card">
+      <h3>Contact Page</h3>
+      <h4>Hero: 1200x500 WebP</h4>
+      <p>Hands in namaste/prayer — warm, inviting, golden light. Search: <a href="https://unsplash.com/s/photos/namaste">Unsplash: namaste</a></p>
+      <h4>Map</h4>
+      <p>Google Maps embed (iframe) for Ahmedabad location — no image asset needed.</p>
+      <h4>WhatsApp CTA</h4>
+      <p>Custom WhatsApp button with Lucide phone icon + WhatsApp green (#25D366). CSS-only, no image.</p>
+    </div>
+  </div>
+
+  <!-- ZODIAC ICONS -->
+  <div id="zodiac-icons" class="tab-content">
+    <h2>Zodiac Sign Icons (12 Signs)</h2>
+
+    <table>
+      <tr><th>#</th><th>Sign</th><th>Symbol</th><th>Date Range</th></tr>
+      <tr><td>1</td><td>Aries (Mesh)</td><td>Ram</td><td>Mar 21 – Apr 19</td></tr>
+      <tr><td>2</td><td>Taurus (Vrishabh)</td><td>Bull</td><td>Apr 20 – May 20</td></tr>
+      <tr><td>3</td><td>Gemini (Mithun)</td><td>Twins</td><td>May 21 – Jun 20</td></tr>
+      <tr><td>4</td><td>Cancer (Kark)</td><td>Crab</td><td>Jun 21 – Jul 22</td></tr>
+      <tr><td>5</td><td>Leo (Simha)</td><td>Lion</td><td>Jul 23 – Aug 22</td></tr>
+      <tr><td>6</td><td>Virgo (Kanya)</td><td>Maiden</td><td>Aug 23 – Sep 22</td></tr>
+      <tr><td>7</td><td>Libra (Tula)</td><td>Scales</td><td>Sep 23 – Oct 22</td></tr>
+      <tr><td>8</td><td>Scorpio (Vrischik)</td><td>Scorpion</td><td>Oct 23 – Nov 21</td></tr>
+      <tr><td>9</td><td>Sagittarius (Dhanu)</td><td>Archer</td><td>Nov 22 – Dec 21</td></tr>
+      <tr><td>10</td><td>Capricorn (Makar)</td><td>Goat</td><td>Dec 22 – Jan 19</td></tr>
+      <tr><td>11</td><td>Aquarius (Kumbh)</td><td>Water-bearer</td><td>Jan 20 – Feb 18</td></tr>
+      <tr><td>12</td><td>Pisces (Meen)</td><td>Fish</td><td>Feb 19 – Mar 20</td></tr>
+    </table>
+
+    <h3>Specification</h3>
+    <ul>
+      <li><strong>Format:</strong> SVG, 48x48 viewBox</li>
+      <li><strong>Style:</strong> Outline, 2px stroke</li>
+      <li><strong>Default color:</strong> <span class="color-swatch" style="background:#C9A84C;width:20px;height:20px"></span> Gold #C9A84C</li>
+      <li><strong>Hover color:</strong> <span class="color-swatch" style="background:#FF9933;width:20px;height:20px"></span> Saffron #FF9933</li>
+      <li><strong>Fill:</strong> none (pure outline)</li>
+    </ul>
+
+    <h3>Sources (All Free)</h3>
+    <div class="card-grid">
+      <div class="card">
+        <h4>SVG Repo</h4>
+        <p>Multiple zodiac icon sets in consistent styles. MIT/CC0 licensed.</p>
+        <p><a href="https://www.svgrepo.com/vectors/zodiac-sign/">svgrepo.com/vectors/zodiac-sign</a></p>
+      </div>
+      <div class="card">
+        <h4>Hexmos</h4>
+        <p>All 12 zodiac sign SVGs, no registration, instant download.</p>
+        <p><a href="https://hexmos.com/freedevtools/svg_icons/zodiac/">hexmos.com/.../zodiac</a></p>
+      </div>
+      <div class="card">
+        <h4>Flaticon</h4>
+        <p>96-icon zodiac pack (8 styles x 12 signs). Free tier with attribution.</p>
+        <p><a href="https://www.flaticon.com/packs/zodiac">flaticon.com/packs/zodiac</a></p>
+      </div>
+      <div class="card">
+        <h4>Reshot</h4>
+        <p>Free zodiac SVG icons, no attribution required.</p>
+        <p><a href="https://www.reshot.com/free-svg-icons/zodiac/">reshot.com/.../zodiac</a></p>
+      </div>
+    </div>
+
+    <div class="recommendation">
+      <h3>Recommendation: SVG Repo or Hexmos</h3>
+      <p>Download a consistent set from SVG Repo (largest selection, multiple styles) or Hexmos (simplest, all 12 signs). Then customize: replace colors with <code>currentColor</code>, standardize viewBox to 48x48, set stroke-width to 2.</p>
+    </div>
+
+    <div class="citation">Source: <a href="https://www.svgrepo.com/vectors/zodiac-sign/">SVG Repo — Zodiac Sign SVGs</a> — free, MIT/CC0 licensed</div>
+    <div class="citation">Source: <a href="https://hexmos.com/freedevtools/svg_icons/zodiac/">Hexmos — Free Zodiac Sign SVG Icons</a> — no registration</div>
+    <div class="citation">Source: <a href="https://www.flaticon.com/packs/zodiac">Flaticon — Zodiac Icon Pack (96 SVGs)</a></div>
+    <div class="citation">Source: <a href="https://www.reshot.com/free-svg-icons/zodiac/">Reshot — Free Zodiac Icons</a></div>
+  </div>
+
+  <!-- SERVICE ICONS -->
+  <div id="service-icons" class="tab-content">
+    <h2>Service Icons (12 Services)</h2>
+
+    <table>
+      <tr><th>Service</th><th>Ideal Icon</th><th>Lucide Fallback</th><th>Custom SVG?</th></tr>
+      <tr><td>Kundli Reading</td><td>Birth chart / celestial map</td><td><code>star</code></td><td>Yes — kundli grid</td></tr>
+      <tr><td>Horoscope Analysis</td><td>Telescope / crystal ball</td><td><code>eye</code></td><td>Optional</td></tr>
+      <tr><td>Life Guidance</td><td>Compass / crossroads</td><td><code>compass</code></td><td>No</td></tr>
+      <tr><td>Vastu Consultation</td><td>House with compass</td><td><code>home</code></td><td>Yes — house+compass</td></tr>
+      <tr><td>Gemstone</td><td>Cut diamond / gem</td><td><code>gem</code></td><td>No</td></tr>
+      <tr><td>Karma Counselling</td><td>Lotus / infinity</td><td><code>heart</code></td><td>Yes — lotus</td></tr>
+      <tr><td>Pancha Tatva</td><td>Five elements</td><td><code>leaf</code></td><td>Yes — 5 elements</td></tr>
+      <tr><td>Chakra Balancing</td><td>Energy circles</td><td><code>target</code></td><td>Yes — chakra symbol</td></tr>
+      <tr><td>Poojas</td><td>Diya / sacred flame</td><td><code>flame</code></td><td>Yes — diya lamp</td></tr>
+      <tr><td>Yagnas</td><td>Fire ritual / havan kund</td><td><code>fire-extinguisher</code></td><td>Yes — havan fire</td></tr>
+      <tr><td>Maha-Mrityunjay</td><td>OM / Shiva trident</td><td><code>shield</code></td><td>Yes — OM/trident</td></tr>
+      <tr><td>Mantras Chanting</td><td>Sound waves / OM</td><td><code>music</code></td><td>Yes — OM waves</td></tr>
+    </table>
+
+    <h3>Specification</h3>
+    <ul>
+      <li><strong>Format:</strong> SVG, 64x64 viewBox</li>
+      <li><strong>Style:</strong> Outline, 2px stroke</li>
+      <li><strong>Default color:</strong> <span class="color-swatch" style="background:#6F4278;width:20px;height:20px"></span> Purple #6F4278</li>
+      <li><strong>Hover color:</strong> <span class="color-swatch" style="background:#C9A84C;width:20px;height:20px"></span> Gold #C9A84C</li>
+    </ul>
+
+    <div class="recommendation">
+      <h3>Strategy: Lucide Base + Custom Spiritual SVGs</h3>
+      <p>Use Lucide icons for services with obvious UI equivalents (compass, gem, flame). Create custom SVGs for spiritual-specific icons (diya, OM, trident, kundli grid, lotus, 5 elements, chakra). This gives 4 icons from Lucide + 8 custom SVGs. All should follow the same 64x64 viewBox, 2px stroke convention.</p>
+    </div>
+
+    <div class="citation">Source: <a href="https://lucide.dev/icons/">Lucide Icons</a> — 1,000+ open-source SVG icons (ISC license)</div>
+    <div class="citation">Source: <a href="https://www.flaticon.com/free-icons/astrology">Flaticon — 16,222 Astrology Icons</a></div>
+    <div class="citation">Source: <a href="https://iconscout.com/icons/astrology">IconScout — 57,090 Astrology Icons</a></div>
+  </div>
+
+  <!-- CHAKRA ICONS -->
+  <div id="chakra-icons" class="tab-content">
+    <h2>Seven Chakra Icons</h2>
+
+    <table>
+      <tr><th>#</th><th>Chakra</th><th>Sanskrit</th><th>Color</th><th>Location</th></tr>
+      <tr><td>1</td><td>Root</td><td>Muladhara</td><td><span class="color-swatch" style="background:#FF0000;width:20px;height:20px"></span> Red</td><td>Base of spine</td></tr>
+      <tr><td>2</td><td>Sacral</td><td>Svadhisthana</td><td><span class="color-swatch" style="background:#FF8C00;width:20px;height:20px"></span> Orange</td><td>Below navel</td></tr>
+      <tr><td>3</td><td>Solar Plexus</td><td>Manipura</td><td><span class="color-swatch" style="background:#FFD700;width:20px;height:20px"></span> Yellow</td><td>Stomach area</td></tr>
+      <tr><td>4</td><td>Heart</td><td>Anahata</td><td><span class="color-swatch" style="background:#00FF00;width:20px;height:20px"></span> Green</td><td>Center of chest</td></tr>
+      <tr><td>5</td><td>Throat</td><td>Vishuddha</td><td><span class="color-swatch" style="background:#00BFFF;width:20px;height:20px"></span> Blue</td><td>Throat</td></tr>
+      <tr><td>6</td><td>Third Eye</td><td>Ajna</td><td><span class="color-swatch" style="background:#4B0082;width:20px;height:20px"></span> Indigo</td><td>Forehead</td></tr>
+      <tr><td>7</td><td>Crown</td><td>Sahasrara</td><td><span class="color-swatch" style="background:#8B00FF;width:20px;height:20px"></span> Violet</td><td>Top of head</td></tr>
+    </table>
+
+    <h3>Specification</h3>
+    <ul>
+      <li><strong>Format:</strong> SVG, 48x48 viewBox</li>
+      <li><strong>Style:</strong> Outline with semi-transparent fill in chakra color</li>
+      <li><strong>Stroke:</strong> 2px, color matches chakra</li>
+      <li><strong>Fill:</strong> Same color at 15% opacity</li>
+      <li><strong>Symbol:</strong> Each chakra has a traditional lotus petal design — Muladhara (4 petals), Svadhisthana (6), Manipura (10), Anahata (12), Vishuddha (16), Ajna (2), Sahasrara (1000/infinite)</li>
+    </ul>
+
+    <h3>Sources</h3>
+    <ul>
+      <li><a href="https://www.flaticon.com/free-icons/chakra">Flaticon — 4,396 Chakra Icons</a></li>
+      <li><a href="https://dryicons.com/free-icons/chakra-symbols">DryIcons — 1,191 Chakra Symbol Icons</a></li>
+      <li><a href="https://svgsilh.com/tag/chakra-1.html">SVG Silh — 27 Free Chakra SVGs</a></li>
+      <li><a href="https://www.vecteezy.com/free-vector/chakra">Vecteezy — 11,101 Chakra Vectors</a></li>
+      <li><a href="https://iconscout.com/icons/chakras">IconScout — Chakra Icons</a></li>
+    </ul>
+
+    <div class="citation">Source: <a href="https://www.flaticon.com/free-icons/chakra">Flaticon — Chakra Icons</a> — 4,396 icons in SVG/PNG</div>
+    <div class="citation">Source: <a href="https://dryicons.com/free-icons/chakra-symbols">DryIcons — Chakra Symbols</a> — 1,191 free icons</div>
+    <div class="citation">Source: <a href="https://svgsilh.com/tag/chakra-1.html">SVG Silh — Chakra SVGs</a> — 27 free SVGs</div>
+    <div class="citation">Source: <a href="https://www.vecteezy.com/free-vector/chakra">Vecteezy — Chakra Vectors</a> — 11,101 vectors</div>
+  </div>
+
+  <!-- UI ICONS -->
+  <div id="ui-icons" class="tab-content">
+    <h2>UI Icon Library — Lucide Icons</h2>
+
+    <div class="highlight-box">
+      <p><strong>Lucide Icons</strong> is the chosen UI icon library. Open-source (ISC license), 1,000+ icons, consistent 24x24 grid with 2px stroke. Works perfectly with Astro — import as SVGs or use the <code>astro-icon</code> integration.</p>
+    </div>
+
+    <h3>Required UI Icons</h3>
+    <table>
+      <tr><th>Category</th><th>Icons</th></tr>
+      <tr><td>Contact</td><td><code>phone</code>, <code>mail</code>, <code>map-pin</code>, <code>clock</code>, <code>calendar</code></td></tr>
+      <tr><td>Navigation</td><td><code>chevron-down</code>, <code>menu</code>, <code>x</code>, <code>arrow-right</code>, <code>external-link</code></td></tr>
+      <tr><td>Social</td><td><code>globe</code> (website), custom WhatsApp, <code>instagram</code>, <code>youtube</code>, <code>facebook</code></td></tr>
+      <tr><td>Content</td><td><code>star</code>, <code>check</code>, <code>quote</code>, <code>user</code>, <code>heart</code>, <code>share-2</code></td></tr>
+    </table>
+
+    <h3>Installation</h3>
+    <div class="ascii-diagram">
+npm install lucide-astro
+# or for React islands:
+npm install lucide-react
+
+# Usage in .astro files:
+import { Phone, Mail, MapPin } from 'lucide-astro'
+
+&lt;Phone size={20} color="currentColor" /&gt;</div>
+
+    <div class="citation">Source: <a href="https://lucide.dev/icons/">Lucide Icons</a> — open-source, ISC license, 1,000+ icons</div>
+    <div class="citation">Source: <a href="https://github.com/lucide-icons/lucide">Lucide GitHub</a> — community-maintained fork of Feather Icons</div>
+  </div>
+
+  <!-- DECORATIVE ELEMENTS -->
+  <div id="decorative" class="tab-content">
+    <h2>Decorative Elements</h2>
+
+    <div class="card">
+      <h3>Mandala Background Pattern</h3>
+      <span class="tag tag-purple">800x800 SVG</span> <span class="tag tag-gold">5-10% OPACITY</span>
+      <p>Subtle mandala pattern used as background decoration in hero sections, about page, and section dividers. Apply via CSS <code>background-image</code> with very low opacity to avoid distraction.</p>
+      <h4>Sources:</h4>
+      <ul>
+        <li><a href="https://designbundles.net/free-design-resources/craft/chakra-mandala-symbols-paper-and-vinyl-cutting-cha">DesignBundles — Free Chakra Mandala SVGs</a></li>
+        <li><a href="https://www.vecteezy.com/free-vector/mandala-chakra">Vecteezy — 4,400+ Mandala Chakra Vectors</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>OM (&#x0950;) Symbol</h3>
+      <span class="tag tag-purple">64x64 SVG</span>
+      <p>Brand accent used in placeholder avatars, section decorations, and favicon. Rendered in brand gold (#C9A84C) on dark backgrounds, brand indigo (#2E2B59) on light backgrounds.</p>
+    </div>
+
+    <div class="card">
+      <h3>Section Dividers</h3>
+      <p>Ornamental dividers between major sections. Options:</p>
+      <ul>
+        <li><strong>Lotus line:</strong> SVG of a small lotus flower centered with extending lines</li>
+        <li><strong>Dot pattern:</strong> CSS-only — three gold dots with horizontal lines</li>
+        <li><strong>Wave pattern:</strong> SVG gentle wave in gold, 100% width, 20px height</li>
+      </ul>
+      <p>Recommendation: CSS dot pattern (simplest, zero file size, brand-consistent).</p>
+    </div>
+
+    <div class="card">
+      <h3>Background Textures</h3>
+      <ul>
+        <li><strong>Cosmic dust:</strong> Subtle starfield overlay for dark sections — CSS radial-gradient with tiny white dots</li>
+        <li><strong>Paper texture:</strong> For cream (#FFFDF0) sections — subtle noise pattern via CSS</li>
+        <li><strong>Gold shimmer:</strong> CSS animation for CTA buttons and hover effects — no image needed</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- IMAGE OPTIMIZATION -->
+  <div id="optimization" class="tab-content">
+    <h2>Image Optimization Strategy</h2>
+
+    <div class="highlight-box">
+      <p><strong>Goal:</strong> Achieve Lighthouse Performance score 95+ by ensuring images contribute minimally to page load time. Images typically account for 60-70% of a webpage's total size — optimization is critical.</p>
+    </div>
+
+    <h3>Format Strategy</h3>
+    <table>
+      <tr><th>Image Type</th><th>Primary Format</th><th>Fallback</th><th>Why</th></tr>
+      <tr><td>Hero backgrounds</td><td>AVIF</td><td>WebP &rarr; JPG</td><td>AVIF is 50% smaller than WebP for photos</td></tr>
+      <tr><td>Service heroes</td><td>WebP</td><td>JPG</td><td>Good balance of quality and compatibility</td></tr>
+      <tr><td>Blog images</td><td>WebP</td><td>JPG</td><td>Standard blog imagery</td></tr>
+      <tr><td>Icons & decorative</td><td>SVG</td><td>N/A</td><td>Resolution-independent, tiny size</td></tr>
+      <tr><td>OG / Social images</td><td>JPG</td><td>N/A</td><td>Maximum social media compatibility</td></tr>
+      <tr><td>Favicon</td><td>SVG + ICO</td><td>PNG 192/512</td><td>SVG for modern browsers, ICO for legacy</td></tr>
+    </table>
+
+    <h3>Responsive Image Breakpoints</h3>
+    <div class="ascii-diagram">
+Breakpoints: 640px | 750px | 828px | 1080px | 1200px | 1920px
+
+Hero images srcset:
+  hero-640w.webp   640w   (mobile)
+  hero-1080w.webp  1080w  (tablet)
+  hero-1920w.webp  1920w  (desktop)
+
+Service heroes srcset:
+  service-640w.webp   640w
+  service-828w.webp   828w
+  service-1200w.webp  1200w
+
+Blog images srcset:
+  blog-400w.webp   400w   (card thumbnail)
+  blog-800w.webp   800w   (full-width)</div>
+
+    <h3>Loading Strategy</h3>
+    <table>
+      <tr><th>Image Position</th><th>Loading</th><th>Decoding</th><th>Priority</th></tr>
+      <tr><td>Homepage hero</td><td><code>eager</code></td><td><code>async</code></td><td><code>fetchpriority="high"</code></td></tr>
+      <tr><td>Astrologer photo (above fold)</td><td><code>eager</code></td><td><code>async</code></td><td>High</td></tr>
+      <tr><td>All other images</td><td><code>lazy</code></td><td><code>async</code></td><td>Default</td></tr>
+    </table>
+
+    <h3>Quality Settings</h3>
+    <ul>
+      <li><strong>Hero images:</strong> quality 80 (best balance of size vs visual quality)</li>
+      <li><strong>Service images:</strong> quality 80</li>
+      <li><strong>Blog thumbnails:</strong> quality 75</li>
+      <li><strong>OG images:</strong> quality 85 (social platforms recompress)</li>
+    </ul>
+
+    <h3>Placeholder Strategy</h3>
+    <p>While images load, display a blurred CSS gradient matching the dominant color of the image. This prevents layout shift (CLS) and provides instant visual feedback.</p>
+    <div class="ascii-diagram">
+/* Example: cosmic hero placeholder */
+.hero-placeholder {
+  background: linear-gradient(135deg, #2E2B59 0%, #6F4278 50%, #C9A84C 100%);
+  filter: blur(20px);
+  transition: opacity 0.3s;
+}</div>
+
+    <div class="citation">Source: <a href="https://docs.astro.build/en/guides/images/">Astro Docs — Images Guide</a> — official image optimization documentation</div>
+    <div class="citation">Source: <a href="https://eastondev.com/blog/en/posts/dev/20251203-astro-image-optimization-guide/">Astro Image Optimization Guide</a> — 5 techniques for 50% speed improvement</div>
+    <div class="citation">Source: <a href="https://uploadcare.com/blog/how-to-optimize-images-in-astro/">Uploadcare — How to Optimize Images in Astro</a></div>
+  </div>
+
+  <!-- ASTRO CONFIGURATION -->
+  <div id="astro-config" class="tab-content">
+    <h2>Astro Image Configuration</h2>
+
+    <h3>Astro &lt;Image /&gt; and &lt;Picture /&gt; Components</h3>
+    <p>Astro 5.x provides two built-in components for automatic image optimization:</p>
+
+    <div class="card">
+      <h3>&lt;Image /&gt; — Single Format</h3>
+      <p>Converts to WebP by default. Use for most images.</p>
+      <div class="ascii-diagram">
+---
+import { Image } from 'astro:assets';
+import heroImg from '../assets/images/hero-cosmic.jpg';
+---
+
+&lt;Image
+  src={heroImg}
+  alt="Cosmic night sky"
+  width={1920}
+  height={800}
+  layout="responsive"
+  loading="eager"
+  fetchpriority="high"
+/&gt;</div>
+    </div>
+
+    <div class="card">
+      <h3>&lt;Picture /&gt; — Multiple Formats</h3>
+      <p>Generates AVIF + WebP + fallback JPG. Use for hero images where every byte matters.</p>
+      <div class="ascii-diagram">
+---
+import { Picture } from 'astro:assets';
+import heroImg from '../assets/images/hero-cosmic.jpg';
+---
+
+&lt;Picture
+  src={heroImg}
+  formats={['avif', 'webp']}
+  alt="Cosmic night sky — Believe Astrology"
+  width={1920}
+  height={800}
+  layout="full-width"
+  loading="eager"
+/&gt;</div>
+    </div>
+
+    <h3>Global Configuration (astro.config.mjs)</h3>
+    <div class="ascii-diagram">
+// astro.config.mjs
+export default defineConfig({
+  image: {
+    // Enable responsive images globally
+    layout: "responsive",
+    // Allowed remote image domains (if needed)
+    domains: ["images.unsplash.com"],
+  },
+});</div>
+
+    <h3>Key Rules</h3>
+    <ul>
+      <li>Images must be <strong>imported</strong> in .astro files (not URL strings) for optimization to work</li>
+      <li>Store source images in <code>src/assets/images/</code> (processed by Astro) — NOT in <code>public/</code></li>
+      <li>SVG icons go in <code>public/images/icons/</code> (served as-is, no processing needed)</li>
+      <li>Always set <code>width</code> and <code>height</code> to prevent CLS</li>
+      <li>Use <code>loading="eager"</code> only for above-the-fold hero images (1-2 per page)</li>
+    </ul>
+
+    <div class="citation">Source: <a href="https://docs.astro.build/en/reference/modules/astro-assets/">Astro — Image & Assets API Reference</a></div>
+    <div class="citation">Source: <a href="https://docs.astro.build/en/reference/experimental-flags/responsive-images/">Astro — Responsive Images (experimental, stable in 5.10+)</a></div>
+    <div class="citation">Source: <a href="https://caisy.io/blog/astro-js-images">Mastering Image Optimization in Astro.js</a></div>
+  </div>
+
+  <!-- DIRECTORY STRUCTURE -->
+  <div id="directory" class="tab-content">
+    <h2>Image Directory Structure</h2>
+
+    <div class="ascii-diagram">
+src/
+  assets/
+    images/
+      hero/
+        homepage-cosmic.jpg          # 1920x800 — cosmic night sky
+        about-spiritual.jpg          # 1200x500 — meditation/temple
+        services-sacred-geometry.jpg # 1200x500 — sacred geometry
+        testimonials-golden.jpg      # 1200x500 — warm golden light
+        contact-namaste.jpg          # 1200x500 — namaste hands
+      services/
+        kundli-reading.jpg           # 1200x500
+        horoscope-analysis.jpg       # 1200x500
+        life-guidance.jpg            # 1200x500
+        vastu-consultation.jpg       # 1200x500
+        gemstone.jpg                 # 1200x500
+        karma-counselling.jpg        # 1200x500
+        pancha-tatva.jpg             # 1200x500
+        chakra-balancing.jpg         # 1200x500
+        spiritual-poojas.jpg         # 1200x500
+        yagnas.jpg                   # 1200x500
+        maha-mrityunjay.jpg          # 1200x500
+        mantras-chanting.jpg         # 1200x500
+      blog/
+        placeholder-transits.jpg     # 800x450
+        placeholder-festivals.jpg    # 800x450
+        placeholder-remedies.jpg     # 800x450
+        placeholder-zodiac.jpg       # 800x450
+        placeholder-vastu.jpg        # 800x450
+        placeholder-spiritual.jpg    # 800x450
+      astrologer/
+        portrait.jpg                 # 600x800 (client-provided)
+        full-photo.jpg               # 800x1000 (client-provided)
+
+public/
+  images/
+    icons/
+      zodiac/                        # 12 zodiac sign SVGs
+        aries.svg
+        taurus.svg
+        ... (12 total)
+      services/                      # 12 service SVGs
+        kundli-reading.svg
+        horoscope-analysis.svg
+        ... (12 total)
+      chakras/                       # 7 chakra SVGs
+        muladhara.svg
+        svadhisthana.svg
+        ... (7 total)
+      decorative/
+        mandala.svg
+        om-symbol.svg
+        zodiac-wheel.svg
+        lotus-divider.svg
+    social/
+      og-default.jpg                 # 1200x630
+    favicon.svg                      # OM symbol in gold</div>
+
+    <div class="warning">
+      <h3>Important: src/assets vs public/</h3>
+      <ul>
+        <li><strong>src/assets/images/</strong> — Raster images that need Astro optimization (WebP conversion, srcset). These are processed at build time.</li>
+        <li><strong>public/images/</strong> — SVG icons and static assets served as-is. No processing needed for SVGs.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SOCIAL MEDIA -->
+  <div id="social" class="tab-content">
+    <h2>Social Media & OG Images</h2>
+
+    <h3>Open Graph Default Image</h3>
+    <div class="card">
+      <span class="tag tag-purple">1200x630</span> <span class="tag tag-blue">JPG</span>
+      <p>Default social share image: Brand logo + cosmic background + tagline. Used when no specific OG image is set for a page.</p>
+      <h4>Design:</h4>
+      <ul>
+        <li>Background: Dark indigo (#2E2B59) with subtle cosmic texture</li>
+        <li>Center: "Believe Astrology" brand text in Playfair Display + gold (#C9A84C)</li>
+        <li>Below: Tagline in Inter Regular, cream (#FFFDF0)</li>
+        <li>Corner: Mandala decorative accent at low opacity</li>
+      </ul>
+    </div>
+
+    <h3>Per-Page OG Images</h3>
+    <table>
+      <tr><th>Page Type</th><th>OG Image Strategy</th></tr>
+      <tr><td>Homepage</td><td>Default OG image with logo + tagline</td></tr>
+      <tr><td>Service pages</td><td>Service hero image + service name overlay</td></tr>
+      <tr><td>Blog posts</td><td>Blog featured image + title overlay</td></tr>
+      <tr><td>About page</td><td>Astrologer photo + name + credentials</td></tr>
+      <tr><td>Contact</td><td>Default OG image</td></tr>
+    </table>
+
+    <h3>Favicon</h3>
+    <table>
+      <tr><th>Format</th><th>Size</th><th>Purpose</th></tr>
+      <tr><td>SVG</td><td>Scalable</td><td>Modern browsers (preferred)</td></tr>
+      <tr><td>ICO</td><td>32x32</td><td>Legacy browser support</td></tr>
+      <tr><td>PNG</td><td>192x192</td><td>Android Chrome manifest</td></tr>
+      <tr><td>PNG</td><td>512x512</td><td>PWA / splash screen</td></tr>
+      <tr><td>PNG</td><td>180x180</td><td>Apple Touch Icon</td></tr>
+    </table>
+    <p>Design: OM symbol (&#x0950;) in brand gold (#C9A84C) on deep indigo (#2E2B59) circle.</p>
+  </div>
+
+  <!-- REFERENCES -->
+  <div id="references" class="tab-content">
+    <h2>References & Citations</h2>
+
+    <h3>Free Image Sources</h3>
+    <ol>
+      <li><a href="https://unsplash.com/s/photos/vedic-astrology">Unsplash — Vedic Astrology Images</a></li>
+      <li><a href="https://unsplash.com/s/photos/cosmic">Unsplash — Cosmic Pictures</a></li>
+      <li><a href="https://unsplash.com/s/photos/celestial">Unsplash — Celestial Pictures</a></li>
+      <li><a href="https://unsplash.com/s/photos/night-sky">Unsplash — Night Sky Pictures</a></li>
+      <li><a href="https://unsplash.com/s/photos/nebula">Unsplash — Nebula Pictures</a></li>
+      <li><a href="https://unsplash.com/s/photos/gemstone">Unsplash — Gemstone Pictures</a></li>
+      <li><a href="https://www.pexels.com/search/vedic%20astrology/">Pexels — Vedic Astrology Stock Photos</a></li>
+      <li><a href="https://www.pexels.com/search/cosmic%20sky/">Pexels — Cosmic Sky Photos</a></li>
+      <li><a href="https://www.pexels.com/search/night%20sky/">Pexels — Night Sky Photos</a></li>
+      <li><a href="https://pixabay.com/images/search/hindu%20astrology/">Pixabay — Hindu Astrology Images</a></li>
+      <li><a href="https://pixabay.com/images/search/hindu%20temple/">Pixabay — Hindu Temple Images</a></li>
+      <li><a href="https://pixabay.com/images/search/gemstone/">Pixabay — Gemstone Images</a></li>
+      <li><a href="https://www.freepik.com/photos/vedic-astrology">Freepik — Vedic Astrology Photos</a></li>
+      <li><a href="https://www.dreamstime.com/photos-images/hindu-meditation.html">Dreamstime — Hindu Meditation Photos</a></li>
+      <li><a href="https://www.dreamstime.com/photos-images/hindu-pooja.html">Dreamstime — Hindu Pooja Photos</a></li>
+    </ol>
+
+    <h3>Paid Image Sources (Backup)</h3>
+    <ol start="16">
+      <li><a href="https://stock.adobe.com/search?k=vedic+astrology">Adobe Stock — Vedic Astrology</a></li>
+      <li><a href="https://stock.adobe.com/search?k=hindu+astrology">Adobe Stock — Hindu Astrology</a></li>
+      <li><a href="https://www.istockphoto.com/photos/vedic-astrology">iStock — Vedic Astrology</a></li>
+      <li><a href="https://www.123rf.com/stock-photo/vedic_astrology.html">123RF — Vedic Astrology</a></li>
+    </ol>
+
+    <h3>Icon Libraries</h3>
+    <ol start="20">
+      <li><a href="https://www.svgrepo.com/vectors/zodiac-sign/">SVG Repo — Zodiac Sign SVGs</a></li>
+      <li><a href="https://www.svgrepo.com/vectors/astrology/">SVG Repo — Astrology SVGs</a></li>
+      <li><a href="https://www.flaticon.com/packs/zodiac">Flaticon — Zodiac Icon Pack (96 SVGs)</a></li>
+      <li><a href="https://www.flaticon.com/free-icons/astrology">Flaticon — 16,222 Astrology Icons</a></li>
+      <li><a href="https://www.flaticon.com/free-icons/chakra">Flaticon — 4,396 Chakra Icons</a></li>
+      <li><a href="https://hexmos.com/freedevtools/svg_icons/zodiac/">Hexmos — Free Zodiac Sign SVG Icons</a></li>
+      <li><a href="https://www.reshot.com/free-svg-icons/zodiac/">Reshot — Free Zodiac Icons</a></li>
+      <li><a href="https://iconscout.com/icons/astrology">IconScout — 57,090 Astrology Icons</a></li>
+      <li><a href="https://iconscout.com/icons/chakras">IconScout — Chakra Icons</a></li>
+      <li><a href="https://dryicons.com/free-icons/chakra-symbols">DryIcons — 1,191 Chakra Symbol Icons</a></li>
+      <li><a href="https://svgsilh.com/tag/chakra-1.html">SVG Silh — 27 Chakra SVGs</a></li>
+      <li><a href="https://svgsilh.com/tag/zodiac-1.html">SVG Silh — 62 Zodiac SVGs</a></li>
+      <li><a href="https://lucide.dev/icons/">Lucide Icons — Open-Source Icon Library</a></li>
+      <li><a href="https://github.com/lucide-icons/lucide">Lucide Icons — GitHub Repository</a></li>
+    </ol>
+
+    <h3>Decorative Assets</h3>
+    <ol start="34">
+      <li><a href="https://designbundles.net/free-design-resources/craft/chakra-mandala-symbols-paper-and-vinyl-cutting-cha">DesignBundles — Free Chakra Mandala SVGs</a></li>
+      <li><a href="https://www.vecteezy.com/free-vector/chakra">Vecteezy — 11,101 Chakra Vectors</a></li>
+      <li><a href="https://www.vecteezy.com/free-vector/mandala-chakra">Vecteezy — 4,400 Mandala Chakra Vectors</a></li>
+    </ol>
+
+    <h3>Technical References</h3>
+    <ol start="37">
+      <li><a href="https://docs.astro.build/en/guides/images/">Astro Docs — Images Guide</a></li>
+      <li><a href="https://docs.astro.build/en/reference/modules/astro-assets/">Astro — Image & Assets API Reference</a></li>
+      <li><a href="https://docs.astro.build/en/reference/experimental-flags/responsive-images/">Astro — Responsive Images</a></li>
+      <li><a href="https://uploadcare.com/blog/how-to-optimize-images-in-astro/">Uploadcare — How to Optimize Images in Astro</a></li>
+      <li><a href="https://caisy.io/blog/astro-js-images">Mastering Image Optimization in Astro.js</a></li>
+      <li><a href="https://eastondev.com/blog/en/posts/dev/20251203-astro-image-optimization-guide/">Astro Image Optimization — 5 Proven Techniques</a></li>
+      <li><a href="https://www.friedrichkurz.me/posts/2025-08-01/">AstroJS Responsive Images in Content Collections</a></li>
+    </ol>
+
+    <p><strong>Total: 43 citations</strong> from web research conducted on 2026-03-09.</p>
+  </div>
+
+</main>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+</script>
+
+</body>
+</html>

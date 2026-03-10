@@ -1,0 +1,401 @@
+{
+  "meta": {
+    "project": "Believe Astrology — Mahi Astro",
+    "task": "R3",
+    "created": "2026-03-09",
+    "description": "Complete image manifest for all pages — dimensions, sources, optimization specs"
+  },
+  "colorPalette": {
+    "note": "Images should harmonize with these brand colors",
+    "gold": "#C9A84C",
+    "saffron": "#FF9933",
+    "purple": "#6F4278",
+    "indigo": "#2E2B59",
+    "cream": "#FFFDF0",
+    "maroon": "#72001B"
+  },
+  "imageOptimization": {
+    "defaultFormat": "webp",
+    "fallbackFormat": "jpg",
+    "pictureFormats": ["avif", "webp"],
+    "lazyLoading": true,
+    "heroLoading": "eager",
+    "astroComponent": "<Picture /> with layout='responsive'",
+    "globalLayout": "responsive",
+    "breakpoints": [640, 750, 828, 1080, 1200, 1920],
+    "quality": 80,
+    "placeholderStrategy": "blurred-css-gradient"
+  },
+  "pages": {
+    "homepage": {
+      "hero": {
+        "id": "hero-homepage",
+        "description": "Deep cosmic night sky with nebula — purple/gold tones, overlay-friendly dark background",
+        "dimensions": "1920x800",
+        "format": "webp+jpg",
+        "loading": "eager",
+        "srcsetWidths": [640, 1080, 1920],
+        "sources": [
+          "unsplash.com/s/photos/cosmic (deep purple galaxy/nebula)",
+          "unsplash.com/s/photos/night-sky (starfield backgrounds)",
+          "pexels.com/search/cosmic%20sky/"
+        ],
+        "overlay": "linear-gradient(to bottom, rgba(46,43,89,0.7), rgba(46,43,89,0.9))",
+        "alt": {
+          "en": "Cosmic night sky with celestial bodies — Believe Astrology",
+          "hi": "आकाशीय नक्षत्रों के साथ ब्रह्मांडीय रात का आकाश — बिलीव एस्ट्रोलॉजी",
+          "gu": "અવકાશી નક્ષત્રો સાથે બ્રહ્માંડીય રાત્રિ આકાશ — બિલીવ એસ્ટ્રોલોજી"
+        }
+      },
+      "astrologerPhoto": {
+        "id": "astrologer-portrait",
+        "description": "Pandit Shree Mahadev Joshi — professional portrait (placeholder until real photo provided)",
+        "dimensions": "600x800",
+        "format": "webp+jpg",
+        "loading": "eager",
+        "note": "User must supply actual photo. Use silhouette/placeholder with OM symbol until then.",
+        "alt": {
+          "en": "Pandit Shree Mahadev Joshi — Vedic Astrologer",
+          "hi": "पंडित श्री महादेव जोशी — वैदिक ज्योतिषी",
+          "gu": "પંડિત શ્રી મહાદેવ જોશી — વૈદિક જ્યોતિષી"
+        }
+      },
+      "decorative": {
+        "mandala": {
+          "id": "mandala-bg-homepage",
+          "description": "Subtle mandala pattern — low-opacity background decorative element",
+          "dimensions": "800x800",
+          "format": "svg",
+          "source": "Custom SVG or svgsilh.com/tag/mandala"
+        },
+        "zodiacWheel": {
+          "id": "zodiac-wheel-hero",
+          "description": "Zodiac wheel with all 12 signs — decorative accent in hero section",
+          "dimensions": "400x400",
+          "format": "svg",
+          "source": "Custom SVG combining individual zodiac icons"
+        }
+      }
+    },
+    "about": {
+      "hero": {
+        "id": "hero-about",
+        "description": "Spiritual/meditation background — warm saffron/gold tones, temple or sacred space ambiance",
+        "dimensions": "1200x500",
+        "format": "webp",
+        "sources": [
+          "pixabay.com/images/search/hindu%20temple/",
+          "pexels.com/search/meditation%20spiritual/",
+          "unsplash.com/s/photos/meditation"
+        ],
+        "alt": {
+          "en": "Sacred spiritual space — About Pandit Mahadev Joshi",
+          "hi": "पवित्र आध्यात्मिक स्थान — पंडित महादेव जोशी के बारे में",
+          "gu": "પવિત્ર આધ્યાત્મિક સ્થાન — પંડિત મહાદેવ જોશી વિશે"
+        }
+      },
+      "astrologerFullPhoto": {
+        "id": "astrologer-full",
+        "description": "Full-length or seated photo of astrologer in consultation setting",
+        "dimensions": "800x1000",
+        "format": "webp+jpg",
+        "note": "Placeholder until real photo. Show spiritual/study environment."
+      }
+    },
+    "services": {
+      "listingHero": {
+        "id": "hero-services-listing",
+        "description": "Cosmic mandala or sacred geometry background — represents all services",
+        "dimensions": "1200x500",
+        "format": "webp",
+        "sources": [
+          "unsplash.com/s/photos/sacred-geometry",
+          "pexels.com/search/mandala/"
+        ]
+      },
+      "servicePages": [
+        {
+          "id": "hero-kundli-reading",
+          "service": "vedic-astrology-kundli-reading",
+          "description": "Birth chart / kundli diagram overlaid on starfield — celestial mapping theme",
+          "dimensions": "1200x500",
+          "format": "webp",
+          "keywords": "kundli, birth chart, natal chart, zodiac wheel, starfield",
+          "sources": ["unsplash.com/s/photos/astrology-chart", "pexels.com/search/horoscope/"]
+        },
+        {
+          "id": "hero-horoscope-analysis",
+          "service": "horoscope-analysis-predictions",
+          "description": "Zodiac constellation map — glowing star patterns on dark sky",
+          "dimensions": "1200x500",
+          "format": "webp",
+          "keywords": "constellation, zodiac, star map, celestial chart",
+          "sources": ["unsplash.com/s/photos/constellation", "pexels.com/search/zodiac/"]
+        },
+        {
+          "id": "hero-life-guidance",
+          "service": "marriage-career-finance-health-guidance",
+          "description": "Sunrise over landscape — new beginnings, life path, warm gold/orange tones",
+          "dimensions": "1200x500",
+          "format": "webp",
+          "keywords": "sunrise, path, golden light, new beginning, life journey",
+          "sources": ["unsplash.com/s/photos/sunrise-path", "pexels.com/search/golden%20sunrise/"]
+        },
+        {
+          "id": "hero-vastu",
+          "service": "vastu-consultation",
+          "description": "Architectural harmony — traditional Indian home/building with balanced design",
+          "dimensions": "1200x500",
+          "format": "webp",
+          "keywords": "architecture, harmony, balanced space, compass, directions",
+          "sources": ["unsplash.com/s/photos/indian-architecture", "pixabay.com/images/search/vastu/"]
+        },
+        {
+          "id": "hero-gemstone",
+          "service": "gemstone-recommendations",
+          "description": "Close-up of precious gemstones — vibrant colors, crystal clarity",
+          "dimensions": "1200x500",
+          "format": "webp",
+          "keywords": "gemstones, crystals, ruby, emerald, sapphire, precious stones",
+          "sources": ["unsplash.com/s/photos/gemstone", "pixabay.com/images/search/gemstone/"]
+        },
+        {
+          "id": "hero-karma-counselling",
+          "service": "karma-life-purpose-counselling",
+          "description": "Meditative scene — person in deep thought, cosmic/spiritual backdrop",
+          "dimensions": "1200x500",
+          "format": "webp",
+          "keywords": "meditation, contemplation, spiritual journey, cosmic connection",
+          "sources": ["unsplash.com/s/photos/meditation", "pexels.com/search/spiritual%20meditation/"]
+        },
+        {
+          "id": "hero-pancha-tatva",
+          "service": "pancha-tatva-balancing",
+          "description": "Five elements (earth, water, fire, air, space) — nature composition showing all elements",
+          "dimensions": "1200x500",
+          "format": "webp",
+          "keywords": "five elements, earth water fire air space, nature elements, panchamahabhuta",
+          "sources": ["unsplash.com/s/photos/four-elements", "pexels.com/search/elements%20nature/"]
+        },
+        {
+          "id": "hero-chakra-balancing",
+          "service": "seven-chakras-balancing",
+          "description": "Seven chakra energy centers — colorful aligned energy points on meditation silhouette",
+          "dimensions": "1200x500",
+          "format": "webp",
+          "keywords": "seven chakras, energy centers, chakra alignment, rainbow energy",
+          "sources": ["pexels.com/search/chakra/", "pixabay.com/images/search/chakra/"]
+        },
+        {
+          "id": "hero-spiritual-poojas",
+          "service": "vedic-spiritual-poojas",
+          "description": "Hindu puja ceremony — sacred fire (havan), flowers, offerings, warm golden light",
+          "dimensions": "1200x500",
+          "format": "webp",
+          "keywords": "puja, havan, sacred fire, offerings, diya, flowers, ceremony",
+          "sources": ["pixabay.com/images/search/hindu%20puja/", "dreamstime.com/photos-images/hindu-pooja.html"]
+        },
+        {
+          "id": "hero-yagna",
+          "service": "vedic-karma-kand-yagnas",
+          "description": "Sacred fire ceremony (yagna/havan kund) — flames rising, Vedic ritual setting",
+          "dimensions": "1200x500",
+          "format": "webp",
+          "keywords": "yagna, havan, sacred fire ceremony, Vedic ritual, agni",
+          "sources": ["pixabay.com/images/search/havan/", "pexels.com/search/sacred%20fire/"]
+        },
+        {
+          "id": "hero-maha-mrityunjay",
+          "service": "maha-mrutunjay-mantra-anushthan",
+          "description": "Lord Shiva / Mahadev imagery — cosmic Shiva, trident, third eye, deep blue/purple tones",
+          "dimensions": "1200x500",
+          "format": "webp",
+          "keywords": "Shiva, Mahadev, trident, cosmic, sacred mantra, Om Namah Shivaya",
+          "sources": ["pixabay.com/images/search/lord%20shiva/", "unsplash.com/s/photos/shiva"]
+        },
+        {
+          "id": "hero-mantras-chanting",
+          "service": "mantras-chanting",
+          "description": "Om symbol radiating energy — sacred Sanskrit text, vibrational waves, gold on dark",
+          "dimensions": "1200x500",
+          "format": "webp",
+          "keywords": "Om, mantra, Sanskrit, sacred sound, vibration, chanting",
+          "sources": ["pixabay.com/images/search/om%20symbol/", "unsplash.com/s/photos/om"]
+        }
+      ]
+    },
+    "blog": {
+      "featuredImageTemplate": {
+        "description": "Blog featured images — themed to blog category",
+        "dimensions": "800x450",
+        "format": "webp",
+        "categories": {
+          "planetary-transits": "Planet/celestial body images",
+          "festivals-muhurat": "Hindu festival/celebration imagery",
+          "remedies-solutions": "Spiritual remedies — gems, mantras, yantras",
+          "zodiac-signs": "Individual zodiac constellation/symbol",
+          "vastu-tips": "Architecture/interior design tips",
+          "spiritual-growth": "Meditation, nature, self-improvement"
+        }
+      }
+    },
+    "testimonials": {
+      "hero": {
+        "id": "hero-testimonials",
+        "description": "Warm, welcoming scene — soft golden light, community/trust feeling",
+        "dimensions": "1200x500",
+        "format": "webp",
+        "sources": ["unsplash.com/s/photos/golden-light", "pexels.com/search/warm%20light/"]
+      },
+      "clientAvatars": {
+        "description": "Placeholder avatar for anonymous testimonials",
+        "dimensions": "80x80",
+        "format": "webp",
+        "note": "Use initials-based avatars (CSS-generated) or generic spiritual avatar SVG"
+      }
+    },
+    "contact": {
+      "hero": {
+        "id": "hero-contact",
+        "description": "Hands in namaste/prayer — warm, inviting, golden light",
+        "dimensions": "1200x500",
+        "format": "webp",
+        "sources": ["unsplash.com/s/photos/namaste", "pexels.com/search/namaste%20hands/"]
+      },
+      "mapPlaceholder": {
+        "description": "Ahmedabad, Gujarat location map placeholder",
+        "dimensions": "600x400",
+        "format": "webp",
+        "note": "Use Google Maps embed or static map API in production"
+      }
+    }
+  },
+  "icons": {
+    "zodiacSigns": {
+      "count": 12,
+      "dimensions": "48x48",
+      "format": "svg",
+      "style": "outline-gold — 2px stroke matching brand gold #C9A84C",
+      "signs": [
+        "aries", "taurus", "gemini", "cancer", "leo", "virgo",
+        "libra", "scorpio", "sagittarius", "capricorn", "aquarius", "pisces"
+      ],
+      "sources": [
+        "svgrepo.com/vectors/zodiac-sign/ — free SVG collections",
+        "flaticon.com/packs/zodiac — 96 SVG icons pack",
+        "hexmos.com/freedevtools/svg_icons/zodiac/ — all 12 signs, no registration",
+        "reshot.com/free-svg-icons/zodiac/"
+      ],
+      "recommendation": "Download from SVG Repo or Hexmos, then customize stroke color to #C9A84C and stroke-width to 2px for brand consistency"
+    },
+    "serviceIcons": {
+      "count": 12,
+      "dimensions": "64x64",
+      "format": "svg",
+      "style": "outline — 2px stroke, matching brand purple #6F4278",
+      "icons": [
+        {"service": "kundli-reading", "icon": "birth-chart / celestial-map", "fallback": "star-chart"},
+        {"service": "horoscope-analysis", "icon": "telescope / crystal-ball", "fallback": "eye"},
+        {"service": "life-guidance", "icon": "compass / crossroads", "fallback": "navigation"},
+        {"service": "vastu", "icon": "house-compass / floor-plan", "fallback": "home"},
+        {"service": "gemstone", "icon": "diamond / gem", "fallback": "gem"},
+        {"service": "karma-counselling", "icon": "lotus / infinity", "fallback": "heart"},
+        {"service": "pancha-tatva", "icon": "five-elements / nature", "fallback": "leaf"},
+        {"service": "chakra-balancing", "icon": "chakra / energy-circle", "fallback": "target"},
+        {"service": "poojas", "icon": "flame / diya", "fallback": "flame"},
+        {"service": "yagnas", "icon": "fire-ritual / sacred-fire", "fallback": "fire"},
+        {"service": "maha-mrityunjay", "icon": "om / trident", "fallback": "shield"},
+        {"service": "mantras", "icon": "sound-wave / om-symbol", "fallback": "music"}
+      ],
+      "sources": [
+        "Lucide icons (lucide.dev) — for fallback UI icons (compass, home, gem, flame, etc.)",
+        "Flaticon astrology pack — 16,222 astrology icons",
+        "IconScout — 57,090 astrology icons in multiple styles",
+        "Custom SVG — recommended for unique spiritual icons not in standard libraries"
+      ],
+      "recommendation": "Use Lucide as base icon library for UI consistency, supplement with custom SVGs for spiritual-specific icons (diya, OM, trident, chakra). Maintain consistent 2px stroke, 64x64 viewBox."
+    },
+    "chakraIcons": {
+      "count": 7,
+      "dimensions": "48x48",
+      "format": "svg",
+      "chakras": [
+        {"name": "Muladhara (Root)", "color": "#FF0000"},
+        {"name": "Svadhisthana (Sacral)", "color": "#FF8C00"},
+        {"name": "Manipura (Solar Plexus)", "color": "#FFD700"},
+        {"name": "Anahata (Heart)", "color": "#00FF00"},
+        {"name": "Vishuddha (Throat)", "color": "#00BFFF"},
+        {"name": "Ajna (Third Eye)", "color": "#4B0082"},
+        {"name": "Sahasrara (Crown)", "color": "#8B00FF"}
+      ],
+      "sources": [
+        "flaticon.com/free-icons/chakra — 4,396 chakra icons",
+        "dryicons.com/free-icons/chakra-symbols — 1,191 chakra icons",
+        "svgsilh.com/tag/chakra — 27 free SVGs",
+        "vecteezy.com/free-vector/chakra — 11,101 vectors"
+      ]
+    },
+    "decorative": {
+      "mandala": {
+        "description": "Subtle mandala pattern for section backgrounds",
+        "dimensions": "800x800",
+        "format": "svg",
+        "opacity": "0.05-0.1",
+        "sources": ["designbundles.net — free chakra mandala SVGs", "vecteezy.com/free-vector/mandala-chakra"]
+      },
+      "om": {
+        "description": "OM (ॐ) symbol — brand accent",
+        "dimensions": "64x64",
+        "format": "svg",
+        "source": "Custom SVG or svgsilh.com"
+      },
+      "dividers": {
+        "description": "Ornamental section dividers — lotus, swirl, or dot patterns",
+        "format": "svg",
+        "source": "Custom CSS or SVG"
+      }
+    },
+    "uiIcons": {
+      "library": "Lucide Icons (lucide.dev)",
+      "license": "ISC (free commercial use)",
+      "style": "24x24, 2px stroke",
+      "icons": [
+        "phone", "mail", "map-pin", "clock", "calendar", "star",
+        "chevron-down", "menu", "x", "globe", "whatsapp (custom)",
+        "instagram", "youtube", "facebook", "arrow-right", "check",
+        "quote", "user", "heart", "share-2", "external-link"
+      ]
+    }
+  },
+  "socialMedia": {
+    "ogImage": {
+      "id": "og-default",
+      "description": "Default Open Graph image — brand logo + cosmic background + tagline",
+      "dimensions": "1200x630",
+      "format": "jpg",
+      "note": "Create per-page variants for services and blog posts"
+    },
+    "twitterCard": {
+      "dimensions": "1200x600",
+      "format": "jpg"
+    },
+    "favicon": {
+      "description": "OM symbol or zodiac wheel in brand gold on transparent",
+      "formats": ["svg", "ico", "png-192x192", "png-512x512"],
+      "appleTouch": "180x180"
+    }
+  },
+  "totalImageCount": {
+    "heroImages": 16,
+    "serviceHeroes": 12,
+    "blogPlaceholders": 6,
+    "decorativeSVGs": 5,
+    "zodiacIcons": 12,
+    "serviceIcons": 12,
+    "chakraIcons": 7,
+    "uiIcons": 21,
+    "socialMedia": 3,
+    "favicon": 4,
+    "total": "~98 assets (most are SVGs, ~20 are raster images)"
+  }
+}
