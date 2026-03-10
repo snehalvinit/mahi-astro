@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: T16 (Add Analytics, Structured Data, Open Graph) — 2026-03-09
-### Next Up: T17 (Create JustDial & Google My Business Optimization Guide)
-### Latest Commit: `feat(seo): T16 — analytics and Open Graph optimization`
+### Last Completed: T17 (JustDial & GMB Optimization Guide) — 2026-03-09
+### Next Up: V5 (Verify SEO Implementation)
+### Latest Commit: `feat(seo): T17 — JustDial and GMB optimization guide`
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -36,7 +36,7 @@
 | 4-Pages | T4, T5, T6, T7, T8, T9, T9b, T9c, V3 | V3 BLOCKED (9/9 tasks run, 3 fixes needed) |
 | 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | ALL DONE (4/4) |
 | 5-Content | T10–T14, V4 | ALL DONE (6/6) — V4 PASSED |
-| 6-SEO | T15–T17, V5 | T15-T16 DONE, T17 pending |
+| 6-SEO | T15–T17, V5 | T15-T17 DONE, V5 pending |
 | 7+ | T18–T37 | NOT STARTED |
 
 ### Build Stats
@@ -588,4 +588,16 @@
   5. Added "Related Articles" section on service pages linking to relevant blog posts (using serviceToBlogMap from seo-keywords.json)
 - **Decisions:** Analytics uses env vars (not site-config) for easy per-environment toggling. OG image paths are conventions — actual images still need to be created (1200x630px). Service-to-blog mapping is static in seo-keywords.json to avoid runtime computation.
 - **Gotchas:** OG images are path conventions only — actual image files need to be created/uploaded. Analytics won't load until env vars are set in deployment (Vercel env settings).
+- **Status:** DONE
+
+### T17: JustDial & GMB Optimization Guide — 2026-03-09
+- **Files created:** `.tasks/mahi-astro/reports/T17-local-seo-guide.html`
+- **What was done:**
+  1. Researched 2026 best practices for Google Business Profile, JustDial, and local citation building in India
+  2. Created comprehensive Zen HTML report with tabbed navigation matching existing report format
+  3. Sections: Executive Summary, NAP Consistency, GBP Setup (step-by-step), GBP Optimization, Google Posts Calendar, JustDial Setup, JustDial Optimization, Review Strategy, Citation Building (15+ platforms), Social Media Setup, UTM Tracking (10 platform-specific URLs), Implementation Timeline, Sources (17 citations)
+  4. Included astrologer-specific GBP categories and all 15 services mapped to GBP
+  5. UTM parameters documented for every platform (Google, JustDial, Sulekha, IndiaMART, Facebook, Instagram, YouTube, LinkedIn, WhatsApp)
+- **Decisions:** `.well-known/` directory not created yet — only needed at deployment time for domain verification. Report is actionable guide, not code changes. NAP address left as template since exact street address needs to be finalized by the astrologer.
+- **Gotchas:** Exact street address and pin code must be finalized before creating any listings. GBP categories for astrologers may vary by country — test availability in India.
 - **Status:** DONE

@@ -858,7 +858,7 @@ After each task, update `progress.md` with:
 
 ---
 
-### - [ ] T17: Create JustDial & Google My Business Optimization Guide
+### - [x] T17: Create JustDial & Google My Business Optimization Guide
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** T15
 
@@ -875,9 +875,9 @@ After each task, update `progress.md` with:
 3. Create a `public/.well-known/` directory for domain verification if needed
 
 **Validate:**
-- [ ] Guide is comprehensive and actionable
-- [ ] Includes specific steps for both JustDial and GMB
-- [ ] UTM parameters documented
+- [x] Guide is comprehensive and actionable
+- [x] Includes specific steps for both JustDial and GMB
+- [x] UTM parameters documented
 - [ ] Git commit: `feat(seo): T17 — JustDial and GMB optimization guide`
 
 ---

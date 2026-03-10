@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Believe Astrology — Local SEO Optimization Guide (T17)</title>
+<style>
+  :root {
+    --bg: #fafbfc; --surface: #ffffff; --sidebar-bg: #1e293b; --sidebar-text: #e2e8f0;
+    --text: #1e293b; --dim: #64748b; --border: #e2e8f0;
+    --primary: #6F4278; --primary-dark: #2E2B59; --primary-light: #9B6BA6;
+    --gold: #C9A84C; --saffron: #FF9933; --cream: #FFFDF0; --maroon: #72001B;
+    --green: #10b981; --yellow: #f59e0b; --red: #ef4444; --blue: #3b82f6;
+    --gradient: linear-gradient(135deg, #C9A84C, #6F4278);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f0f14; --surface: #1a1a24; --sidebar-bg: #0a0a10;
+      --text: #d4d4e8; --dim: #7b7b9e; --border: #2d2d44;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg); color: var(--text); display: flex; min-height: 100vh; line-height: 1.7;
+  }
+  .sidebar {
+    width: 300px; background: var(--sidebar-bg); color: var(--sidebar-text);
+    padding: 2rem; position: fixed; height: 100vh; overflow-y: auto; z-index: 100;
+  }
+  .sidebar h1 {
+    font-size: 1.4rem; margin-bottom: 0.5rem;
+    background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .sidebar .subtitle { font-size: 0.8rem; color: #94a3b8; margin-bottom: 2rem; }
+  .nav-section { margin-bottom: 1.5rem; }
+  .nav-section h3 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; margin-bottom: 0.5rem; }
+  .nav-link {
+    display: block; padding: 0.6rem 0.8rem; margin-bottom: 0.2rem; border-radius: 0.5rem;
+    color: var(--sidebar-text); text-decoration: none; transition: all 0.2s; cursor: pointer; font-size: 0.85rem;
+  }
+  .nav-link:hover { background: rgba(201,168,76,0.2); }
+  .nav-link.active { background: var(--primary); color: white; }
+  .main { margin-left: 300px; padding: 3rem; max-width: 900px; width: 100%; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  h2 { font-size: 1.6rem; margin: 2rem 0 1rem; color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+  h3 { font-size: 1.2rem; margin: 1.5rem 0 0.75rem; }
+  h4 { font-size: 1rem; margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .card h3 { margin-top: 0; }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1rem 0; }
+  .tag {
+    display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem;
+    border-radius: 999px; text-transform: uppercase; letter-spacing: 0.03em;
+  }
+  .tag-gold { background: #fef3c7; color: #92400e; }
+  .tag-purple { background: #ede9fe; color: #5b21b6; }
+  .tag-green { background: #d1fae5; color: #065f46; }
+  .tag-red { background: #fee2e2; color: #991b1b; }
+  .tag-blue { background: #dbeafe; color: #1d4ed8; }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+  th { background: var(--primary-dark); color: white; padding: 0.75rem; text-align: left; }
+  td { padding: 0.75rem; border-bottom: 1px solid var(--border); }
+  tr:hover { background: rgba(201,168,76,0.05); }
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(111,66,120,0.1));
+    border-left: 4px solid var(--gold); padding: 1.5rem; border-radius: 0 12px 12px 0; margin: 1.5rem 0;
+  }
+  .citation {
+    font-size: 0.85rem; color: var(--dim); border-left: 3px solid var(--gold);
+    padding-left: 1rem; margin: 0.5rem 0;
+  }
+  .citation a { color: var(--primary); }
+  .recommendation {
+    background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3);
+    border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0;
+  }
+  .recommendation h3 { color: var(--green); margin-top: 0; }
+  .checklist { list-style: none; margin-left: 0; }
+  .checklist li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+  .checklist li::before { content: "☐ "; font-size: 1.1rem; }
+  .step-number {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 50%; background: var(--primary);
+    color: white; font-size: 0.8rem; font-weight: 700; margin-right: 0.5rem;
+  }
+  .ascii-diagram {
+    background: #1e293b; color: #e2e8f0; padding: 1.25rem; border-radius: 8px;
+    font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.8rem; line-height: 1.5;
+    overflow-x: auto; margin: 1rem 0; white-space: pre;
+  }
+  .warning-box {
+    background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3);
+    border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0;
+  }
+  .warning-box h4 { color: var(--yellow); margin-top: 0; }
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { margin-left: 0; padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="sidebar">
+  <h1>Believe Astrology</h1>
+  <p class="subtitle">Local SEO Guide — T17 Report</p>
+
+  <div class="nav-section">
+    <h3>Overview</h3>
+    <a class="nav-link active" onclick="showTab('executive')">Executive Summary</a>
+    <a class="nav-link" onclick="showTab('nap')">NAP Consistency</a>
+  </div>
+
+  <div class="nav-section">
+    <h3>Google Business Profile</h3>
+    <a class="nav-link" onclick="showTab('gbp-setup')">GBP Setup Guide</a>
+    <a class="nav-link" onclick="showTab('gbp-optimize')">GBP Optimization</a>
+    <a class="nav-link" onclick="showTab('gbp-posts')">Google Posts Calendar</a>
+  </div>
+
+  <div class="nav-section">
+    <h3>JustDial</h3>
+    <a class="nav-link" onclick="showTab('jd-setup')">JustDial Setup</a>
+    <a class="nav-link" onclick="showTab('jd-optimize')">JustDial Optimization</a>
+  </div>
+
+  <div class="nav-section">
+    <h3>Strategy</h3>
+    <a class="nav-link" onclick="showTab('reviews')">Review Strategy</a>
+    <a class="nav-link" onclick="showTab('citations')">Citation Building</a>
+    <a class="nav-link" onclick="showTab('social')">Social Media Setup</a>
+    <a class="nav-link" onclick="showTab('utm')">UTM Tracking</a>
+  </div>
+
+  <div class="nav-section">
+    <h3>Reference</h3>
+    <a class="nav-link" onclick="showTab('timeline')">Implementation Timeline</a>
+    <a class="nav-link" onclick="showTab('sources')">Sources</a>
+  </div>
+</nav>
+
+<main class="main">
+
+<!-- ============================================================ -->
+<!-- EXECUTIVE SUMMARY -->
+<!-- ============================================================ -->
+<div id="executive" class="tab-content active">
+  <h2>Executive Summary</h2>
+
+  <div class="highlight-box">
+    <strong>Goal:</strong> Establish Believe Astrology (Pandit Shree Mahadev Joshi) as the top-ranking astrologer
+    in Ahmedabad on Google Maps, JustDial, and AI-powered local discovery platforms. Expand visibility to
+    Mumbai and US markets through consistent local SEO foundations.
+  </div>
+
+  <h3>Why Local SEO Matters in 2026</h3>
+  <ul>
+    <li><strong>46% of all Google searches</strong> have local intent, with 8.5 billion daily searches</li>
+    <li>Google Business Profile signals represent <strong>~25% of local ranking factors</strong></li>
+    <li>AI platforms (ChatGPT, Perplexity, Gemini) now answer "near me" queries with direct brand recommendations</li>
+    <li>JustDial has <strong>18.4 Crore+ buyers</strong> and is India's top local search engine</li>
+    <li>Businesses that haven't posted a GBP update in 30+ days see <strong>dramatic visibility drops</strong></li>
+  </ul>
+
+  <h3>Key Actions Summary</h3>
+  <div class="card-grid">
+    <div class="card">
+      <h3><span class="tag tag-blue">Priority 1</span></h3>
+      <h4>Google Business Profile</h4>
+      <p>Create and fully optimize GBP with correct astrologer categories, services, photos, and weekly posts.</p>
+    </div>
+    <div class="card">
+      <h3><span class="tag tag-blue">Priority 2</span></h3>
+      <h4>JustDial Listing</h4>
+      <p>Register, verify, and optimize JustDial listing with complete business info and media.</p>
+    </div>
+    <div class="card">
+      <h3><span class="tag tag-gold">Priority 3</span></h3>
+      <h4>NAP Consistency</h4>
+      <p>Ensure identical Name, Address, Phone across all 15+ citation platforms.</p>
+    </div>
+    <div class="card">
+      <h3><span class="tag tag-gold">Priority 4</span></h3>
+      <h4>Review Collection</h4>
+      <p>Build to 20+ Google reviews with 4.5+ star average within 3 months.</p>
+    </div>
+  </div>
+
+  <div class="recommendation">
+    <h3>Expected Timeline</h3>
+    <ul>
+      <li><strong>Week 1:</strong> GBP + JustDial setup and verification</li>
+      <li><strong>Week 2:</strong> Citation building across 10+ directories</li>
+      <li><strong>Week 3-4:</strong> Review collection campaign launch</li>
+      <li><strong>Month 2-3:</strong> Weekly GBP posts, social media integration</li>
+      <li><strong>Month 3+:</strong> Visible ranking improvements in local search</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- NAP CONSISTENCY -->
+<!-- ============================================================ -->
+<div id="nap" class="tab-content">
+  <h2>NAP Consistency Checklist</h2>
+
+  <div class="highlight-box">
+    <strong>Critical Rule:</strong> Your Name, Address, and Phone must be <em>character-for-character identical</em>
+    across every platform. Even small differences ("St." vs "Street") can hurt rankings.
+  </div>
+
+  <h3>Official NAP for Believe Astrology</h3>
+  <div class="card">
+    <table>
+      <tr><th style="width:30%">Field</th><th>Value</th></tr>
+      <tr><td><strong>Business Name</strong></td><td>Believe Astrology - Pandit Shree Mahadev Joshi</td></tr>
+      <tr><td><strong>Address</strong></td><td>Ahmedabad, Gujarat, India</td></tr>
+      <tr><td><strong>Phone</strong></td><td>+91 8154992727</td></tr>
+      <tr><td><strong>Email</strong></td><td>mahadevjoshi91@gmail.com</td></tr>
+      <tr><td><strong>Website</strong></td><td>https://believeastrology.com</td></tr>
+      <tr><td><strong>WhatsApp</strong></td><td>+91 8154992727</td></tr>
+    </table>
+  </div>
+
+  <div class="warning-box">
+    <h4>Important: Fill in exact address</h4>
+    <p>Before creating any listing, finalize the exact street address, pin code, and landmark.
+    Use the same format everywhere. Example format:</p>
+    <p><code>[Office/Shop Number], [Building Name], [Street], [Area], Ahmedabad, Gujarat 380XXX, India</code></p>
+    <p>Once chosen, <strong>never vary this format</strong> across any platform.</p>
+  </div>
+
+  <h3>NAP Audit Checklist</h3>
+  <ul class="checklist">
+    <li>Finalize exact street address with pin code</li>
+    <li>Decide on business name format (use same everywhere)</li>
+    <li>Phone number format: always use +91 8154992727</li>
+    <li>Website URL: always include https:// and no trailing slash</li>
+    <li>Business hours: decide and keep consistent across all platforms</li>
+    <li>Service area: define cities served (Ahmedabad, Mumbai, Online/Global)</li>
+    <li>Audit all listings quarterly for consistency</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<!-- GBP SETUP -->
+<!-- ============================================================ -->
+<div id="gbp-setup" class="tab-content">
+  <h2>Google Business Profile — Setup Guide</h2>
+
+  <h3>Step-by-Step Creation</h3>
+
+  <div class="card">
+    <h3><span class="step-number">1</span> Create Google Account</h3>
+    <p>If not already done, create a Google account using <code>mahadevjoshi91@gmail.com</code> or a dedicated business account.
+    Go to <a href="https://business.google.com">business.google.com</a>.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="step-number">2</span> Add Your Business</h3>
+    <ul>
+      <li>Click "Add your business to Google"</li>
+      <li>Business name: <strong>Believe Astrology - Pandit Shree Mahadev Joshi</strong></li>
+      <li>Primary category: <strong>Astrologer</strong></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="step-number">3</span> Set Location</h3>
+    <ul>
+      <li>If you have a physical office: enter exact address</li>
+      <li>If home-based: select "I deliver goods and services to my customers" and hide address</li>
+      <li>Service areas: Ahmedabad, Mumbai, India (add more later)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="step-number">4</span> Add Contact Info</h3>
+    <ul>
+      <li>Phone: +91 8154992727</li>
+      <li>Website: https://believeastrology.com</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="step-number">5</span> Verify Your Business</h3>
+    <ul>
+      <li>Google offers: postcard (5-14 days), phone, email, or video verification</li>
+      <li>Video verification is fastest — record a short video showing your business location and signage</li>
+      <li>Phone/email verification may be available for some categories</li>
+    </ul>
+  </div>
+
+  <h3>Categories to Select</h3>
+  <div class="card">
+    <table>
+      <tr><th>Type</th><th>Category</th></tr>
+      <tr><td><span class="tag tag-gold">Primary</span></td><td>Astrologer</td></tr>
+      <tr><td><span class="tag tag-purple">Secondary</span></td><td>Spiritual Consultant</td></tr>
+      <tr><td><span class="tag tag-purple">Secondary</span></td><td>Religious Organization</td></tr>
+      <tr><td><span class="tag tag-purple">Secondary</span></td><td>Consultant</td></tr>
+    </table>
+    <p class="citation">Note: Google allows 1 primary + up to 9 secondary categories. Only add categories that accurately
+    describe your services. Test availability in India as not all categories are available in every country.
+    <a href="https://www.gmbeverywhere.com/gmb-category/find-gmb-categories-for-a-astrologer">Source: GMB Everywhere</a></p>
+  </div>
+
+  <h3>Services to Add in GBP</h3>
+  <div class="card">
+    <ul>
+      <li>Vedic Astrology & Kundli Reading</li>
+      <li>Horoscope Analysis & Predictions</li>
+      <li>Marriage Compatibility (Kundli Milan)</li>
+      <li>Career & Finance Guidance</li>
+      <li>Health & Wellness Consultation</li>
+      <li>Vastu Consultation</li>
+      <li>Gemstone Recommendations</li>
+      <li>Karma & Life-Purpose Counselling</li>
+      <li>Pancha Tatva Balancing</li>
+      <li>Seven Chakras Balancing</li>
+      <li>Vedic Spiritual Poojas</li>
+      <li>Vedic Karma-Kand Yagnas</li>
+      <li>Maha-Mrutunjay Mantra Anushthan</li>
+      <li>Mantras Chanting</li>
+      <li>Online Consultation (Zoom/WhatsApp)</li>
+    </ul>
+    <p>Add a brief description (150-300 chars) for each service. Use natural keywords like
+    "best astrologer in Ahmedabad" within descriptions.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- GBP OPTIMIZATION -->
+<!-- ============================================================ -->
+<div id="gbp-optimize" class="tab-content">
+  <h2>Google Business Profile — Optimization</h2>
+
+  <h3>Profile Completeness Checklist</h3>
+  <ul class="checklist">
+    <li>Business name matches NAP exactly</li>
+    <li>Primary category: Astrologer</li>
+    <li>2-3 secondary categories added</li>
+    <li>All 15 services listed with descriptions</li>
+    <li>Business description (750 chars max) with keywords</li>
+    <li>Phone number verified</li>
+    <li>Website URL set</li>
+    <li>Business hours set (including special hours for festivals)</li>
+    <li>Service areas defined</li>
+    <li>Appointment link added (WhatsApp or booking page)</li>
+    <li>At least 10 high-quality photos uploaded</li>
+    <li>Logo and cover photo set</li>
+    <li>Q&A section seeded with common questions</li>
+    <li>"From the business" description completed</li>
+    <li>Messaging enabled</li>
+  </ul>
+
+  <h3>Business Description Template</h3>
+  <div class="card">
+    <p><em>Use this as a starting point (customize as needed):</em></p>
+    <div class="ascii-diagram">Believe Astrology — Pandit Shree Mahadev Joshi brings 20+ years
+of Vedic astrology expertise to guide you through life's journey.
+Specializing in Kundli reading, horoscope analysis, marriage
+compatibility, career guidance, Vastu consultation, and spiritual
+healing. Serving clients in Ahmedabad, Mumbai, and globally via
+Zoom/WhatsApp consultations. "Astrology is not about predicting
+a fixed fate, but understanding the cosmic weather so you can
+sail your boat with wisdom." Book your consultation today.</div>
+  </div>
+
+  <h3>Photo Strategy</h3>
+  <div class="card">
+    <table>
+      <tr><th>Photo Type</th><th>What to Upload</th><th>Frequency</th></tr>
+      <tr><td>Logo</td><td>Believe Astrology logo</td><td>Once</td></tr>
+      <tr><td>Cover</td><td>Professional photo of Pandit ji or consultation room</td><td>Once (update quarterly)</td></tr>
+      <tr><td>Interior</td><td>Consultation room, pooja area</td><td>5-10 photos</td></tr>
+      <tr><td>Exterior</td><td>Office entrance, signage</td><td>2-3 photos</td></tr>
+      <tr><td>Team</td><td>Pandit ji in professional setting</td><td>3-5 photos</td></tr>
+      <tr><td>At Work</td><td>During consultation, performing pooja</td><td>Upload 2/week</td></tr>
+    </table>
+    <p class="citation">In 2026, posting new photos at least twice a week is a top-tier ranking signal.
+    Businesses inactive for 30+ days see dramatic visibility drops.
+    <a href="https://www.truefuturemedia.com/articles/google-business-profile-optimization-checklist-2026">Source: TrueFuture Media</a></p>
+  </div>
+
+  <h3>Q&A Section — Seed These Questions</h3>
+  <div class="card">
+    <ol>
+      <li><strong>Q:</strong> What services do you offer? <br><strong>A:</strong> We offer Vedic astrology readings, Kundli analysis, horoscope predictions, marriage compatibility, career guidance, Vastu consultation, gemstone recommendations, and spiritual healing services.</li>
+      <li><strong>Q:</strong> Do you offer online consultations? <br><strong>A:</strong> Yes! We provide consultations via Zoom and WhatsApp for clients in India and globally.</li>
+      <li><strong>Q:</strong> What languages do you consult in? <br><strong>A:</strong> Hindi, Gujarati, and English.</li>
+      <li><strong>Q:</strong> How do I book an appointment? <br><strong>A:</strong> Call or WhatsApp us at +91 8154992727, or visit our website to book online.</li>
+      <li><strong>Q:</strong> What is the consultation fee? <br><strong>A:</strong> Please contact us for current consultation fees. We offer both in-person and online sessions.</li>
+      <li><strong>Q:</strong> Where are you located? <br><strong>A:</strong> We are based in Ahmedabad, Gujarat, and also serve clients in Mumbai and internationally.</li>
+    </ol>
+  </div>
+
+  <h3>2026 AI-Readiness Tips</h3>
+  <div class="recommendation">
+    <h3>Prepare for AI-Powered Discovery</h3>
+    <ul>
+      <li>AI platforms scan Reddit, Quora, forums to verify business info — ensure consistent mentions</li>
+      <li>Review sentiment depth matters: encourage clients to mention specific services (e.g., "Kundli reading helped with my career decision")</li>
+      <li>Entity authority builds over time — keep profile active and consistent</li>
+      <li>Cross-reference your website's Services page with GBP Services tab for alignment</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- GBP POSTS CALENDAR -->
+<!-- ============================================================ -->
+<div id="gbp-posts" class="tab-content">
+  <h2>Google Posts — Content Calendar Template</h2>
+
+  <div class="highlight-box">
+    <strong>Frequency:</strong> Post at least 2x per week. Mix updates, offers, and educational content.
+    Google Posts expire after 7 days, so consistent posting is essential.
+  </div>
+
+  <h3>Monthly Content Calendar</h3>
+  <div class="card">
+    <table>
+      <tr><th>Week</th><th>Day</th><th>Post Type</th><th>Content Idea</th></tr>
+      <tr><td rowspan="2">Week 1</td><td>Monday</td><td><span class="tag tag-blue">Update</span></td><td>Weekly rashifal (horoscope) highlight for the week</td></tr>
+      <tr><td>Thursday</td><td><span class="tag tag-gold">Educational</span></td><td>Vedic astrology tip (e.g., "Understanding your Moon sign")</td></tr>
+      <tr><td rowspan="2">Week 2</td><td>Monday</td><td><span class="tag tag-green">Testimonial</span></td><td>Client success story (with permission)</td></tr>
+      <tr><td>Friday</td><td><span class="tag tag-purple">Service</span></td><td>Spotlight on a specific service (e.g., Vastu Consultation)</td></tr>
+      <tr><td rowspan="2">Week 3</td><td>Tuesday</td><td><span class="tag tag-blue">Update</span></td><td>Festival/auspicious day guidance (muhurta, puja timings)</td></tr>
+      <tr><td>Saturday</td><td><span class="tag tag-gold">Educational</span></td><td>Blog post preview with link to website</td></tr>
+      <tr><td rowspan="2">Week 4</td><td>Wednesday</td><td><span class="tag tag-green">Offer</span></td><td>Special consultation offer or free initial reading promo</td></tr>
+      <tr><td>Sunday</td><td><span class="tag tag-purple">Behind-the-scenes</span></td><td>Photo/video of pooja ceremony or consultation setup</td></tr>
+    </table>
+  </div>
+
+  <h3>Post Best Practices</h3>
+  <ul>
+    <li>Include a high-quality image (minimum 400x300px) with every post</li>
+    <li>Add a CTA button: "Book online", "Call now", or "Learn more"</li>
+    <li>Use local keywords naturally: "astrologer in Ahmedabad", "Vedic astrology Gujarat"</li>
+    <li>Keep text 150-300 words — concise but informative</li>
+    <li>Link to website pages with UTM parameters (see UTM Tracking section)</li>
+    <li>Post in English primarily; add Hindi captions for wider reach</li>
+  </ul>
+
+  <h3>Festival-Specific Post Ideas</h3>
+  <div class="card">
+    <table>
+      <tr><th>Festival/Event</th><th>Post Content</th></tr>
+      <tr><td>Makar Sankranti</td><td>Auspicious timings, kite festival guidance, planetary effects</td></tr>
+      <tr><td>Maha Shivratri</td><td>Spiritual significance, recommended pujas, Maha-Mrutunjay benefits</td></tr>
+      <tr><td>Holi</td><td>Color recommendations by rashi, auspicious holika dahan timing</td></tr>
+      <tr><td>Navratri</td><td>Daily color guide, garba muhurta, spiritual practices each day</td></tr>
+      <tr><td>Diwali</td><td>Lakshmi puja muhurta, Vastu tips for wealth, gemstone recommendations</td></tr>
+      <tr><td>Guru Purnima</td><td>Significance of guru, special consultation offerings</td></tr>
+      <tr><td>Eclipse Events</td><td>Grahan dos and don'ts, remedies, spiritual guidance</td></tr>
+      <tr><td>New Year (Hindu Calendar)</td><td>Year predictions, annual horoscope highlights</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- JUSTDIAL SETUP -->
+<!-- ============================================================ -->
+<div id="jd-setup" class="tab-content">
+  <h2>JustDial — Setup Guide</h2>
+
+  <h3>Step-by-Step Registration</h3>
+
+  <div class="card">
+    <h3><span class="step-number">1</span> Visit JustDial Free Listing</h3>
+    <p>Go to <a href="https://www.justdial.com/Free-Listing">justdial.com/Free-Listing</a> and click
+    "List Your Business for Free".</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="step-number">2</span> Enter Business Details</h3>
+    <ul>
+      <li>Business Name: <strong>Believe Astrology - Pandit Shree Mahadev Joshi</strong></li>
+      <li>Category: Search for "Astrologer" or "Vedic Astrologer"</li>
+      <li>Mobile: +91 8154992727</li>
+      <li>City: Ahmedabad</li>
+    </ul>
+    <div class="warning-box">
+      <h4>Avoid keyword-stuffed names</h4>
+      <p>Do NOT use: "Best Astrologer Ahmedabad Pandit Mahadev Vedic Kundli Expert 2026"</p>
+      <p>DO use: "Believe Astrology - Pandit Shree Mahadev Joshi"</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="step-number">3</span> OTP Verification</h3>
+    <p>JustDial will send an OTP to the registered mobile number. Complete verification.
+    Listing typically goes live within 24-48 hours after review.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="step-number">4</span> Complete Your Profile</h3>
+    <ul>
+      <li>Add full address with pin code</li>
+      <li>Set business hours</li>
+      <li>Add all services offered</li>
+      <li>Upload 10+ photos</li>
+      <li>Add website URL with UTM: <code>https://believeastrology.com?utm_source=justdial&utm_medium=referral&utm_campaign=listing</code></li>
+      <li>Write a compelling business description</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="step-number">5</span> Claim & Verify Ownership</h3>
+    <p>If a listing already exists, claim it through JustDial's verification process.
+    This gives you control to edit and manage the listing.</p>
+  </div>
+
+  <h3>JustDial Categories for Astrology</h3>
+  <div class="card">
+    <ul>
+      <li>Astrologers</li>
+      <li>Vedic Astrologers</li>
+      <li>Pandit Services</li>
+      <li>Horoscope Readers</li>
+      <li>Vastu Consultants</li>
+      <li>Spiritual Healers</li>
+    </ul>
+    <p>Select all relevant categories. JustDial allows multiple category selections.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- JUSTDIAL OPTIMIZATION -->
+<!-- ============================================================ -->
+<div id="jd-optimize" class="tab-content">
+  <h2>JustDial — Optimization Guide</h2>
+
+  <h3>Profile Optimization Checklist</h3>
+  <ul class="checklist">
+    <li>Business name matches NAP exactly</li>
+    <li>Correct categories selected (Astrologer, Vedic Astrologer, etc.)</li>
+    <li>Full address with pin code</li>
+    <li>Phone number verified</li>
+    <li>Business hours accurate</li>
+    <li>Website URL with UTM parameters</li>
+    <li>10+ high-quality photos uploaded</li>
+    <li>Complete business description with natural keywords</li>
+    <li>All services listed individually</li>
+    <li>Payment modes mentioned (Cash, UPI, etc.)</li>
+    <li>Year of establishment added</li>
+    <li>Service area specified</li>
+  </ul>
+
+  <h3>JustDial Description Template</h3>
+  <div class="card">
+    <div class="ascii-diagram">Believe Astrology, led by Pandit Shree Mahadev Joshi, offers
+expert Vedic astrology consultations in Ahmedabad with 20+
+years of experience. Services include Kundli reading, horoscope
+analysis, marriage compatibility, career and finance guidance,
+Vastu consultation, gemstone recommendations, chakra balancing,
+and spiritual healing. Available for in-person consultations in
+Ahmedabad and Mumbai, as well as online sessions via Zoom and
+WhatsApp for clients across India and globally. Contact us at
++91 8154992727 for appointments. "Be Better with Connect to Nature."</div>
+  </div>
+
+  <h3>Free vs Paid JustDial Listing</h3>
+  <div class="card">
+    <table>
+      <tr><th>Feature</th><th>Free</th><th>Paid (JD Premium)</th></tr>
+      <tr><td>Basic listing</td><td>Yes</td><td>Yes</td></tr>
+      <tr><td>Photos upload</td><td>Limited</td><td>Unlimited</td></tr>
+      <tr><td>Priority in search results</td><td>No</td><td>Yes</td></tr>
+      <tr><td>Banner ads</td><td>No</td><td>Yes</td></tr>
+      <tr><td>Lead notifications</td><td>Basic</td><td>Advanced</td></tr>
+      <tr><td>Analytics</td><td>Basic</td><td>Detailed</td></tr>
+    </table>
+    <p class="citation">Start with the free listing. After 2-4 weeks, evaluate lead quality and consider upgrading
+    if ROI is positive. <a href="https://vishalkumawat.com/how-to-create-a-justdial-free-business-listing/">Source: Vishal Kumawat</a></p>
+  </div>
+
+  <h3>Ongoing Maintenance</h3>
+  <ul>
+    <li>Respond to all customer inquiries within 2 hours during business hours</li>
+    <li>Update photos monthly</li>
+    <li>Add new services as they become available</li>
+    <li>Monitor and respond to reviews weekly</li>
+    <li>Update business hours for festivals and holidays</li>
+    <li>Track leads and calls from the JustDial dashboard</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<!-- REVIEW STRATEGY -->
+<!-- ============================================================ -->
+<div id="reviews" class="tab-content">
+  <h2>Review Collection Strategy</h2>
+
+  <div class="highlight-box">
+    <strong>Target:</strong> 4.5+ star average with 20+ reviews on Google within 3 months.
+    A perfect 5.0 with zero negative reviews is flagged as suspicious by Google's AI filters.
+  </div>
+
+  <h3>Review Collection Workflow</h3>
+
+  <div class="card">
+    <h3><span class="step-number">1</span> Create a Review Link</h3>
+    <p>Once GBP is set up, generate a short review link:</p>
+    <ul>
+      <li>Go to your GBP dashboard > "Get more reviews"</li>
+      <li>Copy the review link</li>
+      <li>Create a short link using bit.ly or a custom domain</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="step-number">2</span> Ask at the Right Moment</h3>
+    <ul>
+      <li>After a successful consultation when the client expresses gratitude</li>
+      <li>After a prediction comes true (follow up and ask)</li>
+      <li>After performing a pooja or ceremony</li>
+    </ul>
+    <p><strong>Script:</strong> "Thank you for trusting Believe Astrology. If our guidance helped you, we'd be grateful if you could share your experience on Google. Here's a quick link: [short link]"</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="step-number">3</span> Multi-Channel Distribution</h3>
+    <ul>
+      <li><strong>WhatsApp:</strong> Send review link after consultation follow-up</li>
+      <li><strong>SMS:</strong> Brief message with review link 24 hours after session</li>
+      <li><strong>Email:</strong> Include review CTA in follow-up emails</li>
+      <li><strong>In-person:</strong> QR code in office linking to review page</li>
+      <li><strong>Website:</strong> "Review us on Google" button on thank-you page</li>
+    </ul>
+  </div>
+
+  <h3>Review Response Templates</h3>
+  <div class="card">
+    <h4>Positive Review Response</h4>
+    <div class="ascii-diagram">"Thank you [Name] for your kind words! We're glad our Vedic
+astrology guidance helped you. Wishing you cosmic blessings
+on your journey. - Pandit Shree Mahadev Joshi, Believe Astrology"</div>
+    <h4>Constructive/Neutral Review Response</h4>
+    <div class="ascii-diagram">"Thank you for your feedback [Name]. We value every client's
+experience and continuously strive to improve. Please feel free
+to reach out to us directly at +91 8154992727 so we can address
+your concerns personally. - Believe Astrology"</div>
+  </div>
+
+  <h3>Review Quality Tips</h3>
+  <div class="recommendation">
+    <h3>Encourage Detailed Reviews</h3>
+    <p>Google's AI analyzes review content for relevance signals. Reviews that mention specific services
+    ("Kundli reading", "career guidance", "Vastu consultation") boost your ranking for those search terms.</p>
+    <ul>
+      <li>Gently suggest: "If you could mention which service helped you, it would help others find us"</li>
+      <li>Never offer incentives for reviews (violates Google policy)</li>
+      <li>Never ask for only positive reviews — authenticity matters</li>
+      <li>Aim for 2-3 new reviews per month for steady growth</li>
+    </ul>
+  </div>
+
+  <h3>Also Collect Reviews On</h3>
+  <ul>
+    <li>JustDial (separate review system)</li>
+    <li>Sulekha</li>
+    <li>Facebook page</li>
+  </ul>
+</div>
+
+<!-- ============================================================ -->
+<!-- CITATION BUILDING -->
+<!-- ============================================================ -->
+<div id="citations" class="tab-content">
+  <h2>Local Citation Building</h2>
+
+  <div class="highlight-box">
+    <strong>What are citations?</strong> Mentions of your NAP on other websites. They act as "votes of confidence"
+    that tell Google your business is legitimate. Consistency across citations is a top-3 local ranking factor.
+  </div>
+
+  <h3>Priority Citation Platforms</h3>
+  <div class="card">
+    <table>
+      <tr><th>Priority</th><th>Platform</th><th>URL</th><th>Type</th><th>Cost</th></tr>
+      <tr><td><span class="tag tag-red">P0</span></td><td>Google Business Profile</td><td>business.google.com</td><td>Search Engine</td><td>Free</td></tr>
+      <tr><td><span class="tag tag-red">P0</span></td><td>JustDial</td><td>justdial.com/Free-Listing</td><td>Local Directory</td><td>Free / Paid</td></tr>
+      <tr><td><span class="tag tag-gold">P1</span></td><td>Sulekha</td><td>sulekha.com</td><td>Service Directory</td><td>Free / Paid</td></tr>
+      <tr><td><span class="tag tag-gold">P1</span></td><td>IndiaMART</td><td>indiamart.com</td><td>Business Directory</td><td>Free / Paid</td></tr>
+      <tr><td><span class="tag tag-gold">P1</span></td><td>Bing Places</td><td>bingplaces.com</td><td>Search Engine</td><td>Free</td></tr>
+      <tr><td><span class="tag tag-gold">P1</span></td><td>Apple Maps</td><td>mapsconnect.apple.com</td><td>Maps</td><td>Free</td></tr>
+      <tr><td><span class="tag tag-blue">P2</span></td><td>Facebook Business Page</td><td>facebook.com/pages/create</td><td>Social</td><td>Free</td></tr>
+      <tr><td><span class="tag tag-blue">P2</span></td><td>Instagram Business</td><td>instagram.com</td><td>Social</td><td>Free</td></tr>
+      <tr><td><span class="tag tag-blue">P2</span></td><td>YouTube Channel</td><td>youtube.com</td><td>Video</td><td>Free</td></tr>
+      <tr><td><span class="tag tag-blue">P2</span></td><td>LinkedIn Company Page</td><td>linkedin.com</td><td>Professional</td><td>Free</td></tr>
+      <tr><td><span class="tag tag-purple">P3</span></td><td>TradeIndia</td><td>tradeindia.com</td><td>Business Directory</td><td>Free / Paid</td></tr>
+      <tr><td><span class="tag tag-purple">P3</span></td><td>Yellow Pages India</td><td>yellowpages.co.in</td><td>Directory</td><td>Free</td></tr>
+      <tr><td><span class="tag tag-purple">P3</span></td><td>AskLaila</td><td>asklaila.com</td><td>Local Directory</td><td>Free</td></tr>
+      <tr><td><span class="tag tag-purple">P3</span></td><td>Hotfrog India</td><td>hotfrog.co.in</td><td>Directory</td><td>Free</td></tr>
+      <tr><td><span class="tag tag-purple">P3</span></td><td>ExportersIndia</td><td>exportersindia.com</td><td>Directory</td><td>Free</td></tr>
+    </table>
+    <p class="citation">India-specific directories carry stronger local ranking signals than global directories.
+    <a href="https://techeasify.com/business-listing-sites/">Source: Techeasify — Top 125 Business Listing Sites India 2026</a></p>
+  </div>
+
+  <h3>Citation Building Checklist</h3>
+  <ul class="checklist">
+    <li>Google Business Profile — created and verified</li>
+    <li>JustDial — listed and verified</li>
+    <li>Sulekha — registered with services defined</li>
+    <li>IndiaMART — business profile created</li>
+    <li>Bing Places — listing claimed</li>
+    <li>Apple Maps — listing submitted</li>
+    <li>Facebook Business Page — created with NAP</li>
+    <li>Instagram Business — profile optimized</li>
+    <li>YouTube Channel — created with business info</li>
+    <li>LinkedIn Company Page — set up</li>
+    <li>5+ additional directories from P3 list</li>
+    <li>All listings audited for NAP consistency</li>
+  </ul>
+
+  <h3>Sulekha Setup Notes</h3>
+  <div class="card">
+    <ul>
+      <li>Register at sulekha.com as a service provider</li>
+      <li>Be specific about services and service areas</li>
+      <li>Sulekha has global presence (US, UK, UAE) — useful for international reach</li>
+      <li>Free registration with option for paid lead credits</li>
+      <li>Add all services: Astrology, Vastu, Spiritual Healing, Pooja Services</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SOCIAL MEDIA SETUP -->
+<!-- ============================================================ -->
+<div id="social" class="tab-content">
+  <h2>Social Media Profile Setup Checklist</h2>
+
+  <div class="highlight-box">
+    <strong>Why social matters for local SEO:</strong> In 2026, AI models scan social platforms, Reddit, Quora, and forums
+    to verify business entity. Consistent social presence reinforces your GBP and local search authority.
+  </div>
+
+  <h3>Facebook Business Page</h3>
+  <ul class="checklist">
+    <li>Page name: Believe Astrology - Pandit Shree Mahadev Joshi</li>
+    <li>Category: Astrologer / Spiritual Leader</li>
+    <li>About section with full NAP and services</li>
+    <li>Profile photo: Logo</li>
+    <li>Cover photo: Professional branded image</li>
+    <li>Website link with UTM: <code>?utm_source=facebook&utm_medium=social&utm_campaign=profile</code></li>
+    <li>WhatsApp button linked to +91 8154992727</li>
+    <li>Business hours set</li>
+    <li>Services tab completed</li>
+    <li>CTA button: "Book Now" or "Send WhatsApp Message"</li>
+  </ul>
+
+  <h3>Instagram Business Profile</h3>
+  <ul class="checklist">
+    <li>Username: @believeastrology (or closest available)</li>
+    <li>Name: Believe Astrology | Pandit Mahadev Joshi</li>
+    <li>Category: Astrologer</li>
+    <li>Bio with key services and WhatsApp link</li>
+    <li>Profile photo: Logo</li>
+    <li>Link in bio: Website with UTM parameters</li>
+    <li>Contact button with phone number</li>
+    <li>Highlights: Services, Testimonials, Festivals, About</li>
+  </ul>
+
+  <h3>YouTube Channel</h3>
+  <ul class="checklist">
+    <li>Channel name: Believe Astrology</li>
+    <li>Channel description with NAP and services</li>
+    <li>Channel art: Branded banner</li>
+    <li>Website link in channel description</li>
+    <li>Contact email in About section</li>
+    <li>Content ideas: Weekly rashifal, festival guides, astrology tips</li>
+  </ul>
+
+  <h3>LinkedIn Company Page</h3>
+  <ul class="checklist">
+    <li>Company name: Believe Astrology</li>
+    <li>Industry: Wellness and Fitness Services</li>
+    <li>Description with professional tone and NAP</li>
+    <li>Website URL with UTM</li>
+    <li>Logo and cover image</li>
+  </ul>
+
+  <h3>Content Cross-Posting Strategy</h3>
+  <div class="card">
+    <table>
+      <tr><th>Content Type</th><th>Platforms</th><th>Frequency</th></tr>
+      <tr><td>Weekly horoscope highlights</td><td>GBP, Facebook, Instagram, YouTube Shorts</td><td>Weekly</td></tr>
+      <tr><td>Festival guidance</td><td>All platforms</td><td>Per festival</td></tr>
+      <tr><td>Client testimonials</td><td>GBP, Facebook, Instagram</td><td>2x/month</td></tr>
+      <tr><td>Educational astrology tips</td><td>Instagram Reels, YouTube Shorts, Facebook</td><td>2x/week</td></tr>
+      <tr><td>Blog post announcements</td><td>GBP, Facebook, LinkedIn</td><td>Per blog post</td></tr>
+      <tr><td>Behind-the-scenes</td><td>Instagram Stories, Facebook</td><td>3x/week</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- UTM TRACKING -->
+<!-- ============================================================ -->
+<div id="utm" class="tab-content">
+  <h2>UTM Tracking Parameters</h2>
+
+  <div class="highlight-box">
+    <strong>Purpose:</strong> UTM parameters let you track exactly which platforms drive traffic to your website.
+    Essential for measuring ROI of each listing and social channel.
+  </div>
+
+  <h3>UTM Parameter Reference</h3>
+  <div class="card">
+    <table>
+      <tr><th>Parameter</th><th>Purpose</th><th>Example</th></tr>
+      <tr><td><code>utm_source</code></td><td>Where the traffic comes from</td><td>google, justdial, facebook</td></tr>
+      <tr><td><code>utm_medium</code></td><td>Marketing medium</td><td>referral, social, organic</td></tr>
+      <tr><td><code>utm_campaign</code></td><td>Campaign name</td><td>listing, profile, post</td></tr>
+      <tr><td><code>utm_content</code></td><td>Specific content (optional)</td><td>bio-link, cta-button</td></tr>
+    </table>
+  </div>
+
+  <h3>UTM URLs for Each Platform</h3>
+  <div class="card">
+    <table>
+      <tr><th>Platform</th><th>UTM URL</th></tr>
+      <tr>
+        <td><strong>Google Business Profile</strong></td>
+        <td><code>https://believeastrology.com?utm_source=google&utm_medium=organic&utm_campaign=gbp</code></td>
+      </tr>
+      <tr>
+        <td><strong>JustDial Listing</strong></td>
+        <td><code>https://believeastrology.com?utm_source=justdial&utm_medium=referral&utm_campaign=listing</code></td>
+      </tr>
+      <tr>
+        <td><strong>Sulekha</strong></td>
+        <td><code>https://believeastrology.com?utm_source=sulekha&utm_medium=referral&utm_campaign=listing</code></td>
+      </tr>
+      <tr>
+        <td><strong>IndiaMART</strong></td>
+        <td><code>https://believeastrology.com?utm_source=indiamart&utm_medium=referral&utm_campaign=listing</code></td>
+      </tr>
+      <tr>
+        <td><strong>Facebook Page</strong></td>
+        <td><code>https://believeastrology.com?utm_source=facebook&utm_medium=social&utm_campaign=profile</code></td>
+      </tr>
+      <tr>
+        <td><strong>Instagram Bio</strong></td>
+        <td><code>https://believeastrology.com?utm_source=instagram&utm_medium=social&utm_campaign=bio</code></td>
+      </tr>
+      <tr>
+        <td><strong>YouTube Channel</strong></td>
+        <td><code>https://believeastrology.com?utm_source=youtube&utm_medium=social&utm_campaign=channel</code></td>
+      </tr>
+      <tr>
+        <td><strong>LinkedIn</strong></td>
+        <td><code>https://believeastrology.com?utm_source=linkedin&utm_medium=social&utm_campaign=profile</code></td>
+      </tr>
+      <tr>
+        <td><strong>Google Posts</strong></td>
+        <td><code>https://believeastrology.com?utm_source=google&utm_medium=gbp-post&utm_campaign=weekly-post</code></td>
+      </tr>
+      <tr>
+        <td><strong>WhatsApp Signature</strong></td>
+        <td><code>https://believeastrology.com?utm_source=whatsapp&utm_medium=referral&utm_campaign=signature</code></td>
+      </tr>
+    </table>
+  </div>
+
+  <h3>Tracking in Google Analytics</h3>
+  <div class="card">
+    <p>To view UTM data in Google Analytics:</p>
+    <ol>
+      <li>Go to <strong>Reports > Acquisition > Traffic acquisition</strong></li>
+      <li>Set primary dimension to "Session source / medium"</li>
+      <li>Filter by campaign to see specific platform performance</li>
+      <li>Track key metrics: sessions, bounce rate, average engagement time, conversions</li>
+    </ol>
+    <p>Set up a monthly review cadence to evaluate which platforms drive the most valuable traffic.</p>
+  </div>
+
+  <h3>Google Campaign URL Builder</h3>
+  <div class="card">
+    <p>Use Google's official tool for creating UTM links:</p>
+    <p><a href="https://ga-dev-tools.google/campaign-url-builder/">https://ga-dev-tools.google/campaign-url-builder/</a></p>
+    <p>This ensures proper URL encoding and format.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- IMPLEMENTATION TIMELINE -->
+<!-- ============================================================ -->
+<div id="timeline" class="tab-content">
+  <h2>Implementation Timeline</h2>
+
+  <h3>Week 1: Foundation</h3>
+  <div class="card">
+    <ul class="checklist">
+      <li>Finalize exact NAP details (address with pin code)</li>
+      <li>Create Google Business Profile</li>
+      <li>Submit GBP for verification</li>
+      <li>Register on JustDial</li>
+      <li>Complete JustDial profile</li>
+      <li>Upload initial 10+ photos to both platforms</li>
+      <li>Create Facebook Business Page</li>
+      <li>Set up Instagram Business Profile</li>
+    </ul>
+  </div>
+
+  <h3>Week 2: Citation Expansion</h3>
+  <div class="card">
+    <ul class="checklist">
+      <li>Register on Sulekha</li>
+      <li>Register on IndiaMART</li>
+      <li>Claim Bing Places listing</li>
+      <li>Submit Apple Maps listing</li>
+      <li>Create YouTube channel</li>
+      <li>Create LinkedIn company page</li>
+      <li>Register on 3-5 additional directories</li>
+      <li>Audit all listings for NAP consistency</li>
+    </ul>
+  </div>
+
+  <h3>Week 3-4: Review Campaign & Content</h3>
+  <div class="card">
+    <ul class="checklist">
+      <li>Generate Google review link</li>
+      <li>Create QR code for in-office review requests</li>
+      <li>Begin requesting reviews from existing clients</li>
+      <li>Publish first Google Post</li>
+      <li>Post first content on Facebook and Instagram</li>
+      <li>Seed GBP Q&A section</li>
+    </ul>
+  </div>
+
+  <h3>Month 2-3: Growth & Optimization</h3>
+  <div class="card">
+    <ul class="checklist">
+      <li>Maintain 2x/week Google Posts schedule</li>
+      <li>Continue review collection (target: 2-3 new reviews/month)</li>
+      <li>Cross-post content across all social platforms</li>
+      <li>Monitor Google Analytics UTM data</li>
+      <li>Respond to all reviews within 24 hours</li>
+      <li>Upload new photos weekly to GBP</li>
+      <li>Evaluate JustDial paid options based on lead quality</li>
+    </ul>
+  </div>
+
+  <h3>Ongoing (Monthly)</h3>
+  <div class="card">
+    <ul class="checklist">
+      <li>Quarterly NAP audit across all platforms</li>
+      <li>Update GBP services if offerings change</li>
+      <li>Analyze which platforms drive best ROI</li>
+      <li>Update business hours for festivals/holidays</li>
+      <li>Refresh profile photos quarterly</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SOURCES -->
+<!-- ============================================================ -->
+<div id="sources" class="tab-content">
+  <h2>Sources & References</h2>
+
+  <h3>Google Business Profile</h3>
+  <ol>
+    <li><a href="https://www.agencyjet.com/blog/google-business-profile-optimization-guide">Agency Jet — GBP: The Updated Guide to the 2026 AI Evolution</a></li>
+    <li><a href="https://medium.com/@AffiliateMarketingStrategy/how-to-optimize-your-google-business-profile-in-2026-482b131eaaf0">Medium — How to Optimize Your GBP in 2026</a></li>
+    <li><a href="https://www.truefuturemedia.com/articles/google-business-profile-optimization-checklist-2026">TrueFuture Media — GBP Optimization Checklist 2026</a></li>
+    <li><a href="https://koanthic.com/en/google-business-profile-optimization-complete-2026-guide/">Koanthic — GBP Complete 2026 Guide</a></li>
+    <li><a href="https://www.gmbeverywhere.com/gmb-category/find-gmb-categories-for-a-astrologer">GMB Everywhere — Astrologer Categories</a></li>
+    <li><a href="https://www.mapranks.com/2026/02/26/google-business-profile-optimization-ranking-signals-explained-in-2026/">MapRanks — GBP SEO & Ranking Signals 2026</a></li>
+    <li><a href="https://www.localmighty.com/blog/google-business-profile-optimization-checklist/">LocalMighty — GBP Optimization Checklist 2026</a></li>
+  </ol>
+
+  <h3>JustDial & Indian Directories</h3>
+  <ol start="8">
+    <li><a href="https://vishalkumawat.com/how-to-create-a-justdial-free-business-listing/">Vishal Kumawat — How to Create a JustDial Free Business Listing 2026</a></li>
+    <li><a href="https://techeasify.com/business-listing-sites/">Techeasify — Top 125 Business Listing Sites in India 2026</a></li>
+    <li><a href="https://centralmediaa.com/free-business-listing-websites-in-india/">Central Media — Top 100 Free Business Listing Websites India 2026</a></li>
+    <li><a href="https://www.digitaltoppers.com/top-50-free-business-listing-sites-in-india-2026/">Digital Toppers — Top 50 Free Listing Sites India 2026</a></li>
+    <li><a href="https://getswipe.in/blog/article/register-your-business-on-just-dial">GetSwipe — How to Register Business on JustDial</a></li>
+  </ol>
+
+  <h3>Local SEO & Citations</h3>
+  <ol start="13">
+    <li><a href="https://arceniktechnologies.com/blogs/local-seo-guide-small-business-india-2026">Arcenik — Local SEO Guide Small Business India 2026</a></li>
+    <li><a href="https://mayadigitaldesk.com/local-seo-for-small-businesses-in-india-how-to-dominate-google-maps-in-2026/">Maya Digital Desk — Dominate Google Maps 2026</a></li>
+    <li><a href="https://www.rankontechnologies.com/local-citations/">RankOn — Local Citations in SEO 2026</a></li>
+    <li><a href="https://whitebunnie.com/blog/top-25-free-citation-sites-every-indian-business-should-be-listed-on/">WhiteBunnie — Top 25 Free Citation Sites India</a></li>
+    <li><a href="https://citationforge.com/india-local-citation-building-service/">CitationForge — India Local Citation Building</a></li>
+  </ol>
+</div>
+
+</main>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>
