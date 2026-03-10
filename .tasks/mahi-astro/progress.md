@@ -23,8 +23,8 @@
 
 ## Task Progress
 
-### Last Completed: T1 (Project Scaffold) — 2026-03-09
-### Next Up: V1 (Verify Project Foundation) — depends on T1 (done)
+### Last Completed: V1 (Verify Project Foundation) — 2026-03-09
+### Next Up: T2 (Global Styles, Color System, Typography) — depends on V1 (done)
 
 ---
 
@@ -66,4 +66,14 @@
 - **Test results:** `npm run build` succeeds (4 pages in 1.78s). `npm run dev` starts cleanly. All 3 language routes (/en/, /hi/, /gu/) generate. Tailwind CSS compiles with all custom theme colors (gold, saffron, purple, indigo, cream, maroon). Sitemap generated.
 - **Decisions:** Followed Nilay website i18n pattern exactly (eager JSON imports, URL-based routing, getStaticPaths per locale). Used Tailwind v4 @theme directive for custom colors/fonts. Content collections with glob loaders and Zod schemas for services and blog. Site URL placeholder: believeastrology.com.
 - **Gotchas:** Content collections for services/blog show warnings (no JSON files yet — populated in T10+). React integration installed for future interactive components (booking form, language switcher). `sharp` installed for image optimization (T18/T19).
+- **Status:** DONE
+
+---
+
+### V1: Gate — Verify Project Foundation — 2026-03-09T17:23Z
+- **Files:** No files modified (verification only)
+- **What was done:** Ran all 6 verification checks against T1 output. `npm run build` succeeds (4 pages, 1.51s). All 3 language routes (/en/, /hi/, /gu/) generate correct static HTML with proper `lang` attributes and translated titles/meta. Tailwind CSS compiles with all 6 custom theme colors (gold, saffron, purple, indigo, cream, maroon). i18n functions work correctly — `getTranslations()` returns per-language content, hreflang tags present, Hindi/Gujarati in correct scripts. TypeScript compiles with zero errors. Directory structure matches spec.
+- **Test results:** All 6 checks PASS. No issues found.
+- **Decisions:** No FX/VFX tasks needed — foundation is solid.
+- **Gotchas:** Content collection warnings for empty blog/services dirs are expected (populated in T10+). Build output is 11.9KB CSS + 194KB JS (React runtime).
 - **Status:** DONE

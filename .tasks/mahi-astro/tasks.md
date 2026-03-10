@@ -272,11 +272,11 @@ After each task, update `progress.md` with:
 - [x] Tailwind CSS works (test with a utility class)
 - [x] i18n utility functions return correct translations
 - [x] Directory structure matches plan
-- [ ] Git commit: `feat(scaffold): T1 — Astro project with i18n and Tailwind`
+- [x] Git commit: `feat(scaffold): T1 — Astro project with i18n and Tailwind`
 
 ---
 
-### - [ ] V1: Gate — Verify Project Foundation
+### - [x] V1: Gate — Verify Project Foundation
 
 **Type:** Verification | **Model:** claude-sonnet-4-6 | **Depends on:** T1
 
@@ -285,13 +285,13 @@ After each task, update `progress.md` with:
 - All files created by T1
 
 **Checks:**
-- [ ] `npm run build` succeeds
-- [ ] All 3 language routes generate static HTML
-- [ ] Tailwind classes render correctly in dev
-- [ ] i18n functions work (getTranslations returns correct lang)
-- [ ] TypeScript compiles without errors
-- [ ] Directory structure matches Common Knowledge spec
-- [ ] If issues found → create FX-1 + VFX-1 in Appendix
+- [x] `npm run build` succeeds
+- [x] All 3 language routes generate static HTML
+- [x] Tailwind classes render correctly in dev
+- [x] i18n functions work (getTranslations returns correct lang)
+- [x] TypeScript compiles without errors
+- [x] Directory structure matches Common Knowledge spec
+- [x] If issues found → create FX-1 + VFX-1 in Appendix — **No issues found**
 
 ---
 
