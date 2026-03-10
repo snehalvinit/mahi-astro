@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: T17 (JustDial & GMB Optimization Guide) — 2026-03-09
-### Next Up: V5 (Verify SEO Implementation)
-### Latest Commit: `feat(seo): T17 — JustDial and GMB optimization guide`
+### Last Completed: V5 (Verify SEO — BLOCKED) — 2026-03-09
+### Next Up: FX-5a (Fix duplicate brand name in blog titles)
+### Latest Commit: `verify(seo): V5 — SEO verification, 2 issues found`
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -36,7 +36,8 @@
 | 4-Pages | T4, T5, T6, T7, T8, T9, T9b, T9c, V3 | V3 BLOCKED (9/9 tasks run, 3 fixes needed) |
 | 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | ALL DONE (4/4) |
 | 5-Content | T10–T14, V4 | ALL DONE (6/6) — V4 PASSED |
-| 6-SEO | T15–T17, V5 | T15-T17 DONE, V5 pending |
+| 6-SEO | T15–T17, V5 | T15-T17 DONE, V5 BLOCKED (2 fixes needed) |
+| 6-Fixes | FX-5a, FX-5b, VFX-5 | PENDING (0/3) |
 | 7+ | T18–T37 | NOT STARTED |
 
 ### Build Stats
@@ -50,6 +51,22 @@
 ---
 
 ## Task History
+
+### V5: Verify SEO Implementation — BLOCKED — 2026-03-09
+
+**Passed checks:**
+- Sitemap: 79 URLs (26 en + 26 hi + 26 gu + 1 root), perfect match with 82 built pages (3 x 404 excluded)
+- Hreflang: all pages have en, hi, gu + x-default with correct URLs and self-reference
+- Canonical URLs: correct per-language
+- JSON-LD: valid JSON on all pages that have it (ProfessionalService, WebSite, Person, Service, FAQPage, Article, BreadcrumbList)
+- Meta tags: title, description, og:title, og:description, og:image, og:locale present on all checked pages
+- robots.txt: correct with sitemap reference
+
+**Issues found (2):**
+1. **FX-5a — Blog title duplication:** 18 blog pages have double brand in `<title>` (e.g., "... | Believe Astrology — Believe Astrology"). Root cause: `src/pages/[lang]/blog/[slug].astro:77` appends brand to `post.seo.title` which already contains it.
+2. **FX-5b — Contact pages missing JSON-LD:** All 3 contact pages have zero JSON-LD blocks. Root cause: `src/pages/[lang]/contact.astro` doesn't pass `jsonLd` prop to BaseLayout.
+
+---
 
 ### Handover Summary — 2026-03-09T02:00Z
 
@@ -601,3 +618,41 @@
 - **Decisions:** `.well-known/` directory not created yet — only needed at deployment time for domain verification. Report is actionable guide, not code changes. NAP address left as template since exact street address needs to be finalized by the astrologer.
 - **Gotchas:** Exact street address and pin code must be finalized before creating any listings. GBP categories for astrologers may vary by country — test availability in India.
 - **Status:** DONE
+
+---
+
+### Handover Summary — 2026-03-10T04:00Z (Phase 6 SEO: T15–T17 Done, V5 Pending)
+
+**Phase 6 SEO implementation is complete (T15–T17). V5 verification is next.**
+
+| Phase | Tasks | Status |
+|-------|-------|--------|
+| 1-Research | R1, R2, R3 | DONE |
+| 2-Foundation | T1, V1 | DONE |
+| 3-Design | T2, T3, V2 | DONE |
+| 4-Pages | T4–T9c, V3, FX-3a/b/c, VFX-3 | DONE |
+| 5-Content | T10–T14, V4 | DONE |
+| 6-SEO | T15–T17 | DONE (V5 pending) |
+| **7+** | **T18–T37** | **NOT STARTED** |
+
+**What Phase 6 delivered (T15–T17):**
+- **T15:** Centralized `SEOHead.astro` component (meta, OG, Twitter Card, hreflang, canonical), 7 JSON-LD schema helpers in `src/utils/schema.ts`, reusable `Breadcrumbs.astro` with structured data, `robots.txt`
+- **T16:** `AnalyticsHead.astro` (GA4/GTM/Plausible, env-gated, production-only), per-page OG image conventions, `seo-keywords.json` with 12 services × 3 languages keyword mapping, Related Articles cross-linking on service pages
+- **T17:** Comprehensive local SEO guide (HTML report) covering GBP setup, JustDial optimization, review strategy, 15+ citation platforms, social media setup, UTM tracking
+
+**Next task: V5 — Verify SEO Implementation**
+- Check JSON-LD schema on all page types (LocalBusiness, Person, Service, Article, FAQ, Breadcrumb, WebSite)
+- Validate OG/Twitter Card meta tags across pages
+- Confirm sitemap.xml generation and robots.txt
+- Verify hreflang consistency
+- Validate analytics script gating (only in production with env vars)
+
+**Outstanding placeholders (unchanged from Phase 5):**
+- Formspree form endpoints (`placeholder` IDs)
+- Google Analytics ID → now env var `PUBLIC_GA4_ID`
+- Astrologer photo URL (still icon placeholder)
+- Google Reviews / JustDial URLs (`href="#"`)
+- Google Maps exact address
+- OG images (path conventions exist, actual 1200×630 files needed)
+- Social media profile URLs (empty strings in siteConfig)
+- Street address / pin code for all local listings
