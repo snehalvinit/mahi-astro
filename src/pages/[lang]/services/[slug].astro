@@ -99,7 +99,7 @@ const breadcrumbItems = [
   <section class="hero-dark py-16 md:py-24">
     <div class="container-wide text-center">
       <Breadcrumbs lang={currentLang} items={breadcrumbItems} variant="dark" />
-      <img src={`/images/icons/services/${serviceIconMap[service.slug] || 'kundli-reading'}.svg`} alt="" width="64" height="64" class="w-16 h-16 mx-auto mb-4" loading="eager" fetchpriority="high" />
+      <img src={`/images/icons/services/${serviceIconMap[service.slug] || 'kundli-reading'}.svg`} alt={service.title} width="64" height="64" class="w-16 h-16 mx-auto mb-4" loading="eager" fetchpriority="high" />
       <h1 class="font-heading text-4xl md:text-5xl font-bold text-gold mb-3">
         {service.title}
       </h1>
@@ -213,7 +213,7 @@ const breadcrumbItems = [
           {relatedServices.map((related) => (
             <a href={`/${currentLang}/services/${related.slug}`} class="block group">
               <div class="bg-white p-6 rounded-lg shadow-sm border border-cream-dark hover:shadow-md hover:-translate-y-1 transition-all">
-                <img src={`/images/icons/services/${serviceIconMap[related.slug] || 'kundli-reading'}.svg`} alt="" width="40" height="40" class="w-10 h-10 mb-3" loading="lazy" />
+                <img src={`/images/icons/services/${serviceIconMap[related.slug] || 'kundli-reading'}.svg`} alt={related.title} width="40" height="40" class="w-10 h-10 mb-3" loading="lazy" />
                 <h3 class="font-heading font-semibold text-indigo group-hover:text-gold transition-colors mb-2">
                   {related.title}
                 </h3>

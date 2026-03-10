@@ -82,7 +82,7 @@ const serviceIconMap: Record<string, string> = {
         {coreServices.map((service) => (
           <a href={`/${currentLang}/services/${service.slug}`} class="block group">
             <Card variant="service" class="h-full">
-              <img slot="icon" src={`/images/icons/services/${serviceIconMap[service.slug] || 'kundli-reading'}.svg`} alt="" width="40" height="40" class="w-10 h-10" loading="lazy" />
+              <img slot="icon" src={`/images/icons/services/${serviceIconMap[service.slug] || 'kundli-reading'}.svg`} alt={service.title} width="40" height="40" class="w-10 h-10" loading="lazy" />
               <h3 class="text-lg font-semibold font-heading text-indigo mb-2 group-hover:text-gold transition-colors">
                 {service.title}
               </h3>
@@ -111,7 +111,7 @@ const serviceIconMap: Record<string, string> = {
         {spiritualServices.map((service) => (
           <a href={`/${currentLang}/services/${service.slug}`} class="block group">
             <Card variant="service" class="h-full">
-              <img slot="icon" src={`/images/icons/services/${serviceIconMap[service.slug] || 'kundli-reading'}.svg`} alt="" width="40" height="40" class="w-10 h-10" loading="lazy" />
+              <img slot="icon" src={`/images/icons/services/${serviceIconMap[service.slug] || 'kundli-reading'}.svg`} alt={service.title} width="40" height="40" class="w-10 h-10" loading="lazy" />
               <h3 class="text-lg font-semibold font-heading text-indigo mb-2 group-hover:text-gold transition-colors">
                 {service.title}
               </h3>
