@@ -1190,17 +1190,17 @@ After each task, update `progress.md` with:
 
 ---
 
-### - [ ] FX-5a: Fix Duplicate Brand Name in Blog Post Titles
+### - [x] FX-5a: Fix Duplicate Brand Name in Blog Post Titles
 **Type:** Fix | **Model:** claude-opus-4-6 | **Depends on:** V5
 **Error:** All 18 blog post pages (6 per language) have double brand name in `<title>`. E.g., "Balancing Your Seven Chakras: Ancient Wisdom for Modern Life | Believe Astrology — Believe Astrology". Affects SEO (title tag should be clean) and looks unprofessional in search results.
 **Root Cause:** `src/pages/[lang]/blog/[slug].astro` line 77 passes `title={`${post.seo.title} — ${t.hero.brandName}`}` to BaseLayout. But `post.seo.title` already includes "| Believe Astrology" (set in blog JSON content files like `src/content/blog/en/*.json`). This double-appends the brand.
 **Fix:**
 1. In `src/pages/[lang]/blog/[slug].astro` line 77, change `title={`${post.seo.title} — ${t.hero.brandName}`}` to `title={post.seo.title}` since the SEO title already contains the brand suffix.
 **Validate:**
-- [ ] No blog post `<title>` contains duplicate brand name
-- [ ] All 18 blog pages still have brand name appearing once in title
-- [ ] No regressions — `npm run build` succeeds
-- [ ] Git commit: `fix(seo): FX-5a — remove duplicate brand name from blog titles`
+- [x] No blog post `<title>` contains duplicate brand name
+- [x] All 18 blog pages still have brand name appearing once in title
+- [x] No regressions — `npm run build` succeeds
+- [x] Git commit: `fix(seo): FX-5a — remove duplicate brand name from blog titles`
 
 ---
 

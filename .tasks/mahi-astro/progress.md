@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: V5 (Verify SEO — BLOCKED) — 2026-03-09
-### Next Up: FX-5a (Fix duplicate brand name in blog titles)
-### Latest Commit: `verify(seo): V5 — SEO verification, 2 issues found`
+### Last Completed: FX-5a (Fix duplicate brand name in blog titles) — 2026-03-09
+### Next Up: FX-5b (Add JSON-LD to contact pages)
+### Latest Commit: `fix(seo): FX-5a — remove duplicate brand name from blog titles`
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -37,7 +37,7 @@
 | 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | ALL DONE (4/4) |
 | 5-Content | T10–T14, V4 | ALL DONE (6/6) — V4 PASSED |
 | 6-SEO | T15–T17, V5 | T15-T17 DONE, V5 BLOCKED (2 fixes needed) |
-| 6-Fixes | FX-5a, FX-5b, VFX-5 | PENDING (0/3) |
+| 6-Fixes | FX-5a, FX-5b, VFX-5 | FX-5a DONE (1/3) |
 | 7+ | T18–T37 | NOT STARTED |
 
 ### Build Stats
@@ -65,6 +65,13 @@
 **Issues found (2):**
 1. **FX-5a — Blog title duplication:** 18 blog pages have double brand in `<title>` (e.g., "... | Believe Astrology — Believe Astrology"). Root cause: `src/pages/[lang]/blog/[slug].astro:77` appends brand to `post.seo.title` which already contains it.
 2. **FX-5b — Contact pages missing JSON-LD:** All 3 contact pages have zero JSON-LD blocks. Root cause: `src/pages/[lang]/contact.astro` doesn't pass `jsonLd` prop to BaseLayout.
+
+---
+
+### FX-5a: Fix Duplicate Brand Name in Blog Post Titles — DONE — 2026-03-09
+- **Change:** `src/pages/[lang]/blog/[slug].astro` line 77 — changed `title={`${post.seo.title} — ${t.hero.brandName}`}` to `title={post.seo.title}`
+- **Verified:** All 18 blog post titles now have brand name exactly once, no duplicates
+- **Build:** 82 pages, no errors
 
 ---
 
@@ -656,3 +663,58 @@
 - OG images (path conventions exist, actual 1200×630 files needed)
 - Social media profile URLs (empty strings in siteConfig)
 - Street address / pin code for all local listings
+
+---
+
+### V5: Verify SEO Implementation — 2026-03-09T21:03-07:00
+- **Files:** `.tasks/mahi-astro/progress.md`, `.tasks/mahi-astro/tasks.md`
+- **What was done:** Full SEO audit across all 82 pages — checked sitemap (79 URLs, 3×404 correctly excluded), hreflang consistency (en/hi/gu/x-default with self-reference), canonical URLs, JSON-LD validity (7 schema types), meta tags (title/description/OG), and robots.txt.
+- **Test results:** 6/8 checks PASSED, 2 issues found. Sitemap: PASS. Hreflang: PASS. Canonical: PASS. JSON-LD: PASS (on pages that have it). Meta tags: PASS. robots.txt: PASS. Blog titles: FAIL (FX-5a). Contact JSON-LD: FAIL (FX-5b).
+- **Decisions:** Created FX-5a (blog title duplication fix) and FX-5b (contact page JSON-LD) as targeted fixes, plus VFX-5 re-verification gate.
+- **Gotchas:** FX-5a root cause is `src/pages/[lang]/blog/[slug].astro:77` — appends brand to `post.seo.title` which already contains it. FX-5b root cause is `src/pages/[lang]/contact.astro` missing `jsonLd` prop to BaseLayout.
+- **Status:** BLOCKED on FX-5a, FX-5b
+
+---
+
+### Handover Summary — 2026-03-10T04:03Z (Full Project State)
+
+**Phases 1–6 complete (minus 2 SEO fixes). Phase 7 (Images) is next after FX-5a/b.**
+
+| Phase | Tasks | Status |
+|-------|-------|--------|
+| 1-Research | R1, R2, R3 | DONE |
+| 2-Foundation | T1, V1 | DONE |
+| 3-Design | T2, T3, V2 | DONE |
+| 4-Pages | T4–T9c, V3, FX-3a/b/c, VFX-3 | DONE |
+| 5-Content | T10–T14, V4 | DONE |
+| 6-SEO | T15–T17 DONE, V5 BLOCKED | FX-5a, FX-5b, VFX-5 pending |
+| 7-Images | T18, T19, V6 | NOT STARTED |
+| 8-Testing | T20, V7 | NOT STARTED |
+| 9-Deploy | T21, T22, V8 | NOT STARTED |
+| 10-CMS | T23, V9 | NOT STARTED |
+
+**Build:** 82 pages, ~3.11s, zero errors/warnings.
+
+**Immediate next steps (in order):**
+1. **FX-5a** — Fix blog title duplication: remove brand append in `[slug].astro:77` since `post.seo.title` already includes it
+2. **FX-5b** — Add JSON-LD to contact pages: pass `jsonLd` prop with LocalBusiness + ContactPage schema to BaseLayout
+3. **VFX-5** — Re-verify the 2 fixes
+4. **T18** — Source and place hero images, icons, decorative elements
+
+**Architecture summary:**
+- **Framework:** Astro 5.x, Tailwind v4, static site generation
+- **i18n:** URL-based routing (`/en/`, `/hi/`, `/gu/`), JSON translation files (432 keys each), content collections per language
+- **Pages:** 82 total (26 per lang + 1 root redirect + 3×404)
+- **Components:** 19 (6 layout, 6 sections, 5 UI, 1 SEO, 1 Analytics)
+- **Content:** 36 service JSONs + 18 blog JSONs + 3 i18n JSONs
+- **SEO:** SEOHead component, 7 JSON-LD schema helpers, Breadcrumbs with structured data, sitemap (79 URLs), robots.txt
+
+**Outstanding placeholders:**
+- Formspree endpoints (contact + subscribe) — `placeholder` IDs
+- Analytics env vars (`PUBLIC_GA4_ID`, `PUBLIC_GTM_ID`, `PUBLIC_PLAUSIBLE_DOMAIN`)
+- Astrologer photo — using icon placeholder
+- OG images — path conventions exist, actual 1200×630 files needed
+- Google Reviews / JustDial URLs — `href="#"`
+- Google Maps — city-level embed, needs exact address
+- Social media profile URLs — empty strings in siteConfig
+- Street address / pin code for local listings
