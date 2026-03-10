@@ -1,0 +1,33 @@
+---
+export interface Props {
+  variant?: 'gold' | 'saffron' | 'purple' | 'outline';
+  size?: 'sm' | 'md';
+  class?: string;
+}
+
+const {
+  variant = 'gold',
+  size = 'md',
+  class: className = '',
+} = Astro.props;
+
+const baseClasses = 'inline-flex items-center gap-1.5 font-semibold rounded-full';
+
+const sizeClasses: Record<string, string> = {
+  sm: 'px-3 py-1 text-xs',
+  md: 'px-4 py-1.5 text-sm',
+};
+
+const variantClasses: Record<string, string> = {
+  gold: 'bg-gold/15 text-gold-dark',
+  saffron: 'bg-saffron/15 text-saffron-dark',
+  purple: 'bg-purple/15 text-purple-dark',
+  outline: 'border border-gold text-gold-dark',
+};
+
+const classes = [baseClasses, sizeClasses[size], variantClasses[variant], className].join(' ');
+---
+
+<span class={classes}>
+  <slot />
+</span>

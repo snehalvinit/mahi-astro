@@ -297,7 +297,7 @@ After each task, update `progress.md` with:
 
 ## PHASE 3 — Design System
 
-### - [ ] T2: Create Global Styles, Color System, Typography, Layouts
+### - [x] T2: Create Global Styles, Color System, Typography, Layouts
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** V1
 
@@ -322,10 +322,10 @@ After each task, update `progress.md` with:
 7. Create `src/components/ui/Badge.astro` — for trust indicators (years, clients, etc.)
 
 **Validate:**
-- [ ] Color palette renders correctly in both light and dark contexts
-- [ ] Hindi and Gujarati text renders correctly with proper fonts
-- [ ] All UI components are responsive (mobile, tablet, desktop)
-- [ ] Button, Card, Badge components work with passed props
+- [x] Color palette renders correctly in both light and dark contexts
+- [x] Hindi and Gujarati text renders correctly with proper fonts
+- [x] All UI components are responsive (mobile, tablet, desktop)
+- [x] Button, Card, Badge components work with passed props
 - [ ] Git commit: `feat(design): T2 — global styles, color system, typography`
 
 ---

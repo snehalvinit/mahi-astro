@@ -23,8 +23,8 @@
 
 ## Task Progress
 
-### Last Completed: V1 (Verify Project Foundation) — 2026-03-09
-### Next Up: T2 (Global Styles, Color System, Typography) — depends on V1 (done)
+### Last Completed: T2 (Global Styles, Color System, Typography) — 2026-03-09
+### Next Up: T3 (Header, Footer, Navigation, Language Switcher) — depends on T2 (done)
 
 ---
 
@@ -76,4 +76,14 @@
 - **Test results:** All 6 checks PASS. No issues found.
 - **Decisions:** No FX/VFX tasks needed — foundation is solid.
 - **Gotchas:** Content collection warnings for empty blog/services dirs are expected (populated in T10+). Build output is 11.9KB CSS + 194KB JS (React runtime).
+- **Status:** DONE
+
+---
+
+### T2: Global Styles, Color System, Typography, Layouts — 2026-03-09T17:27Z
+- **Files:** `src/styles/global.css`, `src/layouts/BaseLayout.astro`, `src/components/ui/Button.astro`, `src/components/ui/Card.astro`, `src/components/ui/SectionHeading.astro`, `src/components/ui/Badge.astro`, `src/pages/[lang]/index.astro`
+- **What was done:** Enhanced global.css with full design system: extended color palette (added saffron-light/dark, indigo-dark, cream-dark, maroon-light), CSS custom properties for spacing/radius/shadows, base typography with responsive heading sizes, dark hero section styles (`.hero-dark`), multilingual font switching (html[lang='hi']/[lang='gu'] selectors for Devanagari/Gujarati fonts), decorative mandala accent gradients, container utilities, focus/selection styles. Updated BaseLayout to use CSS base styles instead of inline Tailwind classes. Created 4 UI components: Button (primary/secondary/outline variants, sm/md/lg sizes, a/button tag switching), Card (service/testimonial/blog variants with icon/image slots), SectionHeading (title + subtitle + mandala accent, left/center alignment, dark mode), Badge (gold/saffron/purple/outline variants). Updated homepage to use all new components for validation.
+- **Test results:** `npm run build` succeeds (4 pages, 1.46s). All 3 languages render correctly with proper fonts and translated content. All component classes compile into CSS output.
+- **Decisions:** Used CSS-level font switching via `html[lang]` selectors rather than per-component logic — simpler, automatic. Shadow/radius values use CSS custom properties in @theme for Tailwind integration. Card component uses named slots (icon, image) for flexible content injection. Button component auto-switches between `<a>` and `<button>` based on `href` prop.
+- **Gotchas:** Body base styles (font, color, bg) now in CSS rather than Tailwind classes — cleaner for multilingual font switching. The `hero-dark` class automatically recolors headings to gold and text to cream. T3 should use these components for header/footer/nav.
 - **Status:** DONE

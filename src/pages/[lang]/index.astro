@@ -1,5 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import Badge from '../../components/ui/Badge.astro';
 import { supportedLanguages, isValidLanguage, getTranslations } from '../../utils/i18n';
 import type { SupportedLanguage } from '../../utils/i18n';
 import { siteConfig } from '../../data/site-config';
@@ -20,9 +24,13 @@ const t = getTranslations(currentLang);
 ---
 
 <BaseLayout lang={currentLang}>
-  <section class="min-h-screen flex items-center justify-center bg-indigo text-cream">
+  <!-- Hero Section (dark) -->
+  <section class="hero-dark min-h-screen flex items-center justify-center">
     <div class="text-center max-w-3xl mx-auto px-6 py-20">
-      <h1 class="font-heading text-5xl md:text-6xl font-bold text-gold mb-6">
+      <Badge variant="gold" size="md" class="mb-6">
+        {siteConfig.astrologer.experience}
+      </Badge>
+      <h1 class="font-heading text-5xl md:text-6xl font-bold mb-6">
         {t.hero.brandName}
       </h1>
       <p class="text-xl md:text-2xl text-gold-light mb-4">
@@ -32,32 +40,48 @@ const t = getTranslations(currentLang);
         "{t.hero.tagline}"
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
+        <Button
+          variant="primary"
+          size="lg"
           href={siteConfig.contact.whatsapp}
           target="_blank"
           rel="noopener noreferrer"
-          class="bg-gold hover:bg-gold-dark text-indigo font-semibold px-8 py-3 rounded-lg transition-colors"
         >
           {t.hero.cta}
-        </a>
-        <a
+        </Button>
+        <Button
+          variant="outline"
+          size="lg"
           href={`/${currentLang}/services`}
-          class="border-2 border-gold text-gold hover:bg-gold/10 font-semibold px-8 py-3 rounded-lg transition-colors"
         >
           {t.hero.ctaSecondary}
-        </a>
+        </Button>
       </div>
     </div>
   </section>
 
-  <section class="py-16 px-6 bg-cream">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="font-heading text-3xl font-bold text-indigo mb-4">
-        {t.services.title}
-      </h2>
-      <p class="text-purple text-lg">
-        {t.services.subtitle}
-      </p>
+  <!-- Services Preview Section -->
+  <section class="py-(--spacing-section) px-6 bg-cream">
+    <div class="container-wide">
+      <SectionHeading
+        title={t.services.title}
+        subtitle={t.services.subtitle}
+        align="center"
+      />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <Card variant="service">
+          <h3 class="font-heading text-xl font-bold text-indigo mb-2">{t.hero.brandName}</h3>
+          <p class="text-purple/80">{t.services.subtitle}</p>
+        </Card>
+        <Card variant="service">
+          <h3 class="font-heading text-xl font-bold text-indigo mb-2">{t.hero.brandName}</h3>
+          <p class="text-purple/80">{t.services.subtitle}</p>
+        </Card>
+        <Card variant="service">
+          <h3 class="font-heading text-xl font-bold text-indigo mb-2">{t.hero.brandName}</h3>
+          <p class="text-purple/80">{t.services.subtitle}</p>
+        </Card>
+      </div>
     </div>
   </section>
 </BaseLayout>

@@ -6,17 +6,164 @@
   --color-gold-light: #E0C96E;
   --color-gold-dark: #A88A30;
   --color-saffron: #FF9933;
+  --color-saffron-light: #FFB366;
+  --color-saffron-dark: #E67A00;
   --color-purple: #6F4278;
   --color-purple-light: #9B6BA6;
   --color-purple-dark: #4E2D55;
   --color-indigo: #2E2B59;
   --color-indigo-light: #3E3B6E;
+  --color-indigo-dark: #1E1B3D;
   --color-cream: #FFFDF0;
+  --color-cream-dark: #F5F0D8;
   --color-maroon: #72001B;
+  --color-maroon-light: #9A1030;
 
   /* Fonts */
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
   --font-devanagari: 'Noto Sans Devanagari', sans-serif;
   --font-gujarati: 'Noto Sans Gujarati', sans-serif;
+
+  /* Spacing scale */
+  --spacing-section: 5rem;
+  --spacing-section-sm: 3rem;
+
+  /* Border radius */
+  --radius-card: 0.75rem;
+  --radius-button: 0.5rem;
+
+  /* Shadows */
+  --shadow-card: 0 4px 20px rgba(46, 43, 89, 0.08);
+  --shadow-card-hover: 0 8px 30px rgba(46, 43, 89, 0.14);
+  --shadow-button: 0 2px 8px rgba(201, 168, 76, 0.3);
+}
+
+/* ─── Base Styles ─── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-indigo);
+  background-color: var(--color-cream);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Multilingual Font Support ─── */
+
+html[lang='hi'] body {
+  font-family: var(--font-devanagari);
+}
+
+html[lang='gu'] body {
+  font-family: var(--font-gujarati);
+}
+
+html[lang='hi'] .font-heading {
+  font-family: var(--font-devanagari);
+  font-weight: 700;
+}
+
+html[lang='gu'] .font-heading {
+  font-family: var(--font-gujarati);
+  font-weight: 700;
+}
+
+/* ─── Typography ─── */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  color: var(--color-indigo);
+}
+
+h1 { font-size: 3rem; font-weight: 700; }
+h2 { font-size: 2.25rem; font-weight: 600; }
+h3 { font-size: 1.5rem; font-weight: 600; }
+h4 { font-size: 1.25rem; font-weight: 600; }
+
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.25rem; }
+}
+
+/* ─── Dark Hero Section ─── */
+
+.hero-dark {
+  background-color: var(--color-indigo);
+  color: var(--color-cream);
+}
+
+.hero-dark h1,
+.hero-dark h2,
+.hero-dark h3 {
+  color: var(--color-gold);
+}
+
+.hero-dark p {
+  color: var(--color-cream);
+}
+
+/* ─── Decorative Mandala Accent ─── */
+
+.mandala-accent {
+  display: inline-block;
+  width: 3rem;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-saffron));
+  border-radius: 2px;
+  margin-top: 0.75rem;
+}
+
+.mandala-accent-center {
+  display: block;
+  width: 4rem;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-saffron), var(--color-gold));
+  border-radius: 2px;
+  margin: 0.75rem auto 0;
+}
+
+/* ─── Smooth Transitions ─── */
+
+a, button {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ─── Selection Color ─── */
+
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-indigo);
+}
+
+/* ─── Focus Visible ─── */
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* ─── Container ─── */
+
+.container-narrow {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.container-wide {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
