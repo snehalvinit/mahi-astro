@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/layout/SiteHeader.astro';
+import MenuOverlay from '../../components/layout/MenuOverlay.astro';
+import SiteFooter from '../../components/layout/SiteFooter.astro';
+import WhatsAppButton from '../../components/layout/WhatsAppButton.astro';
+import BottomBar from '../../components/layout/BottomBar.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import { supportedLanguages, isValidLanguage, getTranslations } from '../../utils/i18n';
+import type { SupportedLanguage } from '../../utils/i18n';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params;
+if (!isValidLanguage(lang as string)) {
+  return Astro.redirect('/en/privacy-policy');
+}
+
+const currentLang = lang as SupportedLanguage;
+const t = getTranslations(currentLang);
+const pp = t.privacyPolicy;
+---
+
+<BaseLayout lang={currentLang} title={pp.title}>
+  <SiteHeader lang={currentLang} slot="header" />
+  <MenuOverlay lang={currentLang} slot="header" />
+
+  <!-- Hero Banner -->
+  <section class="hero-dark py-16 md:py-20">
+    <div class="container-wide text-center">
+      <nav class="text-cream/50 text-sm mb-6" aria-label="Breadcrumb">
+        <a href={`/${currentLang}/`} class="hover:text-gold transition-colors">{t.header.home}</a>
+        <span class="mx-2">/</span>
+        <span class="text-gold">{pp.title}</span>
+      </nav>
+      <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-gold mb-4">
+        {pp.title}
+      </h1>
+      <p class="text-cream/70 text-lg max-w-2xl mx-auto">{pp.subtitle}</p>
+      <p class="text-cream/50 text-sm mt-4">{pp.lastUpdated}</p>
+    </div>
+  </section>
+
+  <!-- Privacy Policy Content -->
+  <section class="py-12 md:py-16">
+    <div class="container-wide max-w-3xl mx-auto">
+
+      <!-- Introduction -->
+      <div class="mb-10">
+        <h2 class="font-heading text-xl md:text-2xl font-bold text-indigo mb-4">{pp.introTitle}</h2>
+        <p class="text-gray-700 leading-relaxed">{pp.intro}</p>
+      </div>
+
+      <!-- Data Collected -->
+      <div class="mb-10">
+        <h2 class="font-heading text-xl md:text-2xl font-bold text-indigo mb-4">{pp.dataCollectedTitle}</h2>
+        <ul class="space-y-3">
+          {pp.dataCollectedItems.map((item: string) => (
+            <li class="flex items-start gap-3 text-gray-700">
+              <span class="text-gold mt-1 flex-shrink-0">&#x2022;</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Purpose -->
+      <div class="mb-10">
+        <h2 class="font-heading text-xl md:text-2xl font-bold text-indigo mb-4">{pp.purposeTitle}</h2>
+        <ul class="space-y-3">
+          {pp.purposeItems.map((item: string) => (
+            <li class="flex items-start gap-3 text-gray-700">
+              <span class="text-gold mt-1 flex-shrink-0">&#x2022;</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Cookies -->
+      <div class="mb-10">
+        <h2 class="font-heading text-xl md:text-2xl font-bold text-indigo mb-4">{pp.cookiesTitle}</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">{pp.cookiesIntro}</p>
+        <ul class="space-y-3 mb-4">
+          {pp.cookiesItems.map((item: string) => (
+            <li class="flex items-start gap-3 text-gray-700">
+              <span class="text-gold mt-1 flex-shrink-0">&#x2022;</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="text-gray-600 text-sm italic">{pp.cookiesNote}</p>
+      </div>
+
+      <!-- DPDP Rights -->
+      <div class="mb-10 bg-cream/50 border border-gold/20 rounded-xl p-6 md:p-8">
+        <h2 class="font-heading text-xl md:text-2xl font-bold text-indigo mb-4">{pp.rightsTitle}</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">{pp.rightsIntro}</p>
+        <ul class="space-y-3">
+          {pp.rightsItems.map((item: string) => (
+            <li class="flex items-start gap-3 text-gray-700">
+              <span class="text-saffron mt-1 flex-shrink-0">&#x2713;</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Data Retention -->
+      <div class="mb-10">
+        <h2 class="font-heading text-xl md:text-2xl font-bold text-indigo mb-4">{pp.dataRetentionTitle}</h2>
+        <p class="text-gray-700 leading-relaxed">{pp.dataRetention}</p>
+      </div>
+
+      <!-- Third-Party Services -->
+      <div class="mb-10">
+        <h2 class="font-heading text-xl md:text-2xl font-bold text-indigo mb-4">{pp.thirdPartyTitle}</h2>
+        <ul class="space-y-3">
+          {pp.thirdPartyItems.map((item: string) => (
+            <li class="flex items-start gap-3 text-gray-700">
+              <span class="text-gold mt-1 flex-shrink-0">&#x2022;</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Children's Data -->
+      <div class="mb-10">
+        <h2 class="font-heading text-xl md:text-2xl font-bold text-indigo mb-4">{pp.childrenTitle}</h2>
+        <p class="text-gray-700 leading-relaxed">{pp.children}</p>
+      </div>
+
+      <!-- Contact for Data Requests -->
+      <div class="mb-10 bg-indigo/5 border border-indigo/10 rounded-xl p-6 md:p-8">
+        <h2 class="font-heading text-xl md:text-2xl font-bold text-indigo mb-4">{pp.contactTitle}</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">{pp.contactIntro}</p>
+        <div class="space-y-2 text-gray-700">
+          <p><strong>{pp.contactName}</strong></p>
+          <p>
+            <a href={`mailto:${pp.contactEmail}`} class="text-saffron hover:text-saffron-dark transition-colors">
+              {pp.contactEmail}
+            </a>
+          </p>
+          <p>
+            <a href={`tel:${pp.contactPhone.replace(/\s/g, '')}`} class="text-saffron hover:text-saffron-dark transition-colors">
+              {pp.contactPhone}
+            </a>
+          </p>
+        </div>
+        <p class="text-gray-600 text-sm mt-4 italic">{pp.contactResponse}</p>
+      </div>
+
+      <!-- Changes to Policy -->
+      <div class="mb-10">
+        <h2 class="font-heading text-xl md:text-2xl font-bold text-indigo mb-4">{pp.changesTitle}</h2>
+        <p class="text-gray-700 leading-relaxed">{pp.changes}</p>
+      </div>
+
+    </div>
+  </section>
+
+  <SiteFooter lang={currentLang} slot="footer" />
+  <WhatsAppButton lang={currentLang} />
+  <BottomBar lang={currentLang} />
+</BaseLayout>

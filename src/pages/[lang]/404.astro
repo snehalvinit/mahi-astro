@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/layout/SiteHeader.astro';
+import MenuOverlay from '../../components/layout/MenuOverlay.astro';
+import SiteFooter from '../../components/layout/SiteFooter.astro';
+import WhatsAppButton from '../../components/layout/WhatsAppButton.astro';
+import BottomBar from '../../components/layout/BottomBar.astro';
+import Button from '../../components/ui/Button.astro';
+import { supportedLanguages, isValidLanguage, getTranslations } from '../../utils/i18n';
+import type { SupportedLanguage } from '../../utils/i18n';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params;
+if (!isValidLanguage(lang as string)) {
+  return Astro.redirect('/en/404');
+}
+
+const currentLang = lang as SupportedLanguage;
+const t = getTranslations(currentLang);
+const nf = t.notFound;
+
+const popularPages = [
+  { label: t.header.home, href: `/${currentLang}/` },
+  { label: t.header.services, href: `/${currentLang}/services` },
+  { label: t.header.about, href: `/${currentLang}/about` },
+  { label: t.header.blog, href: `/${currentLang}/blog` },
+  { label: t.header.contact, href: `/${currentLang}/contact` },
+];
+---
+
+<BaseLayout lang={currentLang} title={nf.subtitle}>
+  <SiteHeader lang={currentLang} slot="header" />
+  <MenuOverlay lang={currentLang} slot="header" />
+
+  <!-- Hero / 404 Section -->
+  <section class="hero-dark min-h-[70vh] flex items-center justify-center relative overflow-hidden">
+    <!-- Celestial background with stars -->
+    <div class="absolute inset-0 bg-gradient-to-b from-indigo via-indigo-dark to-purple opacity-95"></div>
+    <div class="absolute inset-0" style="background-image: radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.3) 0%, transparent 100%), radial-gradient(2px 2px at 40% 70%, rgba(255,255,255,0.2) 0%, transparent 100%), radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,0.4) 0%, transparent 100%), radial-gradient(1px 1px at 80% 50%, rgba(255,255,255,0.3) 0%, transparent 100%), radial-gradient(2px 2px at 10% 80%, rgba(255,255,255,0.2) 0%, transparent 100%), radial-gradient(1px 1px at 70% 90%, rgba(255,255,255,0.3) 0%, transparent 100%), radial-gradient(2px 2px at 50% 50%, rgba(255,255,255,0.15) 0%, transparent 100%);"></div>
+
+    <div class="container-wide relative z-10 text-center py-20">
+      <!-- Large 404 number -->
+      <p class="text-8xl md:text-9xl font-heading font-bold text-gold/30 mb-4 select-none" aria-hidden="true">404</p>
+
+      <!-- Cosmic icon -->
+      <div class="text-5xl mb-6" aria-hidden="true">&#x2728;</div>
+
+      <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-gold mb-4">
+        {nf.title}
+      </h1>
+
+      <p class="text-cream/70 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+        {nf.message}
+      </p>
+
+      <!-- Action buttons -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <Button href={`/${currentLang}/`} variant="primary" size="lg">
+          {nf.backHome}
+        </Button>
+        <Button href={`/${currentLang}/services`} variant="outline" size="lg">
+          {nf.explore}
+        </Button>
+        <Button href={`/${currentLang}/contact`} variant="secondary" size="lg">
+          {nf.contact}
+        </Button>
+      </div>
+
+      <!-- Popular pages -->
+      <div class="max-w-lg mx-auto">
+        <p class="text-cream/50 text-sm mb-4">{nf.searchHint}</p>
+        <div class="flex flex-wrap justify-center gap-3">
+          {popularPages.map((page) => (
+            <a
+              href={page.href}
+              class="text-sm text-cream/70 hover:text-gold border border-cream/20 hover:border-gold/50 rounded-full px-4 py-1.5 transition-colors"
+            >
+              {page.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <SiteFooter lang={currentLang} slot="footer" />
+  <WhatsAppButton lang={currentLang} />
+  <BottomBar lang={currentLang} />
+</BaseLayout>

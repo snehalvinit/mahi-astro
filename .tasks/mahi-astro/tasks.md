@@ -608,11 +608,11 @@ After each task, update `progress.md` with:
 - [x] Subscription form captures email
 - [x] WhatsApp subscribe link works
 - [x] SubscribeSection reusable on homepage
-- [ ] Git commit: `feat(pages): T9b — events/updates page with subscription`
+- [x] Git commit: `feat(pages): T9b — events/updates page with subscription`
 
 ---
 
-### - [ ] T9c: Build 404 Page and Privacy Policy Page (DPDP Act Compliant)
+### - [x] T9c: Build 404 Page and Privacy Policy Page (DPDP Act Compliant)
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** V2
 
@@ -643,11 +643,11 @@ After each task, update `progress.md` with:
 4. Add privacy policy link to footer on all pages
 
 **Validate:**
-- [ ] 404 page renders in all 3 languages with correct links
-- [ ] Privacy policy is comprehensive and DPDP-compliant
-- [ ] Cookie consent banner appears on first visit
-- [ ] Analytics only load after consent
-- [ ] Git commit: `feat(pages): T9c — 404 page, privacy policy, cookie consent`
+- [x] 404 page renders in all 3 languages with correct links
+- [x] Privacy policy is comprehensive and DPDP-compliant
+- [x] Cookie consent banner appears on first visit
+- [x] Analytics only load after consent
+- [x] Git commit: `feat(pages): T9c — 404 page, privacy policy, cookie consent`
 
 ---
 

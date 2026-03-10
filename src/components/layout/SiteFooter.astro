@@ -127,7 +127,11 @@ const serviceLinks = [
     <!-- Bottom Bar -->
     <div class="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 text-sm text-cream/50">
       <p>{t.footer.copyright}</p>
-      <p>{t.footer.madeWith}</p>
+      <div class="flex items-center gap-4">
+        <a href={`/${lang}/privacy-policy`} class="hover:text-gold transition-colors">{t.footer.privacy}</a>
+        <span aria-hidden="true">|</span>
+        <p>{t.footer.madeWith}</p>
+      </div>
     </div>
   </div>
 </footer>

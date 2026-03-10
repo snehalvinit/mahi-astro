@@ -360,8 +360,73 @@
     "ctaSubtitle": "Book a one-on-one consultation with Pandit Shree Mahadev Joshi"
   },
   "notFound": {
-    "title": "Page Not Found",
-    "message": "The page you are looking for does not exist.",
-    "backHome": "Go Back Home"
+    "title": "Lost in the Stars?",
+    "subtitle": "Page Not Found",
+    "message": "The cosmic page you are seeking has drifted beyond the celestial horizon. Perhaps the stars can guide you back.",
+    "backHome": "Return Home",
+    "explore": "Explore Services",
+    "contact": "Contact Us",
+    "searchHint": "Try one of these popular pages:"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "subtitle": "Your privacy matters to us — here is how we protect your personal data",
+    "lastUpdated": "Last updated: March 2026",
+    "introTitle": "Introduction",
+    "intro": "Believe Astrology (\"we\", \"us\", or \"our\") is committed to protecting your personal data. This Privacy Policy explains what data we collect, how we use it, and your rights under applicable laws including India's Digital Personal Data Protection Act (DPDP), 2023.",
+    "dataCollectedTitle": "What Personal Data We Collect",
+    "dataCollectedItems": [
+      "Name, email address, and phone number — submitted through our contact and subscription forms",
+      "Service preferences and consultation queries — submitted through our booking forms",
+      "Usage data — pages visited, time spent, browser type — collected via analytics cookies (only with your consent)",
+      "IP address and approximate location — collected via analytics for service improvement"
+    ],
+    "purposeTitle": "Purpose of Data Processing",
+    "purposeItems": [
+      "To respond to your consultation inquiries and provide astrology services",
+      "To send event updates and daily predictions (only if you subscribe)",
+      "To improve our website and services through anonymized analytics",
+      "To comply with legal obligations"
+    ],
+    "cookiesTitle": "Cookies & Tracking",
+    "cookiesIntro": "We use cookies to enhance your browsing experience. Types of cookies used:",
+    "cookiesItems": [
+      "Essential cookies — required for the website to function (cookie consent preference)",
+      "Analytics cookies — help us understand how visitors use our site (Google Analytics) — only loaded after your consent"
+    ],
+    "cookiesNote": "You can manage your cookie preferences at any time. No analytics cookies are placed until you explicitly consent.",
+    "rightsTitle": "Your Rights (DPDP Act 2023)",
+    "rightsIntro": "As a data principal under the DPDP Act, you have the right to:",
+    "rightsItems": [
+      "Access — Request a summary of your personal data we hold",
+      "Correction — Request correction of inaccurate or incomplete data",
+      "Erasure — Request deletion of your personal data",
+      "Grievance Redressal — File a complaint regarding data processing",
+      "Nomination — Nominate another person to exercise your rights"
+    ],
+    "dataRetentionTitle": "Data Retention",
+    "dataRetention": "We retain your personal data only as long as necessary to fulfil the purposes described above, or as required by law. Form submissions are retained for up to 12 months, after which they are securely deleted.",
+    "thirdPartyTitle": "Third-Party Services",
+    "thirdPartyItems": [
+      "Formspree — processes contact and subscription form submissions",
+      "Google Analytics — website usage analytics (with consent only)",
+      "WhatsApp (Meta) — communication channel for consultations"
+    ],
+    "childrenTitle": "Children's Data",
+    "children": "Our services are not directed at children under 18. We do not knowingly collect personal data from minors. If you believe we have collected data from a child, please contact us immediately.",
+    "contactTitle": "Contact for Data Requests",
+    "contactIntro": "For any privacy-related requests, complaints, or to exercise your data rights, contact our designated person:",
+    "contactName": "Pandit Shree Mahadev Joshi",
+    "contactEmail": "mahadevjoshi91@gmail.com",
+    "contactPhone": "+91 8154992727",
+    "contactResponse": "We will respond to your request within 30 days as required under the DPDP Act.",
+    "changesTitle": "Changes to This Policy",
+    "changes": "We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated date. We encourage you to review this policy periodically."
+  },
+  "cookieConsent": {
+    "message": "We use cookies to improve your experience. Analytics cookies are only placed with your consent.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "privacyLink": "Privacy Policy"
   }
 }

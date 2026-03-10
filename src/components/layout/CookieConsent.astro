@@ -1,0 +1,116 @@
+---
+import type { SupportedLanguage } from '../../utils/i18n';
+import { getTranslations } from '../../utils/i18n';
+
+export interface Props {
+  lang: SupportedLanguage;
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang);
+const cc = t.cookieConsent;
+---
+
+<div
+  id="cookie-consent"
+  class="fixed bottom-0 left-0 right-0 z-[60] translate-y-full transition-transform duration-300"
+  role="dialog"
+  aria-label="Cookie consent"
+  data-lang={lang}
+>
+  <div class="bg-indigo border-t border-gold/20 shadow-lg px-4 py-4 md:py-3">
+    <div class="container-wide flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-cream/80 text-sm text-center md:text-left">
+        {cc.message}
+        {' '}
+        <a href={`/${lang}/privacy-policy`} class="text-gold hover:text-gold-light underline transition-colors">
+          {cc.privacyLink}
+        </a>
+      </p>
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <button
+          id="cookie-decline"
+          class="px-4 py-2 text-sm text-cream/70 hover:text-cream border border-cream/20 hover:border-cream/40 rounded-lg transition-colors cursor-pointer"
+        >
+          {cc.decline}
+        </button>
+        <button
+          id="cookie-accept"
+          class="px-4 py-2 text-sm font-medium text-indigo bg-gold hover:bg-gold-light rounded-lg transition-colors cursor-pointer"
+        >
+          {cc.accept}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const banner = document.getElementById('cookie-consent');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const declineBtn = document.getElementById('cookie-decline');
+
+  function getConsentKey() {
+    return 'ba-cookie-consent';
+  }
+
+  function showBanner() {
+    if (banner) {
+      banner.classList.remove('translate-y-full');
+      banner.classList.add('translate-y-0');
+    }
+  }
+
+  function hideBanner() {
+    if (banner) {
+      banner.classList.remove('translate-y-0');
+      banner.classList.add('translate-y-full');
+    }
+  }
+
+  function setConsent(value: 'accepted' | 'declined') {
+    localStorage.setItem(getConsentKey(), value);
+    hideBanner();
+
+    if (value === 'accepted') {
+      loadAnalytics();
+    }
+  }
+
+  function loadAnalytics() {
+    // Google Analytics placeholder — replace GA_MEASUREMENT_ID when ready
+    // Only loads if consent was given
+    if (document.querySelector('script[data-ga]')) return;
+
+    const gaId = 'GA_MEASUREMENT_ID';
+    if (gaId === 'GA_MEASUREMENT_ID') return; // Skip if placeholder
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+    script.setAttribute('data-ga', 'true');
+    document.head.appendChild(script);
+
+    script.onload = () => {
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      function gtag(...args: any[]) {
+        (window as any).dataLayer.push(args);
+      }
+      gtag('js', new Date());
+      gtag('config', gaId);
+    };
+  }
+
+  // Check existing consent
+  const existingConsent = localStorage.getItem(getConsentKey());
+
+  if (!existingConsent) {
+    // Show banner after short delay for better UX
+    setTimeout(showBanner, 1000);
+  } else if (existingConsent === 'accepted') {
+    loadAnalytics();
+  }
+
+  acceptBtn?.addEventListener('click', () => setConsent('accepted'));
+  declineBtn?.addEventListener('click', () => setConsent('declined'));
+</script>

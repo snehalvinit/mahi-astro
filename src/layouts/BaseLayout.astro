@@ -2,6 +2,7 @@
 import type { SupportedLanguage } from '../utils/i18n';
 import { getTranslations, getAlternateLanguages } from '../utils/i18n';
 import { siteConfig } from '../data/site-config';
+import CookieConsent from '../components/layout/CookieConsent.astro';
 import '../styles/global.css';
 
 export interface Props {
@@ -63,5 +64,6 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     </main>
 
     <slot name="footer" />
+    <CookieConsent lang={lang} />
   </body>
 </html>
