@@ -23,8 +23,8 @@
 
 ## Task Progress
 
-### Last Completed: T7 (Blog System) — 2026-03-09
-### Next Up: T8 (Contact Page)
+### Last Completed: T8 (Contact Page) — 2026-03-09
+### Next Up: T9 (Testimonials Page)
 
 ---
 
@@ -146,4 +146,14 @@
 - **Test results:** `npm run build` succeeds (55 pages, 2.05s). 2 blog posts × 3 languages = 6 post pages + 3 listing pages = 9 new pages. All languages render with correct translated titles. Category filter, social sharing links, and WhatsApp deep links verified in build output.
 - **Decisions:** Used JS-based client-side category filter instead of generating separate pages per category — simpler with only 2 posts. Blog content stored as HTML strings in JSON (not markdown files) to match the existing service content pattern. Prose styling uses Tailwind arbitrary variant selectors (`[&_h2]:...`) for zero-dependency content formatting. Social sharing uses direct URL-based sharing (no JS SDK dependencies).
 - **Gotchas:** Blog posts are English-only — hi/gu fall back to English content. When translated blog content is added, blog utility may need updating similar to services utility. Hero images are empty strings (placeholder gradients shown) — real images in T18/T19. Related posts section only shows posts in same category; with only 2 posts in different categories, it will be empty for each. Pagination not needed yet (only 2 posts) — can be added when content grows.
+- **Status:** DONE
+
+---
+
+### T8: Build Contact Page with Form, Map, WhatsApp Integration — 2026-03-09
+- **Files:** `src/pages/[lang]/contact.astro`, `src/components/sections/ContactForm.astro`, `src/content/i18n/{en,hi,gu}.json`
+- **What was done:** Created full contact page with 5 sections: hero banner (dark celestial gradient), direct contact cards (email/phone/WhatsApp as clickable cards), contact form (name/email/phone/service dropdown/message with Formspree integration and client-side JS submit handler), location & office hours (hours + address + Google Maps embed for Ahmedabad), and CTA section. Created reusable ContactForm.astro component with styled inputs, select dropdown with custom arrow, success/error status messages, and async form submission. Added full contact translation section to all 3 i18n files (en/hi/gu) with 30+ keys each including form labels, placeholders, service options (13 items), office hours, and location info.
+- **Test results:** `npm run build` succeeds (58 pages, 2.17s). 3 new contact pages (/en/contact, /hi/contact, /gu/contact). All 3 languages render with correct translated content — verified Hindi (संपर्क करें), Gujarati (સંપર્ક કરો), English headings. WhatsApp deep links (wa.me/918154992727), click-to-call (tel:+91 8154992727), Google Maps embed, and Formspree form action all verified in build output.
+- **Decisions:** Used Formspree (placeholder endpoint) for serverless form handling — zero backend needed. Form submission via client-side JS with fetch API for async UX (no page reload). Used native HTML select for service dropdown instead of custom component — simpler, accessible. Contact cards are full anchor elements for better tap targets on mobile. Google Maps uses Ahmedabad city-level embed — exact office address can be updated when client provides it.
+- **Gotchas:** Formspree endpoint is a placeholder (`formspree.io/f/placeholder`) — must be replaced with real form ID when Formspree account is created. Google Maps embed shows Ahmedabad city overview — needs exact address coordinates when available. Form submit button text restore after submission relies on data attributes set in script. Office hours are placeholder values — client should confirm actual hours.
 - **Status:** DONE

@@ -497,7 +497,7 @@ After each task, update `progress.md` with:
 
 ---
 
-### - [ ] T7: Build Blog System — Listing Page and Post Template
+### - [x] T7: Build Blog System — Listing Page and Post Template
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** V2
 
@@ -526,11 +526,11 @@ After each task, update `progress.md` with:
 - [x] Individual blog posts render correctly
 - [x] Category filtering works
 - [x] Social sharing links are correct
-- [ ] Git commit: `feat(pages): T7 — blog listing and post template`
+- [x] Git commit: `feat(pages): T7 — blog listing and post template`
 
 ---
 
-### - [ ] T8: Build Contact Page with Form, Map, WhatsApp Integration
+### - [x] T8: Build Contact Page with Form, Map, WhatsApp Integration
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** V2
 
@@ -548,10 +548,10 @@ After each task, update `progress.md` with:
 3. All labels and placeholder text in translation files
 
 **Validate:**
-- [ ] Form renders in all 3 languages
-- [ ] WhatsApp link opens correctly with prefilled text
-- [ ] Phone click-to-call works on mobile
-- [ ] Map renders correctly
+- [x] Form renders in all 3 languages
+- [x] WhatsApp link opens correctly with prefilled text
+- [x] Phone click-to-call works on mobile
+- [x] Map renders correctly
 - [ ] Git commit: `feat(pages): T8 — contact page with form and WhatsApp`
 
 ---
