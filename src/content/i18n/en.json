@@ -231,6 +231,25 @@
     "hindi": "हिन्दी",
     "gujarati": "ગુજરાતી"
   },
+  "blog": {
+    "title": "Blog & Insights",
+    "subtitle": "Wisdom from the Vedic tradition — astrology tips, spiritual guidance, and cosmic insights",
+    "allCategories": "All Categories",
+    "readMore": "Read More",
+    "minRead": "min read",
+    "by": "By",
+    "publishedOn": "Published on",
+    "relatedPosts": "Related Articles",
+    "relatedServices": "Related Services",
+    "shareTitle": "Share this article",
+    "shareWhatsApp": "Share on WhatsApp",
+    "shareFacebook": "Share on Facebook",
+    "shareTwitter": "Share on X",
+    "shareCopyLink": "Copy Link",
+    "bookCta": "Interested in this topic? Book a consultation.",
+    "noPosts": "No blog posts yet. Check back soon!",
+    "backToBlog": "Back to Blog"
+  },
   "notFound": {
     "title": "Page Not Found",
     "message": "The page you are looking for does not exist.",

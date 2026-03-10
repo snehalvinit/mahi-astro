@@ -23,8 +23,8 @@
 
 ## Task Progress
 
-### Last Completed: T6 (Service Landing Pages) — 2026-03-10
-### Next Up: T7 (Blog System)
+### Last Completed: T7 (Blog System) — 2026-03-09
+### Next Up: T8 (Contact Page)
 
 ---
 
@@ -136,4 +136,14 @@
 - **Test results:** `npm run build` succeeds (46 pages, 2.32s). All 12 services × 3 languages generate. Verified: breadcrumbs, benefits, process steps, FAQ accordion, related services links, WhatsApp deep links all present in HTML output.
 - **Decisions:** Used native `<details>` element for FAQ accordion (zero JS, accessible by default). Built service pages inline in [slug].astro rather than a separate ServiceLayout — simpler for a single-use template. Glob loader strips `en/` prefix from content IDs, so services utility falls back to all entries when no lang-prefixed entries exist. Service icons map shared between listing and detail pages.
 - **Gotchas:** Astro glob loader does NOT include directory prefixes in content IDs when files are in a single subdirectory (e.g., `en/slug.json` → ID is just `slug`). When translated content is added in T11/T12, the services utility may need updating if glob loader creates `hi/slug` IDs. Footer service links are still hardcoded English text. Blog section not yet linked from service pages (T7). Hero images are emoji placeholders — real images in T18/T19.
+- **Status:** DONE
+
+---
+
+### T7: Build Blog System — Listing Page and Post Template — 2026-03-09
+- **Files:** `src/schemas/blog-content.schema.ts`, `src/utils/blog.ts`, `src/pages/[lang]/blog/index.astro`, `src/pages/[lang]/blog/[slug].astro`, `src/content.config.ts`, `src/content/blog/en/understanding-your-kundli.json`, `src/content/blog/en/vastu-tips-for-home.json`, `src/content/i18n/{en,hi,gu}.json`
+- **What was done:** Created blog content Zod schema with fields (slug, title, excerpt, content, author, publishDate, category, tags, heroImage, readingTime, relatedServices, seo). Updated content.config.ts to use new schema. Created blog utility with language fallback, date sorting, category extraction, and locale-aware date formatting. Built blog listing page with: hero banner + breadcrumbs, JS-based category filter (pill buttons), responsive 1/2/3-column post grid with Card components showing category badge, reading time, excerpt, formatted date, and Read More links. Built blog post detail page with: hero banner + breadcrumbs, full HTML content rendering with prose-style typography (styled via Tailwind arbitrary variants), tags display, social sharing (WhatsApp, Facebook, X/Twitter), consultation CTA, related services grid, related posts section, and back-to-blog link. Created 2 placeholder English blog posts (Kundli guide + Vastu tips). Added full blog translation section to all 3 language files (en/hi/gu) with 17 keys each.
+- **Test results:** `npm run build` succeeds (55 pages, 2.05s). 2 blog posts × 3 languages = 6 post pages + 3 listing pages = 9 new pages. All languages render with correct translated titles. Category filter, social sharing links, and WhatsApp deep links verified in build output.
+- **Decisions:** Used JS-based client-side category filter instead of generating separate pages per category — simpler with only 2 posts. Blog content stored as HTML strings in JSON (not markdown files) to match the existing service content pattern. Prose styling uses Tailwind arbitrary variant selectors (`[&_h2]:...`) for zero-dependency content formatting. Social sharing uses direct URL-based sharing (no JS SDK dependencies).
+- **Gotchas:** Blog posts are English-only — hi/gu fall back to English content. When translated blog content is added, blog utility may need updating similar to services utility. Hero images are empty strings (placeholder gradients shown) — real images in T18/T19. Related posts section only shows posts in same category; with only 2 posts in different categories, it will be empty for each. Pagination not needed yet (only 2 posts) — can be added when content grows.
 - **Status:** DONE

@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SiteHeader from '../../../components/layout/SiteHeader.astro';
+import MenuOverlay from '../../../components/layout/MenuOverlay.astro';
+import SiteFooter from '../../../components/layout/SiteFooter.astro';
+import WhatsAppButton from '../../../components/layout/WhatsAppButton.astro';
+import BottomBar from '../../../components/layout/BottomBar.astro';
+import SectionHeading from '../../../components/ui/SectionHeading.astro';
+import Card from '../../../components/ui/Card.astro';
+import CTASection from '../../../components/sections/CTASection.astro';
+import { supportedLanguages, isValidLanguage, getTranslations } from '../../../utils/i18n';
+import { getBlogPostsForLanguage, getBlogCategories, formatDate } from '../../../utils/blog';
+import type { SupportedLanguage } from '../../../utils/i18n';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params;
+if (!isValidLanguage(lang as string)) {
+  return Astro.redirect('/en/');
+}
+
+const currentLang = lang as SupportedLanguage;
+const t = getTranslations(currentLang);
+const posts = await getBlogPostsForLanguage(currentLang);
+const categories = getBlogCategories(posts);
+---
+
+<BaseLayout lang={currentLang} title={`${t.blog.title} — ${t.hero.brandName}`}>
+  <SiteHeader slot="header" lang={currentLang} />
+  <MenuOverlay slot="header" lang={currentLang} />
+
+  <!-- Hero Banner -->
+  <section class="hero-dark py-16 md:py-24">
+    <div class="container-wide text-center">
+      <nav class="text-sm text-cream/60 mb-6" aria-label="Breadcrumb">
+        <a href={`/${currentLang}/`} class="hover:text-gold transition-colors">{t.header.home}</a>
+        <span class="mx-2">/</span>
+        <span class="text-gold">{t.header.blog}</span>
+      </nav>
+      <h1 class="font-heading text-4xl md:text-5xl font-bold text-gold mb-4">
+        {t.blog.title}
+      </h1>
+      <p class="text-lg text-cream/80 max-w-2xl mx-auto">
+        {t.blog.subtitle}
+      </p>
+    </div>
+  </section>
+
+  <!-- Category Filter -->
+  {categories.length > 1 && (
+    <section class="py-6 border-b border-purple/10">
+      <div class="container-wide">
+        <div class="flex flex-wrap gap-3 justify-center" id="category-filter">
+          <button
+            class="category-btn active px-4 py-2 rounded-full text-sm font-semibold border border-gold bg-gold text-white transition-colors"
+            data-category="all"
+          >
+            {t.blog.allCategories}
+          </button>
+          {categories.map((cat) => (
+            <button
+              class="category-btn px-4 py-2 rounded-full text-sm font-semibold border border-purple/20 text-purple hover:border-gold hover:text-gold transition-colors"
+              data-category={cat}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Blog Posts Grid -->
+  <section class="py-[--spacing-section-sm] md:py-[--spacing-section]">
+    <div class="container-wide">
+      {posts.length === 0 ? (
+        <p class="text-center text-purple/60 text-lg py-12">{t.blog.noPosts}</p>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blog-grid">
+          {posts.map((post) => (
+            <article class="blog-card" data-category={post.category}>
+              <a href={`/${currentLang}/blog/${post.slug}`} class="block group">
+                <Card variant="blog" class="h-full">
+                  {post.heroImage && (
+                    <div slot="image" class="aspect-video bg-indigo/10 rounded-t-lg overflow-hidden">
+                      <img
+                        src={post.heroImage}
+                        alt={post.title}
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  {!post.heroImage && (
+                    <div slot="image" class="aspect-video bg-gradient-to-br from-indigo/20 to-purple/20 rounded-t-lg flex items-center justify-center">
+                      <span class="text-4xl opacity-50">&#x1F4DC;</span>
+                    </div>
+                  )}
+                  <div class="flex items-center gap-3 mb-3 text-xs text-purple/60">
+                    <span class="bg-gold/10 text-gold px-2 py-0.5 rounded-full font-semibold">
+                      {post.category}
+                    </span>
+                    <span>{post.readingTime} {t.blog.minRead}</span>
+                  </div>
+                  <h2 class="text-lg font-semibold font-heading text-indigo mb-2 group-hover:text-gold transition-colors leading-snug">
+                    {post.title}
+                  </h2>
+                  <p class="text-sm text-purple/70 leading-relaxed mb-4 line-clamp-3">
+                    {post.excerpt}
+                  </p>
+                  <div class="flex items-center justify-between text-xs text-purple/50">
+                    <span>{formatDate(post.publishDate, currentLang)}</span>
+                    <span class="text-gold font-semibold group-hover:underline">
+                      {t.blog.readMore} &rarr;
+                    </span>
+                  </div>
+                </Card>
+              </a>
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <CTASection lang={currentLang} />
+
+  <SiteFooter slot="footer" lang={currentLang} />
+  <WhatsAppButton slot="footer" lang={currentLang} />
+  <BottomBar slot="footer" lang={currentLang} />
+</BaseLayout>
+
+<script>
+  // Category filter
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.category-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.blog-card');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const cat = btn.dataset.category;
+
+      // Update active button
+      buttons.forEach((b) => {
+        b.classList.remove('active', 'bg-gold', 'text-white', 'border-gold');
+        b.classList.add('border-purple/20', 'text-purple');
+      });
+      btn.classList.add('active', 'bg-gold', 'text-white', 'border-gold');
+      btn.classList.remove('border-purple/20', 'text-purple');
+
+      // Filter cards
+      cards.forEach((card) => {
+        if (cat === 'all' || card.dataset.category === cat) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

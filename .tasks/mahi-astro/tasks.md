@@ -522,10 +522,10 @@ After each task, update `progress.md` with:
 5. Create 2 placeholder blog posts in English to test the system
 
 **Validate:**
-- [ ] Blog listing shows posts with images and excerpts
-- [ ] Individual blog posts render correctly
-- [ ] Category filtering works
-- [ ] Social sharing links are correct
+- [x] Blog listing shows posts with images and excerpts
+- [x] Individual blog posts render correctly
+- [x] Category filtering works
+- [x] Social sharing links are correct
 - [ ] Git commit: `feat(pages): T7 — blog listing and post template`
 
 ---
