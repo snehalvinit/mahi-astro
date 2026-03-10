@@ -29,7 +29,7 @@ const whatsappUrl = `${siteConfig.contact.whatsapp}?text=${encodeURIComponent(t.
 const aboutJsonLd = { '@context': 'https://schema.org', ...personSchema() };
 ---
 
-<BaseLayout lang={currentLang} title={`${t.about.title} | ${t.meta.title}`} description={t.about.subtitle} ogImage="/images/og-about.svg" jsonLd={aboutJsonLd}>
+<BaseLayout lang={currentLang} title={`${t.about.title} | ${t.meta.title}`} description={t.about.subtitle} ogImage="/images/og-about.png" jsonLd={aboutJsonLd}>
   <SiteHeader slot="header" lang={currentLang} />
   <MenuOverlay slot="header" lang={currentLang} />
 
@@ -65,6 +65,7 @@ const aboutJsonLd = { '@context': 'https://schema.org', ...personSchema() };
               height="384"
               class="w-full h-full object-cover"
               loading="eager"
+              fetchpriority="high"
             />
             <!-- Decorative corner accents -->
             <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-gold/40 rounded-tl-2xl"></div>

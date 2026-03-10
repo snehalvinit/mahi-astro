@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Scorpio: M with arrow tail glyph ♏ -->
-  <path d="M6 38 L6 16 C6 10 10 8 12 12 L12 38"/>
-  <path d="M12 16 C12 10 16 8 18 12 L18 38"/>
-  <path d="M18 16 C18 10 22 8 24 12 L24 34 C24 38 28 40 32 36 L36 32"/>
-  <path d="M32 28 L36 32 L32 36"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="#c9a84c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 48 48"><path d="M6 38V16c0-6 4-8 6-4v26m0-22c0-6 4-8 6-4v26m0-22c0-6 4-8 6-4v22c0 4 4 6 8 2l4-4"/><path d="m32 28 4 4-4 4"/></svg>

@@ -89,7 +89,7 @@ const breadcrumbItems = [
   lang={currentLang}
   title={service.seo.title}
   description={service.seo.description}
-  ogImage={`/images/services/${service.slug}.svg`}
+  ogImage={`/images/services/${service.slug}.png`}
   jsonLd={serviceJsonLd}
 >
   <SiteHeader slot="header" lang={currentLang} />
@@ -99,7 +99,7 @@ const breadcrumbItems = [
   <section class="hero-dark py-16 md:py-24">
     <div class="container-wide text-center">
       <Breadcrumbs lang={currentLang} items={breadcrumbItems} variant="dark" />
-      <img src={`/images/icons/services/${serviceIconMap[service.slug] || 'kundli-reading'}.svg`} alt="" width="64" height="64" class="w-16 h-16 mx-auto mb-4" />
+      <img src={`/images/icons/services/${serviceIconMap[service.slug] || 'kundli-reading'}.svg`} alt="" width="64" height="64" class="w-16 h-16 mx-auto mb-4" loading="eager" fetchpriority="high" />
       <h1 class="font-heading text-4xl md:text-5xl font-bold text-gold mb-3">
         {service.title}
       </h1>

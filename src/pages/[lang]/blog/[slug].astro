@@ -85,7 +85,7 @@ const categoryImageMap: Record<string, string> = {
   'मंत्र और आध्यात्मिक अभ्यास': 'spiritual-growth',
   'મંત્ર અને આધ્યાત્મિક અભ્યાસ': 'spiritual-growth',
 };
-const blogOgImage = post.heroImage || `/images/blog/${categoryImageMap[post.category] || 'zodiac-signs'}.svg`;
+const blogOgImage = post.heroImage || `/images/blog/${categoryImageMap[post.category] || 'zodiac-signs'}.png`;
 
 const blogJsonLd = articleSchema(post, currentLang);
 const breadcrumbItems = [

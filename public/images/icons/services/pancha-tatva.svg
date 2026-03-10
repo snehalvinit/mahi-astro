@@ -1,17 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#6F4278" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Five interconnected circles representing five elements -->
-  <!-- Top circle - Akash/Ether -->
-  <circle cx="32" cy="14" r="9"/>
-  <!-- Upper right - Vayu/Air -->
-  <circle cx="47" cy="24" r="9"/>
-  <!-- Lower right - Agni/Fire -->
-  <circle cx="42" cy="42" r="9"/>
-  <!-- Lower left - Jal/Water -->
-  <circle cx="22" cy="42" r="9"/>
-  <!-- Upper left - Prithvi/Earth -->
-  <circle cx="17" cy="24" r="9"/>
-  <!-- Pentagon connecting centers -->
-  <polygon points="32,14 47,24 42,42 22,42 17,24" stroke-dasharray="3,3"/>
-  <!-- Center dot -->
-  <circle cx="32" cy="30" r="2"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#6f4278" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 64 64"><circle cx="32" cy="14" r="9"/><circle cx="47" cy="24" r="9"/><circle cx="42" cy="42" r="9"/><circle cx="22" cy="42" r="9"/><circle cx="17" cy="24" r="9"/><path stroke-dasharray="3,3" d="m32 14 15 10-5 18H22l-5-18z"/><circle cx="32" cy="30" r="2"/></svg>

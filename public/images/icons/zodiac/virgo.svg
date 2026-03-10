@@ -1,8 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Virgo: Maiden M with loop glyph ♍ -->
-  <path d="M8 38 L8 16 C8 10 12 8 14 12 L14 38"/>
-  <path d="M14 16 C14 10 18 8 20 12 L20 38"/>
-  <path d="M20 16 C20 10 24 8 26 12 L26 28 C26 34 30 36 34 32 C38 28 36 22 32 24"/>
-  <path d="M32 24 L38 42"/>
-  <line x1="34" y1="36" x2="40" y2="36"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="#c9a84c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 48 48"><path d="M8 38V16c0-6 4-8 6-4v26m0-22c0-6 4-8 6-4v26m0-22c0-6 4-8 6-4v16c0 6 4 8 8 4s2-10-2-8m0 0 6 18m-4-6h6"/></svg>

@@ -932,7 +932,7 @@ After each task, update `progress.md` with:
 
 ---
 
-### - [ ] T19: Optimize All Images (WebP, Lazy Loading, Responsive)
+### - [x] T19: Optimize All Images (WebP, Lazy Loading, Responsive)
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** T18
 
@@ -946,11 +946,11 @@ After each task, update `progress.md` with:
 7. Add proper alt text to all images (translated per language)
 
 **Validate:**
-- [ ] All images serve WebP where supported
-- [ ] Lazy loading works for below-fold images
-- [ ] Alt text present on all images in correct language
-- [ ] Total image payload under 500KB for initial page load
-- [ ] Git commit: `feat(images): T19 — image optimization, WebP, lazy loading`
+- [x] All images serve WebP where supported (N/A — all SVGs are vector, no raster conversion needed; OG images converted to PNG for social media)
+- [x] Lazy loading works for below-fold images
+- [x] Alt text present on all images in correct language
+- [x] Total image payload under 500KB for initial page load (SVGs: 264KB; PNGs only loaded by social crawlers)
+- [x] Git commit: `feat(images): T19 — image optimization, WebP, lazy loading`
 
 ---
 

@@ -1,16 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1a1745"/>
-      <stop offset="50%" stop-color="#2E2B59"/>
-      <stop offset="100%" stop-color="#3d1f4e"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <text x="600" y="200" text-anchor="middle" font-family="serif" font-size="60" font-weight="bold" fill="#C9A84C">About</text>
-  <text x="600" y="280" text-anchor="middle" font-family="serif" font-size="36" fill="#FFFDF0" opacity="0.9">Pandit Shree Mahadev Joshi</text>
-  <line x1="420" y1="320" x2="780" y2="320" stroke="#C9A84C" stroke-width="1" opacity="0.3"/>
-  <text x="600" y="380" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#FF9933" opacity="0.7">20+ Years of Vedic Wisdom &amp; Spiritual Guidance</text>
-  <text x="600" y="460" text-anchor="middle" font-family="serif" font-size="16" fill="#FFFDF0" opacity="0.5">Believe Astrology — Be Better with Connect to Nature</text>
-  <rect x="20" y="20" width="1160" height="590" rx="4" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.15"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1200 630"><defs><linearGradient id="a" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#1a1745"/><stop offset="50%" stop-color="#2e2b59"/><stop offset="100%" stop-color="#3d1f4e"/></linearGradient></defs><path fill="url(#a)" d="M0 0h1200v630H0z"/><text x="600" y="200" fill="#c9a84c" font-family="serif" font-size="60" font-weight="bold" text-anchor="middle">About</text><text x="600" y="280" fill="#fffdf0" font-family="serif" font-size="36" opacity=".9" text-anchor="middle">Pandit Shree Mahadev Joshi</text><path stroke="#c9a84c" d="M420 320h360" opacity=".3"/><text x="600" y="380" fill="#f93" font-family="sans-serif" font-size="20" opacity=".7" text-anchor="middle">20+ Years of Vedic Wisdom &amp; Spiritual Guidance</text><text x="600" y="460" fill="#fffdf0" font-family="serif" font-size="16" opacity=".5" text-anchor="middle">Believe Astrology — Be Better with Connect to Nature</text><rect width="1160" height="590" x="20" y="20" stroke="#c9a84c" opacity=".15" rx="4"/></svg>
