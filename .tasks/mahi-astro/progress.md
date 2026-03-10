@@ -23,8 +23,8 @@
 
 ## Task Progress
 
-### Last Completed: T5 (Build About Page) — 2026-03-09
-### Next Up: T6 (Service Landing Pages)
+### Last Completed: T6 (Service Landing Pages) — 2026-03-10
+### Next Up: T7 (Blog System)
 
 ---
 
@@ -126,4 +126,14 @@
 - **Test results:** `npm run build` succeeds (7 pages, 1.64s). All 3 languages (/en/about, /hi/about, /gu/about) render with correct translated content — verified Hindi (भक्ति और ज्ञान की यात्रा, दर्शन), Gujarati (ભક્તિ અને જ્ઞાનની યાત્રા, દર્શન), and English section headings present.
 - **Decisions:** Built all sections inline in about.astro rather than creating separate section components — page-specific content doesn't warrant reusable components. Used SectionHeading and Button from existing UI kit. Timeline uses CSS-based alternating layout (even/odd flex-row-reverse) with gold dot markers.
 - **Gotchas:** Astrologer photo placeholder is rectangular (rounded corners) rather than circular — client must provide professional photo. Timeline line is hidden on mobile, uses left-aligned dots instead. Bio content is placeholder based on project brief — may need client review. Same layout/footer/header pattern as homepage.
+- **Status:** DONE
+
+---
+
+### T6: Build Individual Service Landing Pages (12 Services) — 2026-03-10T01:03Z
+- **Files:** `src/schemas/service-content.schema.ts`, `src/utils/services.ts`, `src/pages/[lang]/services/index.astro`, `src/pages/[lang]/services/[slug].astro`, `src/content.config.ts`, 12 JSON files in `src/content/services/en/`
+- **What was done:** Created service content Zod schema with full fields (id, title, subtitle, slug, category, description, shortDescription, introduction, overview, heroImage, benefits, process, faqs, keywords, relatedServices, seo). Created services utility with language fallback (returns all services when lang-specific content doesn't exist). Built services listing page with two sections: Core Astrology (6 services) and Spiritual Healing (6 services), each with Card components and Learn More links. Built dynamic service detail page with: hero banner + breadcrumbs, introduction/overview text, benefits grid with checkmarks, numbered process walkthrough, FAQ accordion using native `<details>`/`<summary>`, related services grid, and CTA with WhatsApp + Call buttons. Created 12 English service JSON files adapted from R2 content research drafts. Updated content.config.ts to use the new schema. Generated 36 service pages (12 slugs × 3 languages) plus 3 listing pages.
+- **Test results:** `npm run build` succeeds (46 pages, 2.32s). All 12 services × 3 languages generate. Verified: breadcrumbs, benefits, process steps, FAQ accordion, related services links, WhatsApp deep links all present in HTML output.
+- **Decisions:** Used native `<details>` element for FAQ accordion (zero JS, accessible by default). Built service pages inline in [slug].astro rather than a separate ServiceLayout — simpler for a single-use template. Glob loader strips `en/` prefix from content IDs, so services utility falls back to all entries when no lang-prefixed entries exist. Service icons map shared between listing and detail pages.
+- **Gotchas:** Astro glob loader does NOT include directory prefixes in content IDs when files are in a single subdirectory (e.g., `en/slug.json` → ID is just `slug`). When translated content is added in T11/T12, the services utility may need updating if glob loader creates `hi/slug` IDs. Footer service links are still hardcoded English text. Blog section not yet linked from service pages (T7). Hero images are emoji placeholders — real images in T18/T19.
 - **Status:** DONE

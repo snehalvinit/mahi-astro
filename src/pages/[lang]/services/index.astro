@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SiteHeader from '../../../components/layout/SiteHeader.astro';
+import MenuOverlay from '../../../components/layout/MenuOverlay.astro';
+import SiteFooter from '../../../components/layout/SiteFooter.astro';
+import WhatsAppButton from '../../../components/layout/WhatsAppButton.astro';
+import BottomBar from '../../../components/layout/BottomBar.astro';
+import SectionHeading from '../../../components/ui/SectionHeading.astro';
+import Card from '../../../components/ui/Card.astro';
+import Button from '../../../components/ui/Button.astro';
+import CTASection from '../../../components/sections/CTASection.astro';
+import { supportedLanguages, isValidLanguage, getTranslations } from '../../../utils/i18n';
+import { getServicesForLanguage } from '../../../utils/services';
+import type { SupportedLanguage } from '../../../utils/i18n';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params;
+if (!isValidLanguage(lang as string)) {
+  return Astro.redirect('/en/');
+}
+
+const currentLang = lang as SupportedLanguage;
+const t = getTranslations(currentLang);
+const services = await getServicesForLanguage(currentLang);
+
+const coreServices = services.filter((s) => s.category === 'core-astrology');
+const spiritualServices = services.filter((s) => s.category === 'spiritual-healing');
+
+const serviceIcons: Record<string, string> = {
+  'vedic-astrology-kundli-reading': '&#x1F52E;',
+  'horoscope-analysis-predictions': '&#x2B50;',
+  'marriage-career-finance-health-guidance': '&#x1F3AF;',
+  'vastu-consultation': '&#x1F3E0;',
+  'gemstone-recommendations': '&#x1F48E;',
+  'karma-life-purpose-counselling': '&#x2638;',
+  'pancha-tatva-balancing': '&#x1F30D;',
+  'seven-chakras-balancing': '&#x1F549;',
+  'vedic-spiritual-poojas': '&#x1F56F;',
+  'vedic-karma-kand-yagnas': '&#x1F525;',
+  'maha-mrityunjaya-mantra-anushthan': '&#x1F64F;',
+  'mantras-chanting': '&#x1F3B6;',
+};
+---
+
+<BaseLayout lang={currentLang} title={`${t.services.title} — ${t.hero.brandName}`}>
+  <SiteHeader slot="header" lang={currentLang} />
+  <MenuOverlay slot="header" lang={currentLang} />
+
+  <!-- Hero Banner -->
+  <section class="hero-dark py-16 md:py-24">
+    <div class="container-wide text-center">
+      <nav class="text-sm text-cream/60 mb-6" aria-label="Breadcrumb">
+        <a href={`/${currentLang}/`} class="hover:text-gold transition-colors">{t.header.home}</a>
+        <span class="mx-2">/</span>
+        <span class="text-gold">{t.header.services}</span>
+      </nav>
+      <h1 class="font-heading text-4xl md:text-5xl font-bold text-gold mb-4">
+        {t.services.title}
+      </h1>
+      <p class="text-lg text-cream/80 max-w-2xl mx-auto">
+        {t.services.subtitle}
+      </p>
+    </div>
+  </section>
+
+  <!-- Core Astrology Services -->
+  <section class="py-[--spacing-section-sm] md:py-[--spacing-section]">
+    <div class="container-wide">
+      <SectionHeading
+        title="Core Astrology Services"
+        subtitle="Traditional Vedic astrology readings and life guidance"
+        align="center"
+      />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {coreServices.map((service) => (
+          <a href={`/${currentLang}/services/${service.slug}`} class="block group">
+            <Card variant="service" class="h-full">
+              <span slot="icon" class="text-3xl" set:html={serviceIcons[service.slug] || '&#x2728;'} />
+              <h3 class="text-lg font-semibold font-heading text-indigo mb-2 group-hover:text-gold transition-colors">
+                {service.title}
+              </h3>
+              <p class="text-sm text-purple/70 leading-relaxed mb-4">
+                {service.shortDescription}
+              </p>
+              <span class="text-gold font-semibold text-sm group-hover:underline">
+                {t.services.learnMore} &rarr;
+              </span>
+            </Card>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Spiritual Healing Services -->
+  <section class="py-[--spacing-section-sm] md:py-[--spacing-section] bg-cream/50">
+    <div class="container-wide">
+      <SectionHeading
+        title="Spiritual Healing Services"
+        subtitle="Sacred rituals, energy healing, and mantra practices"
+        align="center"
+      />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {spiritualServices.map((service) => (
+          <a href={`/${currentLang}/services/${service.slug}`} class="block group">
+            <Card variant="service" class="h-full">
+              <span slot="icon" class="text-3xl" set:html={serviceIcons[service.slug] || '&#x2728;'} />
+              <h3 class="text-lg font-semibold font-heading text-indigo mb-2 group-hover:text-gold transition-colors">
+                {service.title}
+              </h3>
+              <p class="text-sm text-purple/70 leading-relaxed mb-4">
+                {service.shortDescription}
+              </p>
+              <span class="text-gold font-semibold text-sm group-hover:underline">
+                {t.services.learnMore} &rarr;
+              </span>
+            </Card>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection lang={currentLang} />
+
+  <SiteFooter slot="footer" lang={currentLang} />
+  <WhatsAppButton slot="footer" lang={currentLang} />
+  <BottomBar slot="footer" lang={currentLang} />
+</BaseLayout>

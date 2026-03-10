@@ -454,11 +454,11 @@ After each task, update `progress.md` with:
 - [x] About page renders in all 3 languages
 - [x] Photo placeholder is visible and properly sized
 - [x] Content matches astrologer's actual info
-- [ ] Git commit: `feat(pages): T5 — about page with bio and credentials`
+- [x] Git commit: `feat(pages): T5 — about page with bio and credentials`
 
 ---
 
-### - [ ] T6: Build Individual Service Landing Pages (12 Services)
+### - [x] T6: Build Individual Service Landing Pages (12 Services)
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** V2, R2
 
@@ -488,12 +488,12 @@ After each task, update `progress.md` with:
 7. Create `getStaticPaths()` that generates all service x language combinations
 
 **Validate:**
-- [ ] All 12 service pages render correctly
-- [ ] Dynamic routing works for all slugs
-- [ ] FAQ accordion expands/collapses
-- [ ] Breadcrumbs show correct path
-- [ ] Related services link to correct pages
-- [ ] Git commit: `feat(pages): T6 — 12 service landing pages with dynamic routing`
+- [x] All 12 service pages render correctly
+- [x] Dynamic routing works for all slugs
+- [x] FAQ accordion expands/collapses
+- [x] Breadcrumbs show correct path
+- [x] Related services link to correct pages
+- [x] Git commit: `feat(pages): T6 — 12 service landing pages with dynamic routing`
 
 ---
 
