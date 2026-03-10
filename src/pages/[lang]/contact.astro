@@ -27,7 +27,7 @@ const t = getTranslations(currentLang);
 const whatsappUrl = `${siteConfig.contact.whatsapp}?text=${encodeURIComponent(t.whatsapp.prefill)}`;
 ---
 
-<BaseLayout lang={currentLang} title={`${t.contact.title} | ${t.meta.title}`} description={t.contact.subtitle}>
+<BaseLayout lang={currentLang} title={`${t.contact.title} | ${t.meta.title}`} description={t.contact.subtitle} ogImage="/images/og-contact.jpg">
   <SiteHeader slot="header" lang={currentLang} />
   <MenuOverlay slot="header" lang={currentLang} />
 

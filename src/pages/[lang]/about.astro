@@ -29,7 +29,7 @@ const whatsappUrl = `${siteConfig.contact.whatsapp}?text=${encodeURIComponent(t.
 const aboutJsonLd = { '@context': 'https://schema.org', ...personSchema() };
 ---
 
-<BaseLayout lang={currentLang} title={`${t.about.title} | ${t.meta.title}`} description={t.about.subtitle} jsonLd={aboutJsonLd}>
+<BaseLayout lang={currentLang} title={`${t.about.title} | ${t.meta.title}`} description={t.about.subtitle} ogImage="/images/og-about.jpg" jsonLd={aboutJsonLd}>
   <SiteHeader slot="header" lang={currentLang} />
   <MenuOverlay slot="header" lang={currentLang} />
 

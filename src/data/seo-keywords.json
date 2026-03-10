@@ -1,0 +1,68 @@
+{
+  "services": {
+    "en": {
+      "vedic-astrology-kundli-reading": ["vedic astrology", "kundli reading", "birth chart analysis", "janam kundali", "kundli prediction", "vedic horoscope", "jyotish shastra", "horoscope reading ahmedabad"],
+      "horoscope-analysis-predictions": ["horoscope prediction", "yearly horoscope 2026", "zodiac forecast", "rashifal", "moon sign horoscope", "planetary transit", "vedic horoscope predictions"],
+      "karma-life-purpose-counselling": ["karma astrology", "life purpose astrology", "past life karma", "spiritual counselling", "dharma path", "karmic astrology", "rahu ketu axis", "soul purpose vedic astrology"],
+      "gemstone-recommendations": ["gemstone astrology", "jyotish ratna", "navratna", "lucky stone by birth", "gemstone recommendation", "neelam stone", "pukhraj stone", "vedic gemstone consultation"],
+      "marriage-career-finance-health-guidance": ["marriage astrology", "career astrology", "financial astrology", "health horoscope", "kundli matching", "muhurta", "marriage compatibility", "career guidance astrology"],
+      "vastu-consultation": ["vastu shastra", "vastu consultant", "home vastu", "office vastu", "vastu tips", "vastu remedies", "vastu dosha", "vastu consultant ahmedabad", "shop vastu"],
+      "mantras-chanting": ["vedic mantras", "mantra chanting", "beej mantra", "planetary mantras", "gayatri mantra", "mantra healing", "mantra japa", "om chanting benefits"],
+      "maha-mrityunjaya-mantra-anushthan": ["maha mrityunjaya mantra", "mrityunjaya anushthan", "shiva healing mantra", "longevity ritual", "death conquering mantra", "maha mrityunjaya jaap"],
+      "vedic-karma-kand-yagnas": ["vedic yagna", "havan", "homa", "fire ceremony", "karma kand", "agnihotra", "navagraha homa", "pandit for havan ahmedabad", "vedic fire ritual"],
+      "vedic-spiritual-poojas": ["vedic puja", "hindu puja service", "online puja booking", "ganesh puja", "lakshmi puja", "navgraha puja", "pandit for puja ahmedabad", "vedic rituals"],
+      "pancha-tatva-balancing": ["pancha tatva", "five elements balancing", "prithvi jal agni vayu akash", "elemental healing", "five elements astrology", "ayurveda astrology", "dosha balancing"],
+      "seven-chakras-balancing": ["chakra balancing", "seven chakras healing", "kundalini", "energy healing", "chakra meditation", "chakra astrology", "kundalini awakening", "spiritual healing ahmedabad"]
+    },
+    "hi": {
+      "vedic-astrology-kundli-reading": ["वैदिक ज्योतिष", "कुंडली रीडिंग", "जन्म कुंडली विश्लेषण", "जन्म पत्रिका", "कुंडली भविष्यवाणी", "वैदिक राशिफल", "ज्योतिष शास्त्र"],
+      "horoscope-analysis-predictions": ["राशिफल भविष्यवाणी", "वार्षिक राशिफल 2026", "राशि पूर्वानुमान", "राशिफल", "चंद्र राशि राशिफल", "ग्रहीय गोचर", "वैदिक राशिफल भविष्यवाणी"],
+      "karma-life-purpose-counselling": ["कर्म ज्योतिष", "जीवन उद्देश्य ज्योतिष", "पूर्व जन्म कर्म", "आध्यात्मिक परामर्श", "धर्म पथ", "कार्मिक ज्योतिष", "राहु केतु अक्ष"],
+      "gemstone-recommendations": ["रत्न ज्योतिष", "ज्योतिष रत्न", "नवरत्न", "जन्म के अनुसार भाग्यशाली रत्न", "रत्न सिफारिश", "नीलम रत्न", "पुखराज रत्न", "वैदिक रत्न परामर्श"],
+      "marriage-career-finance-health-guidance": ["विवाह ज्योतिष", "करियर ज्योतिष", "आर्थिक ज्योतिष", "स्वास्थ्य राशिफल", "कुंडली मिलान", "मुहूर्त", "विवाह संगतता", "करियर मार्गदर्शन ज्योतिष"],
+      "vastu-consultation": ["वास्तु शास्त्र", "वास्तु सलाहकार", "घर वास्तु", "कार्यालय वास्तु", "वास्तु सुझाव", "वास्तु उपाय", "वास्तु दोष"],
+      "mantras-chanting": ["वैदिक मंत्र", "मंत्र जाप", "बीज मंत्र", "ग्रहीय मंत्र", "गायत्री मंत्र", "मंत्र चिकित्सा", "ॐ जाप लाभ"],
+      "maha-mrityunjaya-mantra-anushthan": ["महा मृत्यंजय मंत्र", "मृत्यंजय अनुष्ठान", "शिव उपचार मंत्र", "दीर्घायु अनुष्ठान", "मृत्यु विजय मंत्र"],
+      "vedic-karma-kand-yagnas": ["वैदिक यज्ञ", "हवन", "होम", "अग्नि अनुष्ठान", "कर्म कांड", "अग्निहोत्र", "नवग्रह होम"],
+      "vedic-spiritual-poojas": ["वैदिक पूजा", "हिंदू पूजा सेवा", "ऑनलाइन पूजा बुकिंग", "गणेश पूजा", "लक्ष्मी पूजा", "नवग्रह पूजा"],
+      "pancha-tatva-balancing": ["पंचतत्व", "पांच तत्व संतुलन", "पृथ्वी जल अग्नि वायु आकाश", "तत्व चिकित्सा", "पंचतत्व ज्योतिष", "आयुर्वेद ज्योतिष", "दोष संतुलन"],
+      "seven-chakras-balancing": ["सात चक्र", "चक्र संतुलन", "कुंडलिनी", "ऊर्जा चिकित्सा", "चक्र ध्यान", "चक्र ज्योतिष", "कुंडलिनी जागरण"]
+    },
+    "gu": {
+      "vedic-astrology-kundli-reading": ["વૈદિક જ્યોતિષ", "કુંડળી વાંચન", "જન્મ કુંડળી વિશ્લેષણ", "જન્મ પત્રી", "કુંડળી ભવિષ્યવાણી", "વૈદિક રાશિફળ", "જ્યોતિષ શાસ્ત્ર"],
+      "horoscope-analysis-predictions": ["રાશિફળ ભવિષ્યવાણી", "વાર્ષિક રાશિફળ ૨૦૨૬", "રાશિ આગાહી", "રાશિફળ", "ચંદ્ર રાશિ રાશિફળ", "ગ્રહીય ગોચર", "વૈદિક રાશિફળ ભવિષ્યવાણી"],
+      "karma-life-purpose-counselling": ["કર્મ જ્યોતિષ", "જીવન હેતુ જ્યોતિષ", "ભૂતજન્મ કર્મ", "આધ્યાત્મિક પરામર્શ", "ધર્મ માર્ગ", "કર્મ વિશ્લેષણ", "રાહુ કેતુ ધરી"],
+      "gemstone-recommendations": ["રત્ન જ્યોતિષ", "જ્યોતિષ રત્ન", "નવરત્ન", "જન્મ પ્રમાણે ભાગ્યશાળી રત્ન", "રત્ન ભલામણ", "નીલમ રત્ન", "પુખરાજ રત્ન", "વૈદિક રત્ન પરામર્શ"],
+      "marriage-career-finance-health-guidance": ["વિવાહ જ્યોતિષ", "કારકિર્દી જ્યોતિષ", "આર્થિક જ્યોતિષ", "સ્વાસ્થ્ય રાશિફળ", "કુંડળી મેળાપ", "મુહૂર્ત", "વિવાહ સુમેળ", "કારકિર્દી માર્ગદર્શન જ્યોતિષ"],
+      "vastu-consultation": ["વાસ્તુ શાસ્ત્ર", "વાસ્તુ પરામર્શદાતા", "ઘર વાસ્તુ", "કાર્યાલય વાસ્તુ", "વાસ્તુ સાધનો", "વાસ્તુ ઉપાયો", "વાસ્તુ દોષ"],
+      "mantras-chanting": ["વૈદિક મંત્રો", "મંત્ર જાપ", "બીજ મંત્ર", "ગ્રહીય મંત્રો", "ગાયત્રી મંત્ર", "મંત્ર ચિકિત્સા", "ઓમ જાપ લાભો"],
+      "maha-mrityunjaya-mantra-anushthan": ["મહા મૃત્યુંજય મંત્ર", "મૃત્યુંજય અનુષ્ઠાન", "શિવ ઉપચાર મંત્ર", "દીર્ઘાયુ અનુષ્ઠાન"],
+      "vedic-karma-kand-yagnas": ["વૈદિક યજ્ઞ", "હવન", "હોમ", "અગ્નિ અનુષ્ઠાન", "કર્મ કાંડ", "અગ્નિહોત્ર"],
+      "vedic-spiritual-poojas": ["વૈદિક પૂજા", "હિંદુ પૂજા સેવા", "ઑનલાઇન પૂજા બુકિંગ", "ગણેશ પૂજા", "લક્ષ્મી પૂજા", "નવગ્રહ પૂજા"],
+      "pancha-tatva-balancing": ["પંચતત્વ", "પાંચ તત્વ સંતુલન", "પૃથ્વી જલ અગ્નિ વાયુ આકાશ", "તત્વ ચિકિત્સા", "પંચતત્વ જ્યોતિષ", "આયુર્વેદ જ્યોતિષ"],
+      "seven-chakras-balancing": ["સાત ચક્રો", "ચક્ર સંતુલન", "કુંડલિની", "ઊર્જા ચિકિત્સા", "ચક્ર ધ્યાન", "ચક્ર જ્યોતિષ", "કુંડલિની જાગરણ"]
+    }
+  },
+  "blogToServiceMap": {
+    "understanding-your-kundli": ["vedic-astrology-kundli-reading", "horoscope-analysis-predictions"],
+    "power-of-vastu-shastra": ["vastu-consultation", "pancha-tatva-balancing"],
+    "gemstones-that-can-change-your-destiny": ["gemstone-recommendations", "vedic-astrology-kundli-reading"],
+    "marriage-compatibility-horoscope": ["marriage-career-finance-health-guidance", "horoscope-analysis-predictions", "vedic-astrology-kundli-reading"],
+    "balancing-seven-chakras": ["seven-chakras-balancing", "karma-life-purpose-counselling", "mantras-chanting"],
+    "maha-mrityunjaya-mantra-guide": ["maha-mrityunjaya-mantra-anushthan", "mantras-chanting", "vedic-spiritual-poojas"]
+  },
+  "serviceToBlogMap": {
+    "vedic-astrology-kundli-reading": ["understanding-your-kundli", "gemstones-that-can-change-your-destiny", "marriage-compatibility-horoscope"],
+    "horoscope-analysis-predictions": ["understanding-your-kundli", "marriage-compatibility-horoscope"],
+    "marriage-career-finance-health-guidance": ["marriage-compatibility-horoscope"],
+    "vastu-consultation": ["power-of-vastu-shastra"],
+    "gemstone-recommendations": ["gemstones-that-can-change-your-destiny"],
+    "karma-life-purpose-counselling": ["balancing-seven-chakras"],
+    "pancha-tatva-balancing": ["power-of-vastu-shastra"],
+    "seven-chakras-balancing": ["balancing-seven-chakras"],
+    "mantras-chanting": ["balancing-seven-chakras", "maha-mrityunjaya-mantra-guide"],
+    "maha-mrityunjaya-mantra-anushthan": ["maha-mrityunjaya-mantra-guide"],
+    "vedic-spiritual-poojas": ["maha-mrityunjaya-mantra-guide"],
+    "vedic-karma-kand-yagnas": []
+  }
+}

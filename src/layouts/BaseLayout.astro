@@ -2,6 +2,7 @@
 import type { SupportedLanguage } from '../utils/i18n';
 import { getTranslations } from '../utils/i18n';
 import SEOHead from '../components/SEOHead.astro';
+import AnalyticsHead from '../components/AnalyticsHead.astro';
 import CookieConsent from '../components/layout/CookieConsent.astro';
 import '../styles/global.css';
 
@@ -55,6 +56,8 @@ const canonicalPath = Astro.url.pathname;
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <AnalyticsHead />
 
     <slot name="head" />
   </head>

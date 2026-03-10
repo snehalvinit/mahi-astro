@@ -1,0 +1,49 @@
+---
+/**
+ * AnalyticsHead.astro — Analytics script loader (production-only)
+ *
+ * Supports:
+ *   - Google Analytics 4 (GA4)
+ *   - Google Tag Manager (GTM)
+ *   - Plausible Analytics (privacy-friendly alternative)
+ *
+ * Set tag IDs in environment variables or site config.
+ * Scripts only load when import.meta.env.PROD is true.
+ */
+
+const GA4_ID = import.meta.env.PUBLIC_GA4_ID || '';
+const GTM_ID = import.meta.env.PUBLIC_GTM_ID || '';
+const PLAUSIBLE_DOMAIN = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN || '';
+
+const isProd = import.meta.env.PROD;
+---
+
+{isProd && GA4_ID && (
+  <>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
+    <script define:vars={{ GA4_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', GA4_ID);
+    </script>
+  </>
+)}
+
+{isProd && GTM_ID && (
+  <script define:vars={{ GTM_ID }}>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer',GTM_ID);
+  </script>
+)}
+
+{isProd && PLAUSIBLE_DOMAIN && (
+  <script
+    defer
+    data-domain={PLAUSIBLE_DOMAIN}
+    src="https://plausible.io/js/script.js"
+  ></script>
+)}

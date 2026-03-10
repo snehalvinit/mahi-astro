@@ -29,7 +29,7 @@ const currentLang = lang as SupportedLanguage;
 const homeJsonLd = [localBusinessSchema(), websiteSchema()];
 ---
 
-<BaseLayout lang={currentLang} jsonLd={homeJsonLd}>
+<BaseLayout lang={currentLang} ogImage="/images/og-home.jpg" jsonLd={homeJsonLd}>
   <SiteHeader slot="header" lang={currentLang} />
   <MenuOverlay slot="header" lang={currentLang} />
 

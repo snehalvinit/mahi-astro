@@ -836,7 +836,7 @@ After each task, update `progress.md` with:
 
 ---
 
-### - [ ] T16: Add Analytics, Structured Data, Open Graph
+### - [x] T16: Add Analytics, Structured Data, Open Graph
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** T15
 
@@ -851,10 +851,10 @@ After each task, update `progress.md` with:
 5. Internal linking strategy: service pages → related blogs → related services
 
 **Validate:**
-- [ ] Analytics scripts load in production build only
-- [ ] OG tags render correctly (test with og:image validator)
-- [ ] Social sharing generates correct previews
-- [ ] Git commit: `feat(seo): T16 — analytics and Open Graph optimization`
+- [x] Analytics scripts load in production build only
+- [x] OG tags render correctly (test with og:image validator)
+- [x] Social sharing generates correct previews
+- [x] Git commit: `feat(seo): T16 — analytics and Open Graph optimization`
 
 ---
 

@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: T15 (Implement SEO — Schema Markup, Meta Tags, Sitemap, Hreflang) — 2026-03-09
-### Next Up: T16 (Add Analytics, Structured Data, Open Graph)
-### Latest Commit: `feat(seo): T15 — schema markup, meta tags, sitemap, hreflang`
+### Last Completed: T16 (Add Analytics, Structured Data, Open Graph) — 2026-03-09
+### Next Up: T17 (Create JustDial & Google My Business Optimization Guide)
+### Latest Commit: `feat(seo): T16 — analytics and Open Graph optimization`
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -36,13 +36,13 @@
 | 4-Pages | T4, T5, T6, T7, T8, T9, T9b, T9c, V3 | V3 BLOCKED (9/9 tasks run, 3 fixes needed) |
 | 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | ALL DONE (4/4) |
 | 5-Content | T10–T14, V4 | ALL DONE (6/6) — V4 PASSED |
-| 6-SEO | T15–T17, V5 | T15 DONE, T16–T17 pending |
+| 6-SEO | T15–T17, V5 | T15-T16 DONE, T17 pending |
 | 7+ | T18–T37 | NOT STARTED |
 
 ### Build Stats
 - **Pages generated:** 82 (across 3 languages)
-- **Build time:** ~3.60s
-- **Components created:** 18 (6 layout, 6 sections, 5 UI, 1 SEO)
+- **Build time:** ~3.11s
+- **Components created:** 19 (6 layout, 6 sections, 5 UI, 1 SEO, 1 Analytics)
 - **i18n keys per language:** ~200+
 - **Service pages:** 12 × 3 langs = 36
 - **Blog posts:** 6 × 3 langs = 18 (all languages complete)
@@ -569,46 +569,23 @@
 
 ---
 
-### T15: Implement SEO — Schema Markup, Meta Tags, Sitemap, Hreflang — 2026-03-09
+### T15: Implement SEO — Schema Markup, Meta Tags, Sitemap, Hreflang — 2026-03-09T20:41-07:00
+- **Files:** `src/components/SEOHead.astro` (new), `src/utils/schema.ts` (new), `src/components/ui/Breadcrumbs.astro` (new), `public/robots.txt` (new), `src/layouts/BaseLayout.astro`, `src/pages/[lang]/index.astro`, `src/pages/[lang]/about.astro`, `src/pages/[lang]/services/[slug].astro`, `src/pages/[lang]/services/index.astro`, `src/pages/[lang]/blog/[slug].astro`, `src/pages/[lang]/blog/index.astro`, `src/pages/[lang]/testimonials.astro`, `src/pages/[lang]/events.astro`, `src/pages/[lang]/privacy-policy.astro`
+- **What was done:** Created centralized SEOHead component (meta, OG, Twitter Card, hreflang, canonical), 7 JSON-LD schema helpers (LocalBusiness, Person, Service, Article, FAQ, Breadcrumb, WebSite), reusable Breadcrumbs component with schema markup, and robots.txt. Integrated into BaseLayout and all 10 page files, replacing 8 inline breadcrumb navs.
+- **Test results:** Build: 82 pages in ~3.60s, zero errors/warnings.
+- **Decisions:** SEOHead lives inside `<head>` in BaseLayout (not a replacement); JSON-LD uses hardcoded SITE_URL (`https://believeastrology.com`); Breadcrumbs emits its own `<script type="application/ld+json">`; OG image defaults to `/images/og-default.jpg` placeholder.
+- **Gotchas:** OG image placeholder doesn't exist yet — needs real image for social sharing. Google Analytics deferred to T16. Social media profile URLs in siteConfig are empty strings. Sitemap already configured in astro.config.mjs (no changes needed).
+- **Status:** DONE
 
-**What was done:**
-- Created `src/components/SEOHead.astro` — centralized SEO component with dynamic meta titles, descriptions, canonical URLs, hreflang (en/hi/gu/x-default), Open Graph tags, Twitter Card tags, and article meta for blog posts
-- Created `src/utils/schema.ts` — JSON-LD schema helpers: `localBusinessSchema`, `personSchema`, `serviceSchema`, `articleSchema`, `faqSchema`, `breadcrumbSchema`, `websiteSchema`
-- Created `src/components/ui/Breadcrumbs.astro` — reusable breadcrumb component with BreadcrumbList schema markup, light/dark variants
-- Created `public/robots.txt` — allows all crawlers, links to sitemap-index.xml
-- Updated `src/layouts/BaseLayout.astro` — replaced inline meta/hreflang with SEOHead, added props for ogImage, ogType, article, jsonLd
-- Updated all page files to use Breadcrumbs component (replaced 8 inline breadcrumb navs)
-- Added JSON-LD to: homepage (LocalBusiness + WebSite), about (Person), service pages (Service + FAQPage), blog posts (Article)
-- Sitemap already configured in astro.config.mjs with i18n locales — generates `sitemap-index.xml`
-
-**Files created:**
-- `src/components/SEOHead.astro`
-- `src/utils/schema.ts`
-- `src/components/ui/Breadcrumbs.astro`
-- `public/robots.txt`
-
-**Files modified:**
-- `src/layouts/BaseLayout.astro`
-- `src/pages/[lang]/index.astro`
-- `src/pages/[lang]/about.astro`
-- `src/pages/[lang]/services/[slug].astro`
-- `src/pages/[lang]/services/index.astro`
-- `src/pages/[lang]/blog/[slug].astro`
-- `src/pages/[lang]/blog/index.astro`
-- `src/pages/[lang]/testimonials.astro`
-- `src/pages/[lang]/events.astro`
-- `src/pages/[lang]/privacy-policy.astro`
-
-**Decisions:**
-- SEOHead is a child of `<head>` in BaseLayout, not a replacement — keeps existing font/icon links separate
-- JSON-LD schemas use hardcoded SITE_URL constant (`https://believeastrology.com`) for consistency
-- Breadcrumbs component emits its own `<script type="application/ld+json">` for BreadcrumbList schema
-- OG image defaults to `/images/og-default.jpg` (placeholder — real image still needed)
-
-**Gotchas:**
-- OG image placeholder (`/images/og-default.jpg`) does not yet exist — needs real image for social sharing
-- Google Analytics not yet added (deferred to T16)
-- Social media profile URLs in siteConfig are empty strings — fill when available
-
-**Build:** 82 pages in ~3.60s, zero errors/warnings.
-**Status:** DONE
+### T16: Add Analytics, Structured Data, Open Graph — 2026-03-09
+- **Files created:** `src/components/AnalyticsHead.astro`, `src/data/seo-keywords.json`
+- **Files modified:** `src/layouts/BaseLayout.astro` (added AnalyticsHead import), `src/components/SEOHead.astro` (added og:image:width/height/alt, twitter:image:alt), `src/pages/[lang]/index.astro` (ogImage), `src/pages/[lang]/about.astro` (ogImage), `src/pages/[lang]/contact.astro` (ogImage), `src/pages/[lang]/services/[slug].astro` (ogImage, related blog articles section), `src/pages/[lang]/blog/[slug].astro` (ogImage)
+- **What was done:**
+  1. Created AnalyticsHead.astro with GA4, GTM, and Plausible support — all production-only via `import.meta.env.PROD` and env var gating (`PUBLIC_GA4_ID`, `PUBLIC_GTM_ID`, `PUBLIC_PLAUSIBLE_DOMAIN`)
+  2. Added per-page OG images: homepage (`og-home.jpg`), about (`og-about.jpg`), contact (`og-contact.jpg`), services (`og-{slug}.jpg`), blog posts (`og-{slug}.jpg` or heroImage)
+  3. Enhanced SEOHead with `og:image:width` (1200), `og:image:height` (630), `og:image:alt`, and `twitter:image:alt`
+  4. Created comprehensive `seo-keywords.json` with keyword mapping for all 12 services x 3 languages, plus blog-to-service and service-to-blog cross-reference maps
+  5. Added "Related Articles" section on service pages linking to relevant blog posts (using serviceToBlogMap from seo-keywords.json)
+- **Decisions:** Analytics uses env vars (not site-config) for easy per-environment toggling. OG image paths are conventions — actual images still need to be created (1200x630px). Service-to-blog mapping is static in seo-keywords.json to avoid runtime computation.
+- **Gotchas:** OG images are path conventions only — actual image files need to be created/uploaded. Analytics won't load until env vars are set in deployment (Vercel env settings).
+- **Status:** DONE

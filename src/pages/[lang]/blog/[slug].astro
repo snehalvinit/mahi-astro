@@ -76,6 +76,7 @@ const breadcrumbItems = [
   lang={currentLang}
   title={`${post.seo.title} — ${t.hero.brandName}`}
   description={post.seo.description}
+  ogImage={post.heroImage || `/images/blog/og-${post.slug}.jpg`}
   ogType="article"
   article={{ publishDate: post.publishDate, author: post.author, tags: post.tags }}
   jsonLd={blogJsonLd}
