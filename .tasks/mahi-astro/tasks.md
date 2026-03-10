@@ -1175,14 +1175,14 @@ After each task, update `progress.md` with:
 
 ---
 
-### - [ ] VFX-3: Verify FX-3a, FX-3b, FX-3c Fixes
+### - [x] VFX-3: Verify FX-3a, FX-3b, FX-3c Fixes
 **Type:** Verification | **Model:** claude-sonnet-4-6 | **Depends on:** FX-3a, FX-3b, FX-3c
 **Checks:**
-- [ ] Footer service links resolve correctly in all 3 languages
-- [ ] All pages have 4 hreflang tags (en, hi, gu, x-default) including self-reference
-- [ ] Skip-to-content link present and targets #main-content
-- [ ] `npm run build` succeeds with no warnings
-- [ ] If issues found → create FX-3d+ in Appendix
+- [x] Footer service links resolve correctly in all 3 languages
+- [x] All pages have 4 hreflang tags (en, hi, gu, x-default) including self-reference
+- [x] Skip-to-content link present and targets #main-content
+- [x] `npm run build` succeeds with no warnings (70 pages, 2.27s, zero errors)
+- [x] No issues found — no FX-3d+ needed
 
 ---
 

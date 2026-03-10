@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: FX-3c (Add skip-to-content accessibility link) — 2026-03-09
-### Next Up: VFX-3 (Verify FX-3a, FX-3b, FX-3c fixes)
-### Latest Commit: fix(a11y): FX-3c — add skip-to-content link
+### Last Completed: VFX-3 (Verify FX-3a, FX-3b, FX-3c fixes) — 2026-03-09
+### Next Up: T10 (Content Collections — Services i18n)
+### Latest Commit: verify(pages): VFX-3 — all FX-3 fixes verified, 0 issues
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -34,7 +34,7 @@
 | 2-Foundation | T1, V1 | DONE (2/2) |
 | 3-Design | T2, T3, V2 | DONE (3/3) |
 | 4-Pages | T4, T5, T6, T7, T8, T9, T9b, T9c, V3 | V3 BLOCKED (9/9 tasks run, 3 fixes needed) |
-| 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | FX-3a,3b,3c DONE (3/4) |
+| 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | ALL DONE (4/4) |
 | 5-Content | T10–T14, V4 | NOT STARTED |
 | 6-SEO | T15–T17, V5 | NOT STARTED |
 | 7+ | T18–T37 | NOT STARTED |
@@ -250,4 +250,14 @@
 - **Test results:** `npm run build` succeeds (70 pages, 2.26s). Skip-to-content link verified in HTML output. `#main-content` target confirmed.
 - **Decisions:** Updated z-index from z-50 to z-[100] to ensure skip link is always on top when focused.
 - **Gotchas:** None. All FX-3 fixes complete. VFX-3 verification gate is next.
+- **Status:** DONE
+
+---
+
+### VFX-3: Verify FX-3a, FX-3b, FX-3c Fixes — 2026-03-09
+- **Files:** No files modified (verification only)
+- **What was done:** Re-ran all V3-affected checks against FX-3a/b/c fixes. Footer service links use correct slugs (`vedic-astrology-kundli-reading`, `horoscope-analysis-predictions`) in all 3 languages — no old broken slugs remain. All pages have exactly 4 `rel="alternate" hreflang` tags: self-reference, 2 alternates, and x-default. Skip-to-content link present with `z-[100]`, targets `#main-content`. Build succeeds (70 pages, 2.27s, zero errors/warnings).
+- **Test results:** All 4 checks PASS. No issues found.
+- **Decisions:** No FX-3d+ tasks needed — all fixes verified clean.
+- **Gotchas:** None. Phase 4 (Pages) is now fully complete. Phase 5 (Content) is next.
 - **Status:** DONE
