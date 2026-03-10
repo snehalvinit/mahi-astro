@@ -386,7 +386,7 @@ After each task, update `progress.md` with:
 
 ## PHASE 4 — Page Construction
 
-### - [ ] T4: Build Homepage — Hero, Services Grid, Testimonials, CTA, Booking
+### - [x] T4: Build Homepage — Hero, Services Grid, Testimonials, CTA, Booking
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** V2, R3
 
@@ -424,13 +424,13 @@ After each task, update `progress.md` with:
 7. Add `getStaticPaths()` for all 3 languages
 
 **Validate:**
-- [ ] Homepage renders beautifully in all 3 languages
-- [ ] Hero section has dark celestial feel with clear CTAs
-- [ ] Services grid shows all 12 services with icons
-- [ ] Testimonials carousel works
-- [ ] Responsive on mobile/tablet/desktop
-- [ ] All CTAs link correctly (WhatsApp, phone, booking)
-- [ ] Git commit: `feat(pages): T4 — homepage with hero, services, testimonials, CTA`
+- [x] Homepage renders beautifully in all 3 languages
+- [x] Hero section has dark celestial feel with clear CTAs
+- [x] Services grid shows all 12 services with icons
+- [x] Testimonials carousel works
+- [x] Responsive on mobile/tablet/desktop
+- [x] All CTAs link correctly (WhatsApp, phone, booking)
+- [x] Git commit: `feat(pages): T4 — homepage with hero, services, testimonials, CTA`
 
 ---
 

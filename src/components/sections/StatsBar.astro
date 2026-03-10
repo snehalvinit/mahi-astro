@@ -1,0 +1,35 @@
+---
+import type { SupportedLanguage } from '../../utils/i18n';
+import { getTranslations } from '../../utils/i18n';
+
+interface Props {
+  lang: SupportedLanguage;
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang);
+
+const stats = [
+  { value: t.stats.yearsValue, label: t.stats.yearsLabel, icon: 'calendar' },
+  { value: t.stats.clientsValue, label: t.stats.clientsLabel, icon: 'users' },
+  { value: t.stats.satisfactionValue, label: t.stats.satisfactionLabel, icon: 'star' },
+  { value: t.stats.globalValue, label: t.stats.globalLabel, icon: 'globe' },
+];
+---
+
+<section class="bg-gold/5 border-y border-gold/10 py-10 md:py-14" aria-label="Statistics">
+  <div class="container-wide">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+      {stats.map((stat) => (
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-bold font-heading text-gold mb-1">
+            {stat.value}
+          </div>
+          <div class="text-sm md:text-base text-purple font-medium">
+            {stat.label}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

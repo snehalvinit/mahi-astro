@@ -14,15 +14,76 @@
   "hero": {
     "brandName": "Believe Astrology",
     "subtitle": "Be Better with Connect to Nature",
+    "headline": "Unlock Your Destiny with Vedic Astrology",
+    "credentials": "20+ Years Experience | Thousands of Consultations | Global Reach",
     "tagline": "Astrology is not about predicting a fixed fate, but about understanding the weather of the cosmos so you can sail your boat with wisdom.",
     "cta": "Book Your Consultation",
-    "ctaSecondary": "Explore Services"
+    "ctaSecondary": "Explore Services",
+    "callNow": "Call Now"
+  },
+  "stats": {
+    "yearsValue": "20+",
+    "yearsLabel": "Years of Experience",
+    "clientsValue": "10,000+",
+    "clientsLabel": "Happy Clients",
+    "satisfactionValue": "99%",
+    "satisfactionLabel": "Client Satisfaction",
+    "globalValue": "3",
+    "globalLabel": "Countries Served"
   },
   "services": {
     "title": "Our Services",
     "subtitle": "Comprehensive Vedic Astrology & Spiritual Consultation",
     "viewAll": "View All Services",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "kundli": {
+      "name": "Vedic Astrology & Kundli Reading",
+      "short": "Decode your birth chart for life-changing insights"
+    },
+    "horoscope": {
+      "name": "Horoscope Analysis & Predictions",
+      "short": "Daily, monthly, and yearly forecasts for your zodiac"
+    },
+    "lifeGuidance": {
+      "name": "Marriage, Career & Life Guidance",
+      "short": "Navigate major life decisions with cosmic wisdom"
+    },
+    "vastu": {
+      "name": "Vastu Consultation",
+      "short": "Harmonize your living and work spaces"
+    },
+    "gemstone": {
+      "name": "Gemstone Recommendations",
+      "short": "Discover the right gemstones to enhance your destiny"
+    },
+    "karma": {
+      "name": "Karma & Life-Purpose Counselling",
+      "short": "Understand your karmic path and soul's purpose"
+    },
+    "panchaTatva": {
+      "name": "Pancha Tatva Balancing",
+      "short": "Balance the five elements for holistic well-being"
+    },
+    "chakra": {
+      "name": "Seven Chakras Balancing",
+      "short": "Align your energy centres for spiritual harmony"
+    },
+    "pooja": {
+      "name": "Vedic Spiritual Poojas",
+      "short": "Sacred rituals for blessings and divine grace"
+    },
+    "yagna": {
+      "name": "Vedic Karma-Kand Yagnas",
+      "short": "Ancient fire ceremonies for purification and prosperity"
+    },
+    "mrityunjay": {
+      "name": "Maha-Mrutunjay Mantra Anushthan",
+      "short": "Powerful healing mantra for health and longevity"
+    },
+    "mantra": {
+      "name": "Mantras Chanting",
+      "short": "Personalized mantras for peace and spiritual growth"
+    }
   },
   "about": {
     "title": "About Pandit Shree Mahadev Joshi",
@@ -33,7 +94,45 @@
   },
   "testimonials": {
     "title": "What Our Clients Say",
-    "subtitle": "Trusted by thousands across India and worldwide"
+    "subtitle": "Trusted by thousands across India and worldwide",
+    "reviews": [
+      {
+        "name": "Rajesh P.",
+        "location": "Ahmedabad",
+        "rating": 5,
+        "text": "Pandit ji's Kundli reading was incredibly accurate. His guidance on my career transition was spot on. Within 3 months, I found the perfect opportunity."
+      },
+      {
+        "name": "Priya M.",
+        "location": "Mumbai",
+        "rating": 5,
+        "text": "After years of health issues, Pandit ji recommended specific gemstones and mantras. The change in my energy and well-being has been remarkable."
+      },
+      {
+        "name": "Amit S.",
+        "location": "USA",
+        "rating": 5,
+        "text": "Even from overseas, the consultation via Zoom was thorough and personal. His Vastu advice for our new home made a real difference."
+      },
+      {
+        "name": "Meena D.",
+        "location": "Gujarat",
+        "rating": 5,
+        "text": "Pandit ji guided us through our daughter's marriage compatibility analysis. His insights were deep, respectful, and extremely helpful."
+      },
+      {
+        "name": "Vikram T.",
+        "location": "Ahmedabad",
+        "rating": 5,
+        "text": "The Maha-Mrutunjay Mantra Anushthan organized by Pandit ji was a deeply spiritual experience. My family felt blessed and protected."
+      },
+      {
+        "name": "Sunita K.",
+        "location": "Surat",
+        "rating": 5,
+        "text": "I was skeptical at first, but the accuracy of the horoscope analysis won me over. Pandit ji explains everything with patience and clarity."
+      }
+    ]
   },
   "cta": {
     "title": "Ready to Discover Your Path?",

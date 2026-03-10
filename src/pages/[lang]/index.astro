@@ -5,13 +5,13 @@ import MenuOverlay from '../../components/layout/MenuOverlay.astro';
 import SiteFooter from '../../components/layout/SiteFooter.astro';
 import WhatsAppButton from '../../components/layout/WhatsAppButton.astro';
 import BottomBar from '../../components/layout/BottomBar.astro';
-import Button from '../../components/ui/Button.astro';
-import Card from '../../components/ui/Card.astro';
-import SectionHeading from '../../components/ui/SectionHeading.astro';
-import Badge from '../../components/ui/Badge.astro';
-import { supportedLanguages, isValidLanguage, getTranslations } from '../../utils/i18n';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import StatsBar from '../../components/sections/StatsBar.astro';
+import ServicesGrid from '../../components/sections/ServicesGrid.astro';
+import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+import { supportedLanguages, isValidLanguage } from '../../utils/i18n';
 import type { SupportedLanguage } from '../../utils/i18n';
-import { siteConfig } from '../../data/site-config';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -25,73 +25,17 @@ if (!isValidLanguage(lang as string)) {
 }
 
 const currentLang = lang as SupportedLanguage;
-const t = getTranslations(currentLang);
 ---
 
 <BaseLayout lang={currentLang}>
   <SiteHeader slot="header" lang={currentLang} />
   <MenuOverlay slot="header" lang={currentLang} />
 
-  <!-- Hero Section (dark) -->
-  <section class="hero-dark min-h-screen flex items-center justify-center">
-    <div class="text-center max-w-3xl mx-auto px-6 py-20">
-      <Badge variant="gold" size="md" class="mb-6">
-        {siteConfig.astrologer.experience}
-      </Badge>
-      <h1 class="font-heading text-5xl md:text-6xl font-bold mb-6">
-        {t.hero.brandName}
-      </h1>
-      <p class="text-xl md:text-2xl text-gold-light mb-4">
-        {t.hero.subtitle}
-      </p>
-      <p class="text-lg text-cream/80 mb-10 italic max-w-2xl mx-auto">
-        "{t.hero.tagline}"
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button
-          variant="primary"
-          size="lg"
-          href={siteConfig.contact.whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {t.hero.cta}
-        </Button>
-        <Button
-          variant="outline"
-          size="lg"
-          href={`/${currentLang}/services`}
-        >
-          {t.hero.ctaSecondary}
-        </Button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Preview Section -->
-  <section class="py-(--spacing-section) px-6 bg-cream">
-    <div class="container-wide">
-      <SectionHeading
-        title={t.services.title}
-        subtitle={t.services.subtitle}
-        align="center"
-      />
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <Card variant="service">
-          <h3 class="font-heading text-xl font-bold text-indigo mb-2">{t.hero.brandName}</h3>
-          <p class="text-purple/80">{t.services.subtitle}</p>
-        </Card>
-        <Card variant="service">
-          <h3 class="font-heading text-xl font-bold text-indigo mb-2">{t.hero.brandName}</h3>
-          <p class="text-purple/80">{t.services.subtitle}</p>
-        </Card>
-        <Card variant="service">
-          <h3 class="font-heading text-xl font-bold text-indigo mb-2">{t.hero.brandName}</h3>
-          <p class="text-purple/80">{t.services.subtitle}</p>
-        </Card>
-      </div>
-    </div>
-  </section>
+  <HeroSection lang={currentLang} />
+  <StatsBar lang={currentLang} />
+  <ServicesGrid lang={currentLang} />
+  <TestimonialsSection lang={currentLang} />
+  <CTASection lang={currentLang} />
 
   <SiteFooter slot="footer" lang={currentLang} />
   <WhatsAppButton slot="footer" lang={currentLang} />

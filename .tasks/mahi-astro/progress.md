@@ -23,8 +23,8 @@
 
 ## Task Progress
 
-### Last Completed: V2 (Verify Design System & Navigation) — 2026-03-09
-### Next Up: T4 (Build Homepage) — depends on V2 (done), R3 (done)
+### Last Completed: T4 (Build Homepage) — 2026-03-09
+### Next Up: V3 (Verify Homepage) or T5 (About Page)
 
 ---
 
@@ -100,10 +100,20 @@
 
 ---
 
-### V2: Gate — Verify Design System & Navigation — 2026-03-09
+### V2: Gate — Verify Design System & Navigation — 2026-03-10T00:39Z
 - **Files:** No files modified (verification only)
 - **What was done:** Ran all 6 verification checks against T2+T3 output. `npm run build` succeeds (4 pages, 1.62s). All 3 language routes (/en/, /hi/, /gu/) render with correct translations, proper `lang` attributes, and Devanagari/Gujarati scripts. Navigation includes 6-item desktop nav, mobile hamburger with slide-in overlay, and mobile bottom bar. Language switcher correctly swaps URL prefixes preserving page paths. WhatsApp deep links (wa.me/918154992727) present on all pages with per-language prefilled messages. Color system uses CSS custom properties consistently across all components (gold, saffron, purple, indigo, cream, maroon). Google Fonts loads all 4 font families; CSS switches body/heading fonts via `html[lang]` selectors.
 - **Test results:** All 6 checks PASS. No issues found.
 - **Decisions:** No FX/VFX tasks needed — design system and navigation are solid.
 - **Gotchas:** Content collection warnings for empty blog/services dirs are expected (populated in T10+). Footer service links are hardcoded English text — will be translated when service content collections exist. Build output: 194KB JS (React runtime).
+- **Status:** DONE
+
+---
+
+### T4: Build Homepage — Hero, Services Grid, Testimonials, CTA, Booking — 2026-03-09T17:45Z
+- **Files:** `src/components/sections/HeroSection.astro`, `src/components/sections/StatsBar.astro`, `src/components/sections/ServicesGrid.astro`, `src/components/sections/TestimonialsSection.astro`, `src/components/sections/CTASection.astro`, `src/pages/[lang]/index.astro`, `src/content/i18n/en.json`, `src/content/i18n/hi.json`, `src/content/i18n/gu.json`
+- **What was done:** Created 5 section components and assembled the full homepage. HeroSection: dark celestial gradient background with star pattern, headline, credentials, tagline blockquote, dual CTAs (WhatsApp + Explore Services), phone/email quick contact, astrologer photo placeholder circle. StatsBar: 4-stat grid (20+ years, 10,000+ clients, 99% satisfaction, 3 countries) with gold numbers on cream background. ServicesGrid: all 12 services in responsive 1/2/3/4-column grid using Card component with emoji icons, hover effects, and View All CTA. TestimonialsSection: 6 client reviews with avatar initials, star ratings, italic quotes; horizontal scroll on mobile, 3-column grid on desktop. CTASection: dark indigo/purple gradient with WhatsApp icon button + Call Now. Updated all 3 translation files (en/hi/gu) with: hero.headline, hero.credentials, hero.callNow, full stats section, all 12 service names+descriptions, 6 testimonial reviews with names/locations/text. Refactored index.astro to compose sections cleanly.
+- **Test results:** `npm run build` succeeds (4 pages, 1.64s). All 3 language routes render with correct translations — verified Hindi headline, Gujarati headline, English services/testimonials/CTA all present in HTML output. WhatsApp links with encoded prefill messages on all pages.
+- **Decisions:** Used emoji icons for services (crystal ball for Kundli, dharma wheel for Karma, etc.) — will be replaced with proper SVG icons in T18/T19 when visual assets are implemented. Testimonials use horizontal scroll on mobile (touch-friendly) and 3-col grid on desktop. Stats bar uses gold/5 background for subtle distinction. Hero uses CSS star pattern (radial gradients) instead of image for zero-dependency celestial effect.
+- **Gotchas:** Astrologer photo placeholder in hero is a circle with person icon — client must provide real photo. Service cards link to /{lang}/services (plural) — individual service pages created in T6. Testimonials are placeholder content — real reviews should be added when available. Blog posts section mentioned in task spec deferred (no blog content yet — T13/T14). Footer service links still use hardcoded English text — updated when service content collections exist (T10+).
 - **Status:** DONE
