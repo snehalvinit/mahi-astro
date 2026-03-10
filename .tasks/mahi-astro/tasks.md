@@ -997,19 +997,19 @@ After each task, update `progress.md` with:
 - [x] All test files created
 - [x] Tests run and pass: `npx playwright test`
 - [x] Coverage: navigation, i18n, services, blog, contact, SEO, responsive, a11y
-- [ ] Git commit: `feat(tests): T20 — Playwright E2E test suite`
+- [x] Git commit: `feat(tests): T20 — Playwright E2E test suite`
 
 ---
 
-### - [ ] V7: Gate — All Tests Pass
+### - [x] V7: Gate — All Tests Pass
 
 **Type:** Verification | **Model:** claude-sonnet-4-6 | **Depends on:** T20
 
 **Checks:**
-- [ ] `npx playwright test` — 100% pass rate
-- [ ] No flaky tests
-- [ ] Build succeeds: `npm run build`
-- [ ] If tests fail → create FX-7 + VFX-7 in Appendix
+- [x] `npx playwright test` — 100% pass rate (149/149 passed, 44.0s)
+- [x] No flaky tests
+- [x] Build succeeds: `npm run build` (82 pages, 4.20s)
+- [x] If tests fail → create FX-7 + VFX-7 in Appendix — N/A, all passed
 
 ---
 

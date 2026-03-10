@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: T20 (Write Playwright E2E Tests) — 2026-03-09
-### Next Up: V7 (Gate — All Tests Pass)
-### Latest Commit: TBD — `feat(tests): T20 — Playwright E2E test suite`
+### Last Completed: V7 (Gate — All Tests Pass) — 2026-03-09
+### Next Up: T21 (Initialize GitHub Repository)
+### Latest Commit: `verify(tests): V7 — all tests pass, build clean`
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -39,8 +39,17 @@
 | 6-SEO | T15–T17, V5 | ALL DONE — V5 PASSED |
 | 6-Fixes | FX-5a, FX-5b, VFX-5 | ALL DONE (3/3) — VFX-5 PASSED |
 | 7-Images | T18, T19, V6 | ALL DONE (3/3) — V6 PASSED |
-| 8-Testing | T20 | DONE (1/1) — 149 tests pass |
-| 8+ | V7, T21–T37 | NOT STARTED |
+| 8-Testing | T20, V7 | ALL DONE (2/2) — V7 PASSED |
+| 9+ | T21–T37 | NOT STARTED |
+
+### V7 Handover Notes
+**What was verified:**
+- Playwright E2E: 149/149 tests passed (44.0s, 5 workers, Chromium)
+- Build: 82 pages generated in 4.20s, zero errors
+- No flaky tests detected — clean single run
+- Test coverage: accessibility, blog, contact, homepage, i18n, navigation, responsive, SEO, services
+
+**No issues found — V7 PASSED, ready for Phase 9 (Deployment)**
 
 ### Build Stats
 - **Pages generated:** 82 (across 3 languages)
@@ -183,6 +192,16 @@
 ---
 
 ## Task History
+
+### T20: Write Playwright E2E Tests — 2026-03-09T05:40Z
+- **Files:** `playwright.config.ts` (created), `tests/navigation.spec.ts`, `tests/homepage.spec.ts`, `tests/services.spec.ts`, `tests/blog.spec.ts`, `tests/contact.spec.ts`, `tests/i18n.spec.ts`, `tests/seo.spec.ts`, `tests/responsive.spec.ts`, `tests/accessibility.spec.ts` (all created), `package.json` (modified), `package-lock.json` (modified), `astro.config.mjs` (modified), `.gitignore` (modified)
+- **What was done:** Created 9 comprehensive Playwright E2E test suites with 149 tests covering navigation, homepage, services, blog, contact, i18n, SEO, responsive design, and accessibility across all 3 languages (en, hi, gu).
+- **Test results:** 149/149 pass on chromium. Zero flaky tests across multiple runs.
+- **Decisions:** Used `serve` instead of `astro preview` to avoid dev toolbar artifacts; single chromium project with `test.use()` viewport overrides for responsive testing (simpler than multi-project config); skipped visual regression snapshots (SVG-heavy site makes pixel comparison less useful); disabled Astro devToolbar in config.
+- **Gotchas:** Service page iteration test has 60s timeout (12 pages × navigation). Blog back link matched with `.last()` due to duplicate href in breadcrumbs. `serve` and `@playwright/test` added as devDependencies.
+- **Status:** DONE
+
+---
 
 ### V5: Verify SEO Implementation — BLOCKED — 2026-03-09
 
