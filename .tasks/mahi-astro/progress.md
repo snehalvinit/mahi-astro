@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: T11 (Translate All Content to Hindi) — 2026-03-09
-### Next Up: T12 (Translate All Content to Gujarati)
-### Latest Commit: feat(content): T11 — Hindi translations for all services
+### Last Completed: T12 (Translate All Content to Gujarati) — 2026-03-09
+### Next Up: T13 (Write 6 Initial Blog Posts in English)
+### Latest Commit: feat(content): T12 — Gujarati translations for all services
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -35,7 +35,7 @@
 | 3-Design | T2, T3, V2 | DONE (3/3) |
 | 4-Pages | T4, T5, T6, T7, T8, T9, T9b, T9c, V3 | V3 BLOCKED (9/9 tasks run, 3 fixes needed) |
 | 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | ALL DONE (4/4) |
-| 5-Content | T10–T14, V4 | T10, T11 DONE (2/6) |
+| 5-Content | T10–T14, V4 | T10, T11, T12 DONE (3/6) |
 | 6-SEO | T15–T17, V5 | NOT STARTED |
 | 7+ | T18–T37 | NOT STARTED |
 
@@ -304,6 +304,37 @@
 
 ---
 
+### Handover Summary — 2026-03-09T03:30Z (Phase 5 Content: T10–T11)
+
+**English service content written and Hindi translations complete. Gujarati (T12) is next.**
+
+| Task | Key Output |
+|------|------------|
+| T10 | Enhanced 12 English service JSONs: 300-500 word intros, 112 FAQs, 96 benefits, SEO keywords with Ahmedabad location terms |
+| T11 | Created `src/content/services/hi/` with 12 Hindi service JSONs: natural Devanagari with Vedic terminology, 250/250 i18n key parity |
+
+**Build:** 70 pages, ~2.6s, zero errors/warnings.
+
+**Key files changed:**
+- `src/content/services/en/*.json` (12 files enhanced)
+- `src/content/services/hi/*.json` (12 files created)
+
+**Decisions:**
+- Kept `introduction` and `overview` as separate fields (both rendered on service detail page in different sections)
+- Hindi uses natural Vedic terms (कुंडली, राशिफल, दशा, गोचर) not transliterations
+- System identifiers (id, slug, category, relatedServices) kept as English for URL routing
+- No code changes needed — services utility already supported language-prefixed content
+
+**Next up:** T12 (Gujarati translations) — same pattern, create `src/content/services/gu/` with 12 files
+
+**Gotchas for next task:**
+- GU service pages currently fall back to English content since `gu/` files don't exist yet
+- Services utility `getServicesForLanguage()` already handles `gu/` prefix filtering
+- Blog posts (T13/T14) are still English-only across all languages
+- `introduction` and `overview` fields have intentional content overlap
+
+---
+
 ### T10: Write English Content for All 12 Service Pages — 2026-03-09
 - **Files:** All 12 files in `src/content/services/en/` (vedic-astrology-kundli-reading, horoscope-analysis-predictions, marriage-career-finance-health-guidance, vastu-consultation, gemstone-recommendations, karma-life-purpose-counselling, pancha-tatva-balancing, seven-chakras-balancing, vedic-spiritual-poojas, vedic-karma-kand-yagnas, maha-mrityunjaya-mantra-anushthan, mantras-chanting)
 - **What was done:** Enhanced all 12 English service JSON files with comprehensive content. Expanded introductions from ~50-70 words to 300-500 words with rich Vedic context, terminology, and authoritative detail. Expanded FAQs from 2-4 per service to 8-10 each (total: 112 FAQs across 12 services). Added 1-2 benefits per service bringing all to 8 items. Enhanced SEO meta descriptions and keywords with Ahmedabad location terms. Added richer keywords arrays. All content is professional, culturally appropriate, and SEO-optimized with naturally integrated keywords.
@@ -320,4 +351,14 @@
 - **Test results:** `npm run build` succeeds (70 pages, 2.57s, zero errors/warnings). Hindi service pages now render with Hindi content (not English fallback). EN and GU pages unaffected. Zod schema validation passes for all Hindi files. i18n key parity confirmed (250/250).
 - **Decisions:** Services utility `getServicesForLanguage()` already supported `hi/` prefix filtering — no code changes needed. Hindi translations use appropriate Vedic terminology that Hindi speakers would naturally use (e.g., "कुंडली पठन" not "जन्मपत्रिका पढ़ना"). SEO keywords include Hindi-language search terms with Ahmedabad location targeting.
 - **Gotchas:** Gujarati (T12) is next — same pattern, create `src/content/services/gu/` directory with 12 files. The services utility already handles `gu/` prefix the same way. Blog posts (T13/T14) are still English-only — Hindi/Gujarati blog translations would be a separate future task. GU service pages still fall back to English content since gu/ service files don't exist yet.
+- **Status:** DONE
+
+---
+
+### T12: Translate All Content to Gujarati — 2026-03-09
+- **Files:** All 12 files in `src/content/services/gu/` (vedic-astrology-kundli-reading, horoscope-analysis-predictions, marriage-career-finance-health-guidance, vastu-consultation, gemstone-recommendations, karma-life-purpose-counselling, pancha-tatva-balancing, seven-chakras-balancing, vedic-spiritual-poojas, vedic-karma-kand-yagnas, maha-mrityunjaya-mantra-anushthan, mantras-chanting)
+- **What was done:** Translated all 12 English service JSON files to Gujarati. Each file contains natural Gujarati script with proper Vedic/Hindu terminology (કુંડળી, રાશિફળ, દશા, ગોચર, મુહૂર્ત, નવરત્ન, ષડ્બલ, etc.). All user-facing fields translated: title, subtitle, description, shortDescription, introduction, overview, benefits, process steps, FAQs, keywords, and SEO metadata. System identifiers (id, slug, category, relatedServices) kept as English for URL routing. i18n/gu.json already had all keys matching en.json from prior tasks (19/19 top-level sections). Total: 112 Gujarati FAQs, 96 Gujarati benefits, 60 Gujarati process steps across 12 services.
+- **Test results:** `npm run build` succeeds (70 pages, 2.55s, zero errors/warnings). Gujarati service pages now render with Gujarati content (not English fallback). EN and HI pages unaffected. Zod schema validation passes for all Gujarati files. i18n key parity confirmed (19/19 top-level keys).
+- **Decisions:** Services utility `getServicesForLanguage()` already supported `gu/` prefix filtering — no code changes needed. Gujarati translations use appropriate Vedic terminology that Gujarati speakers would naturally use (e.g., "કુંડળી વાંચન" not transliterated Hindi). SEO keywords include Gujarati-language search terms with અમદાવાદ location targeting.
+- **Gotchas:** All 3 languages now have complete service content (en, hi, gu). Blog posts (T13/T14) are still English-only across all languages. T13 is next — write 6 initial English blog posts.
 - **Status:** DONE

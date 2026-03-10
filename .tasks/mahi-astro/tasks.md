@@ -720,7 +720,7 @@ After each task, update `progress.md` with:
 
 ---
 
-### - [ ] T12: Translate All Content to Gujarati
+### - [x] T12: Translate All Content to Gujarati
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** T10
 
@@ -733,10 +733,10 @@ After each task, update `progress.md` with:
 6. Translate SEO meta tags with Gujarati keywords
 
 **Validate:**
-- [ ] All 12 Gujarati service files created
-- [ ] i18n/gu.json has all keys matching en.json
-- [ ] Gujarati text reads naturally for Gujarat audience
-- [ ] SEO keywords are in Gujarati
+- [x] All 12 Gujarati service files created
+- [x] i18n/gu.json has all keys matching en.json
+- [x] Gujarati text reads naturally for Gujarat audience
+- [x] SEO keywords are in Gujarati
 - [ ] Git commit: `feat(content): T12 — Gujarati translations for all services`
 
 ---
