@@ -579,7 +579,7 @@ After each task, update `progress.md` with:
 
 ---
 
-### - [ ] T9b: Build Events/Updates Page with Subscription Mechanism
+### - [x] T9b: Build Events/Updates Page with Subscription Mechanism
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** V2
 
@@ -603,11 +603,11 @@ After each task, update `progress.md` with:
 6. All text in translation files for 3 languages
 
 **Validate:**
-- [ ] Events page renders in all 3 languages
-- [ ] Event cards display date, title, description properly
-- [ ] Subscription form captures email
-- [ ] WhatsApp subscribe link works
-- [ ] SubscribeSection reusable on homepage
+- [x] Events page renders in all 3 languages
+- [x] Event cards display date, title, description properly
+- [x] Subscription form captures email
+- [x] WhatsApp subscribe link works
+- [x] SubscribeSection reusable on homepage
 - [ ] Git commit: `feat(pages): T9b — events/updates page with subscription`
 
 ---

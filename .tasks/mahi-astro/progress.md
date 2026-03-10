@@ -23,8 +23,8 @@
 
 ## Task Progress
 
-### Last Completed: T9 (Testimonials Page) — 2026-03-09
-### Next Up: T9b (Events/Updates Page)
+### Last Completed: T9b (Events/Updates Page) — 2026-03-09
+### Next Up: T9c (404 Page & Privacy Policy)
 
 ---
 
@@ -166,4 +166,14 @@
 - **Test results:** `npm run build` succeeds (61 pages, 2.16s). 3 new testimonials pages (/en/testimonials, /hi/testimonials, /gu/testimonials). All 3 languages verified with correct translated headings and review text.
 - **Decisions:** Used separate `src/data/testimonials.json` with inline multilingual text (textHi, textGu) rather than i18n file arrays — cleaner data management for 10 reviews with per-language text. Featured reviews (4) shown in larger 2-col cards, all 10 in standard 3-col grid. Video testimonials are placeholder containers (dashed borders + play icon) — ready for real video embeds. Google/JustDial badge links are placeholder `#` — update with real business profile URLs.
 - **Gotchas:** Google Reviews and JustDial badge links are placeholders (`href="#"`) — must be updated with real profile URLs when available. Video testimonials section shows "coming soon" placeholders. Testimonial data is in `src/data/` (static JSON) rather than content collections — no Zod validation. The homepage TestimonialsSection.astro still uses the i18n reviews array (6 reviews) independently from the new testimonials.json (10 reviews).
+- **Status:** DONE
+
+---
+
+### T9b: Build Events/Updates Page with Subscription Mechanism — 2026-03-09
+- **Files:** `src/pages/[lang]/events.astro`, `src/data/events.json`, `src/components/sections/EventCard.astro`, `src/components/sections/SubscribeSection.astro`, `src/content/i18n/{en,hi,gu}.json`, `src/components/layout/SiteHeader.astro`, `src/components/layout/MenuOverlay.astro`
+- **What was done:** Created full events/updates page with 5 sections: hero banner with breadcrumbs, upcoming events grid (3 events with EventCard component), latest cosmic updates (2 update cards with left saffron border), subscription section (email form via Formspree + WhatsApp broadcast opt-in with prefilled subscribe message), and consultation CTA. Created `src/data/events.json` with 5 placeholder entries (3 upcoming events: Maha Shivratri Pooja, Chaitra Navratri Yagna, Vedic Astrology Workshop; 2 current updates: Saturn Transit, Lunar Eclipse Alert). Created reusable `EventCard.astro` with date/location/category/status display and WhatsApp register CTA. Created reusable `SubscribeSection.astro` with email form + WhatsApp subscribe card, JS async submit handler, success/error states, and compact/default variants. Added `eventsPage` translation section to all 3 i18n files with 30+ keys each including category labels, subscribe form text, and WhatsApp subscribe prefill. Added events link to SiteHeader and MenuOverlay nav.
+- **Test results:** `npm run build` succeeds (64 pages, 2.16s). 3 new events pages (/en/events, /hi/events, /gu/events). All 3 languages verified — Hindi (कार्यक्रम और अपडेट), Gujarati (કાર્યક્રમો અને અપડેટ્સ), English content present. WhatsApp links, subscribe form, and event cards all verified in build output.
+- **Decisions:** Used `src/data/events.json` with inline multilingual text (titleHi/titleGu, descriptionHi/descriptionGu) — same pattern as testimonials.json. Events split into "event" type (upcoming ceremonies/workshops) and "update" type (planetary transits/eclipse alerts). SubscribeSection accepts all text as props for full i18n support and supports compact variant for homepage embedding. Email subscription uses Formspree (placeholder endpoint). WhatsApp subscribe uses separate prefill message asking to subscribe to daily updates.
+- **Gotchas:** Formspree subscribe endpoint is a placeholder (`formspree.io/f/placeholder-subscribe`) — must be replaced with real form ID. Events data is static JSON — no Zod validation. Past events section conditionally renders only when events with `status: "past"` exist (currently none). Nav now has 7 items on desktop — may need dropdown grouping if more pages are added. SubscribeSection can be embedded on homepage by importing and passing eventsPage translation props.
 - **Status:** DONE
