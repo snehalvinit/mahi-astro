@@ -1,0 +1,50 @@
+{
+  "id": "vastu-consultation",
+  "title": "Vastu Consultation",
+  "slug": "vastu-consultation",
+  "category": "core",
+  "icon": "home",
+  "shortDescription": "Harmonize your living and working spaces with ancient Vastu Shastra principles for positive energy flow, prosperity, and peace.",
+  "description": "Vastu Shastra — the ancient Indian science of architecture and spatial harmony — teaches that the energy flow within your living and working spaces profoundly influences your health, prosperity, relationships, and peace of mind. Like a cosmic version of environmental design, Vastu aligns your physical spaces with the five fundamental elements (earth, water, fire, air, and space) and the eight cardinal directions.\n\nPandit Shree Mahadev Joshi offers comprehensive Vastu consultation for homes, offices, shops, and plots. Drawing from classical texts like the Manasara and Mayamata, combined with practical experience, Panditji analyzes the directional alignment of entrances, the placement of rooms and functions, energy flow patterns, and the balance of the Pancha Tatva (five elements) within your space.\n\nUnlike generalized Vastu tips, a professional consultation identifies specific Vastu Doshas (imbalances) in your property and provides targeted remedies. These may range from simple adjustments — like repositioning furniture or changing color schemes — to deeper corrections involving room usage changes or placement of Vastu yantras. The goal is always maximum benefit with minimum disruption.\n\nWhether you're building a new home, moving into a new office, or experiencing unexplained challenges in your current space, a Vastu consultation can identify the energetic root cause and provide actionable solutions.",
+  "benefits": [
+    "Harmonized living and working spaces for positive energy flow",
+    "Identification and correction of Vastu Doshas causing problems",
+    "Enhanced prosperity, health, and relationship harmony",
+    "Practical, implementable remedies (not always structural changes)",
+    "New construction guidance for Vastu-compliant design from the start",
+    "Peace of mind through balanced, harmonious environments"
+  ],
+  "process": [
+    { "step": 1, "title": "Initial Assessment", "description": "Share property type, floor plan, and any specific concerns via phone/email." },
+    { "step": 2, "title": "On-Site Visit or Remote Analysis", "description": "In-person compass readings and space evaluation, or remote analysis using floor plans with accurate directional markings." },
+    { "step": 3, "title": "Detailed Report", "description": "Room-by-room Vastu assessment identifying doshas and imbalances." },
+    { "step": 4, "title": "Remedies & Solutions", "description": "Practical, prioritized recommendations tailored to your property." },
+    { "step": 5, "title": "Follow-Up Support", "description": "Guidance during implementation and effectiveness monitoring." }
+  ],
+  "faqs": [
+    {
+      "question": "Does Vastu require demolishing or rebuilding my home?",
+      "answer": "No. Most Vastu remedies involve non-structural changes like repositioning furniture, adjusting colors, placing specific items, or changing room functions. Structural changes are recommended only in severe cases."
+    },
+    {
+      "question": "Can Vastu be applied to rented properties?",
+      "answer": "Absolutely. Many effective Vastu remedies are portable — using colors, placement of objects, crystals, and yantras — making them ideal for rented spaces."
+    },
+    {
+      "question": "Is online Vastu consultation effective?",
+      "answer": "Yes, provided accurate floor plans with directional markings are shared. Panditji can conduct thorough analysis remotely, making it accessible for clients worldwide."
+    }
+  ],
+  "keywords": {
+    "en": ["vastu shastra", "vastu consultant", "home vastu", "office vastu", "vastu tips", "vastu remedies", "vastu dosha"],
+    "hi": ["वास्तु शास्त्र", "वास्तु सलाहकार", "घर का वास्तु", "वास्तु दोष", "वास्तु उपाय"],
+    "gu": ["વાસ્તુ શાસ્ત્ર", "વાસ્તુ સલાહકાર", "ઘરનું વાસ્તુ", "વાસ્તુ દોષ", "વાસ્તુ ઉપાય"]
+  },
+  "relatedServices": ["pancha-tatva-balancing", "vedic-astrology-kundli-reading"],
+  "blogTopics": [
+    "Vastu Tips for Your Home: Room-by-Room Guide",
+    "Vastu for Office: Boost Productivity with Directional Alignment",
+    "Common Vastu Doshas and Their Simple Remedies",
+    "Vastu vs Feng Shui: Similarities and Differences"
+  ]
+}

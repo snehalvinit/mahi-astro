@@ -1,0 +1,45 @@
+{
+  "id": "seven-chakras-balancing",
+  "title": "Seven Chakras Balancing",
+  "slug": "seven-chakras-balancing",
+  "category": "spiritual",
+  "icon": "chakra",
+  "shortDescription": "Align your seven energy centers through an integrated approach combining Vedic astrology, mantras, meditation, and gemstones.",
+  "description": "The seven chakras are energy centers located along the spine, from its base to the crown of the head. According to ancient Hindu philosophy, these spinning wheels of energy govern different aspects of your physical, emotional, and spiritual wellbeing. When all seven chakras are open and balanced, energy (Prana) flows freely, creating vitality, clarity, and inner peace. When blocked or imbalanced, the corresponding life areas suffer.\n\nWhat makes Believe Astrology's approach unique is the integration of chakra healing with Vedic astrology. Each chakra corresponds to specific planets and zodiac signs: Mars rules the Root Chakra (survival and stability), the Sun governs the Heart Chakra (identity and love), and Mercury rules the Throat Chakra (communication and expression). Your birth chart reveals which chakras are naturally strong, which may be challenged, and which planets are influencing your energy flow.\n\nPandit Shree Mahadev Joshi combines this astrological diagnosis with targeted healing practices. For each imbalanced chakra, specific Vedic remedies are prescribed: planetary mantras that resonate with the chakra's frequency, meditation techniques, appropriate gemstones, Ayurvedic herbs and oils, dietary adjustments, and yoga asanas.\n\nThe seven chakras and their domains: Muladhara (Root — security), Svadhisthana (Sacral — creativity), Manipura (Solar Plexus — power), Anahata (Heart — love), Vishuddha (Throat — communication), Ajna (Third Eye — intuition), and Sahasrara (Crown — spiritual connection).",
+  "benefits": [
+    "Improved physical health through energetic alignment",
+    "Emotional stability and stronger relationships",
+    "Enhanced intuition and mental clarity",
+    "Deeper spiritual connection and purpose",
+    "Astrologically-informed healing — targeted and precise",
+    "Integrated approach combining mantras, gems, yoga, and meditation"
+  ],
+  "process": [
+    { "step": 1, "title": "Astrological-Chakra Mapping", "description": "Your birth chart is analyzed for planetary influences on each chakra." },
+    { "step": 2, "title": "Blockage Identification", "description": "Specific chakras showing weakness or over-activation are identified." },
+    { "step": 3, "title": "Symptom Correlation", "description": "Connecting your reported physical/emotional concerns with chakra imbalances." },
+    { "step": 4, "title": "Healing Protocol", "description": "Customized combination of mantras, meditations, gemstones, and practices for each affected chakra." },
+    { "step": 5, "title": "Ongoing Practice", "description": "A daily routine you can follow independently, with periodic check-ins." }
+  ],
+  "faqs": [
+    {
+      "question": "Can blocked chakras cause physical illness?",
+      "answer": "In the Vedic framework, prolonged energetic imbalance can manifest as physical symptoms. Chakra work is complementary to medical care, not a replacement."
+    },
+    {
+      "question": "How long does chakra balancing take?",
+      "answer": "Initial improvements can be felt within weeks of consistent practice. Deep, lasting balance develops over months of regular meditation, mantra chanting, and lifestyle alignment."
+    }
+  ],
+  "keywords": {
+    "en": ["chakra balancing", "seven chakras healing", "kundalini", "energy healing", "chakra meditation"],
+    "hi": ["सात चक्र", "चक्र संतुलन", "कुंडलिनी", "ऊर्जा चिकित्सा", "चक्र ध्यान"],
+    "gu": ["સાત ચક્ર", "ચક્ર સંતુલન", "કુંડલિની", "ઊર્જા ચિકિત્સા"]
+  },
+  "relatedServices": ["pancha-tatva-balancing", "karma-life-purpose-counselling", "mantras-chanting"],
+  "blogTopics": [
+    "The 7 Chakras Explained: A Complete Guide for Beginners",
+    "How Blocked Chakras Affect Your Health and Relationships",
+    "Astrology and Chakras: How Planets Influence Your Energy Centers"
+  ]
+}

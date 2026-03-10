@@ -1,0 +1,49 @@
+{
+  "id": "vedic-karma-kand-yagnas",
+  "title": "Vedic Karma-Kand Yagnas",
+  "slug": "vedic-karma-kand-yagnas",
+  "category": "spiritual",
+  "icon": "fire",
+  "shortDescription": "Sacred Vedic fire ceremonies — Havan, Homa, and Yagna rituals for karmic purification, planetary appeasement, and spiritual blessings.",
+  "description": "Yagna (Yajna) — the sacred fire ceremony — is among the most powerful and ancient rituals in the Vedic tradition. Described in the Yajurveda as 'the greatest among all works,' a Yagna involves making offerings of ghee, grains, herbs, and sacred materials into a consecrated fire (Agni) while chanting specific Vedic mantras. The fire acts as a divine intermediary, transforming physical offerings into spiritual energy and carrying them to the celestial realm.\n\nKarma-Kand — the ritual portion of Vedic knowledge — encompasses the systematic science of these fire ceremonies. Each Yagna serves a specific purpose: Agnihotra for daily atmospheric purification, Ganapathi Homam for obstacle removal, Navagraha Homam for planetary appeasement, Graha Shanti Yajna for harmonizing astrological imbalances, Chandi Havan for divine protection, and Vivaha Yajna for sanctifying marriages.\n\nPandit Shree Mahadev Joshi conducts authentic Karma-Kand Yagnas following the complete Vedic procedure: purification of the space and participants, construction of the appropriate fire altar (Yagna Kund), invocation of Agni and the presiding deities, Sankalpa (intention setting), the rhythmic offering of Aahuti with precise mantra recitation, meditation and contemplation, and concluding prayers with blessings for all beings.\n\nScientific research supports the purifying effects of Yagnas — a study by India's National Botanical Research Institute found that traditional Havan materials reduced bacterial presence by 94% within one hour.",
+  "benefits": [
+    "Karmic purification through sacred fire offerings",
+    "Appeasement of challenging planetary influences",
+    "Environmental purification (scientifically documented antibacterial effects)",
+    "Spiritual growth through Vedic mantra vibrations",
+    "Blessings for specific life goals — health, prosperity, protection, progeny",
+    "Community unity and shared spiritual experience"
+  ],
+  "process": [
+    { "step": 1, "title": "Purpose Assessment", "description": "Identify the specific purpose and select the appropriate type of Yagna." },
+    { "step": 2, "title": "Muhurta Selection", "description": "Choose an auspicious date and time based on Panchang and your birth chart." },
+    { "step": 3, "title": "Preparation", "description": "Gather required materials (Samagri) and prepare the space and fire altar." },
+    { "step": 4, "title": "Yagna Performance", "description": "Full Vedic fire ceremony conducted by Panditji, typically 2-4 hours." },
+    { "step": 5, "title": "Concluding Rituals", "description": "Aarti, Prasad distribution, and guidance on maintaining the spiritual momentum." }
+  ],
+  "faqs": [
+    {
+      "question": "What is the difference between a Pooja and a Yagna?",
+      "answer": "A Pooja is a worship ritual that may or may not involve fire. A Yagna specifically centers on the sacred fire (Agni) as the divine medium. Yagnas are generally more elaborate and powerful."
+    },
+    {
+      "question": "Can a Yagna be performed at home?",
+      "answer": "Yes, many Yagnas can be performed at home with proper setup. Panditji brings the required fire altar (Kund) and all materials. Ensure a well-ventilated space."
+    },
+    {
+      "question": "How long does a Yagna ceremony take?",
+      "answer": "Simple Havans take 1-2 hours. Standard Yagnas run 2-4 hours. Major Anushtans may span multiple days."
+    }
+  ],
+  "keywords": {
+    "en": ["vedic yagna", "havan", "homa", "fire ceremony", "karma kand", "agnihotra", "navagraha homa"],
+    "hi": ["वैदिक यज्ञ", "हवन", "होम", "अग्निहोत्र", "कर्मकांड", "नवग्रह होम"],
+    "gu": ["વૈદિક યજ્ઞ", "હવન", "હોમ", "અગ્નિહોત્ર", "કર્મકાંડ", "નવગ્રહ હોમ"]
+  },
+  "relatedServices": ["vedic-spiritual-poojas", "maha-mrityunjaya-mantra-anushthan"],
+  "blogTopics": [
+    "What is a Vedic Yagna? The Ancient Fire Ceremony Explained",
+    "The Science Behind Havan: How Fire Rituals Purify the Environment",
+    "Types of Homa and Their Specific Benefits"
+  ]
+}

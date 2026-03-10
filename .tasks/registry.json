@@ -1,0 +1,15 @@
+{
+  "project": "mahi_astro",
+  "created": "2026-03-09T16:05:55.458630",
+  "groups": {
+    "mahi-astro": {
+      "name": "mahi-astro",
+      "description": "Task group created 2026-03-09",
+      "created": "2026-03-09T16:05:55.458644",
+      "status": "pending",
+      "tasks": [],
+      "task_order": []
+    }
+  },
+  "updated": "2026-03-09T16:05:55.458649"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "karma-life-purpose-counselling",
+  "title": "Karma & Life-Purpose Counselling",
+  "slug": "karma-life-purpose-counselling",
+  "category": "core",
+  "icon": "lotus",
+  "shortDescription": "Explore your soul's journey — understand karmic patterns, life purpose, and Dharmic path through deep Vedic astrological insight.",
+  "description": "At the deepest level, Vedic astrology is not about prediction — it's about understanding the soul's journey. Karma and Life-Purpose Counselling explores the profound questions: Why am I here? What karmic patterns am I carrying? What is my Dharma — my true life path?\n\nVedic astrology recognizes three types of karma that shape your life: Sanchita Karma (the accumulated bank of past-life actions), Prarabdha Karma (the portion allocated for this lifetime, reflected in your birth chart), and Kriyamana Karma (the new karma you create through present choices). Your birth chart is essentially a map of your Prarabdha — the karmic lessons, opportunities, and challenges destined for this life.\n\nPandit Shree Mahadev Joshi draws on 20+ years of experience in Vedic astrology and spiritual consultation to guide you through this profound self-exploration. Through analysis of Rahu and Ketu (the lunar nodes — your karmic axis), Saturn's placement (the karmic taskmaster), the 12th house (past-life patterns), and the 9th house (Dharma and life purpose), Panditji illuminates the deeper spiritual narrative behind your life experiences.\n\nThis counselling is particularly valuable during life transitions — when career success feels hollow, relationships repeatedly challenge the same patterns, or a growing inner voice seeks something more meaningful. It provides not just understanding, but actionable steps: remedial practices, meditation techniques, mantras, and lifestyle adjustments that accelerate spiritual growth while honoring your karmic path.",
+  "benefits": [
+    "Clarity on your soul's purpose and Dharmic path",
+    "Understanding of recurring life patterns through a karmic lens",
+    "Release from confusion during major life transitions",
+    "Practical spiritual practices tailored to your chart",
+    "Peace through acceptance of karmic lessons",
+    "Empowerment through Kriyamana Karma — shaping your future through conscious action"
+  ],
+  "process": [
+    { "step": 1, "title": "Deep Chart Analysis", "description": "Focus on karmic indicators — Rahu/Ketu axis, Saturn, 9th and 12th houses, Nakshatras." },
+    { "step": 2, "title": "Life Pattern Discussion", "description": "Open conversation about recurring themes, challenges, and questions in your life." },
+    { "step": 3, "title": "Karmic Narrative", "description": "Panditji weaves together the astrological insights into a coherent spiritual narrative." },
+    { "step": 4, "title": "Dharma Path Guidance", "description": "Specific guidance on aligning daily life with your soul's purpose." },
+    { "step": 5, "title": "Spiritual Practices", "description": "Customized mantras, meditation, and remedial actions for spiritual acceleration." }
+  ],
+  "faqs": [
+    {
+      "question": "Can I change my karma?",
+      "answer": "Prarabdha Karma (this life's allocation) is fixed, but how you respond to it creates Kriyamana Karma — new karma. Through conscious action, spiritual practice, and selfless service, you can mitigate negative karma and build positive karmic credit."
+    },
+    {
+      "question": "Is this different from a regular Kundli reading?",
+      "answer": "Yes. While a Kundli reading covers practical life areas, Karma Counselling goes deeper into the spiritual dimension — past-life patterns, soul purpose, and the 'why' behind your life's circumstances."
+    },
+    {
+      "question": "Do I need to believe in reincarnation for this to be useful?",
+      "answer": "Not necessarily. Even without a belief in past lives, the framework of karmic patterns provides valuable insight into recurring behavioral patterns, psychological tendencies, and a sense of life direction."
+    }
+  ],
+  "keywords": {
+    "en": ["karma astrology", "life purpose astrology", "past life karma", "spiritual counselling", "dharma path", "karmic astrology"],
+    "hi": ["कर्म ज्योतिष", "जीवन उद्देश्य", "पूर्व जन्म कर्म", "आध्यात्मिक मार्गदर्शन"],
+    "gu": ["કર્મ જ્યોતિષ", "જીવન ઉદ્દેશ્ય", "પૂર્વ જન્મ કર્મ", "આધ્યાત્મિક માર્ગદર્શન"]
+  },
+  "relatedServices": ["vedic-astrology-kundli-reading", "seven-chakras-balancing", "mantras-chanting"],
+  "blogTopics": [
+    "Understanding Karma in Vedic Astrology: Sanchita, Prarabdha, and Kriyamana",
+    "Rahu and Ketu: Your Past Life Karma Decoded",
+    "Can You Change Your Destiny? Free Will vs Fate in Jyotish"
+  ]
+}

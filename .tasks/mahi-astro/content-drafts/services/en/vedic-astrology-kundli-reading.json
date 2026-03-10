@@ -1,0 +1,55 @@
+{
+  "id": "vedic-astrology-kundli-reading",
+  "title": "Vedic Astrology & Kundli Reading",
+  "slug": "vedic-astrology-kundli-reading",
+  "category": "core",
+  "icon": "chart",
+  "shortDescription": "Your cosmic blueprint — a comprehensive birth chart analysis revealing personality, strengths, life path, and destiny through ancient Vedic wisdom.",
+  "description": "A Vedic Kundli (Janam Kundali) is your cosmic blueprint — an astrological chart mapping the exact positions of the Sun, Moon, and planets at the precise moment and location of your birth. Rooted in over 5,000 years of Vedic wisdom, this birth chart reveals the celestial influences that shape your personality, strengths, challenges, and life trajectory.\n\nAt Believe Astrology, Pandit Shree Mahadev Joshi creates a comprehensive Kundli analysis that goes far beyond surface-level readings. Using the time-tested principles of Jyotish Shastra, your chart is interpreted through multiple lenses: the Lagna (Ascendant) chart reveals your fundamental nature, the Navamsha (D9) chart illuminates marriage and fortune, and the Vimshottari Dasha system maps your life's timing and planetary periods.\n\nEvery reading includes analysis of planetary strengths through Shadbala, identification of powerful Yogas (planetary combinations) that shape your destiny, and careful examination of any Doshas — such as Mangal Dosha, Sade Sati, or Kalsarpa Yoga — along with specific, personalized remedies to harmonize challenging influences.\n\nWhether you seek clarity about your career path, relationships, health, or spiritual growth, your Kundli is the starting point. It serves as the foundation for all other services — from gemstone recommendations to mantra prescriptions — making it the essential first step in your astrological journey with Believe Astrology.",
+  "benefits": [
+    "Deep self-awareness — understand your innate personality, strengths, and growth areas",
+    "Life timing — know your favorable and challenging periods through Dasha analysis",
+    "Relationship clarity — compatibility insights for marriage and partnerships",
+    "Career direction — identify professions aligned with your planetary strengths",
+    "Health awareness — early indicators of health tendencies for preventive care",
+    "Personalized remedies — targeted solutions for specific planetary afflictions",
+    "Spiritual roadmap — understand your karmic patterns and soul's purpose"
+  ],
+  "process": [
+    { "step": 1, "title": "Provide Birth Details", "description": "Share your exact date, time, and place of birth. Precision matters — even a 5-minute difference can shift divisional charts." },
+    { "step": 2, "title": "Chart Generation", "description": "A complete Vedic birth chart is prepared with Rasi, Navamsha, and all divisional charts, plus planetary positions and Dasha periods." },
+    { "step": 3, "title": "In-Depth Analysis", "description": "Panditji analyzes planetary strengths, Yogas, Doshas, and current/upcoming Dasha periods relevant to your life questions." },
+    { "step": 4, "title": "Personal Consultation", "description": "A one-on-one session (in-person or via Zoom/WhatsApp) where insights are shared and your specific questions are addressed." },
+    { "step": 5, "title": "Remedies & Follow-Up", "description": "Personalized remedies — which may include gemstones, mantras, poojas, or lifestyle adjustments — are prescribed with clear instructions." }
+  ],
+  "faqs": [
+    {
+      "question": "What information do I need for a Kundli reading?",
+      "answer": "You need your exact date of birth, time of birth (as precise as possible), and place of birth. If you don't know your exact birth time, Panditji can work with approximate times, though precision yields better results."
+    },
+    {
+      "question": "How is Vedic astrology different from Western astrology?",
+      "answer": "Vedic astrology uses the sidereal zodiac (based on actual star positions), while Western astrology uses the tropical zodiac. Vedic astrology also incorporates the Dasha system for life timing, Nakshatras (lunar mansions), and divisional charts — providing a more detailed and precise analysis."
+    },
+    {
+      "question": "Can a Kundli predict exact events?",
+      "answer": "A Kundli reveals tendencies, patterns, and timing windows rather than exact events. It shows the cosmic weather — you still navigate your own boat. It's a tool for informed decision-making, not a fixed fate decree."
+    },
+    {
+      "question": "How often should I get a reading?",
+      "answer": "A comprehensive reading once is the foundation. Annual check-ins during major Dasha transitions, or when facing significant life decisions, are recommended."
+    }
+  ],
+  "keywords": {
+    "en": ["vedic astrology", "kundli reading", "birth chart analysis", "janam kundali", "free kundli online", "kundli prediction", "vedic horoscope"],
+    "hi": ["कुंडली", "जन्म कुंडली", "वैदिक ज्योतिष", "राशिफल", "ग्रह दशा", "जन्मपत्री"],
+    "gu": ["કુંડળી", "જન્માક્ષર", "વૈદિક જ્યોતિષ", "રાશિફળ", "ગ્રહ દશા"]
+  },
+  "relatedServices": ["horoscope-analysis-predictions", "gemstone-recommendations", "karma-life-purpose-counselling"],
+  "blogTopics": [
+    "What is a Kundli? A Complete Beginner's Guide to Your Birth Chart",
+    "How Accurate is Vedic Astrology? Understanding the Science Behind Kundli",
+    "5 Things Your Kundli Reveals About Your Personality",
+    "Kundli vs Western Birth Chart: Key Differences Explained"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "pancha-tatva-balancing",
+  "title": "Pancha Tatva Balancing",
+  "slug": "pancha-tatva-balancing",
+  "category": "spiritual",
+  "icon": "elements",
+  "shortDescription": "Harmonize the five fundamental elements — Earth, Water, Fire, Air, and Space — within your body and environment for holistic wellbeing.",
+  "description": "Pancha Tatva — the five fundamental elements of Vedic science — forms the building blocks of all creation: Prithvi (Earth), Jal (Water), Agni (Fire), Vayu (Air), and Akash (Space/Ether). Every living being, every space, and even the planets themselves are composed of these five elements in varying proportions. When they are in balance, there is health, prosperity, and peace. When imbalanced, challenges arise in body, mind, and environment.\n\nIn the Vedic tradition, the Pancha Tatva Siddantha is one of the most important doctrines connecting astrology, Ayurveda, and yoga. Each zodiac sign carries an elemental signature — Aries, Leo, and Sagittarius are fire signs; Taurus, Virgo, and Capricorn are earth signs — and the five planets Mercury, Venus, Mars, Jupiter, and Saturn each govern one of the five elements.\n\nPandit Shree Mahadev Joshi analyzes your birth chart to determine your elemental constitution — which elements are dominant, which are deficient, and how the current planetary transits are affecting your elemental balance. This analysis connects three interconnected systems: Vedic astrology (for diagnosis), Ayurveda (for physical remedies), and Yoga (for energetic practices) — forming a tripod of holistic wellbeing.\n\nRemedies for elemental imbalance may include specific dietary recommendations, color therapy, directional adjustments in your living space (connecting to Vastu), mantras that activate deficient elements, and yoga practices targeting the chakras associated with each element.",
+  "benefits": [
+    "Holistic diagnosis connecting astrology, Ayurveda, and yoga",
+    "Understanding of your elemental constitution and personality traits",
+    "Physical health improvement through elemental balance",
+    "Emotional stability through harmonized elements",
+    "Environmental harmony through Vastu-aligned elemental corrections",
+    "Integrated remedies spanning diet, color, mantra, and lifestyle"
+  ],
+  "process": [
+    { "step": 1, "title": "Elemental Chart Analysis", "description": "Your birth chart is analyzed for elemental distribution across signs, houses, and planets." },
+    { "step": 2, "title": "Imbalance Identification", "description": "Specific elemental excesses and deficiencies are mapped." },
+    { "step": 3, "title": "Holistic Assessment", "description": "Integration with Ayurvedic body type (Prakriti) and current health patterns." },
+    { "step": 4, "title": "Customized Remedies", "description": "Multi-dimensional remedies spanning diet, yoga, mantra, color, and Vastu." },
+    { "step": 5, "title": "Follow-Up", "description": "Monitoring effectiveness and adjusting remedies as needed." }
+  ],
+  "faqs": [
+    {
+      "question": "How is Pancha Tatva different from Vastu Consultation?",
+      "answer": "Vastu focuses on your external space. Pancha Tatva focuses on the elemental balance within your body and mind, though they overlap — both use directional alignment and elemental harmony."
+    },
+    {
+      "question": "What are the signs of elemental imbalance?",
+      "answer": "Excess fire manifests as anger and inflammation. Excess earth as rigidity and lethargy. Excess water as emotional overwhelm. Deficient air as stagnation. Deficient space as feeling confined."
+    }
+  ],
+  "keywords": {
+    "en": ["pancha tatva", "five elements balancing", "prithvi jal agni vayu akash", "elemental healing", "five elements astrology"],
+    "hi": ["पंच तत्व", "पांच तत्व संतुलन", "पृथ्वी जल अग्नि वायु आकाश"],
+    "gu": ["પંચ તત્વ", "પાંચ તત્વ સંતુલન", "પૃથ્વી જળ અગ્નિ વાયુ આકાશ"]
+  },
+  "relatedServices": ["seven-chakras-balancing", "vastu-consultation", "vedic-astrology-kundli-reading"],
+  "blogTopics": [
+    "The Five Elements of Vedic Science: A Guide to Pancha Tatva",
+    "How the Five Elements Affect Your Health and Personality",
+    "Balancing Earth, Water, Fire, Air, and Space in Daily Life"
+  ]
+}

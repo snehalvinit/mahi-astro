@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R2 — Service Content Research Report — Believe Astrology</title>
+<style>
+  :root {
+    --bg: #fafbfc; --surface: #ffffff; --sidebar-bg: #1e293b; --sidebar-text: #e2e8f0;
+    --text: #1e293b; --dim: #64748b; --border: #e2e8f0;
+    --primary: #6F4278; --primary-dark: #2E2B59; --primary-light: #9B6BA6;
+    --gold: #C9A84C; --saffron: #FF9933; --cream: #FFFDF0; --maroon: #72001B;
+    --green: #10b981; --yellow: #f59e0b; --red: #ef4444; --blue: #3b82f6;
+    --gradient: linear-gradient(135deg, #C9A84C, #6F4278);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f0f14; --surface: #1a1a24; --sidebar-bg: #0a0a10;
+      --text: #d4d4e8; --dim: #7b7b9e; --border: #2d2d44;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg); color: var(--text); display: flex; min-height: 100vh; line-height: 1.7;
+  }
+  .sidebar {
+    width: 300px; background: var(--sidebar-bg); color: var(--sidebar-text);
+    padding: 2rem; position: fixed; height: 100vh; overflow-y: auto; z-index: 100;
+  }
+  .sidebar h1 {
+    font-size: 1.4rem; margin-bottom: 0.5rem;
+    background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .sidebar .subtitle { font-size: 0.8rem; color: #94a3b8; margin-bottom: 2rem; }
+  .nav-section { margin-bottom: 1.5rem; }
+  .nav-section h3 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; margin-bottom: 0.5rem; }
+  .nav-link {
+    display: block; padding: 0.5rem 0.8rem; margin-bottom: 0.2rem; border-radius: 0.5rem;
+    color: var(--sidebar-text); text-decoration: none; transition: all 0.2s; cursor: pointer; font-size: 0.8rem;
+  }
+  .nav-link:hover { background: rgba(201,168,76,0.2); }
+  .nav-link.active { background: var(--primary); color: white; }
+  .main { margin-left: 300px; padding: 3rem; max-width: 900px; width: 100%; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  h2 { font-size: 1.6rem; margin: 2rem 0 1rem; color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+  h3 { font-size: 1.2rem; margin: 1.5rem 0 0.75rem; }
+  h4 { font-size: 1rem; margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 1rem; }
+  ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+  li { margin-bottom: 0.4rem; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .card h3 { margin-top: 0; }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1rem 0; }
+  .tag {
+    display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem;
+    border-radius: 999px; text-transform: uppercase; letter-spacing: 0.03em;
+  }
+  .tag-gold { background: #fef3c7; color: #92400e; }
+  .tag-purple { background: #ede9fe; color: #5b21b6; }
+  .tag-green { background: #d1fae5; color: #065f46; }
+  .tag-red { background: #fee2e2; color: #991b1b; }
+  .tag-blue { background: #dbeafe; color: #1d4ed8; }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+  th { background: var(--primary-dark); color: white; padding: 0.75rem; text-align: left; }
+  td { padding: 0.75rem; border-bottom: 1px solid var(--border); }
+  tr:hover { background: rgba(201,168,76,0.05); }
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(111,66,120,0.1));
+    border-left: 4px solid var(--gold); padding: 1.5rem; border-radius: 0 12px 12px 0; margin: 1.5rem 0;
+  }
+  .citation {
+    font-size: 0.85rem; color: var(--dim); border-left: 3px solid var(--gold);
+    padding-left: 1rem; margin: 0.5rem 0;
+  }
+  .citation a { color: var(--primary); }
+  .recommendation {
+    background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3);
+    border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0;
+  }
+  .recommendation h3 { color: var(--green); margin-top: 0; }
+  .faq { margin: 1rem 0; }
+  .faq details { margin-bottom: 0.75rem; }
+  .faq summary {
+    cursor: pointer; font-weight: 600; padding: 0.75rem 1rem;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  }
+  .faq details[open] summary { border-radius: 8px 8px 0 0; }
+  .faq .answer { padding: 1rem; border: 1px solid var(--border); border-top: 0; border-radius: 0 0 8px 8px; }
+  .keyword-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
+  .keyword {
+    background: rgba(111,66,120,0.1); border: 1px solid rgba(111,66,120,0.3);
+    padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.8rem;
+  }
+  .service-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .service-icon { font-size: 2rem; }
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { margin-left: 0; padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <h1>R2 — Service Content</h1>
+  <p class="subtitle">Believe Astrology — 12 Services Research</p>
+
+  <div class="nav-section">
+    <h3>Overview</h3>
+    <a class="nav-link active" onclick="showTab('executive')">Executive Summary</a>
+    <a class="nav-link" onclick="showTab('keywords')">Keywords & SEO</a>
+    <a class="nav-link" onclick="showTab('blog')">Blog Topics</a>
+    <a class="nav-link" onclick="showTab('citations')">Citations</a>
+  </div>
+
+  <div class="nav-section">
+    <h3>Core Astrology</h3>
+    <a class="nav-link" onclick="showTab('s1')">1. Kundli Reading</a>
+    <a class="nav-link" onclick="showTab('s2')">2. Horoscope Analysis</a>
+    <a class="nav-link" onclick="showTab('s3')">3. Life Guidance</a>
+    <a class="nav-link" onclick="showTab('s4')">4. Vastu Consultation</a>
+    <a class="nav-link" onclick="showTab('s5')">5. Gemstone Recs</a>
+    <a class="nav-link" onclick="showTab('s6')">6. Karma Counselling</a>
+  </div>
+
+  <div class="nav-section">
+    <h3>Spiritual Services</h3>
+    <a class="nav-link" onclick="showTab('s7')">7. Pancha Tatva</a>
+    <a class="nav-link" onclick="showTab('s8')">8. Seven Chakras</a>
+    <a class="nav-link" onclick="showTab('s9')">9. Vedic Poojas</a>
+    <a class="nav-link" onclick="showTab('s10')">10. Karma-Kand Yagnas</a>
+    <a class="nav-link" onclick="showTab('s11')">11. Maha Mrityunjaya</a>
+    <a class="nav-link" onclick="showTab('s12')">12. Mantras Chanting</a>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- EXECUTIVE SUMMARY -->
+<div id="executive" class="tab-content active">
+  <h2>Executive Summary</h2>
+
+  <div class="highlight-box">
+    <p><strong>Research Scope:</strong> In-depth content research for all 12 services offered by Pandit Shree Mahadev Joshi at Believe Astrology. Each service includes a 300-500 word description, benefits, consultation process, FAQs, multilingual keywords, and related blog topic ideas.</p>
+  </div>
+
+  <h3>Service Categories</h3>
+  <p>The 12 services fall into two natural groups:</p>
+
+  <div class="card">
+    <h4>Core Astrology Services (1-6)</h4>
+    <p>Analytical and consultative services based on birth chart interpretation, planetary analysis, and personalized life guidance. These are the primary revenue drivers and entry points for new clients.</p>
+    <ul>
+      <li><strong>Vedic Astrology &amp; Kundli Reading</strong> — Foundation service, gateway to all others</li>
+      <li><strong>Horoscope Analysis &amp; Predictions</strong> — Ongoing engagement through yearly/monthly forecasts</li>
+      <li><strong>Marriage, Career, Finance &amp; Health Guidance</strong> — Practical life decisions</li>
+      <li><strong>Vastu Consultation</strong> — Space/architecture harmony (high ticket)</li>
+      <li><strong>Gemstone Recommendations</strong> — Remedial with product tie-in</li>
+      <li><strong>Karma &amp; Life-Purpose Counselling</strong> — Deep spiritual counselling</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h4>Spiritual Healing Services (7-12)</h4>
+    <p>Ritual-based and energy-healing services rooted in Vedic tradition. These require deeper trust and typically come after an initial consultation.</p>
+    <ul>
+      <li><strong>Pancha Tatva Balancing</strong> — Five-element harmony</li>
+      <li><strong>Seven Chakras Balancing</strong> — Energy center alignment</li>
+      <li><strong>Vedic Spiritual Poojas</strong> — Ceremonial worship rituals</li>
+      <li><strong>Vedic Karma-Kand Yagnas</strong> — Sacred fire ceremonies</li>
+      <li><strong>Maha Mrityunjaya Mantra Anushthan</strong> — Healing ritual for longevity</li>
+      <li><strong>Mantras Chanting</strong> — Sound-based spiritual practice</li>
+    </ul>
+  </div>
+
+  <div class="recommendation">
+    <h3>Content Strategy Recommendation</h3>
+    <ul>
+      <li><strong>Lead with Kundli Reading</strong> — it's the gateway service. Most users search for "free kundli" or "janam kundali" first.</li>
+      <li><strong>Cross-link services</strong> — Every service page should link to related services (e.g., Kundli → Gemstone Recs → Mantras).</li>
+      <li><strong>Use FAQ schema</strong> — Each service has FAQs; implement FAQ structured data for Google rich snippets.</li>
+      <li><strong>Blog content supports SEO</strong> — Each service has 3-5 blog topics that drive organic traffic to the service page.</li>
+      <li><strong>Multilingual keywords are essential</strong> — Hindi and Gujarati users search in their native language. Target both Devanagari and Romanized queries.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- KEYWORDS & SEO -->
+<div id="keywords" class="tab-content">
+  <h2>Keywords &amp; SEO Strategy</h2>
+
+  <h3>Keyword Matrix by Service</h3>
+  <table>
+    <thead>
+      <tr><th>Service</th><th>English Keywords</th><th>Hindi Keywords</th><th>Gujarati Keywords</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Kundli Reading</td>
+        <td>vedic astrology, kundli reading, birth chart analysis, janam kundali, free kundli online</td>
+        <td>कुंडली, जन्म कुंडली, वैदिक ज्योतिष, राशिफल, ग्रह दशा</td>
+        <td>કુંડળી, જન્માક્ષર, વૈદિક જ્યોતિષ, રાશિફળ, ગ્રહ દશા</td>
+      </tr>
+      <tr>
+        <td>Horoscope Analysis</td>
+        <td>horoscope prediction, yearly horoscope 2026, zodiac forecast, rashifal, moon sign horoscope</td>
+        <td>राशिफल, वार्षिक राशिफल 2026, दैनिक राशिफल, मासिक भविष्यफल</td>
+        <td>રાશિફળ, વાર્ષિક રાશિફળ 2026, દૈનિક રાશિફળ, ભવિષ્યફળ</td>
+      </tr>
+      <tr>
+        <td>Life Guidance</td>
+        <td>marriage astrology, career astrology, financial astrology, health horoscope, kundli matching</td>
+        <td>विवाह ज्योतिष, करियर ज्योतिष, कुंडली मिलान, स्वास्थ्य ज्योतिष, धन योग</td>
+        <td>લગ્ન જ્યોતિષ, કારકિર્દી જ્યોતિષ, કુંડળી મિલાન, સ્વાસ્થ્ય જ્યોતિષ</td>
+      </tr>
+      <tr>
+        <td>Vastu Consultation</td>
+        <td>vastu shastra, vastu consultant, home vastu, office vastu, vastu tips, vastu remedies</td>
+        <td>वास्तु शास्त्र, वास्तु सलाहकार, घर का वास्तु, वास्तु दोष, वास्तु उपाय</td>
+        <td>વાસ્તુ શાસ્ત્ર, વાસ્તુ સલાહકાર, ઘરનું વાસ્તુ, વાસ્તુ દોષ, વાસ્તુ ઉપાય</td>
+      </tr>
+      <tr>
+        <td>Gemstone Recs</td>
+        <td>gemstone astrology, jyotish ratna, navratna, lucky stone by birth, gemstone recommendation</td>
+        <td>रत्न ज्योतिष, नवरत्न, भाग्यशाली रत्न, राशि रत्न, नीलम, पुखराज</td>
+        <td>રત્ન જ્યોતિષ, નવરત્ન, ભાગ્યશાળી રત્ન, રાશિ રત્ન</td>
+      </tr>
+      <tr>
+        <td>Karma Counselling</td>
+        <td>karma astrology, life purpose astrology, past life karma, spiritual counselling, dharma path</td>
+        <td>कर्म ज्योतिष, जीवन उद्देश्य, पूर्व जन्म कर्म, आध्यात्मिक मार्गदर्शन</td>
+        <td>કર્મ જ્યોતિષ, જીવન ઉદ્દેશ્ય, પૂર્વ જન્મ કર્મ, આધ્યાત્મિક માર્ગદર્શન</td>
+      </tr>
+      <tr>
+        <td>Pancha Tatva</td>
+        <td>pancha tatva, five elements balancing, prithvi jal agni vayu akash, elemental healing</td>
+        <td>पंच तत्व, पांच तत्व संतुलन, पृथ्वी जल अग्नि वायु आकाश</td>
+        <td>પંચ તત્વ, પાંચ તત્વ સંતુલન, પૃથ્વી જળ અગ્નિ વાયુ આકાશ</td>
+      </tr>
+      <tr>
+        <td>Seven Chakras</td>
+        <td>chakra balancing, seven chakras healing, kundalini, energy healing, chakra meditation</td>
+        <td>सात चक्र, चक्र संतुलन, कुंडलिनी, ऊर्जा चिकित्सा, चक्र ध्यान</td>
+        <td>સાત ચક્ર, ચક્ર સંતુલન, કુંડલિની, ઊર્જા ચિકિત્સા</td>
+      </tr>
+      <tr>
+        <td>Vedic Poojas</td>
+        <td>vedic puja, hindu puja service, online puja booking, ganesh puja, lakshmi puja, navgraha puja</td>
+        <td>वैदिक पूजा, हिंदू पूजा, ऑनलाइन पूजा, गणेश पूजा, लक्ष्मी पूजा, नवग्रह पूजा</td>
+        <td>વૈદિક પૂજા, હિંદુ પૂજા, ગણેશ પૂજા, લક્ષ્મી પૂજા, નવગ્રહ પૂજા</td>
+      </tr>
+      <tr>
+        <td>Karma-Kand Yagnas</td>
+        <td>vedic yagna, havan, homa, fire ceremony, karma kand, agnihotra, navagraha homa</td>
+        <td>वैदिक यज्ञ, हवन, होम, अग्निहोत्र, कर्मकांड, नवग्रह होम</td>
+        <td>વૈદિક યજ્ઞ, હવન, હોમ, અગ્નિહોત્ર, કર્મકાંડ, નવગ્રહ હોમ</td>
+      </tr>
+      <tr>
+        <td>Maha Mrityunjaya</td>
+        <td>maha mrityunjaya mantra, mrityunjaya anushthan, shiva healing mantra, longevity ritual</td>
+        <td>महा मृत्युंजय मंत्र, मृत्युंजय अनुष्ठान, शिव मंत्र, आयुष्य मंत्र</td>
+        <td>મહા મૃત્યુંજય મંત્ર, મૃત્યુંજય અનુષ્ઠાન, શિવ મંત્ર</td>
+      </tr>
+      <tr>
+        <td>Mantras Chanting</td>
+        <td>vedic mantras, mantra chanting, beej mantra, planetary mantras, gayatri mantra, mantra healing</td>
+        <td>वैदिक मंत्र, मंत्र जाप, बीज मंत्र, ग्रह मंत्र, गायत्री मंत्र</td>
+        <td>વૈદિક મંત્ર, મંત્ર જાપ, બીજ મંત્ર, ગ્રહ મંત્ર, ગાયત્રી મંત્ર</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="recommendation">
+    <h3>SEO Strategy Notes</h3>
+    <ul>
+      <li>Target both Devanagari script and Romanized Hindi keywords (e.g., "rashifal" and "राशिफल")</li>
+      <li>Long-tail keywords in local language dominate: "ahmedabad best astrologer" / "અમદાવાદ શ્રેષ્ઠ જ્યોતિષ"</li>
+      <li>FAQ schema markup on every service page for Google rich snippets</li>
+      <li>Each service page needs 1500+ words for competitive SEO in the astrology niche</li>
+      <li>Add location-specific keywords: Ahmedabad, Gujarat, Mumbai, India</li>
+    </ul>
+  </div>
+</div>
+
+<!-- BLOG TOPICS -->
+<div id="blog" class="tab-content">
+  <h2>Blog Topics by Service</h2>
+
+  <table>
+    <thead>
+      <tr><th>Service</th><th>Blog Topic Ideas</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Kundli Reading</td>
+        <td>
+          <ul>
+            <li>What is a Kundli? A Complete Beginner's Guide to Your Birth Chart</li>
+            <li>How Accurate is Vedic Astrology? Understanding the Science Behind Kundli</li>
+            <li>5 Things Your Kundli Reveals About Your Personality</li>
+            <li>Kundli vs Western Birth Chart: Key Differences Explained</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Horoscope Analysis</td>
+        <td>
+          <ul>
+            <li>Your Complete 2026 Rashifal: What the Stars Hold for Each Zodiac Sign</li>
+            <li>Understanding Planetary Transits: How They Affect Your Daily Life</li>
+            <li>Saturn in Pisces 2026: Career and Financial Impact on All Signs</li>
+            <li>Moon Sign vs Sun Sign: Which Matters More in Vedic Astrology?</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Life Guidance</td>
+        <td>
+          <ul>
+            <li>How Astrology Can Guide Your Career Choice: A Vedic Perspective</li>
+            <li>Kundli Matching for Marriage: Why It Matters and How It Works</li>
+            <li>Best Astrological Timing for Property and Investment Decisions</li>
+            <li>Health Indicators in Your Birth Chart: What to Watch For</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Vastu Consultation</td>
+        <td>
+          <ul>
+            <li>Vastu Tips for Your Home: Room-by-Room Guide</li>
+            <li>Vastu for Office: Boost Productivity with Directional Alignment</li>
+            <li>Common Vastu Doshas and Their Simple Remedies</li>
+            <li>Vastu vs Feng Shui: Similarities and Differences</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Gemstone Recs</td>
+        <td>
+          <ul>
+            <li>The Navratna Guide: 9 Gemstones and Their Planetary Powers</li>
+            <li>How to Choose the Right Gemstone According to Your Kundli</li>
+            <li>Can Wearing the Wrong Gemstone Be Harmful? Myths vs Reality</li>
+            <li>Blue Sapphire (Neelam): The Most Powerful and Dangerous Gemstone?</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Karma Counselling</td>
+        <td>
+          <ul>
+            <li>Understanding Karma in Vedic Astrology: Sanchita, Prarabdha, and Kriyamana</li>
+            <li>Rahu and Ketu: Your Past Life Karma Decoded</li>
+            <li>Can You Change Your Destiny? Free Will vs Fate in Jyotish</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Pancha Tatva</td>
+        <td>
+          <ul>
+            <li>The Five Elements of Vedic Science: A Guide to Pancha Tatva</li>
+            <li>How the Five Elements Affect Your Health and Personality</li>
+            <li>Balancing Earth, Water, Fire, Air, and Space in Daily Life</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Seven Chakras</td>
+        <td>
+          <ul>
+            <li>The 7 Chakras Explained: A Complete Guide for Beginners</li>
+            <li>How Blocked Chakras Affect Your Health and Relationships</li>
+            <li>Astrology and Chakras: How Planets Influence Your Energy Centers</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Vedic Poojas</td>
+        <td>
+          <ul>
+            <li>Types of Vedic Poojas and When to Perform Them</li>
+            <li>Navgraha Puja: Balancing All 9 Planets for Harmony</li>
+            <li>The Spiritual Benefits of Lakshmi Puja for Wealth and Prosperity</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Karma-Kand Yagnas</td>
+        <td>
+          <ul>
+            <li>What is a Vedic Yagna? The Ancient Fire Ceremony Explained</li>
+            <li>The Science Behind Havan: How Fire Rituals Purify the Environment</li>
+            <li>Types of Homa and Their Specific Benefits</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Maha Mrityunjaya</td>
+        <td>
+          <ul>
+            <li>The Power of Maha Mrityunjaya Mantra: Meaning and Benefits</li>
+            <li>How Maha Mrityunjaya Anushthan Can Help During Health Crises</li>
+            <li>The Story of Sage Markandeya: How a Mantra Conquered Death</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Mantras Chanting</td>
+        <td>
+          <ul>
+            <li>10 Powerful Vedic Mantras for Daily Chanting and Their Benefits</li>
+            <li>Beej Mantras: The Seed Sounds That Transform Your Life</li>
+            <li>The Science of Sound: How Mantra Vibrations Heal Mind and Body</li>
+            <li>Planetary Mantras: Which Mantra to Chant for Each Planet</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- CITATIONS -->
+<div id="citations" class="tab-content">
+  <h2>Citations &amp; Sources</h2>
+
+  <h3>Kundli &amp; Horoscope</h3>
+  <div class="citation"><a href="https://www.onlinejyotish.com/free-astrology/vedic-horoscope.php">OnlineJyotish — Free Vedic Horoscope</a> — Swiss Ephemeris with Lahiri Ayanamsa for precision</div>
+  <div class="citation"><a href="https://www.prokerala.com/astrology/kundli/">ProKerala — Kundli as per Vedic Astrology</a></div>
+  <div class="citation"><a href="https://vedicrishi.in/kundli">VedicRishi — Kundli creation and predictions</a></div>
+  <div class="citation"><a href="https://www.astrosage.com/kundli/">AstroSage — Free online Kundli creation</a></div>
+  <div class="citation"><a href="https://templeofhope.in/products/vedic-astrology-kundli-analysis">Temple of Hope — Kundli reading with remedies</a></div>
+  <div class="citation"><a href="https://www.astroved.com/articles/benefits-of-horoscope">AstroVed — Top 10 Benefits of Horoscope Predictions</a></div>
+  <div class="citation"><a href="https://cafeastrology.com/predictiveastrology.html">Cafe Astrology — Predictive Astrology techniques</a></div>
+
+  <h3>Vastu Shastra</h3>
+  <div class="citation"><a href="https://en.wikipedia.org/wiki/Vastu_shastra">Wikipedia — Vastu Shastra</a></div>
+  <div class="citation"><a href="https://vastuconsultant.com/">VastuConsultant.com — Vastu expert services</a></div>
+  <div class="citation"><a href="https://vaastudevayah.com/online-vastu-consultation.php">Vaastu Devayah — Online Vastu consultation process</a></div>
+  <div class="citation"><a href="https://www.vastushastraguru.com/">VastuShastraGuru — Vastu principles guide</a></div>
+  <div class="citation"><a href="https://www.appliedvastu.com/">AppliedVastu — Vastu consultancy services</a></div>
+
+  <h3>Gemstones</h3>
+  <div class="citation"><a href="https://myratna.com/gemstone-recommendation.html">MyRatna — Free gemstone recommendation</a></div>
+  <div class="citation"><a href="https://www.rudraksha-ratna.com/articles/gemstone-recommendation">Rudraksha Ratna — Gemstone recommendation guide</a></div>
+  <div class="citation"><a href="https://www.jeevanratna.com/post/which-gemstone-should-i-wear-a-complete-step-by-step-guide-to-finding-your-stone-using-vedic-astrol">JeevanRatna — Step-by-step gemstone guide</a></div>
+  <div class="citation"><a href="https://www.gempundit.com/blog/gemstones-of-vedic-astrology">GemPundit — Gemstones of Vedic astrology</a></div>
+  <div class="citation"><a href="https://www.gemsroot.com/blogs/guide/9-powerful-and-auspicious-gemstones-of-vedic-astrology">GemsRoot — Navratna gemstones guide</a></div>
+
+  <h3>Pancha Tatva &amp; Chakras</h3>
+  <div class="citation"><a href="https://www.usapanchawati.org/post/2019/02/10/secrets-of-astrology-pancha-tatva-siddantha-five-elements-of-nature">USA Panchawati — Pancha Tatva Siddantha</a></div>
+  <div class="citation"><a href="https://www.fitsri.com/yoga/panch-tatva">Fitsri — Panch Tatva and yoga</a></div>
+  <div class="citation"><a href="https://www.bioenergetic-architecture.com/post/balancing-panch-tatva-the-essence-of-well-being">Bioenergetic Architecture — Balancing Panch Tatva</a></div>
+  <div class="citation"><a href="https://www.artofliving.org/us-en/meditation/chakras/chakras-guide">Art of Living — Comprehensive 7 Chakras Guide</a></div>
+  <div class="citation"><a href="https://www.arhantayoga.org/blog/7-chakras-introduction-energy-centers-effect/">Arhanta Yoga — 7 Chakras guide</a></div>
+  <div class="citation"><a href="https://astroveda.co/chakras-vedic-astrology-and-planetary-remedies-for-healing-and-balancing/">AstroVeda — Chakras and Vedic astrology remedies</a></div>
+
+  <h3>Poojas &amp; Yagnas</h3>
+  <div class="citation"><a href="https://www.rudraksha-ratna.com/articles/puja-services">Rudraksha Ratna — Vedic Puja services</a></div>
+  <div class="citation"><a href="https://en.wikipedia.org/wiki/Puja_(Hinduism)">Wikipedia — Puja in Hinduism</a></div>
+  <div class="citation"><a href="https://blog.dharmikvibes.com/p/the-four-types-of-hindu-pooja-rituals-you-should-know">DharmikVibes — Four types of Hindu Pooja</a></div>
+  <div class="citation"><a href="https://thehappysoul.org/importance-of-vedic-pooja/">The Happy Soul — Importance of Vedic Poojas</a></div>
+  <div class="citation"><a href="https://en.wikipedia.org/wiki/Yajna">Wikipedia — Yajna</a></div>
+  <div class="citation"><a href="https://www.omspiritualshop.com/blogs/news/the-role-of-yagna-fire-rituals-in-vedic-society">Om Spiritual Shop — Role of Yagna in Vedic Society</a></div>
+  <div class="citation"><a href="https://behindeverytemple.org/dharma-blog/the-science-of-yagnas/">Behind Every Temple — The Science of Yagnas</a></div>
+
+  <h3>Maha Mrityunjaya &amp; Mantras</h3>
+  <div class="citation"><a href="https://www.onlinepuja.com/maha-mritunjaya-anushthan">OnlinePuja — Maha Mrityunjaya Anushthan</a></div>
+  <div class="citation"><a href="https://en.wikipedia.org/wiki/Mahamrityunjaya_Mantra">Wikipedia — Mahamrityunjaya Mantra</a></div>
+  <div class="citation"><a href="https://vama.app/blog/maha-mrityunjaya-mantra-benefits-chanting-guide/">VAMA — Maha Mrityunjaya chanting guide</a></div>
+  <div class="citation"><a href="https://www.astrogini.org/spirituality/mantras/">AstroGini — Types of mantras in Vedic astrology</a></div>
+  <div class="citation"><a href="https://lifeguru.app/mantra">LifeGuru — Power mantras in astrology</a></div>
+  <div class="citation"><a href="https://vedicrishi.in/mantra">VedicRishi — Vedic mantra benefits</a></div>
+
+  <h3>Karma &amp; Life Purpose</h3>
+  <div class="citation"><a href="https://medium.com/@vedicsiddhanta/the-karma-theory-in-vedic-astrology-part-1-astrology-and-karma-theory-understanding-karma-8e82d7260b80">Vedic Siddhanta — Karma Theory in Vedic Astrology</a></div>
+  <div class="citation"><a href="https://www.melooha.com/blog/karma-and-astrology">Melooha — Karma and Astrology</a></div>
+  <div class="citation"><a href="https://www.vedanet.com/vedic-astrology-as-a-way-of-self-knowledge/">American Institute of Vedic Studies — Vedic Astrology as Self-Knowledge</a></div>
+  <div class="citation"><a href="https://www.ivaindia.com/blog/karmic-astrology">IVA India — Karmic Astrology and birth chart</a></div>
+
+  <h3>Consultation Services</h3>
+  <div class="citation"><a href="https://www.wellmeright.com/glossary/vedic-astrology-consultation">WellMeRight — Vedic Astrology Consultation definition</a></div>
+  <div class="citation"><a href="https://vedicmarga.com/guide-to-astrology-consultation/">VedicMarga — Guide to astrology consultation</a></div>
+  <div class="citation"><a href="https://astroanuradha.com/5-benefits-of-astrological-career-consultation/">AstroAnuradha — Benefits of career consultation</a></div>
+
+  <p style="margin-top: 2rem; color: var(--dim);"><strong>Total citations: 35+</strong> from web research conducted March 2026.</p>
+</div>
+
+<!-- SERVICE 1: KUNDLI READING -->
+<div id="s1" class="tab-content">
+  <div class="service-header">
+    <h2>1. Vedic Astrology &amp; Kundli Reading</h2>
+  </div>
+  <span class="tag tag-gold">CORE SERVICE</span> <span class="tag tag-purple">GATEWAY</span>
+
+  <h3>Description</h3>
+  <p>A Vedic Kundli (Janam Kundali) is your cosmic blueprint — an astrological chart mapping the exact positions of the Sun, Moon, and planets at the precise moment and location of your birth. Rooted in over 5,000 years of Vedic wisdom, this birth chart reveals the celestial influences that shape your personality, strengths, challenges, and life trajectory.</p>
+  <p>At Believe Astrology, Pandit Shree Mahadev Joshi creates a comprehensive Kundli analysis that goes far beyond surface-level readings. Using the time-tested principles of Jyotish Shastra, your chart is interpreted through multiple lenses: the Lagna (Ascendant) chart reveals your fundamental nature, the Navamsha (D9) chart illuminates marriage and fortune, and the Vimshottari Dasha system maps your life's timing and planetary periods.</p>
+  <p>Every reading includes analysis of planetary strengths through Shadbala, identification of powerful Yogas (planetary combinations) that shape your destiny, and careful examination of any Doshas — such as Mangal Dosha, Sade Sati, or Kalsarpa Yoga — along with specific, personalized remedies to harmonize challenging influences.</p>
+  <p>Whether you seek clarity about your career path, relationships, health, or spiritual growth, your Kundli is the starting point. It serves as the foundation for all other services — from gemstone recommendations to mantra prescriptions — making it the essential first step in your astrological journey with Believe Astrology.</p>
+
+  <h3>Benefits</h3>
+  <ul>
+    <li>Deep self-awareness — understand your innate personality, strengths, and growth areas</li>
+    <li>Life timing — know your favorable and challenging periods through Dasha analysis</li>
+    <li>Relationship clarity — compatibility insights for marriage and partnerships</li>
+    <li>Career direction — identify professions aligned with your planetary strengths</li>
+    <li>Health awareness — early indicators of health tendencies for preventive care</li>
+    <li>Personalized remedies — targeted solutions for specific planetary afflictions</li>
+    <li>Spiritual roadmap — understand your karmic patterns and soul's purpose</li>
+  </ul>
+
+  <h3>Consultation Process</h3>
+  <ol>
+    <li><strong>Provide Birth Details:</strong> Share your exact date, time, and place of birth. Precision matters — even a 5-minute difference can shift divisional charts.</li>
+    <li><strong>Chart Generation:</strong> A complete Vedic birth chart is prepared with Rasi, Navamsha, and all divisional charts, plus planetary positions and Dasha periods.</li>
+    <li><strong>In-Depth Analysis:</strong> Panditji analyzes planetary strengths, Yogas, Doshas, and current/upcoming Dasha periods relevant to your life questions.</li>
+    <li><strong>Personal Consultation:</strong> A one-on-one session (in-person or via Zoom/WhatsApp) where insights are shared and your specific questions are addressed.</li>
+    <li><strong>Remedies &amp; Follow-Up:</strong> Personalized remedies — which may include gemstones, mantras, poojas, or lifestyle adjustments — are prescribed with clear instructions.</li>
+  </ol>
+
+  <h3>FAQs</h3>
+  <div class="faq">
+    <details><summary>What information do I need for a Kundli reading?</summary><div class="answer">You need your exact date of birth, time of birth (as precise as possible), and place of birth. If you don't know your exact birth time, Panditji can work with approximate times, though precision yields better results.</div></details>
+    <details><summary>How is Vedic astrology different from Western astrology?</summary><div class="answer">Vedic astrology uses the sidereal zodiac (based on actual star positions), while Western astrology uses the tropical zodiac. Vedic astrology also incorporates the Dasha system for life timing, Nakshatras (lunar mansions), and divisional charts — providing a more detailed and precise analysis.</div></details>
+    <details><summary>Can a Kundli predict exact events?</summary><div class="answer">A Kundli reveals tendencies, patterns, and timing windows rather than exact events. It shows the cosmic weather — you still navigate your own boat. It's a tool for informed decision-making, not a fixed fate decree.</div></details>
+    <details><summary>How often should I get a reading?</summary><div class="answer">A comprehensive reading once is the foundation. Annual check-ins during major Dasha transitions, or when facing significant life decisions, are recommended.</div></details>
+  </div>
+</div>
+
+<!-- SERVICE 2: HOROSCOPE ANALYSIS -->
+<div id="s2" class="tab-content">
+  <div class="service-header">
+    <h2>2. Horoscope Analysis &amp; Predictions</h2>
+  </div>
+  <span class="tag tag-gold">CORE SERVICE</span> <span class="tag tag-blue">RECURRING</span>
+
+  <h3>Description</h3>
+  <p>While your Kundli is your lifetime blueprint, Horoscope Analysis and Predictions provide the ongoing weather forecast for your life. This service examines how current planetary transits interact with your birth chart to reveal opportunities, challenges, and optimal timing for important decisions throughout the year.</p>
+  <p>Pandit Shree Mahadev Joshi provides detailed horoscope analysis based on your Moon sign (Rashi) — the primary reference point in Vedic astrology — combined with your Ascendant and Sun sign for a comprehensive picture. Each analysis covers key life areas: career and professional growth, relationships and family harmony, financial prospects and wealth accumulation, health and wellbeing, and spiritual development.</p>
+  <p>Using advanced predictive techniques including Gochara (planetary transits), Vimshottari Dasha periods, and Ashtakavarga calculations, Panditji maps the ebb and flow of planetary influences across your life. Saturn's transit through Pisces in 2026, for instance, carries specific implications for each zodiac sign's career and karmic lessons — insights that only a personalized analysis can accurately reveal.</p>
+  <p>This service is available as yearly comprehensive forecasts, monthly updates for ongoing guidance, or focused predictions around specific life events and decisions. It transforms the abstract movements of planets into practical, actionable guidance for your everyday life.</p>
+
+  <h3>Benefits</h3>
+  <ul>
+    <li>Timely awareness of favorable periods for major decisions</li>
+    <li>Advance preparation for challenging planetary transits</li>
+    <li>Better decision-making through cosmic timing insights</li>
+    <li>Emotional awareness — understanding why certain periods feel heavy or expansive</li>
+    <li>Financial timing — knowing optimal periods for investments and spending</li>
+    <li>Relationship guidance — understanding relational dynamics in specific periods</li>
+  </ul>
+
+  <h3>Consultation Process</h3>
+  <ol>
+    <li><strong>Birth Chart Reference:</strong> Your Kundli (from an initial reading or provided details) serves as the baseline.</li>
+    <li><strong>Transit Analysis:</strong> Current and upcoming planetary transits are overlaid on your birth chart.</li>
+    <li><strong>Period-Specific Forecast:</strong> Detailed predictions for your chosen timeframe (yearly, quarterly, or event-specific).</li>
+    <li><strong>Guidance Session:</strong> Discussion of key findings with practical advice for navigating each period.</li>
+    <li><strong>Written Report (Optional):</strong> A documented forecast you can reference throughout the period.</li>
+  </ol>
+
+  <h3>FAQs</h3>
+  <div class="faq">
+    <details><summary>Should I use my Sun sign or Moon sign for horoscope readings?</summary><div class="answer">In Vedic astrology, your Moon sign (Rashi) is the primary reference for horoscope predictions, as the Moon changes signs every 2.25 days and provides more personalized insights than the Sun sign alone.</div></details>
+    <details><summary>How accurate are yearly predictions?</summary><div class="answer">General zodiac-based predictions apply broadly to 1/12th of the population. Personalized predictions based on your complete birth chart are significantly more accurate as they account for your unique planetary placements, Dashas, and transits.</div></details>
+    <details><summary>What is Sade Sati and should I worry about it?</summary><div class="answer">Sade Sati is Saturn's 7.5-year transit over your Moon sign. While it brings challenges, it's also a period of maturation and growth. With proper understanding and remedies, it can be navigated constructively.</div></details>
+  </div>
+</div>
+
+<!-- SERVICE 3: LIFE GUIDANCE -->
+<div id="s3" class="tab-content">
+  <div class="service-header">
+    <h2>3. Marriage, Career, Finance &amp; Health Guidance</h2>
+  </div>
+  <span class="tag tag-gold">CORE SERVICE</span> <span class="tag tag-green">HIGH DEMAND</span>
+
+  <h3>Description</h3>
+  <p>Life presents crossroads — choosing a career, selecting a life partner, making financial investments, or addressing health concerns. Vedic astrology offers a unique lens to navigate these pivotal decisions by revealing the planetary influences that shape each area of your life.</p>
+  <p>This comprehensive guidance service from Pandit Shree Mahadev Joshi addresses the four pillars of life through your birth chart:</p>
+  <p><strong>Marriage &amp; Relationships:</strong> Kundli matching (Ashtakoota Guna Milap) evaluates compatibility across 36 points covering temperament, health, prosperity, and emotional connection. Beyond matching, Panditji analyzes the 7th house, Venus placement, and Dasha timing to advise on optimal marriage timing and relationship dynamics.</p>
+  <p><strong>Career &amp; Professional Growth:</strong> The 10th house, its lord, and planets like Saturn and Mercury reveal your vocational strengths. Panditji identifies career paths aligned with your planetary configuration, optimal timing for job changes or business launches, and remedies for professional blocks.</p>
+  <p><strong>Finance &amp; Wealth:</strong> The 2nd and 11th houses govern earnings and gains. Analysis of Jupiter, Venus, and wealth-forming Yogas (like Dhana Yoga or Lakshmi Yoga) reveals your financial potential and the best periods for investments, property purchases, and wealth accumulation.</p>
+  <p><strong>Health &amp; Wellbeing:</strong> Each planet governs specific body systems. The 6th house and afflictions to key planets can indicate health tendencies, enabling preventive measures and lifestyle adjustments before issues manifest.</p>
+
+  <h3>Benefits</h3>
+  <ul>
+    <li>Informed decision-making at life's major crossroads</li>
+    <li>Compatible partner selection through scientific Kundli matching</li>
+    <li>Career clarity aligned with innate planetary strengths</li>
+    <li>Financial timing for maximum return on investments</li>
+    <li>Preventive health insights from astrological indicators</li>
+    <li>Holistic life planning with timing for all major milestones</li>
+  </ul>
+
+  <h3>Consultation Process</h3>
+  <ol>
+    <li><strong>Birth Chart Analysis:</strong> Comprehensive review of houses, planets, and Dashas relevant to your specific concern.</li>
+    <li><strong>Area-Specific Deep Dive:</strong> Focused analysis on marriage, career, finance, or health — or all four.</li>
+    <li><strong>Kundli Matching (if applicable):</strong> Detailed compatibility analysis with a potential partner's chart.</li>
+    <li><strong>Timing Guidance:</strong> Muhurta (auspicious timing) recommendations for key decisions.</li>
+    <li><strong>Remedies:</strong> Specific actions, mantras, or rituals to strengthen weak areas.</li>
+  </ol>
+
+  <h3>FAQs</h3>
+  <div class="faq">
+    <details><summary>What is Kundli matching and why is it important for marriage?</summary><div class="answer">Kundli matching compares two birth charts across 36 points (Ashtakoota). A score of 18+ is generally considered favorable. It assesses compatibility in health, temperament, children, financial prosperity, and emotional bonding — but it's a guide, not a verdict.</div></details>
+    <details><summary>Can astrology tell me exactly which career to choose?</summary><div class="answer">Astrology reveals your natural aptitudes, favorable sectors, and optimal timing for career moves. It narrows the field and highlights strengths but works best as a complement to your own interests and practical considerations.</div></details>
+    <details><summary>Is financial astrology reliable for investment decisions?</summary><div class="answer">Astrological timing can indicate favorable and unfavorable periods for financial ventures. It's a supplementary tool — combine it with proper financial analysis and professional advice for best results.</div></details>
+  </div>
+</div>
+
+<!-- SERVICE 4: VASTU -->
+<div id="s4" class="tab-content">
+  <div class="service-header">
+    <h2>4. Vastu Consultation</h2>
+  </div>
+  <span class="tag tag-gold">CORE SERVICE</span> <span class="tag tag-green">HIGH TICKET</span>
+
+  <h3>Description</h3>
+  <p>Vastu Shastra — the ancient Indian science of architecture and spatial harmony — teaches that the energy flow within your living and working spaces profoundly influences your health, prosperity, relationships, and peace of mind. Like a cosmic version of environmental design, Vastu aligns your physical spaces with the five fundamental elements (earth, water, fire, air, and space) and the eight cardinal directions.</p>
+  <p>Pandit Shree Mahadev Joshi offers comprehensive Vastu consultation for homes, offices, shops, and plots. Drawing from classical texts like the Manasara and Mayamata, combined with practical experience, Panditji analyzes the directional alignment of entrances, the placement of rooms and functions, energy flow patterns, and the balance of the Pancha Tatva (five elements) within your space.</p>
+  <p>Unlike generalized Vastu tips, a professional consultation identifies specific Vastu Doshas (imbalances) in your property and provides targeted remedies. These may range from simple adjustments — like repositioning furniture or changing color schemes — to deeper corrections involving room usage changes or placement of Vastu yantras. The goal is always maximum benefit with minimum disruption.</p>
+  <p>Whether you're building a new home, moving into a new office, or experiencing unexplained challenges in your current space, a Vastu consultation can identify the energetic root cause and provide actionable solutions.</p>
+
+  <h3>Benefits</h3>
+  <ul>
+    <li>Harmonized living and working spaces for positive energy flow</li>
+    <li>Identification and correction of Vastu Doshas causing problems</li>
+    <li>Enhanced prosperity, health, and relationship harmony</li>
+    <li>Practical, implementable remedies (not always structural changes)</li>
+    <li>New construction guidance for Vastu-compliant design from the start</li>
+    <li>Peace of mind through balanced, harmonious environments</li>
+  </ul>
+
+  <h3>Consultation Process</h3>
+  <ol>
+    <li><strong>Initial Assessment:</strong> Share property type, floor plan, and any specific concerns via phone/email.</li>
+    <li><strong>On-Site Visit or Remote Analysis:</strong> In-person compass readings and space evaluation, or remote analysis using floor plans with accurate directional markings.</li>
+    <li><strong>Detailed Report:</strong> Room-by-room Vastu assessment identifying doshas and imbalances.</li>
+    <li><strong>Remedies &amp; Solutions:</strong> Practical, prioritized recommendations tailored to your property.</li>
+    <li><strong>Follow-Up Support:</strong> Guidance during implementation and effectiveness monitoring.</li>
+  </ol>
+
+  <h3>FAQs</h3>
+  <div class="faq">
+    <details><summary>Does Vastu require demolishing or rebuilding my home?</summary><div class="answer">No. Most Vastu remedies involve non-structural changes like repositioning furniture, adjusting colors, placing specific items, or changing room functions. Structural changes are recommended only in severe cases.</div></details>
+    <details><summary>Can Vastu be applied to rented properties?</summary><div class="answer">Absolutely. Many effective Vastu remedies are portable — using colors, placement of objects, crystals, and yantras — making them ideal for rented spaces where structural changes aren't possible.</div></details>
+    <details><summary>Is online Vastu consultation effective?</summary><div class="answer">Yes, provided accurate floor plans with directional markings are shared. Panditji can conduct thorough analysis remotely, making it accessible for clients worldwide.</div></details>
+  </div>
+</div>
+
+<!-- SERVICE 5: GEMSTONES -->
+<div id="s5" class="tab-content">
+  <div class="service-header">
+    <h2>5. Gemstone Recommendations</h2>
+  </div>
+  <span class="tag tag-gold">CORE SERVICE</span> <span class="tag tag-purple">REMEDIAL</span>
+
+  <h3>Description</h3>
+  <p>In Vedic astrology, gemstones (Ratna) are among the most powerful remedial tools. Each of the nine primary gemstones — the Navratna — corresponds to a specific planet and channels its cosmic energy when worn correctly. A Ruby amplifies the Sun's vitality, a Pearl soothes the Moon's emotional currents, a Yellow Sapphire expands Jupiter's wisdom, and so on.</p>
+  <p>However, gemstone recommendation is not one-size-fits-all. A gemstone that brings tremendous benefit to one person can create difficulties for another. The Anukula (favorable) system requires careful analysis of your complete birth chart — not just your zodiac sign — to determine which planets are your functional benefics, which are creating challenges, and which gemstones will create the most positive shift in your life.</p>
+  <p>Pandit Shree Mahadev Joshi's gemstone consultation begins with a thorough Kundli analysis, evaluating your Lagna, planetary strengths through Shadbala, current Mahadasha and Antardasha periods, and the specific life areas you wish to strengthen. Only then is a gemstone prescribed — with guidance on quality standards, ideal weight (carat), the correct metal for setting, the auspicious day and time (Muhurta) to first wear it, and the activation mantra.</p>
+  <p>The Navratna gemstones and their planetary associations: Ruby (Sun), Pearl (Moon), Red Coral (Mars), Emerald (Mercury), Yellow Sapphire (Jupiter), Diamond (Venus), Blue Sapphire (Saturn), Hessonite (Rahu), and Cat's Eye (Ketu). Secondary gemstones are also available as more affordable alternatives.</p>
+
+  <h3>Benefits</h3>
+  <ul>
+    <li>Strengthened favorable planetary influences in your chart</li>
+    <li>Reduced impact of malefic planetary periods</li>
+    <li>Enhanced mental clarity, emotional stability, and focus</li>
+    <li>Support for specific life goals — career, relationships, health, wealth</li>
+    <li>Safe, non-invasive remedial approach with centuries of tradition</li>
+    <li>Continuous benefit as long as the gemstone is worn</li>
+  </ul>
+
+  <h3>Consultation Process</h3>
+  <ol>
+    <li><strong>Birth Chart Analysis:</strong> Thorough review of your Kundli to identify benefic and malefic planets.</li>
+    <li><strong>Current Period Assessment:</strong> Analysis of your active Mahadasha/Antardasha to determine timing relevance.</li>
+    <li><strong>Gemstone Prescription:</strong> Specific gemstone recommendation with exact specifications (type, weight, quality, metal).</li>
+    <li><strong>Wearing Instructions:</strong> Muhurta (auspicious timing), finger, hand, and activation mantra for first wearing.</li>
+    <li><strong>Quality Guidance:</strong> Advice on sourcing genuine, high-quality gemstones and avoiding treated or synthetic stones.</li>
+  </ol>
+
+  <h3>FAQs</h3>
+  <div class="faq">
+    <details><summary>Can wearing the wrong gemstone be harmful?</summary><div class="answer">Yes. Each gemstone amplifies the energy of its corresponding planet. If that planet is a functional malefic in your chart, wearing its gemstone can intensify negative effects. This is why expert consultation is essential — never wear a gemstone based only on your zodiac sign.</div></details>
+    <details><summary>Can I wear multiple gemstones together?</summary><div class="answer">Only gemstones of friendly planets should be worn together. Gemstones of planets with natural enmity (like Sun and Saturn, or Venus and Jupiter) should not be combined. Panditji will advise on compatible combinations.</div></details>
+    <details><summary>How long does it take for a gemstone to show effects?</summary><div class="answer">Most people begin to notice subtle shifts within 30-45 days of correctly wearing a gemstone. Full effects typically manifest over 3-6 months.</div></details>
+  </div>
+</div>
+
+<!-- SERVICE 6: KARMA COUNSELLING -->
+<div id="s6" class="tab-content">
+  <div class="service-header">
+    <h2>6. Karma &amp; Life-Purpose Counselling</h2>
+  </div>
+  <span class="tag tag-gold">CORE SERVICE</span> <span class="tag tag-purple">SPIRITUAL</span>
+
+  <h3>Description</h3>
+  <p>At the deepest level, Vedic astrology is not about prediction — it's about understanding the soul's journey. Karma and Life-Purpose Counselling explores the profound questions: Why am I here? What karmic patterns am I carrying? What is my Dharma — my true life path?</p>
+  <p>Vedic astrology recognizes three types of karma that shape your life: Sanchita Karma (the accumulated bank of past-life actions), Prarabdha Karma (the portion allocated for this lifetime, reflected in your birth chart), and Kriyamana Karma (the new karma you create through present choices). Your birth chart is essentially a map of your Prarabdha — the karmic lessons, opportunities, and challenges destined for this life.</p>
+  <p>Pandit Shree Mahadev Joshi draws on 20+ years of experience in Vedic astrology and spiritual consultation to guide you through this profound self-exploration. Through analysis of Rahu and Ketu (the lunar nodes — your karmic axis), Saturn's placement (the karmic taskmaster), the 12th house (past-life patterns), and the 9th house (Dharma and life purpose), Panditji illuminates the deeper spiritual narrative behind your life experiences.</p>
+  <p>This counselling is particularly valuable during life transitions — when career success feels hollow, relationships repeatedly challenge the same patterns, or a growing inner voice seeks something more meaningful. It provides not just understanding, but actionable steps: remedial practices, meditation techniques, mantras, and lifestyle adjustments that accelerate spiritual growth while honoring your karmic path.</p>
+
+  <h3>Benefits</h3>
+  <ul>
+    <li>Clarity on your soul's purpose and Dharmic path</li>
+    <li>Understanding of recurring life patterns through a karmic lens</li>
+    <li>Release from confusion during major life transitions</li>
+    <li>Practical spiritual practices tailored to your chart</li>
+    <li>Peace through acceptance of karmic lessons</li>
+    <li>Empowerment through Kriyamana Karma — shaping your future through conscious action</li>
+  </ul>
+
+  <h3>Consultation Process</h3>
+  <ol>
+    <li><strong>Deep Chart Analysis:</strong> Focus on karmic indicators — Rahu/Ketu axis, Saturn, 9th and 12th houses, Nakshatras.</li>
+    <li><strong>Life Pattern Discussion:</strong> Open conversation about recurring themes, challenges, and questions in your life.</li>
+    <li><strong>Karmic Narrative:</strong> Panditji weaves together the astrological insights into a coherent spiritual narrative.</li>
+    <li><strong>Dharma Path Guidance:</strong> Specific guidance on aligning daily life with your soul's purpose.</li>
+    <li><strong>Spiritual Practices:</strong> Customized mantras, meditation, and remedial actions for spiritual acceleration.</li>
+  </ol>
+
+  <h3>FAQs</h3>
+  <div class="faq">
+    <details><summary>Can I change my karma?</summary><div class="answer">Prarabdha Karma (this life's allocation) is fixed, but how you respond to it creates Kriyamana Karma — new karma. Through conscious action, spiritual practice, and selfless service, you can mitigate negative karma and build positive karmic credit.</div></details>
+    <details><summary>Is this different from a regular Kundli reading?</summary><div class="answer">Yes. While a Kundli reading covers practical life areas, Karma Counselling goes deeper into the spiritual dimension — past-life patterns, soul purpose, and the "why" behind your life's circumstances.</div></details>
+    <details><summary>Do I need to believe in reincarnation for this to be useful?</summary><div class="answer">Not necessarily. Even without a belief in past lives, the framework of karmic patterns provides valuable insight into recurring behavioral patterns, psychological tendencies, and a sense of life direction.</div></details>
+  </div>
+</div>
+
+<!-- SERVICE 7: PANCHA TATVA -->
+<div id="s7" class="tab-content">
+  <div class="service-header">
+    <h2>7. Pancha Tatva Balancing</h2>
+  </div>
+  <span class="tag tag-purple">SPIRITUAL</span> <span class="tag tag-green">HOLISTIC</span>
+
+  <h3>Description</h3>
+  <p>Pancha Tatva — the five fundamental elements of Vedic science — forms the building blocks of all creation: Prithvi (Earth), Jal (Water), Agni (Fire), Vayu (Air), and Akash (Space/Ether). Every living being, every space, and even the planets themselves are composed of these five elements in varying proportions. When they are in balance, there is health, prosperity, and peace. When imbalanced, challenges arise in body, mind, and environment.</p>
+  <p>In the Vedic tradition, the Pancha Tatva Siddantha is one of the most important doctrines connecting astrology, Ayurveda, and yoga. Each zodiac sign carries an elemental signature — Aries, Leo, and Sagittarius are fire signs; Taurus, Virgo, and Capricorn are earth signs — and the five planets Mercury, Venus, Mars, Jupiter, and Saturn each govern one of the five elements.</p>
+  <p>Pandit Shree Mahadev Joshi analyzes your birth chart to determine your elemental constitution — which elements are dominant, which are deficient, and how the current planetary transits are affecting your elemental balance. This analysis connects three interconnected systems: Vedic astrology (for diagnosis), Ayurveda (for physical remedies), and Yoga (for energetic practices) — forming a tripod of holistic wellbeing.</p>
+  <p>Remedies for elemental imbalance may include specific dietary recommendations, color therapy, directional adjustments in your living space (connecting to Vastu), mantras that activate deficient elements, and yoga practices targeting the chakras associated with each element. The five lower chakras each correspond to one of the five elements, creating a direct bridge between Pancha Tatva and Chakra work.</p>
+
+  <h3>Benefits</h3>
+  <ul>
+    <li>Holistic diagnosis connecting astrology, Ayurveda, and yoga</li>
+    <li>Understanding of your elemental constitution and personality traits</li>
+    <li>Physical health improvement through elemental balance</li>
+    <li>Emotional stability through harmonized elements</li>
+    <li>Environmental harmony through Vastu-aligned elemental corrections</li>
+    <li>Integrated remedies spanning diet, color, mantra, and lifestyle</li>
+  </ul>
+
+  <h3>Consultation Process</h3>
+  <ol>
+    <li><strong>Elemental Chart Analysis:</strong> Your birth chart is analyzed for elemental distribution across signs, houses, and planets.</li>
+    <li><strong>Imbalance Identification:</strong> Specific elemental excesses and deficiencies are mapped.</li>
+    <li><strong>Holistic Assessment:</strong> Integration with Ayurvedic body type (Prakriti) and current health patterns.</li>
+    <li><strong>Customized Remedies:</strong> Multi-dimensional remedies spanning diet, yoga, mantra, color, and Vastu.</li>
+    <li><strong>Follow-Up:</strong> Monitoring effectiveness and adjusting remedies as needed.</li>
+  </ol>
+
+  <h3>FAQs</h3>
+  <div class="faq">
+    <details><summary>How is Pancha Tatva different from Vastu Consultation?</summary><div class="answer">Vastu focuses on your external space. Pancha Tatva focuses on the elemental balance within your body and mind, though they overlap — both use directional alignment and elemental harmony. They complement each other beautifully.</div></details>
+    <details><summary>What are the signs of elemental imbalance?</summary><div class="answer">Excess fire manifests as anger and inflammation. Excess earth as rigidity and lethargy. Excess water as emotional overwhelm. Deficient air as stagnation. Deficient space as feeling confined. Panditji identifies these patterns through your chart.</div></details>
+  </div>
+</div>
+
+<!-- SERVICE 8: SEVEN CHAKRAS -->
+<div id="s8" class="tab-content">
+  <div class="service-header">
+    <h2>8. Seven Chakras Balancing</h2>
+  </div>
+  <span class="tag tag-purple">SPIRITUAL</span> <span class="tag tag-green">HOLISTIC</span>
+
+  <h3>Description</h3>
+  <p>The seven chakras are energy centers located along the spine, from its base to the crown of the head. According to ancient Hindu philosophy, these spinning wheels of energy govern different aspects of your physical, emotional, and spiritual wellbeing. When all seven chakras are open and balanced, energy (Prana) flows freely, creating vitality, clarity, and inner peace. When blocked or imbalanced, the corresponding life areas suffer.</p>
+  <p>What makes Believe Astrology's approach unique is the integration of chakra healing with Vedic astrology. Each chakra corresponds to specific planets and zodiac signs: Mars rules the Root Chakra (survival and stability), the Sun governs the Heart Chakra (identity and love), and Mercury rules the Throat Chakra (communication and expression). Your birth chart reveals which chakras are naturally strong, which may be challenged, and which planets are influencing your energy flow.</p>
+  <p>Pandit Shree Mahadev Joshi combines this astrological diagnosis with targeted healing practices. For each imbalanced chakra, specific Vedic remedies are prescribed: planetary mantras that resonate with the chakra's frequency, meditation techniques, appropriate gemstones, Ayurvedic herbs and oils, dietary adjustments, and yoga asanas. The result is a deeply personalized healing protocol grounded in both the spiritual science of chakras and the analytical precision of Jyotish.</p>
+  <p>The seven chakras and their domains: Muladhara (Root — security, survival), Svadhisthana (Sacral — creativity, emotions), Manipura (Solar Plexus — power, confidence), Anahata (Heart — love, compassion), Vishuddha (Throat — communication, truth), Ajna (Third Eye — intuition, wisdom), and Sahasrara (Crown — spiritual connection, consciousness).</p>
+
+  <h3>Benefits</h3>
+  <ul>
+    <li>Improved physical health through energetic alignment</li>
+    <li>Emotional stability and stronger relationships</li>
+    <li>Enhanced intuition and mental clarity</li>
+    <li>Deeper spiritual connection and purpose</li>
+    <li>Astrologically-informed healing — targeted and precise</li>
+    <li>Integrated approach combining mantras, gems, yoga, and meditation</li>
+  </ul>
+
+  <h3>Consultation Process</h3>
+  <ol>
+    <li><strong>Astrological-Chakra Mapping:</strong> Your birth chart is analyzed for planetary influences on each chakra.</li>
+    <li><strong>Blockage Identification:</strong> Specific chakras showing weakness or over-activation are identified.</li>
+    <li><strong>Symptom Correlation:</strong> Connecting your reported physical/emotional concerns with chakra imbalances.</li>
+    <li><strong>Healing Protocol:</strong> Customized combination of mantras, meditations, gemstones, and practices for each affected chakra.</li>
+    <li><strong>Ongoing Practice:</strong> A daily routine you can follow independently, with periodic check-ins.</li>
+  </ol>
+
+  <h3>FAQs</h3>
+  <div class="faq">
+    <details><summary>Can blocked chakras cause physical illness?</summary><div class="answer">In the Vedic framework, prolonged energetic imbalance can manifest as physical symptoms. A blocked Throat Chakra might correlate with thyroid issues, a weak Root Chakra with lower back pain. Chakra work is complementary to medical care, not a replacement.</div></details>
+    <details><summary>How long does chakra balancing take?</summary><div class="answer">Initial improvements can be felt within weeks of consistent practice. Deep, lasting balance develops over months of regular meditation, mantra chanting, and lifestyle alignment. It's an ongoing practice, not a one-time fix.</div></details>
+  </div>
+</div>
+
+<!-- SERVICE 9: VEDIC POOJAS -->
+<div id="s9" class="tab-content">
+  <div class="service-header">
+    <h2>9. Vedic Spiritual Poojas</h2>
+  </div>
+  <span class="tag tag-purple">SPIRITUAL</span> <span class="tag tag-red">RITUAL</span>
+
+  <h3>Description</h3>
+  <p>Vedic Poojas are sacred worship ceremonies rooted in the ancient Vedas — Hinduism's oldest scriptures. Through a structured sequence of invocations, offerings, mantras, and meditations, a Pooja creates a powerful bridge between the devotee and the divine. It is a path of transformation where the devotee's consciousness is elevated through focused devotion (Bhakti), sacred action (Karma), and spiritual knowledge (Jnana).</p>
+  <p>Pandit Shree Mahadev Joshi performs a wide range of Vedic Poojas tailored to specific needs and occasions. From Ganesh Pooja for removing obstacles before new ventures, to Lakshmi Pooja for wealth and prosperity, Saraswati Pooja for wisdom and learning, Navgraha Pooja for planetary harmony, and Shanti Poojas for peace and protection — each ritual follows the authentic Vedic Vidhi (procedure) handed down through generations of priestly tradition.</p>
+  <p>The four levels of Pooja ritual — from the simple Panchopachar (5 offerings) for daily worship to the elaborate Shodashopachar (16 offerings) for major ceremonies — ensure that the right intensity of ritual matches the devotee's needs and the occasion's significance. When performed by a qualified Pundit with proper Sankalpa (intention), Mantras, and offerings, these rituals draw powerful spiritual energies that purify the environment, bless the participants, and create a protective shield against negative influences.</p>
+  <p>Whether you seek blessings for a new home (Graha Pravesh), success in business (Vyapar Vriddhi), removal of obstacles (Vighna Nivaran), health restoration (Maha Mrityunjaya), or spiritual upliftment, there is a specific Vedic Pooja designed for your purpose.</p>
+
+  <h3>Benefits</h3>
+  <ul>
+    <li>Divine blessings for health, prosperity, and protection</li>
+    <li>Purification of mind, body, and environment</li>
+    <li>Reduction of negative planetary influences (Graha Dosha Nivaran)</li>
+    <li>Spiritual growth and consciousness elevation</li>
+    <li>Marking auspicious occasions with sacred rituals</li>
+    <li>Community and family bonding through shared worship</li>
+  </ul>
+
+  <h3>Consultation Process</h3>
+  <ol>
+    <li><strong>Need Assessment:</strong> Discussion of your specific intention, concerns, or the occasion to be celebrated.</li>
+    <li><strong>Pooja Selection:</strong> Panditji recommends the appropriate Pooja, level of ritual, and optimal date (Muhurta).</li>
+    <li><strong>Preparation:</strong> Guidance on required materials (Samagri), space setup, and participant preparation.</li>
+    <li><strong>Performance:</strong> Full Vedic Pooja conducted by Panditji — in-person at your location or at a temple.</li>
+    <li><strong>Post-Pooja Guidance:</strong> Instructions on Prasad distribution, maintaining the sanctified space, and follow-up practices.</li>
+  </ol>
+
+  <h3>FAQs</h3>
+  <div class="faq">
+    <details><summary>Can Poojas be performed remotely/online?</summary><div class="answer">Yes. With modern technology, Panditji can perform Poojas at a sacred location while you participate via video call. The Sankalpa (intention) is taken in your name and Nakshatra, and the Prasad can be shipped to you.</div></details>
+    <details><summary>How do I know which Pooja I need?</summary><div class="answer">Share your concern or intention with Panditji. Based on your birth chart and specific situation, the most effective Pooja will be recommended. Common needs include obstacle removal (Ganesh), wealth (Lakshmi), health (Maha Mrityunjaya), and planetary harmony (Navgraha).</div></details>
+    <details><summary>How often should Poojas be performed?</summary><div class="answer">Some Poojas are one-time (for specific events), while others benefit from periodic repetition. Daily simple worship (Panchopachar) is encouraged. Special Poojas may be recommended during Dasha transitions, eclipses, or challenging planetary periods.</div></details>
+  </div>
+</div>
+
+<!-- SERVICE 10: YAGNAS -->
+<div id="s10" class="tab-content">
+  <div class="service-header">
+    <h2>10. Vedic Karma-Kand Yagnas</h2>
+  </div>
+  <span class="tag tag-purple">SPIRITUAL</span> <span class="tag tag-red">RITUAL</span>
+
+  <h3>Description</h3>
+  <p>Yagna (Yajna) — the sacred fire ceremony — is among the most powerful and ancient rituals in the Vedic tradition. Described in the Yajurveda as "the greatest among all works," a Yagna involves making offerings of ghee, grains, herbs, and sacred materials into a consecrated fire (Agni) while chanting specific Vedic mantras. The fire acts as a divine intermediary, transforming physical offerings into spiritual energy and carrying them to the celestial realm.</p>
+  <p>Karma-Kand — the ritual portion of Vedic knowledge — encompasses the systematic science of these fire ceremonies. Each Yagna serves a specific purpose: Agnihotra for daily atmospheric purification, Ganapathi Homam for obstacle removal, Navagraha Homam for planetary appeasement, Graha Shanti Yajna for harmonizing astrological imbalances, Chandi Havan for divine protection, and Vivaha Yajna for sanctifying marriages.</p>
+  <p>Pandit Shree Mahadev Joshi conducts authentic Karma-Kand Yagnas following the complete Vedic procedure: purification of the space and participants, construction of the appropriate fire altar (Yagna Kund), invocation of Agni and the presiding deities, Sankalpa (intention setting), the rhythmic offering of Aahuti with precise mantra recitation, meditation and contemplation, and concluding prayers with blessings for all beings.</p>
+  <p>Scientific research supports the purifying effects of Yagnas — a study by India's National Botanical Research Institute found that traditional Havan materials reduced bacterial presence by 94% within one hour. Beyond physical purification, Yagnas create a powerful meditative atmosphere that supports spiritual growth, karmic cleansing, and community bonding.</p>
+
+  <h3>Benefits</h3>
+  <ul>
+    <li>Karmic purification through sacred fire offerings</li>
+    <li>Appeasement of challenging planetary influences</li>
+    <li>Environmental purification (scientifically documented antibacterial effects)</li>
+    <li>Spiritual growth through Vedic mantra vibrations</li>
+    <li>Blessings for specific life goals — health, prosperity, protection, progeny</li>
+    <li>Community unity and shared spiritual experience</li>
+  </ul>
+
+  <h3>Consultation Process</h3>
+  <ol>
+    <li><strong>Purpose Assessment:</strong> Identify the specific purpose and select the appropriate type of Yagna.</li>
+    <li><strong>Muhurta Selection:</strong> Choose an auspicious date and time based on Panchang and your birth chart.</li>
+    <li><strong>Preparation:</strong> Gather required materials (Samagri) and prepare the space and fire altar.</li>
+    <li><strong>Yagna Performance:</strong> Full Vedic fire ceremony conducted by Panditji, typically 2-4 hours.</li>
+    <li><strong>Concluding Rituals:</strong> Aarti, Prasad distribution, and guidance on maintaining the spiritual momentum.</li>
+  </ol>
+
+  <h3>FAQs</h3>
+  <div class="faq">
+    <details><summary>What is the difference between a Pooja and a Yagna?</summary><div class="answer">A Pooja is a worship ritual that may or may not involve fire. A Yagna specifically centers on the sacred fire (Agni) as the divine medium. Yagnas are generally more elaborate and powerful, involving continuous fire offerings with Vedic mantras.</div></details>
+    <details><summary>Can a Yagna be performed at home?</summary><div class="answer">Yes, many Yagnas can be performed at home with proper setup. Panditji brings the required fire altar (Kund) and all materials. Ensure a well-ventilated space and follow all safety guidelines.</div></details>
+    <details><summary>How long does a Yagna ceremony take?</summary><div class="answer">Simple Havans take 1-2 hours. Standard Yagnas run 2-4 hours. Major Anushtans (extended rituals) may span multiple days, especially those involving 125,000+ mantra repetitions.</div></details>
+  </div>
+</div>
+
+<!-- SERVICE 11: MAHA MRITYUNJAYA -->
+<div id="s11" class="tab-content">
+  <div class="service-header">
+    <h2>11. Maha Mrityunjaya Mantra Anushthan</h2>
+  </div>
+  <span class="tag tag-red">RITUAL</span> <span class="tag tag-purple">HEALING</span>
+
+  <h3>Description</h3>
+  <p>The Maha Mrityunjaya Mantra — literally "the Great Mantra that Conquers Death" — is one of the most ancient and powerful mantras in the Vedic tradition. Found in the Rigveda (RV 7.59.12), it is addressed to Tryambaka (the three-eyed Lord Shiva) and is believed to have been composed by the sage Markandeya, who according to legend conquered death itself through its power.</p>
+  <p>The Maha Mrityunjaya Anushthan is an intensive multi-day ritual involving the systematic chanting of this sacred mantra — typically 125,000 repetitions (1.25 lakh) — combined with daily special Poojas, Havan (fire offerings), and specific donations. This concentrated spiritual practice creates a powerful protective and healing energy field around the person for whom it is performed.</p>
+  <p>Pandit Shree Mahadev Joshi conducts this Anushthan as an 11-day or 21-day structured program. Each day includes the Sankalpa (resolve), Ganesh Puja, invocation of Lord Shiva with Bilva leaves and sacred offerings, systematic mantra chanting using Rudraksha mala, Havan with prescribed Samagri, Aarti, and Prasad distribution. The entire process is conducted with strict Vedic discipline, ensuring maximum spiritual potency.</p>
+  <p>This Anushthan is particularly recommended during serious health challenges, life-threatening situations, Sade Sati periods, Mahadasha of malefic planets, or whenever protection from negative influences is urgently needed. It is also performed as a preventive measure for longevity and wellbeing during milestone birthdays or challenging astrological periods.</p>
+
+  <h3>Benefits</h3>
+  <ul>
+    <li>Healing support during serious illness or health crises</li>
+    <li>Protection from premature death and life-threatening situations</li>
+    <li>Longevity and overall health rejuvenation</li>
+    <li>Removal of fear, anxiety, and mental disturbances</li>
+    <li>Neutralization of negative planetary influences (especially Saturn, Rahu, Ketu)</li>
+    <li>Spiritual upliftment and inner peace</li>
+    <li>Protection against accidents, mishaps, and unforeseen dangers</li>
+  </ul>
+
+  <h3>Consultation Process</h3>
+  <ol>
+    <li><strong>Need Assessment:</strong> Discussion of the specific health or protection concern and astrological context.</li>
+    <li><strong>Chart Review:</strong> Analysis of current Dasha, transit afflictions, and relevant doshas.</li>
+    <li><strong>Anushthan Planning:</strong> Determine duration (11-day or 21-day), mantra count, and auspicious start date.</li>
+    <li><strong>Daily Ritual Execution:</strong> Systematic daily Puja, chanting, and Havan conducted by Panditji.</li>
+    <li><strong>Completion Ceremony:</strong> Final Havan, Prasad, and donation to conclude the Anushthan with blessings.</li>
+  </ol>
+
+  <h3>FAQs</h3>
+  <div class="faq">
+    <details><summary>Can anyone benefit from Maha Mrityunjaya Anushthan?</summary><div class="answer">Yes. While it is especially powerful during health crises, it can be performed for general protection, longevity, and spiritual growth for any individual, regardless of their current situation.</div></details>
+    <details><summary>Can I chant the Maha Mrityunjaya Mantra myself?</summary><div class="answer">Absolutely. Daily chanting of 108 repetitions using a Rudraksha mala is beneficial. However, the full Anushthan (125,000 repetitions with accompanying rituals) is best performed by or under the guidance of an experienced Pundit.</div></details>
+    <details><summary>Is this the same as Maha Mrityunjaya Jaap?</summary><div class="answer">Jaap refers to the chanting of the mantra. Anushthan is the complete ritual package including Jaap, Puja, Havan, and donations — making it more comprehensive and powerful than chanting alone.</div></details>
+  </div>
+</div>
+
+<!-- SERVICE 12: MANTRAS CHANTING -->
+<div id="s12" class="tab-content">
+  <div class="service-header">
+    <h2>12. Mantras Chanting</h2>
+  </div>
+  <span class="tag tag-purple">SPIRITUAL</span> <span class="tag tag-blue">DAILY PRACTICE</span>
+
+  <h3>Description</h3>
+  <p>Mantras — sacred sound formulas from the Vedic tradition — are the most accessible yet profoundly powerful spiritual tool available. The word "Mantra" derives from Sanskrit: "man" (mind) and "tra" (liberation) — literally, sounds that liberate the mind. When chanted with correct pronunciation, rhythm, and devotion, mantras produce specific vibrational frequencies that harmonize the chanter's energy with cosmic forces.</p>
+  <p>In Vedic astrology, mantra chanting is one of the three primary remedial measures (alongside gemstones and yantras) for mitigating negative planetary influences and strengthening favorable ones. Each planet has specific mantras — "Om Sham Shanicharaya Namah" for Saturn, "Om Brim Brihaspataye Namah" for Jupiter — and chanting the mantra of a weak or afflicted planet in your chart can significantly improve its effects on your life.</p>
+  <p>Pandit Shree Mahadev Joshi prescribes personalized mantra practices based on your birth chart analysis. The types of mantras include: Planetary Mantras (for strengthening specific planets), Beej (Seed) Mantras (single-syllable sounds that activate energy centers), Deity Mantras (for invoking specific divine blessings like the Gayatri Mantra), Healing Mantras (for physical and emotional wellbeing), and Protection Mantras (for shielding against negative energies).</p>
+  <p>Scientific research has shown that regular mantra chanting increases the size of brain regions associated with cognitive function, reduces stress hormones, and promotes overall mental and physical health. The practice of chanting 108 repetitions daily over a 40-day cycle (Mandala) creates lasting shifts in consciousness and life circumstances. It is Mantra Yoga — the yoga of sacred sound — and it is available to everyone.</p>
+
+  <h3>Benefits</h3>
+  <ul>
+    <li>Strengthening of weak planets in your birth chart</li>
+    <li>Stress reduction and emotional balance</li>
+    <li>Enhanced mental clarity, focus, and memory</li>
+    <li>Chakra activation and energy center balancing</li>
+    <li>Spiritual growth and consciousness elevation</li>
+    <li>Physical health benefits through vibrational healing</li>
+    <li>Protection against negative energies and influences</li>
+    <li>Accessible daily practice — no special equipment needed</li>
+  </ul>
+
+  <h3>Consultation Process</h3>
+  <ol>
+    <li><strong>Birth Chart Review:</strong> Identify weak, afflicted, or beneficial planets that would benefit from mantra remedy.</li>
+    <li><strong>Mantra Prescription:</strong> Specific mantras selected based on your chart, current Dasha, and life goals.</li>
+    <li><strong>Pronunciation Training:</strong> Correct Sanskrit pronunciation is crucial — Panditji ensures you learn the exact sounds.</li>
+    <li><strong>Practice Schedule:</strong> Guidance on daily count (108 repetitions), timing (Brahma Muhurta is ideal), and duration (40-day cycles).</li>
+    <li><strong>Progress Review:</strong> Periodic check-ins to assess effects and adjust the mantra practice as needed.</li>
+  </ol>
+
+  <h3>FAQs</h3>
+  <div class="faq">
+    <details><summary>Do I need to know Sanskrit to chant mantras?</summary><div class="answer">No prior Sanskrit knowledge is needed. Panditji will teach you the correct pronunciation. Mantras work through sound vibration — what matters is accurate pronunciation, regular practice, and sincere devotion.</div></details>
+    <details><summary>How many times should I chant a mantra?</summary><div class="answer">The standard is 108 repetitions per session, using a mala (prayer beads) for counting. For powerful results, many traditions recommend a 40-day unbroken cycle (Mandala). Panditji will prescribe the specific count based on your needs.</div></details>
+    <details><summary>Can chanting the wrong mantra be harmful?</summary><div class="answer">Generally, mantras are safe. However, certain powerful mantras (like Beej Mantras of malefic planets) should be chanted only under guidance. Panditji ensures you receive mantras appropriate for your birth chart.</div></details>
+    <details><summary>What is the best time to chant mantras?</summary><div class="answer">Brahma Muhurta (approximately 4:00-5:30 AM) is traditionally considered the most auspicious time. However, consistency matters more than timing — a regular practice at any fixed time is better than irregular practice at the "perfect" time.</div></details>
+  </div>
+</div>
+
+</div><!-- end main -->
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>

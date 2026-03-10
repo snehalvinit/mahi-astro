@@ -1,0 +1,50 @@
+{
+  "id": "marriage-career-finance-health-guidance",
+  "title": "Marriage, Career, Finance & Health Guidance",
+  "slug": "marriage-career-finance-health-guidance",
+  "category": "core",
+  "icon": "compass",
+  "shortDescription": "Navigate life's biggest decisions — marriage compatibility, career direction, financial timing, and health insights through Vedic astrology.",
+  "description": "Life presents crossroads — choosing a career, selecting a life partner, making financial investments, or addressing health concerns. Vedic astrology offers a unique lens to navigate these pivotal decisions by revealing the planetary influences that shape each area of your life.\n\nMarriage & Relationships: Kundli matching (Ashtakoota Guna Milap) evaluates compatibility across 36 points covering temperament, health, prosperity, and emotional connection. Beyond matching, Panditji analyzes the 7th house, Venus placement, and Dasha timing to advise on optimal marriage timing and relationship dynamics.\n\nCareer & Professional Growth: The 10th house, its lord, and planets like Saturn and Mercury reveal your vocational strengths. Panditji identifies career paths aligned with your planetary configuration, optimal timing for job changes or business launches, and remedies for professional blocks.\n\nFinance & Wealth: The 2nd and 11th houses govern earnings and gains. Analysis of Jupiter, Venus, and wealth-forming Yogas (like Dhana Yoga or Lakshmi Yoga) reveals your financial potential and the best periods for investments, property purchases, and wealth accumulation.\n\nHealth & Wellbeing: Each planet governs specific body systems. The 6th house and afflictions to key planets can indicate health tendencies, enabling preventive measures and lifestyle adjustments before issues manifest.",
+  "benefits": [
+    "Informed decision-making at life's major crossroads",
+    "Compatible partner selection through scientific Kundli matching",
+    "Career clarity aligned with innate planetary strengths",
+    "Financial timing for maximum return on investments",
+    "Preventive health insights from astrological indicators",
+    "Holistic life planning with timing for all major milestones"
+  ],
+  "process": [
+    { "step": 1, "title": "Birth Chart Analysis", "description": "Comprehensive review of houses, planets, and Dashas relevant to your specific concern." },
+    { "step": 2, "title": "Area-Specific Deep Dive", "description": "Focused analysis on marriage, career, finance, or health — or all four." },
+    { "step": 3, "title": "Kundli Matching (if applicable)", "description": "Detailed compatibility analysis with a potential partner's chart." },
+    { "step": 4, "title": "Timing Guidance", "description": "Muhurta (auspicious timing) recommendations for key decisions." },
+    { "step": 5, "title": "Remedies", "description": "Specific actions, mantras, or rituals to strengthen weak areas." }
+  ],
+  "faqs": [
+    {
+      "question": "What is Kundli matching and why is it important for marriage?",
+      "answer": "Kundli matching compares two birth charts across 36 points (Ashtakoota). A score of 18+ is generally considered favorable. It assesses compatibility in health, temperament, children, financial prosperity, and emotional bonding — but it's a guide, not a verdict."
+    },
+    {
+      "question": "Can astrology tell me exactly which career to choose?",
+      "answer": "Astrology reveals your natural aptitudes, favorable sectors, and optimal timing for career moves. It narrows the field and highlights strengths but works best as a complement to your own interests and practical considerations."
+    },
+    {
+      "question": "Is financial astrology reliable for investment decisions?",
+      "answer": "Astrological timing can indicate favorable and unfavorable periods for financial ventures. It's a supplementary tool — combine it with proper financial analysis and professional advice for best results."
+    }
+  ],
+  "keywords": {
+    "en": ["marriage astrology", "career astrology", "financial astrology", "health horoscope", "kundli matching", "muhurta"],
+    "hi": ["विवाह ज्योतिष", "करियर ज्योतिष", "कुंडली मिलान", "स्वास्थ्य ज्योतिष", "धन योग", "मुहूर्त"],
+    "gu": ["લગ્ન જ્યોતિષ", "કારકિર્દી જ્યોતિષ", "કુંડળી મિલાન", "સ્વાસ્થ્ય જ્યોતિષ", "મુહૂર્ત"]
+  },
+  "relatedServices": ["vedic-astrology-kundli-reading", "horoscope-analysis-predictions", "gemstone-recommendations"],
+  "blogTopics": [
+    "How Astrology Can Guide Your Career Choice: A Vedic Perspective",
+    "Kundli Matching for Marriage: Why It Matters and How It Works",
+    "Best Astrological Timing for Property and Investment Decisions",
+    "Health Indicators in Your Birth Chart: What to Watch For"
+  ]
+}
