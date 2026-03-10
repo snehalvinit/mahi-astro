@@ -1,0 +1,121 @@
+---
+import type { SupportedLanguage } from '../../utils/i18n';
+import { getTranslations } from '../../utils/i18n';
+import { siteConfig } from '../../data/site-config';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import Button from '../ui/Button.astro';
+
+export interface Props {
+  lang: SupportedLanguage;
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang);
+
+const navItems = [
+  { label: t.header.home, href: `/${lang}/` },
+  { label: t.header.about, href: `/${lang}/about` },
+  { label: t.header.services, href: `/${lang}/services` },
+  { label: t.header.blog, href: `/${lang}/blog` },
+  { label: t.header.testimonials, href: `/${lang}/testimonials` },
+  { label: t.header.contact, href: `/${lang}/contact` },
+];
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-gold/10 transition-shadow duration-300"
+>
+  <div class="container-wide flex items-center justify-between h-16 md:h-20">
+    <!-- Logo -->
+    <a href={`/${lang}/`} class="flex items-center gap-2 group" aria-label={siteConfig.name}>
+      <span class="text-2xl" aria-hidden="true">&#x1F549;</span>
+      <div class="flex flex-col leading-tight">
+        <span class="font-heading text-lg md:text-xl font-bold text-indigo group-hover:text-gold transition-colors">
+          {t.hero.brandName}
+        </span>
+        <span class="text-xs text-purple/60 hidden sm:block">{t.hero.subtitle}</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden lg:flex items-center gap-6" aria-label="Main navigation">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="text-sm font-medium text-indigo/80 hover:text-gold transition-colors relative after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-0.5 after:bg-gold after:transition-all hover:after:w-full"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Desktop Actions -->
+    <div class="hidden lg:flex items-center gap-4">
+      <LanguageSwitcher lang={lang} />
+      <Button variant="primary" size="sm" href={`/${lang}/contact`}>
+        {t.header.bookConsultation}
+      </Button>
+    </div>
+
+    <!-- Mobile: Language + Hamburger -->
+    <div class="flex lg:hidden items-center gap-3">
+      <LanguageSwitcher lang={lang} />
+      <button
+        id="menu-toggle"
+        type="button"
+        class="flex items-center justify-center w-10 h-10 text-indigo hover:text-gold transition-colors"
+        aria-label={t.header.menuOpen}
+        aria-expanded="false"
+        aria-controls="menu-overlay"
+      >
+        <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg id="menu-icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Spacer to offset fixed header -->
+<div class="h-16 md:h-20"></div>
+
+<script>
+  // Sticky header shadow on scroll
+  const header = document.getElementById('site-header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        header.classList.add('shadow-md');
+      } else {
+        header.classList.remove('shadow-md');
+      }
+    }, { passive: true });
+  }
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const menuOverlay = document.getElementById('menu-overlay');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+
+  if (menuToggle && menuOverlay && iconOpen && iconClose) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menuOverlay.classList.contains('translate-x-0');
+      if (isOpen) {
+        menuOverlay.classList.remove('translate-x-0');
+        menuOverlay.classList.add('translate-x-full');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      } else {
+        menuOverlay.classList.remove('translate-x-full');
+        menuOverlay.classList.add('translate-x-0');
+        iconOpen.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  }
+</script>

@@ -7,7 +7,9 @@
     "contact": "Contact",
     "testimonials": "Testimonials",
     "events": "Events",
-    "bookConsultation": "Book Consultation"
+    "bookConsultation": "Book Consultation",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
   },
   "hero": {
     "brandName": "Believe Astrology",
@@ -43,10 +45,22 @@
     "brand": "Believe Astrology",
     "tagline": "Be Better with Connect to Nature",
     "quickLinks": "Quick Links",
+    "ourServices": "Our Services",
     "contactUs": "Contact Us",
     "followUs": "Follow Us",
     "copyright": "© 2026 Believe Astrology. All rights reserved.",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "address": "Ahmedabad, Gujarat, India",
+    "madeWith": "Made with faith & devotion"
+  },
+  "bottomBar": {
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "book": "Book Now"
+  },
+  "whatsapp": {
+    "prefill": "Namaste! I would like to book a consultation with Pandit Shree Mahadev Joshi.",
+    "tooltip": "Chat on WhatsApp"
   },
   "meta": {
     "title": "Believe Astrology — Pandit Shree Mahadev Joshi | Vedic Astrology in Ahmedabad",

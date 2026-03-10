@@ -326,11 +326,11 @@ After each task, update `progress.md` with:
 - [x] Hindi and Gujarati text renders correctly with proper fonts
 - [x] All UI components are responsive (mobile, tablet, desktop)
 - [x] Button, Card, Badge components work with passed props
-- [ ] Git commit: `feat(design): T2 — global styles, color system, typography`
+- [x] Git commit: `feat(design): T2 — global styles, color system, typography`
 
 ---
 
-### - [ ] T3: Build Header, Footer, Navigation, Language Switcher, WhatsApp Button
+### - [x] T3: Build Header, Footer, Navigation, Language Switcher, WhatsApp Button
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** T2
 
@@ -359,13 +359,13 @@ After each task, update `progress.md` with:
 7. Update all translation files (en.json, hi.json, gu.json) with nav/header/footer strings
 
 **Validate:**
-- [ ] Header renders with all nav items in all 3 languages
-- [ ] Language switcher changes URL and content correctly
-- [ ] Mobile menu opens/closes smoothly
-- [ ] WhatsApp button links to correct number with prefilled message
-- [ ] Footer shows correct contact info
-- [ ] Sticky header works on scroll
-- [ ] Git commit: `feat(layout): T3 — header, footer, navigation, language switcher`
+- [x] Header renders with all nav items in all 3 languages
+- [x] Language switcher changes URL and content correctly
+- [x] Mobile menu opens/closes smoothly
+- [x] WhatsApp button links to correct number with prefilled message
+- [x] Footer shows correct contact info
+- [x] Sticky header works on scroll
+- [x] Git commit: `feat(layout): T3 — header, footer, navigation, language switcher`
 
 ---
 

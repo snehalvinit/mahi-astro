@@ -1,0 +1,43 @@
+---
+import type { SupportedLanguage } from '../../utils/i18n';
+import { supportedLanguages, getTranslations } from '../../utils/i18n';
+
+export interface Props {
+  lang: SupportedLanguage;
+  class?: string;
+}
+
+const { lang, class: className = '' } = Astro.props;
+const t = getTranslations(lang);
+
+const languageLabels: Record<SupportedLanguage, string> = {
+  en: 'EN',
+  hi: '\u0939\u093F\u0902',
+  gu: '\u0A97\u0AC1\u0A9C',
+};
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class:list={['flex items-center gap-1', className]} aria-label={t.shared.language}>
+  {supportedLanguages.map((code) => {
+    const targetPath = currentPath.replace(`/${lang}/`, `/${code}/`);
+    const isActive = code === lang;
+    return isActive ? (
+      <span
+        class="px-2 py-1 text-sm font-semibold text-gold border-b-2 border-gold"
+        aria-current="true"
+      >
+        {languageLabels[code]}
+      </span>
+    ) : (
+      <a
+        href={targetPath}
+        class="px-2 py-1 text-sm font-medium text-indigo/60 hover:text-gold transition-colors"
+        hreflang={code}
+      >
+        {languageLabels[code]}
+      </a>
+    );
+  })}
+</nav>

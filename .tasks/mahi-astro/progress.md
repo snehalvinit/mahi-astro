@@ -23,8 +23,8 @@
 
 ## Task Progress
 
-### Last Completed: T2 (Global Styles, Color System, Typography) — 2026-03-09
-### Next Up: T3 (Header, Footer, Navigation, Language Switcher) — depends on T2 (done)
+### Last Completed: T3 (Header, Footer, Navigation, Language Switcher) — 2026-03-09
+### Next Up: V2 (Verify Design System & Navigation) — depends on T3 (done)
 
 ---
 
@@ -86,4 +86,14 @@
 - **Test results:** `npm run build` succeeds (4 pages, 1.46s). All 3 languages render correctly with proper fonts and translated content. All component classes compile into CSS output.
 - **Decisions:** Used CSS-level font switching via `html[lang]` selectors rather than per-component logic — simpler, automatic. Shadow/radius values use CSS custom properties in @theme for Tailwind integration. Card component uses named slots (icon, image) for flexible content injection. Button component auto-switches between `<a>` and `<button>` based on `href` prop.
 - **Gotchas:** Body base styles (font, color, bg) now in CSS rather than Tailwind classes — cleaner for multilingual font switching. The `hero-dark` class automatically recolors headings to gold and text to cream. T3 should use these components for header/footer/nav.
+- **Status:** DONE
+
+---
+
+### T3: Build Header, Footer, Navigation, Language Switcher, WhatsApp Button — 2026-03-09T17:34Z
+- **Files:** `src/components/layout/SiteHeader.astro`, `src/components/layout/MenuOverlay.astro`, `src/components/layout/SiteFooter.astro`, `src/components/layout/LanguageSwitcher.astro`, `src/components/layout/WhatsAppButton.astro`, `src/components/layout/BottomBar.astro`, `src/content/i18n/en.json`, `src/content/i18n/hi.json`, `src/content/i18n/gu.json`, `src/pages/[lang]/index.astro`
+- **What was done:** Created 6 layout components following Nilay website i18n patterns. SiteHeader: fixed/sticky with shadow-on-scroll, Om icon logo, 6-item desktop nav with gold underline hover, language switcher, Book Consultation CTA, mobile hamburger toggle. MenuOverlay: full-screen slide-in mobile menu with nav links, CTA button, contact info (email + phone). SiteFooter: 4-column grid (brand, quick links, services, contact), social media icons (WhatsApp always shown, Instagram/Facebook/YouTube conditional on siteConfig), copyright + "made with faith" tagline. LanguageSwitcher: EN|हिं|ગુજ with active gold highlight, URL-prefix swapping. WhatsAppButton: floating green button bottom-right with WhatsApp SVG icon, prefilled message per language. BottomBar: fixed mobile bar (hidden md+) with Call/WhatsApp/Book Now grid. Updated all 3 translation files with menuOpen/menuClose, ourServices, address, madeWith, bottomBar, whatsapp sections. Integrated all components into index page via named slots.
+- **Test results:** `npm run build` succeeds (4 pages, 1.58s). All 3 languages render with correct header nav items, footer columns, WhatsApp links with prefilled messages, and language switcher URLs. Verified: site-header ID, menu-overlay ID, menu-toggle button, WhatsApp URL with encoded prefill, Hindi/Gujarati translated strings all present in build output.
+- **Decisions:** Used named slots (header/footer) in BaseLayout for clean composition. Language switcher shows short labels (EN/हिं/ગુજ) not full names. WhatsApp button offset on mobile (mb-16) to avoid BottomBar overlap. Footer social links conditionally render based on siteConfig values (empty = hidden). Services dropdown deferred to later task — current nav uses flat link to /services.
+- **Gotchas:** Google Map embed placeholder and JustDial/Google Reviews badges deferred — footer has address text + contact links for now. Services dropdown (hover submenu) can be added in T10 when service pages exist. BottomBar has z-50 (above WhatsApp z-40) to ensure tap targets don't overlap. Mobile menu uses translate-x-full/translate-x-0 for smooth slide animation with body overflow lock.
 - **Status:** DONE

@@ -1,5 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/layout/SiteHeader.astro';
+import MenuOverlay from '../../components/layout/MenuOverlay.astro';
+import SiteFooter from '../../components/layout/SiteFooter.astro';
+import WhatsAppButton from '../../components/layout/WhatsAppButton.astro';
+import BottomBar from '../../components/layout/BottomBar.astro';
 import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
 import SectionHeading from '../../components/ui/SectionHeading.astro';
@@ -24,6 +29,9 @@ const t = getTranslations(currentLang);
 ---
 
 <BaseLayout lang={currentLang}>
+  <SiteHeader slot="header" lang={currentLang} />
+  <MenuOverlay slot="header" lang={currentLang} />
+
   <!-- Hero Section (dark) -->
   <section class="hero-dark min-h-screen flex items-center justify-center">
     <div class="text-center max-w-3xl mx-auto px-6 py-20">
@@ -84,4 +92,8 @@ const t = getTranslations(currentLang);
       </div>
     </div>
   </section>
+
+  <SiteFooter slot="footer" lang={currentLang} />
+  <WhatsAppButton slot="footer" lang={currentLang} />
+  <BottomBar slot="footer" lang={currentLang} />
 </BaseLayout>
