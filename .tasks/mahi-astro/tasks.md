@@ -369,18 +369,18 @@ After each task, update `progress.md` with:
 
 ---
 
-### - [ ] V2: Gate — Verify Design System & Navigation
+### - [x] V2: Gate — Verify Design System & Navigation
 
 **Type:** Verification | **Model:** claude-sonnet-4-6 | **Depends on:** T3
 
 **Checks:**
-- [ ] All 3 language routes render with correct translations
-- [ ] Navigation works on mobile and desktop
-- [ ] Language switching preserves current page path
-- [ ] WhatsApp button has correct deep link
-- [ ] Color system consistent across all components
-- [ ] Fonts load correctly for all 3 scripts
-- [ ] If issues found → create FX-2 + VFX-2 in Appendix
+- [x] All 3 language routes render with correct translations
+- [x] Navigation works on mobile and desktop
+- [x] Language switching preserves current page path
+- [x] WhatsApp button has correct deep link
+- [x] Color system consistent across all components
+- [x] Fonts load correctly for all 3 scripts
+- [x] No issues found — no FX-2/VFX-2 needed
 
 ---
 

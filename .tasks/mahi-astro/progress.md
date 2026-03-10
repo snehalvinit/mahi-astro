@@ -23,8 +23,8 @@
 
 ## Task Progress
 
-### Last Completed: T3 (Header, Footer, Navigation, Language Switcher) — 2026-03-09
-### Next Up: V2 (Verify Design System & Navigation) — depends on T3 (done)
+### Last Completed: V2 (Verify Design System & Navigation) — 2026-03-09
+### Next Up: T4 (Build Homepage) — depends on V2 (done), R3 (done)
 
 ---
 
@@ -96,4 +96,14 @@
 - **Test results:** `npm run build` succeeds (4 pages, 1.58s). All 3 languages render with correct header nav items, footer columns, WhatsApp links with prefilled messages, and language switcher URLs. Verified: site-header ID, menu-overlay ID, menu-toggle button, WhatsApp URL with encoded prefill, Hindi/Gujarati translated strings all present in build output.
 - **Decisions:** Used named slots (header/footer) in BaseLayout for clean composition. Language switcher shows short labels (EN/हिं/ગુજ) not full names. WhatsApp button offset on mobile (mb-16) to avoid BottomBar overlap. Footer social links conditionally render based on siteConfig values (empty = hidden). Services dropdown deferred to later task — current nav uses flat link to /services.
 - **Gotchas:** Google Map embed placeholder and JustDial/Google Reviews badges deferred — footer has address text + contact links for now. Services dropdown (hover submenu) can be added in T10 when service pages exist. BottomBar has z-50 (above WhatsApp z-40) to ensure tap targets don't overlap. Mobile menu uses translate-x-full/translate-x-0 for smooth slide animation with body overflow lock.
+- **Status:** DONE
+
+---
+
+### V2: Gate — Verify Design System & Navigation — 2026-03-09
+- **Files:** No files modified (verification only)
+- **What was done:** Ran all 6 verification checks against T2+T3 output. `npm run build` succeeds (4 pages, 1.62s). All 3 language routes (/en/, /hi/, /gu/) render with correct translations, proper `lang` attributes, and Devanagari/Gujarati scripts. Navigation includes 6-item desktop nav, mobile hamburger with slide-in overlay, and mobile bottom bar. Language switcher correctly swaps URL prefixes preserving page paths. WhatsApp deep links (wa.me/918154992727) present on all pages with per-language prefilled messages. Color system uses CSS custom properties consistently across all components (gold, saffron, purple, indigo, cream, maroon). Google Fonts loads all 4 font families; CSS switches body/heading fonts via `html[lang]` selectors.
+- **Test results:** All 6 checks PASS. No issues found.
+- **Decisions:** No FX/VFX tasks needed — design system and navigation are solid.
+- **Gotchas:** Content collection warnings for empty blog/services dirs are expected (populated in T10+). Footer service links are hardcoded English text — will be translated when service content collections exist. Build output: 194KB JS (React runtime).
 - **Status:** DONE
