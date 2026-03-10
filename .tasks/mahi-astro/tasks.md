@@ -1147,17 +1147,17 @@ After each task, update `progress.md` with:
 
 ---
 
-### - [ ] FX-3b: Fix Missing Self-Referencing Hreflang Tag
+### - [x] FX-3b: Fix Missing Self-Referencing Hreflang Tag
 **Type:** Fix | **Model:** claude-sonnet-4-6 | **Depends on:** V3
 **Error:** Every page is missing the self-referencing `hreflang` tag for its own language. E.g., `/en/about` has hreflang for hi, gu, x-default but NOT en. Google requires self-referencing hreflang.
 **Root Cause:** `src/utils/i18n.ts` `getAlternateLanguages()` filters out the current language: `supportedLanguages.filter((l) => l !== lang)`. The `BaseLayout.astro` hreflang loop only iterates over alternate languages, never including self.
 **Fix:**
 1. In `src/layouts/BaseLayout.astro`, add a self-referencing hreflang link before or after the alternates loop: `<link rel="alternate" hreflang={lang} href={canonicalUrl.href} />`
 **Validate:**
-- [ ] Each page has hreflang for all 3 languages + x-default (4 total)
-- [ ] Self-referencing hreflang matches canonical URL
-- [ ] No regressions — `npm run build` succeeds
-- [ ] Git commit: `fix(seo): FX-3b — add self-referencing hreflang tag`
+- [x] Each page has hreflang for all 3 languages + x-default (4 total)
+- [x] Self-referencing hreflang matches canonical URL
+- [x] No regressions — `npm run build` succeeds
+- [x] Git commit: `fix(seo): FX-3b — add self-referencing hreflang tag`
 
 ---
 

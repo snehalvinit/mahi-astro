@@ -31,6 +31,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     <title>{pageTitle}</title>
 
     <link rel="canonical" href={canonicalUrl.href} />
+    <link rel="alternate" hreflang={lang} href={canonicalUrl.href} />
     {alternateLanguages.map((altLang) => (
       <link
         rel="alternate"

@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: FX-3a (Fix broken footer service slugs) — 2026-03-09
-### Next Up: FX-3b (Fix missing self-referencing hreflang tag)
-### Latest Commit: fix(layout): FX-3a — correct footer service slugs
+### Last Completed: FX-3b (Fix missing self-referencing hreflang tag) — 2026-03-09
+### Next Up: FX-3c (Add skip-to-content accessibility link)
+### Latest Commit: fix(seo): FX-3b — add self-referencing hreflang tag
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -34,7 +34,7 @@
 | 2-Foundation | T1, V1 | DONE (2/2) |
 | 3-Design | T2, T3, V2 | DONE (3/3) |
 | 4-Pages | T4, T5, T6, T7, T8, T9, T9b, T9c, V3 | V3 BLOCKED (9/9 tasks run, 3 fixes needed) |
-| 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | FX-3a DONE (1/4) |
+| 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | FX-3a,3b DONE (2/4) |
 | 5-Content | T10–T14, V4 | NOT STARTED |
 | 6-SEO | T15–T17, V5 | NOT STARTED |
 | 7+ | T18–T37 | NOT STARTED |
@@ -230,4 +230,14 @@
 - **Test results:** `npm run build` succeeds (70 pages, 2.56s). Old broken slugs no longer appear in build output. Correct slugs confirmed in all 3 languages.
 - **Decisions:** Minimal 2-line fix as specified.
 - **Gotchas:** None. Straightforward slug correction.
+- **Status:** DONE
+
+---
+
+### FX-3b: Fix Missing Self-Referencing Hreflang Tag — 2026-03-09
+- **Files:** `src/layouts/BaseLayout.astro`
+- **What was done:** Added self-referencing hreflang `<link>` tag before the alternates loop in BaseLayout. Each page now has 4 hreflang tags: self (current lang), 2 alternates, and x-default.
+- **Test results:** `npm run build` succeeds (70 pages). Verified `/en/about` has `hreflang="en"` pointing to canonical URL. Verified `/hi/` has `hreflang="hi"` self-reference. All pages now have 4 hreflang tags.
+- **Decisions:** Minimal 1-line addition as specified. Self-referencing hreflang uses `canonicalUrl.href` to match the canonical link exactly.
+- **Gotchas:** FX-3c (skip-to-content) appears to already be present in BaseLayout (lines 56-58) — may have been added in a previous task but not tracked.
 - **Status:** DONE
