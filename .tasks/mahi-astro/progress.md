@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: FX-5b (Add JSON-LD to contact pages) — 2026-03-09
-### Next Up: VFX-5 (Verify FX-5a + FX-5b fixes)
-### Latest Commit: `fix(seo): FX-5b — add JSON-LD to contact pages`
+### Last Completed: VFX-5 (Verify FX-5a + FX-5b fixes) — PASSED — 2026-03-09
+### Next Up: T18 (Images & Media Optimization)
+### Latest Commit: `verify(seo): VFX-5 — all SEO fixes verified, V5 gate PASSED`
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -36,8 +36,8 @@
 | 4-Pages | T4, T5, T6, T7, T8, T9, T9b, T9c, V3 | V3 BLOCKED (9/9 tasks run, 3 fixes needed) |
 | 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | ALL DONE (4/4) |
 | 5-Content | T10–T14, V4 | ALL DONE (6/6) — V4 PASSED |
-| 6-SEO | T15–T17, V5 | T15-T17 DONE, V5 BLOCKED (2 fixes needed) |
-| 6-Fixes | FX-5a, FX-5b, VFX-5 | FX-5a, FX-5b DONE (2/3) |
+| 6-SEO | T15–T17, V5 | ALL DONE — V5 PASSED |
+| 6-Fixes | FX-5a, FX-5b, VFX-5 | ALL DONE (3/3) — VFX-5 PASSED |
 | 7+ | T18–T37 | NOT STARTED |
 
 ### Build Stats
@@ -730,3 +730,46 @@
 - Google Maps — city-level embed, needs exact address
 - Social media profile URLs — empty strings in siteConfig
 - Street address / pin code for local listings
+
+---
+
+### FX-5a: Fix Duplicate Brand Name in Blog Post Titles — 2026-03-09T21:07-07:00
+- **Files:** `src/pages/[lang]/blog/[slug].astro`
+- **What was done:** Removed redundant ` — ${t.hero.brandName}` append from blog post `<title>` tag. `post.seo.title` already included " | Believe Astrology" suffix, causing double branding on all 18 blog pages.
+- **Test results:** Build passes (82 pages, ~3s). All 18 blog titles verified — brand name appears exactly once.
+- **Decisions:** Used `post.seo.title` as-is; content collections own the full SEO title.
+- **Gotchas:** New blog posts must include brand suffix in `seo.title` field — template no longer appends it.
+- **Status:** DONE
+
+---
+
+### FX-5b: Add JSON-LD to Contact Pages — 2026-03-09T21:11-07:00
+- **Files:** `src/pages/[lang]/contact.astro`
+- **What was done:** Added BreadcrumbList + ContactPage JSON-LD structured data to all 3 contact pages. ContactPage schema includes embedded ProfessionalService and ContactPoint for local SEO.
+- **Test results:** Build passes (82 pages). All 3 contact pages have 2 JSON-LD blocks each (BreadcrumbList + ContactPage), valid JSON with correct @type values.
+- **Decisions:** Used ContactPage (not just BreadcrumbList) to maximize local SEO value. Embedded ProfessionalService and ContactPoint within ContactPage.mainEntity.
+- **Gotchas:** None. Both V5 issues (FX-5a + FX-5b) are now fixed. VFX-5 re-verification is next.
+- **Status:** DONE
+
+---
+
+### Handover Summary — 2026-03-10T04:11Z (Phase 6 SEO Fixes: FX-5a, FX-5b Done)
+
+**V5 SEO fixes complete. VFX-5 re-verification is the immediate next step, then Phase 7 (Images).**
+
+| Task | Commit | Key Change |
+|------|--------|------------|
+| FX-5a | `fa4ff43` | Removed duplicate brand name from 18 blog `<title>` tags |
+| FX-5b | `192916c` | Added BreadcrumbList + ContactPage JSON-LD to 3 contact pages |
+
+**Build:** 82 pages, ~3.11s, zero errors/warnings.
+
+**Immediate next steps (in order):**
+1. **VFX-5** — Re-verify FX-5a + FX-5b fixes (no blog title duplication, contact pages have JSON-LD)
+2. **T18** — Source and place hero images, service icons, decorative elements
+3. **T19** — Image optimization pipeline (Astro Picture component, AVIF/WebP)
+
+**Outstanding placeholders (unchanged):**
+- Formspree endpoints (contact + subscribe)
+- Analytics env vars (`PUBLIC_GA4_ID`, `PUBLIC_GTM_ID`, `PUBLIC_PLAUSIBLE_DOMAIN`)
+- Astrologer photo, OG images (1200×630), Google Reviews/JustDial URLs, exact address

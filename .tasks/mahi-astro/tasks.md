@@ -882,7 +882,7 @@ After each task, update `progress.md` with:
 
 ---
 
-### - [ ] V5: Gate — Verify SEO Implementation ⚠️ BLOCKED on FX-5a, FX-5b
+### - [x] V5: Gate — Verify SEO Implementation — PASSED
 
 **Type:** Verification | **Model:** claude-sonnet-4-6 | **Depends on:** T16, T17
 
@@ -1217,20 +1217,20 @@ After each task, update `progress.md` with:
 - [x] All 3 contact pages have at least 1 JSON-LD block (BreadcrumbList)
 - [x] JSON-LD is valid JSON with correct @type
 - [x] No regressions — `npm run build` succeeds
-- [ ] Git commit: `fix(seo): FX-5b — add JSON-LD to contact pages`
+- [x] Git commit: `fix(seo): FX-5b — add JSON-LD to contact pages`
 
 ---
 
-### - [ ] VFX-5: Verify FX-5a, FX-5b Fixes
+### - [x] VFX-5: Verify FX-5a, FX-5b Fixes — PASSED
 **Type:** Verification | **Model:** claude-sonnet-4-6 | **Depends on:** FX-5a, FX-5b
 **Checks:**
-- [ ] No blog post `<title>` contains duplicate brand name (check all 18)
-- [ ] All 3 contact pages have JSON-LD structured data
-- [ ] All JSON-LD blocks are valid JSON
-- [ ] Sitemap still has 79 URLs across all 3 languages
-- [ ] Hreflang tags still consistent
-- [ ] `npm run build` succeeds with no errors
-- [ ] No issues found → mark V5 as PASSED
+- [x] No blog post `<title>` contains duplicate brand name (check all 18) — all 18 titles clean
+- [x] All 3 contact pages have JSON-LD structured data — 2 blocks each (en, hi, gu)
+- [x] All JSON-LD blocks are valid JSON — 6/6 valid
+- [x] Sitemap still has 79 URLs across all 3 languages — confirmed 79
+- [x] Hreflang tags still consistent — all pages have en, hi, gu
+- [x] `npm run build` succeeds with no errors — 82 pages built in 5.28s
+- [x] No issues found → mark V5 as PASSED
 
 ---
 
