@@ -23,8 +23,8 @@
 
 ## Task Progress
 
-### Last Completed: T8 (Contact Page) — 2026-03-09
-### Next Up: T9 (Testimonials Page)
+### Last Completed: T9 (Testimonials Page) — 2026-03-09
+### Next Up: T9b (Events/Updates Page)
 
 ---
 
@@ -156,4 +156,14 @@
 - **Test results:** `npm run build` succeeds (58 pages, 2.17s). 3 new contact pages (/en/contact, /hi/contact, /gu/contact). All 3 languages render with correct translated content — verified Hindi (संपर्क करें), Gujarati (સંપર્ક કરો), English headings. WhatsApp deep links (wa.me/918154992727), click-to-call (tel:+91 8154992727), Google Maps embed, and Formspree form action all verified in build output.
 - **Decisions:** Used Formspree (placeholder endpoint) for serverless form handling — zero backend needed. Form submission via client-side JS with fetch API for async UX (no page reload). Used native HTML select for service dropdown instead of custom component — simpler, accessible. Contact cards are full anchor elements for better tap targets on mobile. Google Maps uses Ahmedabad city-level embed — exact office address can be updated when client provides it.
 - **Gotchas:** Formspree endpoint is a placeholder (`formspree.io/f/placeholder`) — must be replaced with real form ID when Formspree account is created. Google Maps embed shows Ahmedabad city overview — needs exact address coordinates when available. Form submit button text restore after submission relies on data attributes set in script. Office hours are placeholder values — client should confirm actual hours.
+- **Status:** DONE
+
+---
+
+### T9: Build Testimonials Page — 2026-03-09
+- **Files:** `src/pages/[lang]/testimonials.astro`, `src/data/testimonials.json`, `src/content/i18n/{en,hi,gu}.json`
+- **What was done:** Created full testimonials page with 6 sections: hero banner with breadcrumbs, featured reviews (4 highlighted in 2-column grid with large quote marks), all reviews grid (10 testimonials in responsive 1/2/3-column grid using Card component), video testimonials placeholder (3 dashed video slots), Google Reviews / JustDial badge area (2-card grid with star ratings and CTA buttons), "Share Your Experience" CTA, and consultation booking CTA. Created `src/data/testimonials.json` with 10 placeholder testimonials including per-language text (en/hi/gu), service mapping, location, and featured flag. Added `testimonialsPage` translation section to all 3 i18n files with 19 keys each. Each testimonial card shows avatar initials, star ratings, review text, location, and service used with emoji icon.
+- **Test results:** `npm run build` succeeds (61 pages, 2.16s). 3 new testimonials pages (/en/testimonials, /hi/testimonials, /gu/testimonials). All 3 languages verified with correct translated headings and review text.
+- **Decisions:** Used separate `src/data/testimonials.json` with inline multilingual text (textHi, textGu) rather than i18n file arrays — cleaner data management for 10 reviews with per-language text. Featured reviews (4) shown in larger 2-col cards, all 10 in standard 3-col grid. Video testimonials are placeholder containers (dashed borders + play icon) — ready for real video embeds. Google/JustDial badge links are placeholder `#` — update with real business profile URLs.
+- **Gotchas:** Google Reviews and JustDial badge links are placeholders (`href="#"`) — must be updated with real profile URLs when available. Video testimonials section shows "coming soon" placeholders. Testimonial data is in `src/data/` (static JSON) rather than content collections — no Zod validation. The homepage TestimonialsSection.astro still uses the i18n reviews array (6 reviews) independently from the new testimonials.json (10 reviews).
 - **Status:** DONE

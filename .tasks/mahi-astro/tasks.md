@@ -552,11 +552,11 @@ After each task, update `progress.md` with:
 - [x] WhatsApp link opens correctly with prefilled text
 - [x] Phone click-to-call works on mobile
 - [x] Map renders correctly
-- [ ] Git commit: `feat(pages): T8 — contact page with form and WhatsApp`
+- [x] Git commit: `feat(pages): T8 — contact page with form and WhatsApp`
 
 ---
 
-### - [ ] T9: Build Testimonials Page
+### - [x] T9: Build Testimonials Page
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** V2
 
@@ -572,10 +572,10 @@ After each task, update `progress.md` with:
 3. All text translated in i18n files
 
 **Validate:**
-- [ ] Testimonials render in all 3 languages
-- [ ] Cards display correctly with ratings
-- [ ] Responsive grid layout
-- [ ] Git commit: `feat(pages): T9 — testimonials page`
+- [x] Testimonials render in all 3 languages
+- [x] Cards display correctly with ratings
+- [x] Responsive grid layout
+- [x] Git commit: `feat(pages): T9 — testimonials page`
 
 ---
 

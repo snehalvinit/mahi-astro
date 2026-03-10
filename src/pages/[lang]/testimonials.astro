@@ -1,0 +1,290 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/layout/SiteHeader.astro';
+import MenuOverlay from '../../components/layout/MenuOverlay.astro';
+import SiteFooter from '../../components/layout/SiteFooter.astro';
+import WhatsAppButton from '../../components/layout/WhatsAppButton.astro';
+import BottomBar from '../../components/layout/BottomBar.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import Card from '../../components/ui/Card.astro';
+import Button from '../../components/ui/Button.astro';
+import { supportedLanguages, isValidLanguage, getTranslations } from '../../utils/i18n';
+import type { SupportedLanguage } from '../../utils/i18n';
+import { siteConfig } from '../../data/site-config';
+import testimonials from '../../data/testimonials.json';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params;
+if (!isValidLanguage(lang as string)) {
+  return Astro.redirect('/en/testimonials');
+}
+
+const currentLang = lang as SupportedLanguage;
+const t = getTranslations(currentLang);
+const tp = t.testimonialsPage;
+const whatsappUrl = `${siteConfig.contact.whatsapp}?text=${encodeURIComponent(t.whatsapp.prefill)}`;
+
+const serviceIcons: Record<string, string> = {
+  kundli: '&#x1F52E;',
+  horoscope: '&#x2B50;',
+  lifeGuidance: '&#x1F3AF;',
+  vastu: '&#x1F3E0;',
+  gemstone: '&#x1F48E;',
+  karma: '&#x2638;',
+  panchaTatva: '&#x1F30D;',
+  chakra: '&#x1F549;',
+  pooja: '&#x1F56F;',
+  yagna: '&#x1F525;',
+  mrityunjay: '&#x1F64F;',
+  mantra: '&#x1F3B6;',
+};
+
+const serviceNames: Record<string, string> = {
+  kundli: t.services.kundli.name,
+  horoscope: t.services.horoscope.name,
+  lifeGuidance: t.services.lifeGuidance.name,
+  vastu: t.services.vastu.name,
+  gemstone: t.services.gemstone.name,
+  karma: t.services.karma.name,
+  panchaTatva: t.services.panchaTatva.name,
+  chakra: t.services.chakra.name,
+  pooja: t.services.pooja.name,
+  yagna: t.services.yagna.name,
+  mrityunjay: t.services.mrityunjay.name,
+  mantra: t.services.mantra.name,
+};
+
+function getText(item: any): string {
+  if (currentLang === 'hi' && item.textHi) return item.textHi;
+  if (currentLang === 'gu' && item.textGu) return item.textGu;
+  return item.text;
+}
+
+const featured = testimonials.filter((t: any) => t.featured);
+const allReviews = testimonials;
+---
+
+<BaseLayout lang={currentLang} title={`${tp.title} | ${t.meta.title}`} description={tp.subtitle}>
+  <SiteHeader slot="header" lang={currentLang} />
+  <MenuOverlay slot="header" lang={currentLang} />
+
+  <main id="main-content">
+    <!-- Hero Banner -->
+    <section class="hero-dark py-16 md:py-24">
+      <div class="container-wide text-center">
+        <nav class="mb-6 text-sm text-cream/60" aria-label="Breadcrumb">
+          <a href={`/${currentLang}/`} class="hover:text-gold transition-colors">{t.header.home}</a>
+          <span class="mx-2">/</span>
+          <span class="text-gold">{tp.title}</span>
+        </nav>
+        <h1 class="font-heading text-4xl md:text-5xl font-bold text-gold mb-4">
+          {tp.title}
+        </h1>
+        <p class="text-lg text-cream/80 max-w-2xl mx-auto">
+          {tp.heroTagline}
+        </p>
+      </div>
+    </section>
+
+    <!-- Featured Reviews -->
+    <section class="py-[--spacing-section-sm] md:py-[--spacing-section]" aria-labelledby="featured-heading">
+      <div class="container-wide">
+        <SectionHeading title={tp.featuredTitle} subtitle={tp.subtitle} align="center" />
+
+        <div class="grid md:grid-cols-2 gap-8">
+          {featured.map((review: any) => (
+            <div class="bg-white rounded-[var(--radius-card)] p-8 shadow-[var(--shadow-card)] border-l-4 border-l-gold relative">
+              <!-- Quote icon -->
+              <div class="absolute top-4 right-6 text-gold/15 text-6xl font-serif leading-none" aria-hidden="true">"</div>
+
+              <div class="flex items-center gap-4 mb-5">
+                <div class="w-14 h-14 rounded-full bg-gold/15 flex items-center justify-center text-gold font-bold text-xl">
+                  {review.name.charAt(0)}
+                </div>
+                <div>
+                  <p class="font-semibold text-indigo text-lg">{review.name}</p>
+                  <p class="text-sm text-purple/60">{review.location}</p>
+                </div>
+              </div>
+
+              <!-- Star rating -->
+              <div class="flex gap-0.5 mb-4" aria-label={`${review.rating} out of 5 stars`}>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg
+                    class={`w-5 h-5 ${i < review.rating ? 'text-saffron' : 'text-gray-300'}`}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    aria-hidden="true"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+
+              <p class="text-indigo/80 leading-relaxed italic text-lg mb-4">
+                "{getText(review)}"
+              </p>
+
+              <div class="flex items-center gap-2 text-sm text-purple/60">
+                <span set:html={serviceIcons[review.service] || '&#x2728;'} />
+                <span>{tp.serviceUsed} {serviceNames[review.service] || review.service}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- All Reviews Grid -->
+    <section class="bg-cream-dark/30 py-[--spacing-section-sm] md:py-[--spacing-section]" aria-labelledby="all-reviews-heading">
+      <div class="container-wide">
+        <SectionHeading title={tp.allReviewsTitle} align="center" />
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {allReviews.map((review: any) => (
+            <Card variant="testimonial">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-full bg-gold/15 flex items-center justify-center text-gold font-bold text-lg">
+                  {review.name.charAt(0)}
+                </div>
+                <div>
+                  <p class="font-semibold text-indigo">{review.name}</p>
+                  <p class="text-xs text-purple/60">{review.location}</p>
+                </div>
+              </div>
+
+              <div class="flex gap-0.5 mb-3" aria-label={`${review.rating} out of 5 stars`}>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg
+                    class={`w-4 h-4 ${i < review.rating ? 'text-saffron' : 'text-gray-300'}`}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    aria-hidden="true"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+
+              <p class="text-sm text-indigo/80 leading-relaxed italic mb-3">
+                "{getText(review)}"
+              </p>
+
+              <div class="flex items-center gap-2 text-xs text-purple/50">
+                <span set:html={serviceIcons[review.service] || '&#x2728;'} />
+                <span>{serviceNames[review.service] || review.service}</span>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Testimonials Placeholder -->
+    <section class="py-[--spacing-section-sm] md:py-[--spacing-section]" aria-labelledby="video-heading">
+      <div class="container-wide">
+        <SectionHeading title={tp.videoTitle} subtitle={tp.videoSubtitle} align="center" />
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[1, 2, 3].map(() => (
+            <div class="aspect-video bg-indigo/5 rounded-[var(--radius-card)] border-2 border-dashed border-indigo/15 flex flex-col items-center justify-center text-indigo/30">
+              <svg class="w-12 h-12 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <p class="text-sm">{tp.videoPlaceholder}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Google Reviews / JustDial Badge Area -->
+    <section class="bg-cream-dark/30 py-[--spacing-section-sm] md:py-[--spacing-section]" aria-labelledby="reviews-heading">
+      <div class="container-wide">
+        <SectionHeading title={tp.reviewsTitle} subtitle={tp.reviewsSubtitle} align="center" />
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <!-- Google Reviews Badge -->
+          <div class="bg-white rounded-[var(--radius-card)] p-8 shadow-[var(--shadow-card)] text-center">
+            <div class="w-16 h-16 mx-auto mb-4 bg-indigo/5 rounded-full flex items-center justify-center">
+              <svg class="w-8 h-8 text-indigo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+              </svg>
+            </div>
+            <div class="flex justify-center gap-0.5 mb-2" aria-label="5 out of 5 stars">
+              {Array.from({ length: 5 }).map(() => (
+                <svg class="w-5 h-5 text-saffron" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <p class="text-sm text-purple/60 mb-4">{tp.reviewsBadgeText}</p>
+            <Button variant="outline" size="sm" href="#">{tp.googleReviewsCta}</Button>
+          </div>
+
+          <!-- JustDial Badge -->
+          <div class="bg-white rounded-[var(--radius-card)] p-8 shadow-[var(--shadow-card)] text-center">
+            <div class="w-16 h-16 mx-auto mb-4 bg-indigo/5 rounded-full flex items-center justify-center">
+              <span class="text-2xl font-bold text-indigo">JD</span>
+            </div>
+            <div class="flex justify-center gap-0.5 mb-2" aria-label="5 out of 5 stars">
+              {Array.from({ length: 5 }).map(() => (
+                <svg class="w-5 h-5 text-saffron" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <p class="text-sm text-purple/60 mb-4">{tp.reviewsBadgeText}</p>
+            <Button variant="outline" size="sm" href="#">{tp.justDialCta}</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Share Your Experience -->
+    <section class="py-[--spacing-section-sm] md:py-[--spacing-section]" aria-labelledby="share-heading">
+      <div class="container-wide text-center max-w-2xl mx-auto">
+        <SectionHeading title={tp.shareTitle} subtitle={tp.shareSubtitle} align="center" />
+        <Button variant="secondary" size="lg" href="#">
+          {tp.shareCta}
+        </Button>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="hero-dark py-16 md:py-24">
+      <div class="container-wide text-center">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-gold mb-4">
+          {tp.ctaTitle}
+        </h2>
+        <p class="text-lg text-cream/80 max-w-2xl mx-auto mb-8">
+          {tp.ctaSubtitle}
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Button variant="primary" size="lg" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            {t.cta.button}
+          </Button>
+          <Button variant="outline" size="lg" href={`tel:${siteConfig.contact.phone}`} class="border-cream text-cream hover:bg-cream/10">
+            {t.cta.phone}
+          </Button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter slot="footer" lang={currentLang} />
+  <WhatsAppButton lang={currentLang} />
+  <BottomBar lang={currentLang} />
+</BaseLayout>

@@ -1,0 +1,112 @@
+[
+  {
+    "id": "rajesh-p",
+    "name": "Rajesh P.",
+    "location": "Ahmedabad",
+    "rating": 5,
+    "service": "kundli",
+    "text": "Pandit ji's Kundli reading was incredibly accurate. His guidance on my career transition was spot on. Within 3 months, I found the perfect opportunity.",
+    "textHi": "पंडित जी की कुंडली पठन अविश्वसनीय रूप से सटीक थी। मेरे करियर परिवर्तन पर उनका मार्गदर्शन बिल्कुल सही था। 3 महीने के भीतर, मुझे सही अवसर मिल गया।",
+    "textGu": "પંડિત જીનું કુંડળી વાંચન અવિશ્વસનીય રીતે સચોટ હતું. મારા કારકિર્દી પરિવર્તન પર તેમનું માર્ગદર્શન બિલકુલ સાચું હતું. 3 મહિનામાં, મને યોગ્ય તક મળી.",
+    "featured": true
+  },
+  {
+    "id": "priya-m",
+    "name": "Priya M.",
+    "location": "Mumbai",
+    "rating": 5,
+    "service": "gemstone",
+    "text": "After years of health issues, Pandit ji recommended specific gemstones and mantras. The change in my energy and well-being has been remarkable.",
+    "textHi": "वर्षों की स्वास्थ्य समस्याओं के बाद, पंडित जी ने विशेष रत्न और मंत्र सुझाए। मेरी ऊर्जा और स्वास्थ्य में बदलाव उल्लेखनीय रहा है।",
+    "textGu": "વર્ષોની આરોગ્ય સમસ્યાઓ પછી, પંડિત જીએ ચોક્કસ રત્નો અને મંત્રો સૂચવ્યા. મારી ઊર્જા અને સ્વાસ્થ્યમાં ફેરફાર નોંધપાત્ર રહ્યો છે.",
+    "featured": true
+  },
+  {
+    "id": "amit-s",
+    "name": "Amit S.",
+    "location": "USA",
+    "rating": 5,
+    "service": "vastu",
+    "text": "Even from overseas, the consultation via Zoom was thorough and personal. His Vastu advice for our new home made a real difference.",
+    "textHi": "विदेश से भी, Zoom के माध्यम से परामर्श गहन और व्यक्तिगत था। हमारे नए घर के लिए उनकी वास्तु सलाह ने वास्तव में फ़र्क किया।",
+    "textGu": "વિદેશથી પણ, Zoom દ્વારા પરામર્શ ઊંડું અને વ્યક્તિગત હતું. અમારા નવા ઘર માટે તેમની વાસ્તુ સલાહે ખરેખર ફરક પાડ્યો.",
+    "featured": true
+  },
+  {
+    "id": "meena-d",
+    "name": "Meena D.",
+    "location": "Gujarat",
+    "rating": 5,
+    "service": "lifeGuidance",
+    "text": "Pandit ji guided us through our daughter's marriage compatibility analysis. His insights were deep, respectful, and extremely helpful.",
+    "textHi": "पंडित जी ने हमारी बेटी के विवाह संगतता विश्लेषण में मार्गदर्शन किया। उनकी अंतर्दृष्टि गहरी, सम्मानजनक और अत्यंत सहायक थी।",
+    "textGu": "પંડિત જીએ અમારી દીકરીના લગ્ન સુસંગતતા વિશ્લેષણમાં માર્ગદર્શન આપ્યું. તેમની આંતરદૃષ્ટિ ઊંડી, આદરપૂર્ણ અને અત્યંત મદદરૂપ હતી.",
+    "featured": false
+  },
+  {
+    "id": "vikram-t",
+    "name": "Vikram T.",
+    "location": "Ahmedabad",
+    "rating": 5,
+    "service": "mrityunjay",
+    "text": "The Maha-Mrutunjay Mantra Anushthan organized by Pandit ji was a deeply spiritual experience. My family felt blessed and protected.",
+    "textHi": "पंडित जी द्वारा आयोजित महा मृत्युंजय मंत्र अनुष्ठान एक गहरा आध्यात्मिक अनुभव था। मेरे परिवार ने आशीर्वाद और सुरक्षा महसूस की।",
+    "textGu": "પંડિત જી દ્વારા આયોજિત મહા મૃત્યુંજય મંત્ર અનુષ્ઠાન એક ઊંડો આધ્યાત્મિક અનુભવ હતો. મારા પરિવારે આશીર્વાદ અને સુરક્ષા અનુભવી.",
+    "featured": false
+  },
+  {
+    "id": "sunita-k",
+    "name": "Sunita K.",
+    "location": "Surat",
+    "rating": 5,
+    "service": "horoscope",
+    "text": "I was skeptical at first, but the accuracy of the horoscope analysis won me over. Pandit ji explains everything with patience and clarity.",
+    "textHi": "मैं पहले संशय में थी, लेकिन राशिफल विश्लेषण की सटीकता ने मुझे प्रभावित किया। पंडित जी धैर्य और स्पष्टता से सब कुछ समझाते हैं।",
+    "textGu": "હું પહેલાં શંકાશીલ હતી, પરંતુ રાશિફળ વિશ્લેષણની ચોકસાઈએ મને પ્રભાવિત કરી. પંડિત જી ધીરજ અને સ્પષ્ટતાથી બધું સમજાવે છે.",
+    "featured": false
+  },
+  {
+    "id": "deepak-r",
+    "name": "Deepak R.",
+    "location": "Rajkot",
+    "rating": 5,
+    "service": "karma",
+    "text": "Pandit ji's karma counselling session opened my eyes to patterns I had been repeating for years. His guidance helped me break free and find my true purpose.",
+    "textHi": "पंडित जी के कर्म परामर्श सत्र ने मेरी आंखें खोल दीं उन पैटर्न के प्रति जो मैं वर्षों से दोहरा रहा था। उनके मार्गदर्शन ने मुझे मुक्त होकर अपना सच्चा उद्देश्य खोजने में मदद की।",
+    "textGu": "પંડિત જીના કર્મ પરામર્શ સત્રે મારી આંખો ખોલી દીધી એ પેટર્ન પ્રત્યે જે હું વર્ષોથી દોહરાવતો હતો. તેમના માર્ગદર્શને મને મુક્ત થઈને મારો સાચો હેતુ શોધવામાં મદદ કરી.",
+    "featured": true
+  },
+  {
+    "id": "anita-b",
+    "name": "Anita B.",
+    "location": "Vadodara",
+    "rating": 5,
+    "service": "chakra",
+    "text": "The Seven Chakras Balancing session was transformative. I felt lighter, more centred, and at peace after just one session with Pandit ji.",
+    "textHi": "सात चक्र संतुलन सत्र परिवर्तनकारी था। पंडित जी के साथ सिर्फ एक सत्र के बाद मैंने खुद को हल्का, अधिक केंद्रित और शांत महसूस किया।",
+    "textGu": "સાત ચક્ર સંતુલન સત્ર પરિવર્તનકારી હતું. પંડિત જી સાથે માત્ર એક સત્ર પછી મેં હળવાશ, વધુ કેન્દ્રિત અને શાંતિ અનુભવી.",
+    "featured": false
+  },
+  {
+    "id": "harsh-j",
+    "name": "Harsh J.",
+    "location": "Mumbai",
+    "rating": 5,
+    "service": "pooja",
+    "text": "We had Pandit ji perform Griha Pravesh Pooja for our new apartment. The entire ceremony was conducted with devotion and proper Vedic rituals. Truly blessed.",
+    "textHi": "हमने पंडित जी से अपने नए अपार्टमेंट के लिए गृह प्रवेश पूजा करवाई। पूरा समारोह भक्ति और उचित वैदिक रीति-रिवाजों से संपन्न हुआ। सच में धन्य हैं।",
+    "textGu": "અમે પંડિત જી પાસે અમારા નવા એપાર્ટમેન્ટ માટે ગૃહ પ્રવેશ પૂજા કરાવી. સમગ્ર સમારોહ ભક્તિ અને યોગ્ય વૈદિક વિધિઓ સાથે સંપન્ન થયો. ખરેખર ધન્ય છીએ.",
+    "featured": false
+  },
+  {
+    "id": "kavita-p",
+    "name": "Kavita P.",
+    "location": "Ahmedabad",
+    "rating": 5,
+    "service": "panchaTatva",
+    "text": "Pancha Tatva Balancing was a concept I had never heard of before. Pandit ji explained the five elements beautifully and the remedies brought harmony to my daily life.",
+    "textHi": "पंचतत्व संतुलन एक ऐसी अवधारणा थी जिसके बारे में मैंने पहले कभी नहीं सुना था। पंडित जी ने पांच तत्वों को खूबसूरती से समझाया और उपायों ने मेरे दैनिक जीवन में सामंजस्य लाया।",
+    "textGu": "પંચતત્વ સંતુલન એક એવી અવધારણા હતી જેના વિશે મેં પહેલાં ક્યારેય સાંભળ્યું નહોતું. પંડિત જીએ પાંચ તત્વોને સુંદર રીતે સમજાવ્યા અને ઉપાયોએ મારા દૈનિક જીવનમાં સુમેળ લાવ્યો.",
+    "featured": false
+  }
+]

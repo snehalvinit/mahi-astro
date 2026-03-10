@@ -299,6 +299,27 @@
     "locationNote": "In-person consultations available by appointment. Online consultations available worldwide via Zoom and WhatsApp.",
     "mapTitle": "Find Us on the Map"
   },
+  "testimonialsPage": {
+    "title": "Client Testimonials",
+    "subtitle": "Real stories from real people — hear what our clients have to say about their experience",
+    "heroTagline": "Trusted by thousands of families across India and worldwide",
+    "featuredTitle": "Featured Reviews",
+    "allReviewsTitle": "All Client Reviews",
+    "serviceUsed": "Service:",
+    "videoTitle": "Video Testimonials",
+    "videoSubtitle": "Watch our clients share their experiences in their own words",
+    "videoPlaceholder": "Video testimonials coming soon — stay tuned!",
+    "reviewsTitle": "Reviews on Google & JustDial",
+    "reviewsSubtitle": "See what clients are saying on popular review platforms",
+    "googleReviewsCta": "Read Google Reviews",
+    "justDialCta": "Read JustDial Reviews",
+    "reviewsBadgeText": "Rated 5 stars by hundreds of satisfied clients",
+    "shareTitle": "Share Your Experience",
+    "shareSubtitle": "Had a positive consultation? We would love to hear from you!",
+    "shareCta": "Write a Review on Google",
+    "ctaTitle": "Ready to Experience It Yourself?",
+    "ctaSubtitle": "Book a personalized consultation with Pandit Shree Mahadev Joshi"
+  },
   "notFound": {
     "title": "Page Not Found",
     "message": "The page you are looking for does not exist.",
