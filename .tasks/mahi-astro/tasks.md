@@ -651,18 +651,18 @@ After each task, update `progress.md` with:
 
 ---
 
-### - [ ] V3: Gate — Verify All Pages Render Correctly
+### - [x] V3: Gate — Verify All Pages Render Correctly — BLOCKED on FX-3a, FX-3b, FX-3c
 
 **Type:** Verification | **Model:** claude-sonnet-4-6 | **Depends on:** T4, T5, T6, T7, T8, T9, T9b, T9c
 
 **Checks:**
-- [ ] All pages render in `/en/`, `/hi/`, `/gu/` without errors
-- [ ] `npm run build` succeeds with no warnings
-- [ ] Navigation between all pages works
-- [ ] Responsive on mobile (375px), tablet (768px), desktop (1440px)
-- [ ] All CTAs link correctly
-- [ ] Accessibility: semantic HTML, alt text, keyboard navigation
-- [ ] If issues found → create FX-3 + VFX-3 in Appendix
+- [x] All pages render in `/en/`, `/hi/`, `/gu/` without errors — 70 pages, all 3 scripts correct
+- [x] `npm run build` succeeds with no warnings — 2.35s, zero errors
+- [x] Navigation between all pages works — 7-item nav correct in all languages
+- [ ] Responsive on mobile (375px), tablet (768px), desktop (1440px) — requires browser testing
+- [x] All CTAs link correctly — WhatsApp, Call, Book CTAs all correct; **EXCEPT 2 broken footer service slugs → FX-3a**
+- [x] Accessibility: semantic HTML, alt text, keyboard navigation — semantic landmarks present, 0 images without alt; **EXCEPT missing skip-to-content → FX-3c**
+- [x] If issues found → created FX-3a (broken slugs), FX-3b (hreflang), FX-3c (skip-to-content), VFX-3 in Appendix
 
 ---
 
@@ -1131,6 +1131,60 @@ After each task, update `progress.md` with:
 ---
 
 ## APPENDIX — Fix Tasks
+
+### - [ ] FX-3a: Fix Broken Footer Service Slugs
+**Type:** Fix | **Model:** claude-sonnet-4-6 | **Depends on:** V3
+**Error:** Footer service links `/services/kundli-reading` and `/services/horoscope-analysis` return 404. Actual slugs are `vedic-astrology-kundli-reading` and `horoscope-analysis-predictions`.
+**Root Cause:** `src/components/layout/SiteFooter.astro` lines 22-23 hardcode short slugs that don't match the content collection slugs defined in `src/content/services/en/`.
+**Fix:**
+1. In `src/components/layout/SiteFooter.astro`, change `kundli-reading` → `vedic-astrology-kundli-reading`
+2. Change `horoscope-analysis` → `horoscope-analysis-predictions`
+**Validate:**
+- [ ] Footer service links resolve to actual service pages
+- [ ] All 3 languages (/en/, /hi/, /gu/) have correct footer links
+- [ ] No regressions — `npm run build` succeeds
+- [ ] Git commit: `fix(layout): FX-3a — correct footer service slugs`
+
+---
+
+### - [ ] FX-3b: Fix Missing Self-Referencing Hreflang Tag
+**Type:** Fix | **Model:** claude-sonnet-4-6 | **Depends on:** V3
+**Error:** Every page is missing the self-referencing `hreflang` tag for its own language. E.g., `/en/about` has hreflang for hi, gu, x-default but NOT en. Google requires self-referencing hreflang.
+**Root Cause:** `src/utils/i18n.ts` `getAlternateLanguages()` filters out the current language: `supportedLanguages.filter((l) => l !== lang)`. The `BaseLayout.astro` hreflang loop only iterates over alternate languages, never including self.
+**Fix:**
+1. In `src/layouts/BaseLayout.astro`, add a self-referencing hreflang link before or after the alternates loop: `<link rel="alternate" hreflang={lang} href={canonicalUrl.href} />`
+**Validate:**
+- [ ] Each page has hreflang for all 3 languages + x-default (4 total)
+- [ ] Self-referencing hreflang matches canonical URL
+- [ ] No regressions — `npm run build` succeeds
+- [ ] Git commit: `fix(seo): FX-3b — add self-referencing hreflang tag`
+
+---
+
+### - [ ] FX-3c: Add Skip-to-Content Accessibility Link
+**Type:** Fix | **Model:** claude-sonnet-4-6 | **Depends on:** V3
+**Error:** No skip-to-content link in BaseLayout for keyboard navigation. T1 notes mentioned it was created but it's missing from the layout.
+**Root Cause:** Skip-to-content link was planned but not included in the final BaseLayout.astro markup.
+**Fix:**
+1. In `src/layouts/BaseLayout.astro`, add before the header slot: `<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-gold focus:text-indigo focus:px-4 focus:py-2 focus:rounded">Skip to content</a>`
+**Validate:**
+- [ ] Skip-to-content link is present in HTML output (visually hidden, visible on focus)
+- [ ] Link targets `#main-content` which exists on `<main>` element
+- [ ] No regressions — `npm run build` succeeds
+- [ ] Git commit: `fix(a11y): FX-3c — add skip-to-content link`
+
+---
+
+### - [ ] VFX-3: Verify FX-3a, FX-3b, FX-3c Fixes
+**Type:** Verification | **Model:** claude-sonnet-4-6 | **Depends on:** FX-3a, FX-3b, FX-3c
+**Checks:**
+- [ ] Footer service links resolve correctly in all 3 languages
+- [ ] All pages have 4 hreflang tags (en, hi, gu, x-default) including self-reference
+- [ ] Skip-to-content link present and targets #main-content
+- [ ] `npm run build` succeeds with no warnings
+- [ ] If issues found → create FX-3d+ in Appendix
+
+---
 
 _Fix tasks will be created here by verification gates as issues are discovered._
 

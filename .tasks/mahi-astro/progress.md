@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: T9c (404 Page, Privacy Policy, Cookie Consent) — 2026-03-09
-### Next Up: V3 (Verify All Pages)
-### Latest Commit: feat(pages): T9c — 404 page, privacy policy, cookie consent
+### Last Completed: V3 (Verify All Pages) — 2026-03-09 — BLOCKED on FX-3a/b/c
+### Next Up: FX-3a (Fix broken footer service slugs)
+### Latest Commit: verify(pages): V3 — verify all pages, found 3 issues
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -33,7 +33,8 @@
 | 1-Research | R1, R2, R3 | DONE (3/3) |
 | 2-Foundation | T1, V1 | DONE (2/2) |
 | 3-Design | T2, T3, V2 | DONE (3/3) |
-| 4-Pages | T4, T5, T6, T7, T8, T9, T9b, T9c | DONE (8/8) |
+| 4-Pages | T4, T5, T6, T7, T8, T9, T9b, T9c, V3 | V3 BLOCKED (9/9 tasks run, 3 fixes needed) |
+| 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | NOT STARTED |
 | 5-Content | T10–T14, V4 | NOT STARTED |
 | 6-SEO | T15–T17, V5 | NOT STARTED |
 | 7+ | T18–T37 | NOT STARTED |
@@ -207,3 +208,16 @@
 - **Decisions:** Opt-in cookie model (DPDP compliant) — no analytics loaded until user explicitly accepts. Cookie consent uses localStorage key `ba-cookie-consent` with `accepted`/`declined` values. Banner slides up from bottom after 1s delay for smoother UX. Google Analytics uses placeholder `GA_MEASUREMENT_ID` — skips loading if placeholder present. Privacy policy DPDP rights section uses highlighted card (cream background with gold border) for emphasis. 404 page uses same celestial star pattern as homepage hero for visual consistency.
 - **Gotchas:** Google Analytics ID is a placeholder (`GA_MEASUREMENT_ID`) — must be replaced with real ID in T16 (SEO task). Cookie consent banner has z-index 60 (above WhatsApp z-40 and BottomBar z-50). 404 page is statically generated at `/{lang}/404/` — Astro/hosting needs config for actual 404 routing. Privacy policy references Formspree as third-party service — endpoint is still placeholder. V3 verification gate can now proceed with all Phase 4 pages complete.
 - **Status:** DONE
+
+---
+
+### V3: Gate — Verify All Pages Render Correctly — 2026-03-09
+- **Files:** `.tasks/mahi-astro/tasks.md` (updated V3 checklist, added FX-3a/b/c + VFX-3 in Appendix)
+- **What was done:** Ran full verification of all 70 pages across 3 languages. Build succeeds (2.35s, zero errors/warnings). All pages render with correct `lang` attributes and translated content (Devanagari for Hindi, Gujarati script for Gujarati). Navigation links use correct language prefixes. Language switcher preserves page paths. WhatsApp CTAs correct on all pages. Semantic HTML landmarks present (`<header>`, `<main>`, `<nav>`, `<footer>`). Zero images without alt text. Found 3 issues requiring fixes.
+- **Issues Found:**
+  1. **FX-3a (HIGH):** Footer hardcodes wrong service slugs — `kundli-reading` (should be `vedic-astrology-kundli-reading`) and `horoscope-analysis` (should be `horoscope-analysis-predictions`) in `SiteFooter.astro` lines 22-23.
+  2. **FX-3b (MEDIUM):** Missing self-referencing hreflang tag — `getAlternateLanguages()` in `i18n.ts` filters out current lang, so EN pages lack `hreflang="en"` self-reference.
+  3. **FX-3c (LOW):** Skip-to-content accessibility link missing from `BaseLayout.astro`.
+- **Decisions:** Created 3 targeted fix tasks (FX-3a/b/c) + 1 re-verification task (VFX-3) in tasks.md Appendix. Responsive testing (375px/768px/1440px) deferred as it requires browser — noted in checklist.
+- **Gotchas:** FX-3a is a quick 2-line fix. FX-3b is a 1-line addition to BaseLayout. FX-3c is a 1-line addition. All fixes are minimal and low-risk. VFX-3 should re-run the V3 checks that were affected.
+- **Status:** BLOCKED on FX-3a, FX-3b, FX-3c
