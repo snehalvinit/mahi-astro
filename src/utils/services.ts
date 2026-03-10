@@ -2,26 +2,28 @@ import { getCollection } from 'astro:content';
 import type { SupportedLanguage } from './i18n';
 import type { ServiceContent } from '../schemas/service-content.schema';
 
-/**
- * Get all services for a given language.
- * Currently only English content exists — other languages fall back to English.
- * When translated content is added (T11/T12), the glob loader will include
- * files from hi/ and gu/ directories with IDs like "hi/slug" or "gu/slug".
- * At that point, update this function to filter by lang prefix.
- */
+const collectionMap = {
+  en: 'servicesEn',
+  hi: 'servicesHi',
+  gu: 'servicesGu',
+} as const;
+
 export async function getServicesForLanguage(
   lang: SupportedLanguage
 ): Promise<ServiceContent[]> {
-  const allServices = await getCollection('services');
-
-  // Try language-specific entries first (e.g., "hi/vedic-astrology-kundli-reading")
-  const langServices = allServices.filter((s) => s.id.startsWith(`${lang}/`));
-  if (langServices.length > 0) {
-    return langServices.map((s) => s.data as ServiceContent);
+  const collectionName = collectionMap[lang];
+  try {
+    const entries = await getCollection(collectionName);
+    if (entries.length > 0) {
+      return entries.map((s) => s.data as ServiceContent);
+    }
+  } catch {
+    // Collection may not exist yet
   }
 
-  // Fall back to all entries (English-only content has no prefix)
-  return allServices.map((s) => s.data as ServiceContent);
+  // Fall back to English
+  const enEntries = await getCollection('servicesEn');
+  return enEntries.map((s) => s.data as ServiceContent);
 }
 
 export async function getServiceBySlug(
@@ -33,8 +35,8 @@ export async function getServiceBySlug(
 }
 
 export async function getAllServiceSlugs(): Promise<string[]> {
-  const allServices = await getCollection('services');
-  return allServices.map((s) => s.data.slug);
+  const enServices = await getCollection('servicesEn');
+  return enServices.map((s) => s.data.slug);
 }
 
 /** Map from translation key to service slug for linking from homepage grid */

@@ -11,11 +11,9 @@ const { lang } = Astro.props;
 const t = getTranslations(lang);
 
 const quickLinks = [
-  { label: t.header.home, href: `/${lang}/` },
-  { label: t.header.about, href: `/${lang}/about` },
-  { label: t.header.blog, href: `/${lang}/blog` },
-  { label: t.header.testimonials, href: `/${lang}/testimonials` },
-  { label: t.header.contact, href: `/${lang}/contact` },
+  { label: t.header.services, href: `/${lang}/services` },
+  { label: t.header.events || 'Events', href: `/${lang}/events` },
+  { label: t.footer.privacy, href: `/${lang}/privacy-policy` },
 ];
 
 const serviceLinks = [
