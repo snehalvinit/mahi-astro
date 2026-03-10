@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: T10 (Write English Content for All 12 Service Pages) — 2026-03-09
-### Next Up: T11 (Translate All Content to Hindi)
-### Latest Commit: feat(content): T10 — English content for 12 services
+### Last Completed: T11 (Translate All Content to Hindi) — 2026-03-09
+### Next Up: T12 (Translate All Content to Gujarati)
+### Latest Commit: feat(content): T11 — Hindi translations for all services
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -35,7 +35,7 @@
 | 3-Design | T2, T3, V2 | DONE (3/3) |
 | 4-Pages | T4, T5, T6, T7, T8, T9, T9b, T9c, V3 | V3 BLOCKED (9/9 tasks run, 3 fixes needed) |
 | 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | ALL DONE (4/4) |
-| 5-Content | T10–T14, V4 | T10 DONE (1/6) |
+| 5-Content | T10–T14, V4 | T10, T11 DONE (2/6) |
 | 6-SEO | T15–T17, V5 | NOT STARTED |
 | 7+ | T18–T37 | NOT STARTED |
 
@@ -310,4 +310,14 @@
 - **Test results:** `npm run build` succeeds (70 pages, 2.62s, zero errors/warnings). All 12 services × 3 languages generate correctly. Zod schema validation passes for all files.
 - **Decisions:** Kept existing `overview` field intact (still used by service detail page template) while expanding `introduction` to the full 300-500 word specification. Added location-specific keywords (e.g., "horoscope reading ahmedabad", "pandit for puja ahmedabad") to SEO fields for local search targeting. Maintained consistent content structure across all 12 services.
 - **Gotchas:** The `introduction` and `overview` fields now have some content overlap — this is intentional as both are rendered on the service detail page in different sections. Hindi (T11) and Gujarati (T12) translations are next — these files currently only exist in `en/` directory, so hi/gu routes fall back to English content. Blog topics from R2 drafts were not added as the schema doesn't have a `blogTopics` field.
+- **Status:** DONE
+
+---
+
+### T11: Translate All Content to Hindi — 2026-03-09
+- **Files:** All 12 files in `src/content/services/hi/` (vedic-astrology-kundli-reading, horoscope-analysis-predictions, marriage-career-finance-health-guidance, vastu-consultation, gemstone-recommendations, karma-life-purpose-counselling, pancha-tatva-balancing, seven-chakras-balancing, vedic-spiritual-poojas, vedic-karma-kand-yagnas, maha-mrityunjaya-mantra-anushthan, mantras-chanting)
+- **What was done:** Translated all 12 English service JSON files to Hindi. Each file contains natural Hindi in Devanagari script with proper Vedic/Hindu terminology (कुंडली, राशिफल, दशा, गोचर, मुहूर्त, नवरत्न, षड्बल, etc.). All user-facing fields translated: title, subtitle, description, shortDescription, introduction, overview, benefits, process steps, FAQs, keywords, and SEO metadata. System identifiers (id, slug, category, relatedServices) kept as English for URL routing. i18n/hi.json already had all 250 keys matching en.json from prior tasks. Total: 112 Hindi FAQs, 96 Hindi benefits, 60 Hindi process steps across 12 services.
+- **Test results:** `npm run build` succeeds (70 pages, 2.57s, zero errors/warnings). Hindi service pages now render with Hindi content (not English fallback). EN and GU pages unaffected. Zod schema validation passes for all Hindi files. i18n key parity confirmed (250/250).
+- **Decisions:** Services utility `getServicesForLanguage()` already supported `hi/` prefix filtering — no code changes needed. Hindi translations use appropriate Vedic terminology that Hindi speakers would naturally use (e.g., "कुंडली पठन" not "जन्मपत्रिका पढ़ना"). SEO keywords include Hindi-language search terms with Ahmedabad location targeting.
+- **Gotchas:** Gujarati (T12) is next — same pattern, create `src/content/services/gu/` directory with 12 files. The services utility already handles `gu/` prefix the same way. Blog posts (T13/T14) are still English-only — Hindi/Gujarati blog translations would be a separate future task. GU service pages still fall back to English content since gu/ service files don't exist yet.
 - **Status:** DONE

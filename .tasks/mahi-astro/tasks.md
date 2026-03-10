@@ -695,11 +695,11 @@ After each task, update `progress.md` with:
 - [x] Each has introduction, benefits, process, FAQs, SEO
 - [x] Content is professional and culturally appropriate
 - [x] Keywords are naturally integrated
-- [ ] Git commit: `feat(content): T10 — English content for 12 services`
+- [x] Git commit: `feat(content): T10 — English content for 12 services`
 
 ---
 
-### - [ ] T11: Translate All Content to Hindi
+### - [x] T11: Translate All Content to Hindi
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** T10
 
@@ -712,11 +712,11 @@ After each task, update `progress.md` with:
 6. Translate SEO meta tags with Hindi keywords
 
 **Validate:**
-- [ ] All 12 Hindi service files created
-- [ ] i18n/hi.json has all keys matching en.json
-- [ ] Hindi text reads naturally
-- [ ] SEO keywords are in Hindi
-- [ ] Git commit: `feat(content): T11 — Hindi translations for all services`
+- [x] All 12 Hindi service files created
+- [x] i18n/hi.json has all keys matching en.json
+- [x] Hindi text reads naturally
+- [x] SEO keywords are in Hindi
+- [x] Git commit: `feat(content): T11 — Hindi translations for all services`
 
 ---
 
