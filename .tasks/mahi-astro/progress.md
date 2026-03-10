@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: V6 (Verify Visual Assets & Performance) — 2026-03-09
-### Next Up: T20 (Write Playwright E2E Tests)
-### Latest Commit: pending — `verify(images): V6 — visual assets & performance verification PASSED`
+### Last Completed: T20 (Write Playwright E2E Tests) — 2026-03-09
+### Next Up: V7 (Gate — All Tests Pass)
+### Latest Commit: TBD — `feat(tests): T20 — Playwright E2E test suite`
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -39,7 +39,8 @@
 | 6-SEO | T15–T17, V5 | ALL DONE — V5 PASSED |
 | 6-Fixes | FX-5a, FX-5b, VFX-5 | ALL DONE (3/3) — VFX-5 PASSED |
 | 7-Images | T18, T19, V6 | ALL DONE (3/3) — V6 PASSED |
-| 8+ | T20–T37 | NOT STARTED |
+| 8-Testing | T20 | DONE (1/1) — 149 tests pass |
+| 8+ | V7, T21–T37 | NOT STARTED |
 
 ### Build Stats
 - **Pages generated:** 82 (across 3 languages)
@@ -149,6 +150,35 @@
 - The 55KB CSS file is Tailwind output — normal and cannot be deferred without FOUC
 - Hero backgrounds are CSS gradients + SVG overlays — no raster images to optimize
 - When user provides actual photos, will need WebP conversion + responsive srcset
+
+### T20 Handover Notes
+**What was done:**
+- Installed Playwright and configured `playwright.config.ts`
+- Created 9 comprehensive E2E test suites (149 tests total):
+  - `tests/navigation.spec.ts` — 13 tests: nav links, page navigation, logo, breadcrumbs, root redirect
+  - `tests/homepage.spec.ts` — 15 tests: hero+CTA, services grid, testimonials, CTA section, stats
+  - `tests/services.spec.ts` — 15 tests: index listing, all 12 pages load, FAQ, related services, booking CTA
+  - `tests/blog.spec.ts` — 18 tests: listing, category filter, all 6 posts load, social sharing, back link
+  - `tests/contact.spec.ts` — 24 tests: form fields, required attrs, service dropdown, WhatsApp/phone/email, hidden lang field
+  - `tests/i18n.spec.ts` — 6 tests: all pages in 3 langs, language switching, script content, html lang attr, switcher nav
+  - `tests/seo.spec.ts` — 23 tests: title/meta, canonical, hreflang, OG tags, JSON-LD schema, OG PNG, sitemap, robots
+  - `tests/responsive.spec.ts` — 9 tests: mobile menu toggle, desktop nav, overflow, viewport-specific layout
+  - `tests/accessibility.spec.ts` — 26 tests: h1 count, alt text, link text, form labels, landmarks, skip link, keyboard nav, ARIA
+- All 149 tests pass on chromium
+- Used `serve` for static file serving (avoids Astro dev toolbar interference)
+- Added `devToolbar: { enabled: false }` to astro.config.mjs
+- Installed `serve` as dev dependency
+
+**Key decisions:**
+- Single `chromium` project with `test.use()` viewport overrides for responsive testing (simpler than multi-project)
+- Used `serve` instead of `astro preview` — cleaner static file serving without dev toolbar artifacts
+- Tests cover all 3 languages (en, hi, gu) with parameterized loops
+- Skipped visual regression snapshots — deferred to future (SVG-heavy site makes pixel comparison less useful)
+
+**Known issues / notes for V7:**
+- Service timeout increased to 60s for the 12-page iteration test
+- Blog back link matched with `.last()` due to duplicate href in breadcrumbs
+- All tests deterministic, no flakiness observed across multiple runs
 
 ---
 
@@ -986,3 +1016,59 @@
 - Implement Astro `<Picture>` for responsive/WebP/AVIF
 - Add lazy loading to below-fold images
 - SVGO optimization pass on all SVGs
+
+---
+
+### V6: Verify Visual Assets & Performance — 2026-03-09T21:43-07:00
+- **Files:** `src/components/sections/ServicesGrid.astro`, `src/layouts/BaseLayout.astro`, `src/pages/[lang]/services/[slug].astro`, `src/pages/[lang]/services/index.astro`, `.tasks/mahi-astro/progress.md`, `.tasks/mahi-astro/tasks.md`
+- **What was done:** Full image & performance audit of all 82 pages. Fixed 5 service icon `<img>` tags missing alt text (now use translated service names). Made Google Fonts non-render-blocking via `media="print" onload` swap pattern with `<noscript>` fallback — eliminated 907ms render-blocking, boosting Lighthouse perf from 56 to 89-100.
+- **Test results:** Build: 82 pages, 3.20s, zero errors. 210/210 images have alt text, 210/210 have width/height, 0 broken image refs, all OG PNGs present. Lighthouse: EN Homepage 89 perf / 93 a11y / 2.8s LCP / 0 CLS; EN Service 100/96/1.5s/0.006; HI Homepage 97/93/1.5s/0.001. All CLS < 0.1.
+- **Decisions:** Used `media="print" onload="this.media='all'"` for Google Fonts (proven render-blocking fix). Alt text uses translated service names from i18n/content collections, not hardcoded English.
+- **Gotchas:** EN homepage perf=89 locally (CSS render-blocking + server latency) — will hit 90+ on Vercel CDN. Astrologer photo still placeholder SVG. When real photos provided, will need WebP + responsive srcset.
+- **Status:** DONE
+
+---
+
+### Handover Summary — 2026-03-10T04:43Z (Phases 1–7 Complete, V6 PASSED)
+
+**All phases through Phase 7 (Images) are complete and verified. Phase 8 (Testing — T20 Playwright E2E) is next.**
+
+| Phase | Tasks | Status |
+|-------|-------|--------|
+| 1-Research | R1, R2, R3 | DONE |
+| 2-Foundation | T1, V1 | DONE |
+| 3-Design | T2, T3, V2 | DONE |
+| 4-Pages | T4–T9c, V3, FX-3a/b/c, VFX-3 | DONE |
+| 5-Content | T10–T14, V4 | DONE |
+| 6-SEO | T15–T17, V5, FX-5a/b, VFX-5 | DONE |
+| 7-Images | T18, T19, V6 | DONE |
+| **8-Testing** | **T20, V7** | **NEXT** |
+| 9-Deploy | T21, T22, V8 | NOT STARTED |
+| 10-CMS | T23, V9 | NOT STARTED |
+
+**Build:** 82 pages, ~3.20s, zero errors/warnings.
+**Latest commit:** `d3bef27` — `verify(images): V6 — visual assets & performance verification PASSED`
+
+**What Phase 7 delivered (T18 + T19 + V6):**
+- 64 hand-crafted SVG assets (zodiac, service, chakra icons; hero/service BGs; blog placeholders; OG images; favicon)
+- SVGO optimization (312KB → 264KB, ~15% reduction)
+- 22 OG PNGs (1200×630) for social media via sharp + `npm run convert-og`
+- `fetchpriority="high"` on above-fold images, `loading="lazy"` on below-fold
+- `width`/`height` on all 210 images (CLS prevention)
+- Non-render-blocking Google Fonts (907ms savings)
+- Lighthouse: 89-100 perf, 93-96 a11y across tested pages
+
+**Next task: T20 — Write Playwright E2E Tests**
+- Navigation + i18n routing across 3 languages
+- Service/blog page rendering with content
+- Contact form validation (client-side)
+- Responsive layout (mobile/tablet/desktop)
+- Accessibility checks (skip-to-content, alt text, semantic HTML)
+
+**Outstanding placeholders (unchanged):**
+- Formspree endpoints (contact + subscribe) — `placeholder` IDs
+- Analytics env vars (`PUBLIC_GA4_ID`, `PUBLIC_GTM_ID`, `PUBLIC_PLAUSIBLE_DOMAIN`)
+- Astrologer photo — SVG placeholder (client must supply real photo)
+- Google Reviews / JustDial URLs — `href="#"`
+- Google Maps — city-level embed, needs exact address
+- Social media profile URLs — empty strings in siteConfig

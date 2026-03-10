@@ -974,7 +974,7 @@ After each task, update `progress.md` with:
 
 ## PHASE 8 — End-to-End Testing
 
-### - [ ] T20: Write Playwright E2E Tests
+### - [x] T20: Write Playwright E2E Tests
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** V4, V5, V6
 
@@ -994,9 +994,9 @@ After each task, update `progress.md` with:
 4. Include visual regression snapshots for key pages
 
 **Validate:**
-- [ ] All test files created
-- [ ] Tests run and pass: `npx playwright test`
-- [ ] Coverage: navigation, i18n, services, blog, contact, SEO, responsive, a11y
+- [x] All test files created
+- [x] Tests run and pass: `npx playwright test`
+- [x] Coverage: navigation, i18n, services, blog, contact, SEO, responsive, a11y
 - [ ] Git commit: `feat(tests): T20 — Playwright E2E test suite`
 
 ---

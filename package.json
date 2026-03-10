@@ -21,6 +21,8 @@
     "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "serve": "^14.2.6",
     "svgo": "^4.0.1"
   }
 }
