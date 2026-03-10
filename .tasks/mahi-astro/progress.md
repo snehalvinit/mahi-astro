@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: VFX-3 (Verify FX-3a, FX-3b, FX-3c fixes) — 2026-03-09
-### Next Up: T10 (Content Collections — Services i18n)
-### Latest Commit: verify(pages): VFX-3 — all FX-3 fixes verified, 0 issues
+### Last Completed: T10 (Write English Content for All 12 Service Pages) — 2026-03-09
+### Next Up: T11 (Translate All Content to Hindi)
+### Latest Commit: feat(content): T10 — English content for 12 services
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -35,7 +35,7 @@
 | 3-Design | T2, T3, V2 | DONE (3/3) |
 | 4-Pages | T4, T5, T6, T7, T8, T9, T9b, T9c, V3 | V3 BLOCKED (9/9 tasks run, 3 fixes needed) |
 | 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | ALL DONE (4/4) |
-| 5-Content | T10–T14, V4 | NOT STARTED |
+| 5-Content | T10–T14, V4 | T10 DONE (1/6) |
 | 6-SEO | T15–T17, V5 | NOT STARTED |
 | 7+ | T18–T37 | NOT STARTED |
 
@@ -50,6 +50,46 @@
 ---
 
 ## Task History
+
+### Handover Summary — 2026-03-09T02:00Z
+
+**Phases 1–4 complete. Phase 5 (Content Collections) is next.**
+
+| Phase | Tasks Done | Key Output |
+|-------|-----------|------------|
+| 1-Research | R1, R2, R3 | 3 zen HTML reports, 12 service JSON drafts, image manifest |
+| 2-Foundation | T1, V1 | Astro 5.x scaffold, i18n (en/hi/gu), Tailwind v4, 3 translation files |
+| 3-Design | T2, T3, V2 | 4 UI components, 6 layout components, full nav/header/footer |
+| 4-Pages | T4–T9c, V3, FX-3a/b/c, VFX-3 | 70 pages (12 services × 3 langs, blog, contact, about, events, testimonials, 404, privacy) |
+
+**Build:** 70 pages, ~2.2s, zero errors/warnings.
+
+**Key files:**
+- Config: `astro.config.mjs`, `src/data/site-config.ts`, `src/content.config.ts`
+- i18n: `src/content/i18n/{en,hi,gu}.json` (~200+ keys each), `src/utils/i18n.ts`
+- Services: `src/content/services/en/*.json` (12 files), `src/utils/services.ts`
+- Blog: `src/content/blog/en/*.json` (2 files), `src/utils/blog.ts`
+- Layout: `src/layouts/BaseLayout.astro`, `src/components/layout/` (6 components)
+- Pages: `src/pages/[lang]/` (index, about, contact, testimonials, events, privacy-policy, 404, services/[slug], blog/[slug])
+
+**Placeholders needing real values:**
+- Formspree endpoints (contact + subscribe) — `placeholder` IDs
+- Google Analytics ID — `GA_MEASUREMENT_ID`
+- Astrologer photo — using icon placeholder
+- Google Reviews / JustDial URLs — `href="#"`
+- Google Maps — city-level embed, needs exact address
+
+**Next task (T10):** Content Collections for services i18n — add `hi/` and `gu/` service JSON files so services render in translated content, not just English fallback.
+
+**Gotchas for next session:**
+- Astro glob loader strips directory prefixes from content IDs — services utility uses language fallback (all entries returned when no lang match)
+- Blog/service content is HTML strings in JSON, not markdown
+- Cookie consent is opt-in (DPDP compliant) — no analytics before accept
+- Footer service links now use correct slugs (fixed in FX-3a)
+- All pages have 4 hreflang tags including self-reference (fixed in FX-3b)
+- Skip-to-content at z-[100] above all overlays (fixed in FX-3c)
+
+---
 
 ### R1: Research Astrology Website Design & Best Practices — 2026-03-09T17:00Z
 - **Files:** `.tasks/mahi-astro/tasks.md`, `.tasks/mahi-astro/reports/R1-website-research.html`, `.tasks/mahi-astro/progress.md`
@@ -260,4 +300,14 @@
 - **Test results:** All 4 checks PASS. No issues found.
 - **Decisions:** No FX-3d+ tasks needed — all fixes verified clean.
 - **Gotchas:** None. Phase 4 (Pages) is now fully complete. Phase 5 (Content) is next.
+- **Status:** DONE
+
+---
+
+### T10: Write English Content for All 12 Service Pages — 2026-03-09
+- **Files:** All 12 files in `src/content/services/en/` (vedic-astrology-kundli-reading, horoscope-analysis-predictions, marriage-career-finance-health-guidance, vastu-consultation, gemstone-recommendations, karma-life-purpose-counselling, pancha-tatva-balancing, seven-chakras-balancing, vedic-spiritual-poojas, vedic-karma-kand-yagnas, maha-mrityunjaya-mantra-anushthan, mantras-chanting)
+- **What was done:** Enhanced all 12 English service JSON files with comprehensive content. Expanded introductions from ~50-70 words to 300-500 words with rich Vedic context, terminology, and authoritative detail. Expanded FAQs from 2-4 per service to 8-10 each (total: 112 FAQs across 12 services). Added 1-2 benefits per service bringing all to 8 items. Enhanced SEO meta descriptions and keywords with Ahmedabad location terms. Added richer keywords arrays. All content is professional, culturally appropriate, and SEO-optimized with naturally integrated keywords.
+- **Test results:** `npm run build` succeeds (70 pages, 2.62s, zero errors/warnings). All 12 services × 3 languages generate correctly. Zod schema validation passes for all files.
+- **Decisions:** Kept existing `overview` field intact (still used by service detail page template) while expanding `introduction` to the full 300-500 word specification. Added location-specific keywords (e.g., "horoscope reading ahmedabad", "pandit for puja ahmedabad") to SEO fields for local search targeting. Maintained consistent content structure across all 12 services.
+- **Gotchas:** The `introduction` and `overview` fields now have some content overlap — this is intentional as both are rendered on the service detail page in different sections. Hindi (T11) and Gujarati (T12) translations are next — these files currently only exist in `en/` directory, so hi/gu routes fall back to English content. Blog topics from R2 drafts were not added as the schema doesn't have a `blogTopics` field.
 - **Status:** DONE

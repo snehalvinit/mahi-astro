@@ -668,7 +668,7 @@ After each task, update `progress.md` with:
 
 ## PHASE 5 — Content Creation & Translation
 
-### - [ ] T10: Write English Content for All 12 Service Pages
+### - [x] T10: Write English Content for All 12 Service Pages
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** R2
 
@@ -691,10 +691,10 @@ After each task, update `progress.md` with:
 4. Include relevant vedic/spiritual context for each service
 
 **Validate:**
-- [ ] All 12 service content files created
-- [ ] Each has introduction, benefits, process, FAQs, SEO
-- [ ] Content is professional and culturally appropriate
-- [ ] Keywords are naturally integrated
+- [x] All 12 service content files created
+- [x] Each has introduction, benefits, process, FAQs, SEO
+- [x] Content is professional and culturally appropriate
+- [x] Keywords are naturally integrated
 - [ ] Git commit: `feat(content): T10 — English content for 12 services`
 
 ---
