@@ -1161,17 +1161,17 @@ After each task, update `progress.md` with:
 
 ---
 
-### - [ ] FX-3c: Add Skip-to-Content Accessibility Link
+### - [x] FX-3c: Add Skip-to-Content Accessibility Link
 **Type:** Fix | **Model:** claude-sonnet-4-6 | **Depends on:** V3
 **Error:** No skip-to-content link in BaseLayout for keyboard navigation. T1 notes mentioned it was created but it's missing from the layout.
 **Root Cause:** Skip-to-content link was planned but not included in the final BaseLayout.astro markup.
 **Fix:**
 1. In `src/layouts/BaseLayout.astro`, add before the header slot: `<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-gold focus:text-indigo focus:px-4 focus:py-2 focus:rounded">Skip to content</a>`
 **Validate:**
-- [ ] Skip-to-content link is present in HTML output (visually hidden, visible on focus)
-- [ ] Link targets `#main-content` which exists on `<main>` element
-- [ ] No regressions — `npm run build` succeeds
-- [ ] Git commit: `fix(a11y): FX-3c — add skip-to-content link`
+- [x] Skip-to-content link is present in HTML output (visually hidden, visible on focus)
+- [x] Link targets `#main-content` which exists on `<main>` element
+- [x] No regressions — `npm run build` succeeds (70 pages, 2.26s)
+- [x] Git commit: `fix(a11y): FX-3c — add skip-to-content link`
 
 ---
 
