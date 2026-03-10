@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { supportedLanguages, isValidLanguage, getTranslations } from '../../utils/i18n';
+import type { SupportedLanguage } from '../../utils/i18n';
+import { siteConfig } from '../../data/site-config';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params;
+if (!isValidLanguage(lang as string)) {
+  return Astro.redirect('/en/');
+}
+
+const currentLang = lang as SupportedLanguage;
+const t = getTranslations(currentLang);
+---
+
+<BaseLayout lang={currentLang}>
+  <section class="min-h-screen flex items-center justify-center bg-indigo text-cream">
+    <div class="text-center max-w-3xl mx-auto px-6 py-20">
+      <h1 class="font-heading text-5xl md:text-6xl font-bold text-gold mb-6">
+        {t.hero.brandName}
+      </h1>
+      <p class="text-xl md:text-2xl text-gold-light mb-4">
+        {t.hero.subtitle}
+      </p>
+      <p class="text-lg text-cream/80 mb-10 italic max-w-2xl mx-auto">
+        "{t.hero.tagline}"
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={siteConfig.contact.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-gold hover:bg-gold-dark text-indigo font-semibold px-8 py-3 rounded-lg transition-colors"
+        >
+          {t.hero.cta}
+        </a>
+        <a
+          href={`/${currentLang}/services`}
+          class="border-2 border-gold text-gold hover:bg-gold/10 font-semibold px-8 py-3 rounded-lg transition-colors"
+        >
+          {t.hero.ctaSecondary}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-cream">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="font-heading text-3xl font-bold text-indigo mb-4">
+        {t.services.title}
+      </h2>
+      <p class="text-purple text-lg">
+        {t.services.subtitle}
+      </p>
+    </div>
+  </section>
+</BaseLayout>

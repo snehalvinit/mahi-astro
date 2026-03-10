@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Brand Colors */
+  --color-gold: #C9A84C;
+  --color-gold-light: #E0C96E;
+  --color-gold-dark: #A88A30;
+  --color-saffron: #FF9933;
+  --color-purple: #6F4278;
+  --color-purple-light: #9B6BA6;
+  --color-purple-dark: #4E2D55;
+  --color-indigo: #2E2B59;
+  --color-indigo-light: #3E3B6E;
+  --color-cream: #FFFDF0;
+  --color-maroon: #72001B;
+
+  /* Fonts */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-devanagari: 'Noto Sans Devanagari', sans-serif;
+  --font-gujarati: 'Noto Sans Gujarati', sans-serif;
+}

@@ -23,8 +23,8 @@
 
 ## Task Progress
 
-### Last Completed: R3 (Visual Assets Research) — 2026-03-09
-### Next Up: T1 (Project Scaffold) — depends on R1 (done)
+### Last Completed: T1 (Project Scaffold) — 2026-03-09
+### Next Up: V1 (Verify Project Foundation) — depends on T1 (done)
 
 ---
 
@@ -56,4 +56,14 @@
 - **Test results:** N/A (research task)
 - **Decisions:** Free sources cover 100% of needs ($0 budget); Unsplash/Pexels for raster heroes; SVG Repo/Hexmos for zodiac icons; Lucide for UI icons + custom SVGs for spiritual icons; Astro `<Picture />` with AVIF/WebP formats and layout="responsive"; source images in src/assets/ (optimized) and SVGs in public/images/icons/ (as-is); astrologer photo placeholder until client provides real photo.
 - **Gotchas:** Astrologer's personal photos must be client-provided. Source images must be imported (not URL strings) for Astro optimization. Hero images need `loading="eager"` + `fetchpriority="high"`. SVGs use `currentColor` for CSS theming.
+- **Status:** DONE
+
+---
+
+### T1: Scaffold Astro Project with i18n, Tailwind, Base Config — 2026-03-09T17:20Z
+- **Files:** `package.json`, `astro.config.mjs`, `tsconfig.json`, `src/utils/i18n.ts`, `src/data/site-config.ts`, `src/content.config.ts`, `src/content/i18n/{en,hi,gu}.json`, `src/styles/global.css`, `src/layouts/BaseLayout.astro`, `src/pages/index.astro`, `src/pages/[lang]/index.astro`
+- **What was done:** Scaffolded Astro 5.x project from minimal template. Installed @astrojs/react, @astrojs/sitemap, @tailwindcss/vite, tailwindcss, react, react-dom, sharp, playwright. Configured astro.config.mjs with sitemap i18n (en-IN, hi-IN, gu-IN) and Tailwind v4 via Vite plugin. Created full directory structure (components/layout|sections|ui, content/i18n|services|blog per lang, data, layouts, pages/[lang], schemas, styles, utils, public/images). Built i18n utility with getTranslations(), isValidLanguage(), getAlternateLanguages(). Created site-config.ts with astrologer info, contact, colors, fonts. Created 3 complete translation files (en/hi/gu) with header, hero, services, about, testimonials, cta, footer, meta, shared, notFound sections. Created BaseLayout with hreflang tags, Google Fonts, skip-to-content link. Created root redirect to /en/ and [lang]/index.astro with hero section and services teaser.
+- **Test results:** `npm run build` succeeds (4 pages in 1.78s). `npm run dev` starts cleanly. All 3 language routes (/en/, /hi/, /gu/) generate. Tailwind CSS compiles with all custom theme colors (gold, saffron, purple, indigo, cream, maroon). Sitemap generated.
+- **Decisions:** Followed Nilay website i18n pattern exactly (eager JSON imports, URL-based routing, getStaticPaths per locale). Used Tailwind v4 @theme directive for custom colors/fonts. Content collections with glob loaders and Zod schemas for services and blog. Site URL placeholder: believeastrology.com.
+- **Gotchas:** Content collections for services/blog show warnings (no JSON files yet — populated in T10+). React integration installed for future interactive components (booking form, language switcher). `sharp` installed for image optimization (T18/T19).
 - **Status:** DONE

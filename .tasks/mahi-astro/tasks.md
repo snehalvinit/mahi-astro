@@ -215,13 +215,13 @@ After each task, update `progress.md` with:
 - [x] At least 15 placeholder images identified/sourced
 - [x] Icon set requirements defined
 - [x] Optimization strategy documented
-- [ ] Git commit: `research(images): R3 — visual assets and hero images strategy`
+- [x] Git commit: `research(images): R3 — visual assets and hero images strategy`
 
 ---
 
 ## PHASE 2 — Project Foundation
 
-### - [ ] T1: Scaffold Astro Project with i18n, Tailwind, Base Config
+### - [x] T1: Scaffold Astro Project with i18n, Tailwind, Base Config
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** R1
 
@@ -267,11 +267,11 @@ After each task, update `progress.md` with:
 10. Create `src/layouts/BaseLayout.astro` with HTML head, meta, fonts, body wrapper
 
 **Validate:**
-- [ ] `npm run dev` starts without errors
-- [ ] `/en/`, `/hi/`, `/gu/` routes all render
-- [ ] Tailwind CSS works (test with a utility class)
-- [ ] i18n utility functions return correct translations
-- [ ] Directory structure matches plan
+- [x] `npm run dev` starts without errors
+- [x] `/en/`, `/hi/`, `/gu/` routes all render
+- [x] Tailwind CSS works (test with a utility class)
+- [x] i18n utility functions return correct translations
+- [x] Directory structure matches plan
 - [ ] Git commit: `feat(scaffold): T1 — Astro project with i18n and Tailwind`
 
 ---
