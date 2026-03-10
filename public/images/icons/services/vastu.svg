@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#6F4278" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- House roof -->
+  <polyline points="8,30 32,10 56,30"/>
+  <!-- House body -->
+  <rect x="14" y="30" width="36" height="26"/>
+  <!-- Door -->
+  <rect x="26" y="40" width="12" height="16"/>
+  <!-- Compass circle on roof -->
+  <circle cx="32" cy="24" r="5"/>
+  <!-- Compass needle -->
+  <line x1="32" y1="19" x2="32" y2="21"/>
+  <line x1="32" y1="27" x2="32" y2="29"/>
+  <line x1="27" y1="24" x2="29" y2="24"/>
+  <line x1="35" y1="24" x2="37" y2="24"/>
+  <!-- Directional lines around house -->
+  <line x1="32" y1="2" x2="32" y2="6" stroke-dasharray="2,2"/>
+  <line x1="32" y1="60" x2="32" y2="62" stroke-dasharray="2,2"/>
+  <line x1="2" y1="32" x2="6" y2="32" stroke-dasharray="2,2"/>
+  <line x1="58" y1="32" x2="62" y2="32" stroke-dasharray="2,2"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#6F4278" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Om symbol (ॐ) -->
+  <!-- Main body curve - bottom part -->
+  <path d="M18,38 C12,38 8,34 8,28 C8,22 14,18 20,18 C26,18 30,22 30,26 C30,30 26,34 22,36"/>
+  <!-- Upper loop -->
+  <path d="M22,36 C26,36 32,32 32,26 C32,20 28,16 24,16"/>
+  <!-- Right side hook -->
+  <path d="M32,26 C34,22 38,18 42,18 C48,18 52,22 52,28 C52,34 48,38 42,38 C38,38 36,36 36,34"/>
+  <!-- Top curve (the 3-like shape top) -->
+  <path d="M36,18 C36,14 38,10 42,10 C46,10 48,14 46,18"/>
+  <!-- Chandrabindu - crescent -->
+  <path d="M42,6 C44,4 48,4 50,6" />
+  <!-- Dot above -->
+  <circle cx="46" cy="3" r="1.5"/>
+  <!-- Tail swoosh at bottom -->
+  <path d="M18,38 C18,44 22,48 28,48 C34,48 38,44 40,40"/>
+</svg>

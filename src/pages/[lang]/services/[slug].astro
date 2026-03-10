@@ -54,19 +54,19 @@ for (const blogSlug of blogSlugs) {
   if (post) relatedBlogPosts.push(post);
 }
 
-const serviceIcons: Record<string, string> = {
-  'vedic-astrology-kundli-reading': '&#x1F52E;',
-  'horoscope-analysis-predictions': '&#x2B50;',
-  'marriage-career-finance-health-guidance': '&#x1F3AF;',
-  'vastu-consultation': '&#x1F3E0;',
-  'gemstone-recommendations': '&#x1F48E;',
-  'karma-life-purpose-counselling': '&#x2638;',
-  'pancha-tatva-balancing': '&#x1F30D;',
-  'seven-chakras-balancing': '&#x1F549;',
-  'vedic-spiritual-poojas': '&#x1F56F;',
-  'vedic-karma-kand-yagnas': '&#x1F525;',
-  'maha-mrityunjaya-mantra-anushthan': '&#x1F64F;',
-  'mantras-chanting': '&#x1F3B6;',
+const serviceIconMap: Record<string, string> = {
+  'vedic-astrology-kundli-reading': 'kundli-reading',
+  'horoscope-analysis-predictions': 'horoscope-analysis',
+  'marriage-career-finance-health-guidance': 'life-guidance',
+  'vastu-consultation': 'vastu',
+  'gemstone-recommendations': 'gemstone',
+  'karma-life-purpose-counselling': 'karma-counselling',
+  'pancha-tatva-balancing': 'pancha-tatva',
+  'seven-chakras-balancing': 'chakra-balancing',
+  'vedic-spiritual-poojas': 'poojas',
+  'vedic-karma-kand-yagnas': 'yagnas',
+  'maha-mrityunjaya-mantra-anushthan': 'maha-mrityunjay',
+  'mantras-chanting': 'mantras-chanting',
 };
 
 const whatsappMsg = encodeURIComponent(
@@ -89,7 +89,7 @@ const breadcrumbItems = [
   lang={currentLang}
   title={service.seo.title}
   description={service.seo.description}
-  ogImage={`/images/services/og-${service.slug}.jpg`}
+  ogImage={`/images/services/${service.slug}.svg`}
   jsonLd={serviceJsonLd}
 >
   <SiteHeader slot="header" lang={currentLang} />
@@ -99,7 +99,7 @@ const breadcrumbItems = [
   <section class="hero-dark py-16 md:py-24">
     <div class="container-wide text-center">
       <Breadcrumbs lang={currentLang} items={breadcrumbItems} variant="dark" />
-      <span class="text-4xl mb-4 block" set:html={serviceIcons[service.slug] || '&#x2728;'} />
+      <img src={`/images/icons/services/${serviceIconMap[service.slug] || 'kundli-reading'}.svg`} alt="" width="64" height="64" class="w-16 h-16 mx-auto mb-4" />
       <h1 class="font-heading text-4xl md:text-5xl font-bold text-gold mb-3">
         {service.title}
       </h1>
@@ -213,7 +213,7 @@ const breadcrumbItems = [
           {relatedServices.map((related) => (
             <a href={`/${currentLang}/services/${related.slug}`} class="block group">
               <div class="bg-white p-6 rounded-lg shadow-sm border border-cream-dark hover:shadow-md hover:-translate-y-1 transition-all">
-                <span class="text-2xl mb-3 block" set:html={serviceIcons[related.slug] || '&#x2728;'} />
+                <img src={`/images/icons/services/${serviceIconMap[related.slug] || 'kundli-reading'}.svg`} alt="" width="40" height="40" class="w-10 h-10 mb-3" loading="lazy" />
                 <h3 class="font-heading font-semibold text-indigo group-hover:text-gold transition-colors mb-2">
                   {related.title}
                 </h3>

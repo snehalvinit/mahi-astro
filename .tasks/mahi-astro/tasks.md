@@ -902,7 +902,7 @@ After each task, update `progress.md` with:
 
 ## PHASE 7 — Visual Polish & Images
 
-### - [ ] T18: Source and Place Hero Images, Icons, Decorative Elements
+### - [x] T18: Source and Place Hero Images, Icons, Decorative Elements
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** V3
 
@@ -924,11 +924,11 @@ After each task, update `progress.md` with:
 5. Update all components to reference actual images
 
 **Validate:**
-- [ ] All hero images placed and rendering
-- [ ] Icons display correctly at multiple sizes
-- [ ] No broken image references
-- [ ] Images are appropriately themed (Hindu/spiritual/astrology)
-- [ ] Git commit: `feat(images): T18 — hero images, icons, decorative elements`
+- [x] All hero images placed and rendering
+- [x] Icons display correctly at multiple sizes
+- [x] No broken image references
+- [x] Images are appropriately themed (Hindu/spiritual/astrology)
+- [x] Git commit: `feat(images): T18 — hero images, icons, decorative elements`
 
 ---
 

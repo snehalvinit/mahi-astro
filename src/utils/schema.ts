@@ -13,7 +13,7 @@ export function localBusinessSchema() {
     url: SITE_URL,
     telephone: siteConfig.contact.phone,
     email: siteConfig.contact.email,
-    image: `${SITE_URL}/images/og-default.jpg`,
+    image: `${SITE_URL}/images/og-default.svg`,
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',

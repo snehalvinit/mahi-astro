@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <radialGradient id="sg-bg" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#3A3670"/>
+      <stop offset="100%" stop-color="#2E2B59"/>
+    </radialGradient>
+    <radialGradient id="sg-aura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#6F4278" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#6F4278" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#sg-bg)"/>
+  <!-- Stars -->
+  <circle cx="100" cy="60" r="1.2" fill="#FFFDF0" opacity="0.5"/>
+  <circle cx="700" cy="50" r="1" fill="#FFFDF0" opacity="0.6"/>
+  <circle cx="180" cy="130" r="1" fill="#FFFDF0" opacity="0.4"/>
+  <circle cx="620" cy="120" r="1.5" fill="#FFFDF0" opacity="0.5"/>
+  <circle cx="60" cy="300" r="1.2" fill="#FFFDF0" opacity="0.4"/>
+  <circle cx="740" cy="280" r="1" fill="#FFFDF0" opacity="0.5"/>
+  <!-- Aura glow -->
+  <circle cx="400" cy="220" r="150" fill="url(#sg-aura)"/>
+  <!-- Meditating figure silhouette -->
+  <g transform="translate(400, 240)">
+    <!-- Head -->
+    <circle cx="0" cy="-75" r="22" fill="#6F4278" stroke="#C9A84C" stroke-width="1" opacity="0.9"/>
+    <!-- Body -->
+    <path d="M0,-53 Q-12,-35 -20,-20 Q-35,0 -55,30 Q-40,35 0,40 Q40,35 55,30 Q35,0 20,-20 Q12,-35 0,-53Z" fill="#6F4278" stroke="#C9A84C" stroke-width="1" opacity="0.9"/>
+    <!-- Crossed legs -->
+    <path d="M-55,30 Q-60,45 -50,55 Q-30,60 0,50 Q30,60 50,55 Q60,45 55,30" fill="#6F4278" stroke="#C9A84C" stroke-width="1" opacity="0.9"/>
+    <!-- Arms in mudra -->
+    <path d="M-20,-20 Q-40,-5 -55,15 Q-50,20 -45,15" fill="none" stroke="#C9A84C" stroke-width="1" opacity="0.7"/>
+    <path d="M20,-20 Q40,-5 55,15 Q50,20 45,15" fill="none" stroke="#C9A84C" stroke-width="1" opacity="0.7"/>
+    <!-- Chakra dots along spine -->
+    <circle cx="0" cy="-65" r="3" fill="#6F4278" stroke="#C9A84C" stroke-width="0.8" opacity="0.8"/>
+    <circle cx="0" cy="-50" r="3" fill="#FF9933" opacity="0.7"/>
+    <circle cx="0" cy="-35" r="3" fill="#C9A84C" opacity="0.6"/>
+    <circle cx="0" cy="-20" r="3" fill="#FF9933" opacity="0.7"/>
+    <circle cx="0" cy="-5" r="3" fill="#C9A84C" opacity="0.6"/>
+    <circle cx="0" cy="10" r="3" fill="#FF9933" opacity="0.7"/>
+    <circle cx="0" cy="25" r="3" fill="#C9A84C" opacity="0.6"/>
+    <!-- Energy rings -->
+    <ellipse cx="0" cy="-15" rx="75" ry="50" fill="none" stroke="#C9A84C" stroke-width="0.6" opacity="0.15"/>
+    <ellipse cx="0" cy="-15" rx="100" ry="70" fill="none" stroke="#FF9933" stroke-width="0.6" opacity="0.12"/>
+    <ellipse cx="0" cy="-15" rx="130" ry="90" fill="none" stroke="#C9A84C" stroke-width="0.6" opacity="0.08"/>
+  </g>
+  <!-- Lotus flower (below the figure) -->
+  <g transform="translate(400, 340)">
+    <!-- Petals -->
+    <ellipse cx="-35" cy="-5" rx="22" ry="10" fill="none" stroke="#C9A84C" stroke-width="1" opacity="0.5" transform="rotate(-30 -35 -5)"/>
+    <ellipse cx="35" cy="-5" rx="22" ry="10" fill="none" stroke="#C9A84C" stroke-width="1" opacity="0.5" transform="rotate(30 35 -5)"/>
+    <ellipse cx="-20" cy="-12" rx="20" ry="9" fill="none" stroke="#FF9933" stroke-width="1" opacity="0.4" transform="rotate(-15 -20 -12)"/>
+    <ellipse cx="20" cy="-12" rx="20" ry="9" fill="none" stroke="#FF9933" stroke-width="1" opacity="0.4" transform="rotate(15 20 -12)"/>
+    <ellipse cx="0" cy="-15" rx="18" ry="10" fill="none" stroke="#C9A84C" stroke-width="1.2" opacity="0.6"/>
+    <!-- Center -->
+    <circle cx="0" cy="-10" r="5" fill="#C9A84C" opacity="0.4"/>
+  </g>
+  <!-- Decorative border corners -->
+  <path d="M30,30 L70,30 M30,30 L30,70" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M730,30 L770,30 M770,30 L770,70" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M30,420 L70,420 M30,380 L30,420" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M730,420 L770,420 M770,380 L770,420" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <!-- Title -->
+  <text x="400" y="420" text-anchor="middle" font-family="Georgia, serif" font-size="32" fill="#C9A84C" font-weight="bold">Spiritual Growth</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" fill="none">
+  <!-- Scattered gem/diamond faceted shapes -->
+  <!-- Large center gem -->
+  <g transform="translate(600,240)" opacity="0.15">
+    <polygon points="0,-60 40,-20 25,30 -25,30 -40,-20" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+    <line x1="0" y1="-60" x2="25" y2="30" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="0" y1="-60" x2="-25" y2="30" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="40" y1="-20" x2="-40" y2="-20" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="40" y1="-20" x2="-25" y2="30" stroke="#C9A84C" stroke-width="0.5"/>
+    <line x1="-40" y1="-20" x2="25" y2="30" stroke="#C9A84C" stroke-width="0.5"/>
+  </g>
+  <!-- Top-left gem -->
+  <g transform="translate(200,130) scale(0.6)" opacity="0.12">
+    <polygon points="0,-50 35,-15 20,25 -20,25 -35,-15" stroke="#6F4278" stroke-width="1.2" fill="none"/>
+    <line x1="0" y1="-50" x2="20" y2="25" stroke="#6F4278" stroke-width="0.6"/>
+    <line x1="0" y1="-50" x2="-20" y2="25" stroke="#6F4278" stroke-width="0.6"/>
+    <line x1="35" y1="-15" x2="-35" y2="-15" stroke="#6F4278" stroke-width="0.6"/>
+  </g>
+  <!-- Top-right gem -->
+  <g transform="translate(950,110) scale(0.5)" opacity="0.1">
+    <polygon points="0,-50 35,-15 20,25 -20,25 -35,-15" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+    <line x1="0" y1="-50" x2="20" y2="25" stroke="#C9A84C" stroke-width="0.6"/>
+    <line x1="0" y1="-50" x2="-20" y2="25" stroke="#C9A84C" stroke-width="0.6"/>
+  </g>
+  <!-- Bottom-left gem -->
+  <g transform="translate(300,370) scale(0.5)" opacity="0.1">
+    <polygon points="0,-45 30,-12 18,22 -18,22 -30,-12" stroke="#2E2B59" stroke-width="1.2" fill="none"/>
+    <line x1="0" y1="-45" x2="18" y2="22" stroke="#2E2B59" stroke-width="0.5"/>
+    <line x1="0" y1="-45" x2="-18" y2="22" stroke="#2E2B59" stroke-width="0.5"/>
+  </g>
+  <!-- Bottom-right gem -->
+  <g transform="translate(880,350) scale(0.55)" opacity="0.12">
+    <polygon points="0,-50 35,-15 20,25 -20,25 -35,-15" stroke="#6F4278" stroke-width="1.2" fill="none"/>
+    <line x1="0" y1="-50" x2="20" y2="25" stroke="#6F4278" stroke-width="0.6"/>
+    <line x1="0" y1="-50" x2="-20" y2="25" stroke="#6F4278" stroke-width="0.6"/>
+    <line x1="35" y1="-15" x2="-35" y2="-15" stroke="#6F4278" stroke-width="0.6"/>
+  </g>
+  <!-- Small diamond shapes scattered -->
+  <polygon points="120,280 130,270 140,280 130,290" stroke="#C9A84C" stroke-width="0.6" opacity="0.1" fill="none"/>
+  <polygon points="1060,200 1070,190 1080,200 1070,210" stroke="#6F4278" stroke-width="0.6" opacity="0.08" fill="none"/>
+  <polygon points="450,80 458,72 466,80 458,88" stroke="#2E2B59" stroke-width="0.6" opacity="0.08" fill="none"/>
+  <polygon points="750,420 758,412 766,420 758,428" stroke="#C9A84C" stroke-width="0.6" opacity="0.08" fill="none"/>
+  <!-- Sparkle dots -->
+  <circle cx="400" cy="200" r="1.5" fill="#C9A84C" opacity="0.12"/>
+  <circle cx="800" cy="180" r="1.5" fill="#6F4278" opacity="0.1"/>
+  <circle cx="500" cy="400" r="1" fill="#2E2B59" opacity="0.08"/>
+  <circle cx="1000" cy="300" r="1.5" fill="#C9A84C" opacity="0.08"/>
+</svg>

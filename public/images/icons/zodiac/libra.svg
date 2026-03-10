@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Libra: Scales glyph ♎ -->
+  <line x1="8" y1="38" x2="40" y2="38"/>
+  <path d="M8 28 C8 20 16 14 24 14 C32 14 40 20 40 28"/>
+  <line x1="8" y1="28" x2="40" y2="28"/>
+</svg>

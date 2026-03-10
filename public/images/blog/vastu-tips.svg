@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <radialGradient id="vt-bg" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#3A3670"/>
+      <stop offset="100%" stop-color="#2E2B59"/>
+    </radialGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#vt-bg)"/>
+  <!-- Compass rose (left area) -->
+  <g transform="translate(230, 210)">
+    <!-- Outer circle -->
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#C9A84C" stroke-width="1.2" opacity="0.4"/>
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#C9A84C" stroke-width="0.8" opacity="0.25"/>
+    <!-- Cardinal direction points -->
+    <polygon points="0,-75 8,-20 -8,-20" fill="#FF9933" opacity="0.8"/>
+    <polygon points="0,75 8,20 -8,20" fill="#C9A84C" opacity="0.6"/>
+    <polygon points="-75,0 -20,8 -20,-8" fill="#C9A84C" opacity="0.6"/>
+    <polygon points="75,0 20,8 20,-8" fill="#C9A84C" opacity="0.6"/>
+    <!-- Intercardinal points (smaller) -->
+    <polygon points="-53,-53 -18,-10 -10,-18" fill="#C9A84C" opacity="0.4"/>
+    <polygon points="53,-53 18,-10 10,-18" fill="#C9A84C" opacity="0.4"/>
+    <polygon points="-53,53 -18,10 -10,18" fill="#C9A84C" opacity="0.4"/>
+    <polygon points="53,53 18,10 10,18" fill="#C9A84C" opacity="0.4"/>
+    <!-- Center -->
+    <circle cx="0" cy="0" r="8" fill="#6F4278" stroke="#C9A84C" stroke-width="1.2"/>
+    <!-- Direction labels -->
+    <text x="0" y="-88" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#FF9933" font-weight="bold">N</text>
+    <text x="0" y="100" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#C9A84C">S</text>
+    <text x="-92" y="5" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#C9A84C">W</text>
+    <text x="92" y="5" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#C9A84C">E</text>
+  </g>
+  <!-- House outline (right area) -->
+  <g transform="translate(540, 195)">
+    <!-- Roof -->
+    <polygon points="0,-80 100,-30 -100,-30" fill="none" stroke="#C9A84C" stroke-width="2"/>
+    <!-- Walls -->
+    <rect x="-85" y="-30" width="170" height="120" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+    <!-- Door -->
+    <rect x="-18" y="30" width="36" height="60" fill="#6F4278" stroke="#C9A84C" stroke-width="1.2"/>
+    <circle cx="12" cy="62" r="2.5" fill="#C9A84C"/>
+    <!-- Windows -->
+    <rect x="-65" y="-5" width="28" height="28" fill="#6F4278" stroke="#C9A84C" stroke-width="1" opacity="0.8"/>
+    <line x1="-51" y1="-5" x2="-51" y2="23" stroke="#C9A84C" stroke-width="0.5" opacity="0.5"/>
+    <line x1="-65" y1="9" x2="-37" y2="9" stroke="#C9A84C" stroke-width="0.5" opacity="0.5"/>
+    <rect x="37" y="-5" width="28" height="28" fill="#6F4278" stroke="#C9A84C" stroke-width="1" opacity="0.8"/>
+    <line x1="51" y1="-5" x2="51" y2="23" stroke="#C9A84C" stroke-width="0.5" opacity="0.5"/>
+    <line x1="37" y1="9" x2="65" y2="9" stroke="#C9A84C" stroke-width="0.5" opacity="0.5"/>
+    <!-- Vastu grid overlay (3x3) -->
+    <line x1="-85" y1="30" x2="85" y2="30" stroke="#FF9933" stroke-width="0.5" opacity="0.25"/>
+    <line x1="-28" y1="-30" x2="-28" y2="90" stroke="#FF9933" stroke-width="0.5" opacity="0.25"/>
+    <line x1="28" y1="-30" x2="28" y2="90" stroke="#FF9933" stroke-width="0.5" opacity="0.25"/>
+  </g>
+  <!-- Energy flow lines -->
+  <path d="M330,210 Q370,190 400,210 Q430,230 470,210" fill="none" stroke="#FF9933" stroke-width="1" opacity="0.3" stroke-dasharray="4,4"/>
+  <!-- Decorative border corners -->
+  <path d="M30,30 L70,30 M30,30 L30,70" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M730,30 L770,30 M770,30 L770,70" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M30,420 L70,420 M30,380 L30,420" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M730,420 L770,420 M770,380 L770,420" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <!-- Title -->
+  <text x="400" y="400" text-anchor="middle" font-family="Georgia, serif" font-size="32" fill="#C9A84C" font-weight="bold">Vastu Tips</text>
+</svg>

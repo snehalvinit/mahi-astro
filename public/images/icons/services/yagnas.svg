@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#6F4278" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Havan kund - inverted pyramid base -->
+  <polygon points="8,40 56,40 48,56 16,56"/>
+  <!-- Kund rim -->
+  <line x1="4" y1="40" x2="60" y2="40"/>
+  <!-- Brick pattern on kund -->
+  <line x1="20" y1="40" x2="22" y2="56"/>
+  <line x1="44" y1="40" x2="42" y2="56"/>
+  <!-- Fire - center flame -->
+  <path d="M32,8 C28,16 26,22 28,28 C29,32 32,36 32,38 C32,36 35,32 36,28 C38,22 36,16 32,8Z"/>
+  <!-- Fire - left flame -->
+  <path d="M24,18 C22,24 22,28 24,32 C25,34 26,38 26,40 C26,36 27,32 28,30 C26,26 24,22 24,18Z"/>
+  <!-- Fire - right flame -->
+  <path d="M40,18 C42,24 42,28 40,32 C39,34 38,38 38,40 C38,36 37,32 36,30 C38,26 40,22 40,18Z"/>
+  <!-- Smoke wisps -->
+  <path d="M30,8 Q28,4 30,2" stroke-dasharray="2,2"/>
+  <path d="M34,6 Q36,2 34,0" stroke-dasharray="2,2"/>
+</svg>

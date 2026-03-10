@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" fill="none">
+  <!-- 7 chakra points: vertical line with 7 circles in rainbow colors at low opacity -->
+  <!-- Central vertical line (spine) -->
+  <line x1="600" y1="50" x2="600" y2="450" stroke="#6F4278" stroke-width="1.5" opacity="0.08"/>
+  <!-- Crown chakra (Sahasrara) - violet -->
+  <circle cx="600" cy="65" r="22" stroke="#9B59B6" stroke-width="1.2" opacity="0.15" fill="none"/>
+  <circle cx="600" cy="65" r="10" fill="#9B59B6" opacity="0.08"/>
+  <!-- Third eye chakra (Ajna) - indigo -->
+  <circle cx="600" cy="120" r="22" stroke="#2E2B59" stroke-width="1.2" opacity="0.15" fill="none"/>
+  <circle cx="600" cy="120" r="10" fill="#2E2B59" opacity="0.08"/>
+  <!-- Throat chakra (Vishuddha) - blue -->
+  <circle cx="600" cy="175" r="22" stroke="#3498DB" stroke-width="1.2" opacity="0.15" fill="none"/>
+  <circle cx="600" cy="175" r="10" fill="#3498DB" opacity="0.08"/>
+  <!-- Heart chakra (Anahata) - green -->
+  <circle cx="600" cy="235" r="24" stroke="#27AE60" stroke-width="1.2" opacity="0.15" fill="none"/>
+  <circle cx="600" cy="235" r="11" fill="#27AE60" opacity="0.08"/>
+  <!-- Solar plexus chakra (Manipura) - yellow -->
+  <circle cx="600" cy="295" r="22" stroke="#C9A84C" stroke-width="1.2" opacity="0.15" fill="none"/>
+  <circle cx="600" cy="295" r="10" fill="#C9A84C" opacity="0.08"/>
+  <!-- Sacral chakra (Svadhisthana) - orange -->
+  <circle cx="600" cy="355" r="22" stroke="#E67E22" stroke-width="1.2" opacity="0.15" fill="none"/>
+  <circle cx="600" cy="355" r="10" fill="#E67E22" opacity="0.08"/>
+  <!-- Root chakra (Muladhara) - red -->
+  <circle cx="600" cy="415" r="22" stroke="#E74C3C" stroke-width="1.2" opacity="0.15" fill="none"/>
+  <circle cx="600" cy="415" r="10" fill="#E74C3C" opacity="0.08"/>
+  <!-- Energy radiating lines from each chakra -->
+  <line x1="578" y1="65" x2="540" y2="65" stroke="#9B59B6" stroke-width="0.5" opacity="0.08"/>
+  <line x1="622" y1="65" x2="660" y2="65" stroke="#9B59B6" stroke-width="0.5" opacity="0.08"/>
+  <line x1="578" y1="175" x2="530" y2="175" stroke="#3498DB" stroke-width="0.5" opacity="0.08"/>
+  <line x1="622" y1="175" x2="670" y2="175" stroke="#3498DB" stroke-width="0.5" opacity="0.08"/>
+  <line x1="576" y1="235" x2="520" y2="235" stroke="#27AE60" stroke-width="0.5" opacity="0.08"/>
+  <line x1="624" y1="235" x2="680" y2="235" stroke="#27AE60" stroke-width="0.5" opacity="0.08"/>
+  <line x1="578" y1="355" x2="530" y2="355" stroke="#E67E22" stroke-width="0.5" opacity="0.08"/>
+  <line x1="622" y1="355" x2="670" y2="355" stroke="#E67E22" stroke-width="0.5" opacity="0.08"/>
+  <!-- Subtle aura around the spine -->
+  <ellipse cx="600" cy="240" rx="60" ry="210" stroke="#6F4278" stroke-width="0.6" opacity="0.06" fill="none"/>
+  <ellipse cx="600" cy="240" rx="90" ry="230" stroke="#C9A84C" stroke-width="0.4" opacity="0.04" fill="none"/>
+</svg>

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" fill="none">
+  <defs>
+    <radialGradient id="mandalaGlow" cx="50%" cy="50%" r="30%">
+      <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Central mandala glow -->
+  <ellipse cx="600" cy="250" rx="300" ry="300" fill="url(#mandalaGlow)"/>
+
+  <!-- Central mandala pattern -->
+  <g transform="translate(600, 250)" opacity="0.1">
+    <!-- Concentric circles -->
+    <circle cx="0" cy="0" r="120" stroke="#C9A84C" stroke-width="1" fill="none"/>
+    <circle cx="0" cy="0" r="95" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <circle cx="0" cy="0" r="70" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <circle cx="0" cy="0" r="45" stroke="#C9A84C" stroke-width="0.6" fill="none"/>
+    <circle cx="0" cy="0" r="20" stroke="#C9A84C" stroke-width="0.6" fill="none"/>
+
+    <!-- 8-petal pattern -->
+    <ellipse cx="0" cy="-60" rx="18" ry="40" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(0 0 0)"/>
+    <ellipse cx="0" cy="-60" rx="18" ry="40" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(45 0 0)"/>
+    <ellipse cx="0" cy="-60" rx="18" ry="40" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(90 0 0)"/>
+    <ellipse cx="0" cy="-60" rx="18" ry="40" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(135 0 0)"/>
+    <ellipse cx="0" cy="-60" rx="18" ry="40" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(180 0 0)"/>
+    <ellipse cx="0" cy="-60" rx="18" ry="40" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(225 0 0)"/>
+    <ellipse cx="0" cy="-60" rx="18" ry="40" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(270 0 0)"/>
+    <ellipse cx="0" cy="-60" rx="18" ry="40" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(315 0 0)"/>
+
+    <!-- Outer petal layer -->
+    <ellipse cx="0" cy="-95" rx="14" ry="30" stroke="#C9A84C" stroke-width="0.6" fill="none" transform="rotate(22.5 0 0)"/>
+    <ellipse cx="0" cy="-95" rx="14" ry="30" stroke="#C9A84C" stroke-width="0.6" fill="none" transform="rotate(67.5 0 0)"/>
+    <ellipse cx="0" cy="-95" rx="14" ry="30" stroke="#C9A84C" stroke-width="0.6" fill="none" transform="rotate(112.5 0 0)"/>
+    <ellipse cx="0" cy="-95" rx="14" ry="30" stroke="#C9A84C" stroke-width="0.6" fill="none" transform="rotate(157.5 0 0)"/>
+    <ellipse cx="0" cy="-95" rx="14" ry="30" stroke="#C9A84C" stroke-width="0.6" fill="none" transform="rotate(202.5 0 0)"/>
+    <ellipse cx="0" cy="-95" rx="14" ry="30" stroke="#C9A84C" stroke-width="0.6" fill="none" transform="rotate(247.5 0 0)"/>
+    <ellipse cx="0" cy="-95" rx="14" ry="30" stroke="#C9A84C" stroke-width="0.6" fill="none" transform="rotate(292.5 0 0)"/>
+    <ellipse cx="0" cy="-95" rx="14" ry="30" stroke="#C9A84C" stroke-width="0.6" fill="none" transform="rotate(337.5 0 0)"/>
+
+    <!-- Diagonal lines through center -->
+    <line x1="-120" y1="0" x2="120" y2="0" stroke="#C9A84C" stroke-width="0.5"/>
+    <line x1="0" y1="-120" x2="0" y2="120" stroke="#C9A84C" stroke-width="0.5"/>
+    <line x1="-85" y1="-85" x2="85" y2="85" stroke="#C9A84C" stroke-width="0.5"/>
+    <line x1="85" y1="-85" x2="-85" y2="85" stroke="#C9A84C" stroke-width="0.5"/>
+  </g>
+
+  <!-- Top-left lotus -->
+  <g transform="translate(80, 70)" opacity="0.1">
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(36 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(72 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(108 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(144 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(180 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(216 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(252 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(288 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(324 0 0)"/>
+    <circle cx="0" cy="0" r="6" fill="#C9A84C" fill-opacity="0.3"/>
+  </g>
+
+  <!-- Top-right lotus -->
+  <g transform="translate(1120, 70)" opacity="0.1">
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(36 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(72 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(108 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(144 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(180 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(216 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(252 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(288 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(324 0 0)"/>
+    <circle cx="0" cy="0" r="6" fill="#C9A84C" fill-opacity="0.3"/>
+  </g>
+
+  <!-- Bottom-left lotus -->
+  <g transform="translate(80, 430)" opacity="0.1">
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(60 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(120 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(180 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(240 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(300 0 0)"/>
+    <circle cx="0" cy="0" r="5" fill="#C9A84C" fill-opacity="0.3"/>
+  </g>
+
+  <!-- Bottom-right lotus -->
+  <g transform="translate(1120, 430)" opacity="0.1">
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(60 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(120 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(180 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(240 0 0)"/>
+    <ellipse cx="0" cy="-12" rx="8" ry="18" stroke="#C9A84C" stroke-width="0.8" fill="none" transform="rotate(300 0 0)"/>
+    <circle cx="0" cy="0" r="5" fill="#C9A84C" fill-opacity="0.3"/>
+  </g>
+
+  <!-- Scattered small stars -->
+  <circle cx="300" cy="100" r="1" fill="#C9A84C" fill-opacity="0.15"/>
+  <circle cx="900" cy="80" r="1.2" fill="#C9A84C" fill-opacity="0.12"/>
+  <circle cx="200" cy="350" r="1" fill="#C9A84C" fill-opacity="0.1"/>
+  <circle cx="1000" cy="400" r="1.5" fill="#C9A84C" fill-opacity="0.12"/>
+  <circle cx="450" cy="450" r="1" fill="#C9A84C" fill-opacity="0.1"/>
+  <circle cx="750" cy="60" r="1.2" fill="#C9A84C" fill-opacity="0.15"/>
+</svg>

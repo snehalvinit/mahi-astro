@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" fill="none">
+  <!-- Five elements: earth, water, fire, air, space arranged in pentagon -->
+  <!-- Pentagon connecting lines -->
+  <polygon points="600,90 820,240 740,420 460,420 380,240" stroke="#C9A84C" stroke-width="0.8" opacity="0.1" fill="none"/>
+  <!-- Space/Akasha (top) - circle with dots -->
+  <circle cx="600" cy="90" r="35" stroke="#2E2B59" stroke-width="1.2" opacity="0.15" fill="none"/>
+  <circle cx="600" cy="90" r="18" stroke="#2E2B59" stroke-width="0.5" opacity="0.1" fill="none" stroke-dasharray="3,3"/>
+  <circle cx="600" cy="90" r="4" fill="#2E2B59" opacity="0.12"/>
+  <!-- Air/Vayu (top-right) - wavy lines inside circle -->
+  <circle cx="820" cy="240" r="35" stroke="#6F4278" stroke-width="1.2" opacity="0.15" fill="none"/>
+  <path d="M798,232 Q808,226 818,232 Q828,238 838,232" stroke="#6F4278" stroke-width="0.8" opacity="0.12" fill="none"/>
+  <path d="M798,240 Q808,234 818,240 Q828,246 838,240" stroke="#6F4278" stroke-width="0.8" opacity="0.12" fill="none"/>
+  <path d="M798,248 Q808,242 818,248 Q828,254 838,248" stroke="#6F4278" stroke-width="0.8" opacity="0.12" fill="none"/>
+  <!-- Fire/Agni (bottom-right) - triangle inside circle -->
+  <circle cx="740" cy="420" r="35" stroke="#C9A84C" stroke-width="1.2" opacity="0.15" fill="none"/>
+  <polygon points="740,392 760,440 720,440" stroke="#C9A84C" stroke-width="0.8" opacity="0.12" fill="none"/>
+  <!-- Water/Jal (bottom-left) - wave inside circle -->
+  <circle cx="460" cy="420" r="35" stroke="#6F4278" stroke-width="1.2" opacity="0.15" fill="none"/>
+  <path d="M438,415 Q449,405 460,415 Q471,425 482,415" stroke="#6F4278" stroke-width="0.8" opacity="0.12" fill="none"/>
+  <path d="M438,428 Q449,418 460,428 Q471,438 482,428" stroke="#6F4278" stroke-width="0.8" opacity="0.12" fill="none"/>
+  <!-- Earth/Prithvi (top-left) - square inside circle -->
+  <circle cx="380" cy="240" r="35" stroke="#2E2B59" stroke-width="1.2" opacity="0.15" fill="none"/>
+  <rect x="360" y="222" width="40" height="36" stroke="#2E2B59" stroke-width="0.8" opacity="0.12" fill="none"/>
+  <!-- Center connecting star -->
+  <circle cx="600" cy="260" r="5" fill="#C9A84C" opacity="0.1"/>
+  <!-- Inner connecting lines to center -->
+  <line x1="600" y1="90" x2="600" y2="260" stroke="#C9A84C" stroke-width="0.4" opacity="0.06"/>
+  <line x1="820" y1="240" x2="600" y2="260" stroke="#C9A84C" stroke-width="0.4" opacity="0.06"/>
+  <line x1="740" y1="420" x2="600" y2="260" stroke="#C9A84C" stroke-width="0.4" opacity="0.06"/>
+  <line x1="460" y1="420" x2="600" y2="260" stroke="#C9A84C" stroke-width="0.4" opacity="0.06"/>
+  <line x1="380" y1="240" x2="600" y2="260" stroke="#C9A84C" stroke-width="0.4" opacity="0.06"/>
+</svg>

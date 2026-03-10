@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: VFX-5 (Verify FX-5a + FX-5b fixes) — PASSED — 2026-03-09
-### Next Up: T18 (Images & Media Optimization)
-### Latest Commit: `verify(seo): VFX-5 — all SEO fixes verified, V5 gate PASSED`
+### Last Completed: T18 (Source and Place Hero Images, Icons, Decorative Elements) — 2026-03-09
+### Next Up: T19 (Optimize All Images — WebP, Lazy Loading, Responsive)
+### Latest Commit: `feat(images): T18 — hero images, icons, decorative elements`
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -38,15 +38,45 @@
 | 5-Content | T10–T14, V4 | ALL DONE (6/6) — V4 PASSED |
 | 6-SEO | T15–T17, V5 | ALL DONE — V5 PASSED |
 | 6-Fixes | FX-5a, FX-5b, VFX-5 | ALL DONE (3/3) — VFX-5 PASSED |
-| 7+ | T18–T37 | NOT STARTED |
+| 7-Images | T18 | T18 DONE, T19 pending |
+| 8+ | T19–T37 | NOT STARTED |
 
 ### Build Stats
 - **Pages generated:** 82 (across 3 languages)
-- **Build time:** ~3.11s
+- **Build time:** ~3.30s
 - **Components created:** 19 (6 layout, 6 sections, 5 UI, 1 SEO, 1 Analytics)
 - **i18n keys per language:** ~200+
 - **Service pages:** 12 × 3 langs = 36
 - **Blog posts:** 6 × 3 langs = 18 (all languages complete)
+- **SVG assets:** 64 total (12 zodiac, 12 service icons, 7 chakra, 6 hero BGs, 12 service BGs, 6 blog placeholders, 4 decorative, 4 OG images, 1 astrologer placeholder)
+
+### T18 Handover Notes
+**What was done:**
+- Created 64 SVG assets across all categories:
+  - 12 zodiac sign icons (`public/images/icons/zodiac/`) — gold outline, 48x48
+  - 12 service icons (`public/images/icons/services/`) — purple outline, 64x64
+  - 7 chakra icons (`public/images/icons/chakra/`) — each in its traditional color, 48x48
+  - 4 decorative elements (mandala, om, divider, zodiac-wheel)
+  - 6 hero background SVGs (`public/images/hero/`)
+  - 12 service hero backgrounds (`public/images/services/`)
+  - 6 blog category placeholders (`public/images/blog/`)
+  - 4 OG image SVGs (default, home, about, contact)
+  - 1 astrologer placeholder portrait
+  - Brand Om favicon replacing Astro default
+- Updated all components to reference SVG icons instead of emoji unicode:
+  - `ServicesGrid.astro` — img tags instead of emoji spans
+  - `services/index.astro` — img tags for both core and spiritual grids
+  - `services/[slug].astro` — img for hero and related services
+- Updated all OG image references from .jpg to .svg across all pages
+- Added blog category-to-image mapping for Hindi/Gujarati category names
+- All 33 image references in built output verified — zero missing files
+- Build: 82 pages, 3.30s, clean
+
+**Known issues / notes for T19:**
+- OG images are SVG — social media platforms need raster JPG/PNG. T19 should convert these.
+- Hero backgrounds are subtle SVG overlays — could be enhanced with actual photos in future.
+- Astrologer photo is a placeholder SVG — user needs to supply actual photo.
+- All images are SVG, no WebP/responsive optimization needed yet — that's T19's scope.
 
 ---
 
@@ -773,3 +803,60 @@
 - Formspree endpoints (contact + subscribe)
 - Analytics env vars (`PUBLIC_GA4_ID`, `PUBLIC_GTM_ID`, `PUBLIC_PLAUSIBLE_DOMAIN`)
 - Astrologer photo, OG images (1200×630), Google Reviews/JustDial URLs, exact address
+
+---
+
+### VFX-5: Verify FX-5a + FX-5b SEO Fixes — 2026-03-09T21:14-07:00
+- **Files:** `.tasks/mahi-astro/progress.md`, `.tasks/mahi-astro/tasks.md`
+- **What was done:** Re-verified both V5 issues. Confirmed no duplicate brand name in blog titles (18/18 clean) and all 3 contact pages have valid JSON-LD (6 blocks total, all valid). Also re-checked sitemap (79 URLs across 3 languages), hreflang consistency, and build health.
+- **Test results:** ALL PASSED — blog titles clean (18/18), contact JSON-LD valid (6 blocks), sitemap 79 URLs, hreflang consistent, build 82 pages zero errors.
+- **Decisions:** V5 gate declared PASSED. Phase 6 (SEO) fully complete.
+- **Gotchas:** None. All SEO issues resolved.
+- **Status:** DONE
+
+---
+
+### Handover Summary — 2026-03-10T04:14Z (Phases 1–6 Complete, VFX-5 PASSED)
+
+**All phases through Phase 6 (SEO) are complete and verified. Phase 7 (Images) is next.**
+
+| Phase | Tasks | Status |
+|-------|-------|--------|
+| 1-Research | R1, R2, R3 | DONE |
+| 2-Foundation | T1, V1 | DONE |
+| 3-Design | T2, T3, V2 | DONE |
+| 4-Pages | T4–T9c, V3, FX-3a/b/c, VFX-3 | DONE |
+| 5-Content | T10–T14, V4 | DONE |
+| 6-SEO | T15–T17, V5, FX-5a, FX-5b, VFX-5 | DONE |
+| **7-Images** | **T18, T19, V6** | **NEXT** |
+| 8-Testing | T20, V7 | NOT STARTED |
+| 9-Deploy | T21, T22, V8 | NOT STARTED |
+| 10-CMS | T23, V9 | NOT STARTED |
+
+**Build:** 82 pages, ~3.11s, zero errors/warnings.
+
+**Latest commit:** `2fce3e2` — `verify(seo): VFX-5 — all SEO fixes verified, V5 gate PASSED`
+
+**What Phase 6 delivered:**
+- `SEOHead.astro` — centralized meta, OG, Twitter Card, hreflang, canonical
+- `src/utils/schema.ts` — 7 JSON-LD schema helpers (LocalBusiness, Person, Service, Article, FAQ, Breadcrumb, WebSite)
+- `Breadcrumbs.astro` — reusable with structured data
+- `AnalyticsHead.astro` — GA4/GTM/Plausible, env-gated, production-only
+- `seo-keywords.json` — 12 services × 3 langs keyword mapping + cross-reference maps
+- `robots.txt` + sitemap (79 URLs)
+- T17 local SEO guide (GBP, JustDial, citations, UTM tracking)
+
+**Next task: T18 — Images & Media Optimization**
+- Source hero images, service icons, zodiac icons, decorative elements
+- Image manifest from R3 research is the specification
+- Use free sources: Unsplash, Pexels, Pixabay for raster; SVG Repo, Lucide for icons
+
+**Outstanding placeholders:**
+- Formspree endpoints (contact + subscribe) — `placeholder` IDs
+- Analytics env vars (`PUBLIC_GA4_ID`, `PUBLIC_GTM_ID`, `PUBLIC_PLAUSIBLE_DOMAIN`)
+- Astrologer photo — using icon placeholder
+- OG images — path conventions exist, actual 1200×630 files needed
+- Google Reviews / JustDial URLs — `href="#"`
+- Google Maps — city-level embed, needs exact address
+- Social media profile URLs — empty strings in siteConfig
+- Street address / pin code for local listings

@@ -17,19 +17,19 @@ const serviceKeys = [
   'panchaTatva', 'chakra', 'pooja', 'yagna', 'mrityunjay', 'mantra',
 ] as const;
 
-const serviceIcons: Record<string, string> = {
-  kundli: '&#x1F52E;',       // crystal ball
-  horoscope: '&#x2B50;',     // star
-  lifeGuidance: '&#x1F3AF;', // target
-  vastu: '&#x1F3E0;',        // house
-  gemstone: '&#x1F48E;',     // gem
-  karma: '&#x2638;',         // wheel of dharma
-  panchaTatva: '&#x1F30D;',  // earth
-  chakra: '&#x1F549;',       // om
-  pooja: '&#x1F56F;',        // candle
-  yagna: '&#x1F525;',        // fire
-  mrityunjay: '&#x1F64F;',   // prayer
-  mantra: '&#x1F3B6;',       // music notes
+const serviceIconFiles: Record<string, string> = {
+  kundli: 'kundli-reading',
+  horoscope: 'horoscope-analysis',
+  lifeGuidance: 'life-guidance',
+  vastu: 'vastu',
+  gemstone: 'gemstone',
+  karma: 'karma-counselling',
+  panchaTatva: 'pancha-tatva',
+  chakra: 'chakra-balancing',
+  pooja: 'poojas',
+  yagna: 'yagnas',
+  mrityunjay: 'maha-mrityunjay',
+  mantra: 'mantras-chanting',
 };
 ---
 
@@ -44,7 +44,7 @@ const serviceIcons: Record<string, string> = {
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {serviceKeys.map((key) => (
         <Card variant="service" class="group">
-          <span slot="icon" class="text-3xl" set:html={serviceIcons[key]} />
+          <img slot="icon" src={`/images/icons/services/${serviceIconFiles[key]}.svg`} alt="" width="40" height="40" class="w-10 h-10" loading="lazy" />
           <h3 class="text-lg font-semibold font-heading text-indigo mb-2 group-hover:text-gold transition-colors">
             {t.services[key].name}
           </h3>

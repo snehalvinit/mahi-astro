@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <radialGradient id="rs-bg" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#3A3670"/>
+      <stop offset="100%" stop-color="#2E2B59"/>
+    </radialGradient>
+    <linearGradient id="rs-gem" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9933"/>
+      <stop offset="50%" stop-color="#C9A84C"/>
+      <stop offset="100%" stop-color="#FF9933"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#rs-bg)"/>
+  <!-- Yantra grid (left side) -->
+  <g transform="translate(160, 200)" opacity="0.6">
+    <!-- Outer square -->
+    <rect x="-70" y="-70" width="140" height="140" fill="none" stroke="#C9A84C" stroke-width="1.2"/>
+    <!-- Inner rotated square -->
+    <rect x="-50" y="-50" width="100" height="100" fill="none" stroke="#C9A84C" stroke-width="1" transform="rotate(45)"/>
+    <!-- Triangles -->
+    <polygon points="0,-55 48,35 -48,35" fill="none" stroke="#FF9933" stroke-width="1"/>
+    <polygon points="0,55 48,-35 -48,-35" fill="none" stroke="#FF9933" stroke-width="1"/>
+    <!-- Center circle -->
+    <circle cx="0" cy="0" r="15" fill="none" stroke="#C9A84C" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="5" fill="#C9A84C" opacity="0.6"/>
+    <!-- Grid lines -->
+    <line x1="-70" y1="0" x2="70" y2="0" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
+    <line x1="0" y1="-70" x2="0" y2="70" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
+  </g>
+  <!-- Gemstone (center) -->
+  <g transform="translate(400, 210)">
+    <!-- Gem facets -->
+    <polygon points="0,-50 35,-15 25,30 -25,30 -35,-15" fill="#6F4278" stroke="#C9A84C" stroke-width="1.5"/>
+    <polygon points="0,-50 35,-15 0,5" fill="#6F4278" stroke="#C9A84C" stroke-width="0.5" opacity="0.8"/>
+    <polygon points="0,-50 -35,-15 0,5" fill="#7D508A" stroke="#C9A84C" stroke-width="0.5" opacity="0.6"/>
+    <polygon points="35,-15 25,30 0,5" fill="#5A3566" stroke="#C9A84C" stroke-width="0.5" opacity="0.7"/>
+    <polygon points="-35,-15 -25,30 0,5" fill="#6F4278" stroke="#C9A84C" stroke-width="0.5" opacity="0.5"/>
+    <polygon points="25,30 -25,30 0,5" fill="#5A3566" stroke="#C9A84C" stroke-width="0.5" opacity="0.6"/>
+    <!-- Sparkle on gem -->
+    <line x1="-5" y1="-30" x2="5" y2="-20" stroke="#FFFDF0" stroke-width="1.5" opacity="0.8"/>
+    <line x1="5" y1="-30" x2="-5" y2="-20" stroke="#FFFDF0" stroke-width="1.5" opacity="0.8"/>
+    <!-- Glow -->
+    <circle cx="0" cy="-5" r="45" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.15"/>
+    <circle cx="0" cy="-5" r="60" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.1"/>
+  </g>
+  <!-- Mantra scroll (right side) -->
+  <g transform="translate(620, 195)">
+    <!-- Scroll body -->
+    <rect x="-45" y="-65" width="90" height="130" rx="3" fill="#3A3670" stroke="#C9A84C" stroke-width="1.2"/>
+    <!-- Top roll -->
+    <ellipse cx="0" cy="-65" rx="50" ry="8" fill="#C9A84C" opacity="0.7"/>
+    <!-- Bottom roll -->
+    <ellipse cx="0" cy="65" rx="50" ry="8" fill="#C9A84C" opacity="0.7"/>
+    <!-- Sanskrit-inspired lines -->
+    <line x1="-30" y1="-45" x2="30" y2="-45" stroke="#FF9933" stroke-width="1" opacity="0.6"/>
+    <line x1="-30" y1="-45" x2="-30" y2="-35" stroke="#FF9933" stroke-width="0.8" opacity="0.4"/>
+    <line x1="-10" y1="-45" x2="-10" y2="-35" stroke="#FF9933" stroke-width="0.8" opacity="0.4"/>
+    <line x1="15" y1="-45" x2="15" y2="-35" stroke="#FF9933" stroke-width="0.8" opacity="0.4"/>
+    <line x1="-30" y1="-25" x2="30" y2="-25" stroke="#FF9933" stroke-width="1" opacity="0.6"/>
+    <line x1="-25" y1="-25" x2="-25" y2="-15" stroke="#FF9933" stroke-width="0.8" opacity="0.4"/>
+    <line x1="0" y1="-25" x2="0" y2="-15" stroke="#FF9933" stroke-width="0.8" opacity="0.4"/>
+    <line x1="20" y1="-25" x2="20" y2="-15" stroke="#FF9933" stroke-width="0.8" opacity="0.4"/>
+    <line x1="-30" y1="-5" x2="30" y2="-5" stroke="#FF9933" stroke-width="1" opacity="0.6"/>
+    <line x1="-30" y1="15" x2="30" y2="15" stroke="#FF9933" stroke-width="1" opacity="0.6"/>
+    <line x1="-30" y1="35" x2="30" y2="35" stroke="#FF9933" stroke-width="1" opacity="0.6"/>
+    <!-- Om symbol placeholder -->
+    <text x="0" y="55" text-anchor="middle" font-family="serif" font-size="18" fill="#C9A84C" opacity="0.7">&#x0950;</text>
+  </g>
+  <!-- Decorative border corners -->
+  <path d="M30,30 L70,30 M30,30 L30,70" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M730,30 L770,30 M770,30 L770,70" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M30,420 L70,420 M30,380 L30,420" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M730,420 L770,420 M770,380 L770,420" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <!-- Title -->
+  <text x="400" y="395" text-anchor="middle" font-family="Georgia, serif" font-size="32" fill="#C9A84C" font-weight="bold">Remedies &amp; Solutions</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#6F4278" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Lotus flower -->
+  <!-- Center petal -->
+  <path d="M32,12 C28,20 28,28 32,34 C36,28 36,20 32,12Z"/>
+  <!-- Left petals -->
+  <path d="M22,18 C20,26 24,32 32,34 C28,28 24,22 22,18Z"/>
+  <path d="M14,26 C14,32 20,36 32,34 C24,32 18,28 14,26Z"/>
+  <!-- Right petals -->
+  <path d="M42,18 C44,26 40,32 32,34 C36,28 40,22 42,18Z"/>
+  <path d="M50,26 C50,32 44,36 32,34 C40,32 46,28 50,26Z"/>
+  <!-- Outer left petal -->
+  <path d="M10,34 C12,36 20,38 32,36 C20,36 14,34 10,34Z"/>
+  <!-- Outer right petal -->
+  <path d="M54,34 C52,36 44,38 32,36 C44,36 50,34 54,34Z"/>
+  <!-- Base / water line -->
+  <path d="M12,44 Q22,38 32,44 Q42,38 52,44"/>
+  <path d="M16,48 Q24,42 32,48 Q40,42 48,48"/>
+  <!-- Stem hint -->
+  <line x1="32" y1="36" x2="32" y2="44"/>
+</svg>

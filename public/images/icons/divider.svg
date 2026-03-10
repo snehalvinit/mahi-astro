@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 24" width="400" height="24">
+  <g fill="none" stroke="#C9A84C" stroke-width="1" stroke-linecap="round">
+    <!-- Center lotus flower -->
+    <path d="M200,4 C200,4 192,12 200,20 C208,12 200,4 200,4Z" fill="#C9A84C" opacity="0.3"/>
+    <path d="M200,4 C200,4 192,12 200,20 C208,12 200,4 200,4Z"/>
+    <path d="M200,6 C196,6 186,12 190,18 C194,12 200,8 200,6Z" fill="#C9A84C" opacity="0.2"/>
+    <path d="M200,6 C196,6 186,12 190,18 C194,12 200,8 200,6Z"/>
+    <path d="M200,6 C204,6 214,12 210,18 C206,12 200,8 200,6Z" fill="#C9A84C" opacity="0.2"/>
+    <path d="M200,6 C204,6 214,12 210,18 C206,12 200,8 200,6Z"/>
+    <path d="M200,8 C192,6 180,10 184,17 C190,10 200,8 200,8Z"/>
+    <path d="M200,8 C208,6 220,10 216,17 C210,10 200,8 200,8Z"/>
+
+    <!-- Left swirl extensions -->
+    <path d="M184,12 C175,10 165,10 155,12 C148,14 145,11 145,11"/>
+    <path d="M145,11 C140,8 130,8 120,12"/>
+    <path d="M120,12 Q110,15 105,12 Q100,9 90,12"/>
+    <path d="M90,12 Q80,15 70,12"/>
+    <path d="M70,12 Q60,9 50,12"/>
+    <path d="M50,12 Q40,15 30,12"/>
+    <path d="M30,12 Q20,9 10,12"/>
+
+    <!-- Right swirl extensions -->
+    <path d="M216,12 C225,10 235,10 245,12 C252,14 255,11 255,11"/>
+    <path d="M255,11 C260,8 270,8 280,12"/>
+    <path d="M280,12 Q290,15 295,12 Q300,9 310,12"/>
+    <path d="M310,12 Q320,15 330,12"/>
+    <path d="M330,12 Q340,9 350,12"/>
+    <path d="M350,12 Q360,15 370,12"/>
+    <path d="M370,12 Q380,9 390,12"/>
+
+    <!-- Small decorative dots -->
+    <circle cx="145" cy="12" r="1.5" fill="#C9A84C"/>
+    <circle cx="120" cy="12" r="1.5" fill="#C9A84C"/>
+    <circle cx="90" cy="12" r="1" fill="#C9A84C"/>
+    <circle cx="60" cy="12" r="1" fill="#C9A84C"/>
+    <circle cx="255" cy="12" r="1.5" fill="#C9A84C"/>
+    <circle cx="280" cy="12" r="1.5" fill="#C9A84C"/>
+    <circle cx="310" cy="12" r="1" fill="#C9A84C"/>
+    <circle cx="340" cy="12" r="1" fill="#C9A84C"/>
+
+    <!-- Center dot -->
+    <circle cx="200" cy="12" r="2" fill="#C9A84C"/>
+  </g>
+</svg>

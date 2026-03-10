@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" fill="none">
+  <!-- Havan kund (fire pit) with rising flames -->
+  <!-- Havan kund base - inverted pyramid shape -->
+  <g transform="translate(600,300)" opacity="0.15">
+    <!-- Outer kund rim -->
+    <polygon points="-80,-20 80,-20 60,60 -60,60" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+    <!-- Inner kund -->
+    <polygon points="-55,-20 55,-20 40,45 -40,45" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <!-- Base platform -->
+    <rect x="-95" y="60" width="190" height="15" rx="2" stroke="#C9A84C" stroke-width="1" fill="none"/>
+    <!-- Platform steps -->
+    <rect x="-105" y="75" width="210" height="12" rx="2" stroke="#6F4278" stroke-width="0.8" fill="none"/>
+  </g>
+  <!-- Rising flames -->
+  <g opacity="0.15">
+    <!-- Center flame -->
+    <path d="M600,280 Q580,220 600,150 Q620,220 600,280" stroke="#C9A84C" stroke-width="1.2" fill="#C9A84C" fill-opacity="0.06"/>
+    <!-- Left flame -->
+    <path d="M575,280 Q560,230 570,170 Q585,230 575,280" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <!-- Right flame -->
+    <path d="M625,280 Q640,230 630,170 Q615,230 625,280" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+    <!-- Small left flame -->
+    <path d="M555,280 Q548,245 555,200 Q562,245 555,280" stroke="#6F4278" stroke-width="0.6" fill="none"/>
+    <!-- Small right flame -->
+    <path d="M645,280 Q652,245 645,200 Q638,245 645,280" stroke="#6F4278" stroke-width="0.6" fill="none"/>
+  </g>
+  <!-- Rising smoke/sparks -->
+  <circle cx="590" cy="130" r="2" fill="#C9A84C" opacity="0.1"/>
+  <circle cx="610" cy="110" r="1.5" fill="#C9A84C" opacity="0.08"/>
+  <circle cx="600" cy="90" r="1.5" fill="#6F4278" opacity="0.06"/>
+  <circle cx="585" cy="100" r="1" fill="#C9A84C" opacity="0.06"/>
+  <circle cx="615" cy="80" r="1" fill="#6F4278" opacity="0.05"/>
+  <!-- Decorative elements - samagri/offerings hint -->
+  <path d="M560,285 Q570,278 580,285" stroke="#2E2B59" stroke-width="0.5" opacity="0.08"/>
+  <path d="M620,285 Q630,278 640,285" stroke="#2E2B59" stroke-width="0.5" opacity="0.08"/>
+  <!-- Fire glow -->
+  <circle cx="600" cy="220" r="50" fill="#C9A84C" opacity="0.04"/>
+  <circle cx="600" cy="200" r="30" fill="#C9A84C" opacity="0.04"/>
+</svg>

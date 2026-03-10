@@ -37,19 +37,19 @@ const breadcrumbItems = [
   { label: t.header.services, href: `/${currentLang}/services` },
 ];
 
-const serviceIcons: Record<string, string> = {
-  'vedic-astrology-kundli-reading': '&#x1F52E;',
-  'horoscope-analysis-predictions': '&#x2B50;',
-  'marriage-career-finance-health-guidance': '&#x1F3AF;',
-  'vastu-consultation': '&#x1F3E0;',
-  'gemstone-recommendations': '&#x1F48E;',
-  'karma-life-purpose-counselling': '&#x2638;',
-  'pancha-tatva-balancing': '&#x1F30D;',
-  'seven-chakras-balancing': '&#x1F549;',
-  'vedic-spiritual-poojas': '&#x1F56F;',
-  'vedic-karma-kand-yagnas': '&#x1F525;',
-  'maha-mrityunjaya-mantra-anushthan': '&#x1F64F;',
-  'mantras-chanting': '&#x1F3B6;',
+const serviceIconMap: Record<string, string> = {
+  'vedic-astrology-kundli-reading': 'kundli-reading',
+  'horoscope-analysis-predictions': 'horoscope-analysis',
+  'marriage-career-finance-health-guidance': 'life-guidance',
+  'vastu-consultation': 'vastu',
+  'gemstone-recommendations': 'gemstone',
+  'karma-life-purpose-counselling': 'karma-counselling',
+  'pancha-tatva-balancing': 'pancha-tatva',
+  'seven-chakras-balancing': 'chakra-balancing',
+  'vedic-spiritual-poojas': 'poojas',
+  'vedic-karma-kand-yagnas': 'yagnas',
+  'maha-mrityunjaya-mantra-anushthan': 'maha-mrityunjay',
+  'mantras-chanting': 'mantras-chanting',
 };
 ---
 
@@ -82,7 +82,7 @@ const serviceIcons: Record<string, string> = {
         {coreServices.map((service) => (
           <a href={`/${currentLang}/services/${service.slug}`} class="block group">
             <Card variant="service" class="h-full">
-              <span slot="icon" class="text-3xl" set:html={serviceIcons[service.slug] || '&#x2728;'} />
+              <img slot="icon" src={`/images/icons/services/${serviceIconMap[service.slug] || 'kundli-reading'}.svg`} alt="" width="40" height="40" class="w-10 h-10" loading="lazy" />
               <h3 class="text-lg font-semibold font-heading text-indigo mb-2 group-hover:text-gold transition-colors">
                 {service.title}
               </h3>
@@ -111,7 +111,7 @@ const serviceIcons: Record<string, string> = {
         {spiritualServices.map((service) => (
           <a href={`/${currentLang}/services/${service.slug}`} class="block group">
             <Card variant="service" class="h-full">
-              <span slot="icon" class="text-3xl" set:html={serviceIcons[service.slug] || '&#x2728;'} />
+              <img slot="icon" src={`/images/icons/services/${serviceIconMap[service.slug] || 'kundli-reading'}.svg`} alt="" width="40" height="40" class="w-10 h-10" loading="lazy" />
               <h3 class="text-lg font-semibold font-heading text-indigo mb-2 group-hover:text-gold transition-colors">
                 {service.title}
               </h3>
