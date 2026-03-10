@@ -10,6 +10,7 @@ import Button from '../../components/ui/Button.astro';
 import { supportedLanguages, isValidLanguage, getTranslations } from '../../utils/i18n';
 import type { SupportedLanguage } from '../../utils/i18n';
 import { siteConfig } from '../../data/site-config';
+import { breadcrumbSchema } from '../../utils/schema';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -25,9 +26,41 @@ if (!isValidLanguage(lang as string)) {
 const currentLang = lang as SupportedLanguage;
 const t = getTranslations(currentLang);
 const whatsappUrl = `${siteConfig.contact.whatsapp}?text=${encodeURIComponent(t.whatsapp.prefill)}`;
+
+const contactJsonLd = [
+  breadcrumbSchema([
+    { name: t.header.home, url: `/${currentLang}/` },
+    { name: t.contact.title, url: `/${currentLang}/contact` },
+  ]),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: t.contact.title,
+    url: `https://believeastrology.com/${currentLang}/contact`,
+    mainEntity: {
+      '@type': 'ProfessionalService',
+      name: siteConfig.name,
+      telephone: siteConfig.contact.phone,
+      email: siteConfig.contact.email,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Ahmedabad',
+        addressRegion: 'Gujarat',
+        addressCountry: 'IN',
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: siteConfig.contact.phone,
+        email: siteConfig.contact.email,
+        contactType: 'customer service',
+        availableLanguage: ['English', 'Hindi', 'Gujarati'],
+      },
+    },
+  },
+];
 ---
 
-<BaseLayout lang={currentLang} title={`${t.contact.title} | ${t.meta.title}`} description={t.contact.subtitle} ogImage="/images/og-contact.jpg">
+<BaseLayout lang={currentLang} title={`${t.contact.title} | ${t.meta.title}`} description={t.contact.subtitle} ogImage="/images/og-contact.jpg" jsonLd={contactJsonLd}>
   <SiteHeader slot="header" lang={currentLang} />
   <MenuOverlay slot="header" lang={currentLang} />
 

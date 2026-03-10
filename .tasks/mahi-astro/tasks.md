@@ -1204,7 +1204,7 @@ After each task, update `progress.md` with:
 
 ---
 
-### - [ ] FX-5b: Add JSON-LD Structured Data to Contact Pages
+### - [x] FX-5b: Add JSON-LD Structured Data to Contact Pages
 **Type:** Fix | **Model:** claude-opus-4-6 | **Depends on:** V5
 **Error:** Contact pages (`/en/contact/`, `/hi/contact/`, `/gu/contact/`) have zero JSON-LD blocks. Every other page type has at least a BreadcrumbList. Missing structured data hurts local SEO for a contact/business page.
 **Root Cause:** `src/pages/[lang]/contact.astro` does not pass a `jsonLd` prop to BaseLayout. Other page types (services, blog, about) all pass JSON-LD.
@@ -1214,9 +1214,9 @@ After each task, update `progress.md` with:
 3. Optionally add a ContactPoint schema for the business
 4. Pass `jsonLd` prop to BaseLayout
 **Validate:**
-- [ ] All 3 contact pages have at least 1 JSON-LD block (BreadcrumbList)
-- [ ] JSON-LD is valid JSON with correct @type
-- [ ] No regressions — `npm run build` succeeds
+- [x] All 3 contact pages have at least 1 JSON-LD block (BreadcrumbList)
+- [x] JSON-LD is valid JSON with correct @type
+- [x] No regressions — `npm run build` succeeds
 - [ ] Git commit: `fix(seo): FX-5b — add JSON-LD to contact pages`
 
 ---

@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: FX-5a (Fix duplicate brand name in blog titles) — 2026-03-09
-### Next Up: FX-5b (Add JSON-LD to contact pages)
-### Latest Commit: `fix(seo): FX-5a — remove duplicate brand name from blog titles`
+### Last Completed: FX-5b (Add JSON-LD to contact pages) — 2026-03-09
+### Next Up: VFX-5 (Verify FX-5a + FX-5b fixes)
+### Latest Commit: `fix(seo): FX-5b — add JSON-LD to contact pages`
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -37,7 +37,7 @@
 | 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | ALL DONE (4/4) |
 | 5-Content | T10–T14, V4 | ALL DONE (6/6) — V4 PASSED |
 | 6-SEO | T15–T17, V5 | T15-T17 DONE, V5 BLOCKED (2 fixes needed) |
-| 6-Fixes | FX-5a, FX-5b, VFX-5 | FX-5a DONE (1/3) |
+| 6-Fixes | FX-5a, FX-5b, VFX-5 | FX-5a, FX-5b DONE (2/3) |
 | 7+ | T18–T37 | NOT STARTED |
 
 ### Build Stats
@@ -68,10 +68,22 @@
 
 ---
 
-### FX-5a: Fix Duplicate Brand Name in Blog Post Titles — DONE — 2026-03-09
-- **Change:** `src/pages/[lang]/blog/[slug].astro` line 77 — changed `title={`${post.seo.title} — ${t.hero.brandName}`}` to `title={post.seo.title}`
-- **Verified:** All 18 blog post titles now have brand name exactly once, no duplicates
-- **Build:** 82 pages, no errors
+### FX-5b: Add JSON-LD Structured Data to Contact Pages — 2026-03-09
+- **Files:** `src/pages/[lang]/contact.astro` (modified)
+- **What was done:** Added BreadcrumbList (Home → Contact) and ContactPage JSON-LD schemas to all 3 contact pages. Imported `breadcrumbSchema` from `utils/schema`, created `contactJsonLd` array with BreadcrumbList + ContactPage (with embedded ProfessionalService and ContactPoint), passed to BaseLayout via `jsonLd` prop.
+- **Test results:** Build passes (82 pages). All 3 contact pages verified — 2 JSON-LD blocks each (BreadcrumbList + ContactPage). JSON parses correctly with proper @type values.
+- **Decisions:** Used ContactPage schema (not just BreadcrumbList) to maximize local SEO value for a contact/business page. Embedded ProfessionalService and ContactPoint within ContactPage.mainEntity.
+- **Status:** DONE
+
+---
+
+### FX-5a: Fix Duplicate Brand Name in Blog Post Titles — 2026-03-09T04:07Z
+- **Files:** `src/pages/[lang]/blog/[slug].astro` (modified), `.tasks/mahi-astro/progress.md` (modified), `.tasks/mahi-astro/tasks.md` (modified)
+- **What was done:** Removed redundant brand name append in blog post `<title>` tags. `post.seo.title` already included the " | Believe Astrology" suffix, so the template's extra ` — ${t.hero.brandName}` caused doubling on all 18 blog pages.
+- **Test results:** Build passes (82 pages, ~3s). All 18 blog titles verified — brand name appears exactly once per title.
+- **Decisions:** Used `post.seo.title` as-is rather than stripping suffix and re-adding, since content collections already define the full SEO title consistently.
+- **Gotchas:** If new blog posts are added, their `seo.title` in the content JSON must include the brand suffix (e.g., "Post Title | Believe Astrology") — the template no longer appends it.
+- **Status:** DONE
 
 ---
 
