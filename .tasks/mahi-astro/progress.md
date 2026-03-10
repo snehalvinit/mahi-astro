@@ -23,9 +23,9 @@
 
 ## Task Progress
 
-### Last Completed: V3 (Verify All Pages) — 2026-03-09 — BLOCKED on FX-3a/b/c
-### Next Up: FX-3a (Fix broken footer service slugs)
-### Latest Commit: verify(pages): V3 — verify all pages, found 3 issues
+### Last Completed: FX-3a (Fix broken footer service slugs) — 2026-03-09
+### Next Up: FX-3b (Fix missing self-referencing hreflang tag)
+### Latest Commit: fix(layout): FX-3a — correct footer service slugs
 
 ### Phase Summary
 | Phase | Tasks | Status |
@@ -34,7 +34,7 @@
 | 2-Foundation | T1, V1 | DONE (2/2) |
 | 3-Design | T2, T3, V2 | DONE (3/3) |
 | 4-Pages | T4, T5, T6, T7, T8, T9, T9b, T9c, V3 | V3 BLOCKED (9/9 tasks run, 3 fixes needed) |
-| 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | NOT STARTED |
+| 4-Fixes | FX-3a, FX-3b, FX-3c, VFX-3 | FX-3a DONE (1/4) |
 | 5-Content | T10–T14, V4 | NOT STARTED |
 | 6-SEO | T15–T17, V5 | NOT STARTED |
 | 7+ | T18–T37 | NOT STARTED |
@@ -221,3 +221,13 @@
 - **Decisions:** Created 3 targeted fix tasks (FX-3a/b/c) + 1 re-verification task (VFX-3) in tasks.md Appendix. Responsive testing (375px/768px/1440px) deferred as it requires browser — noted in checklist.
 - **Gotchas:** FX-3a is a quick 2-line fix. FX-3b is a 1-line addition to BaseLayout. FX-3c is a 1-line addition. All fixes are minimal and low-risk. VFX-3 should re-run the V3 checks that were affected.
 - **Status:** BLOCKED on FX-3a, FX-3b, FX-3c
+
+---
+
+### FX-3a: Fix Broken Footer Service Slugs — 2026-03-09
+- **Files:** `src/components/layout/SiteFooter.astro`
+- **What was done:** Changed 2 hardcoded footer service slugs: `kundli-reading` -> `vedic-astrology-kundli-reading`, `horoscope-analysis` -> `horoscope-analysis-predictions`.
+- **Test results:** `npm run build` succeeds (70 pages, 2.56s). Old broken slugs no longer appear in build output. Correct slugs confirmed in all 3 languages.
+- **Decisions:** Minimal 2-line fix as specified.
+- **Gotchas:** None. Straightforward slug correction.
+- **Status:** DONE

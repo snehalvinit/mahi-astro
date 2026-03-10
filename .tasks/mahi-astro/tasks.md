@@ -1132,7 +1132,7 @@ After each task, update `progress.md` with:
 
 ## APPENDIX — Fix Tasks
 
-### - [ ] FX-3a: Fix Broken Footer Service Slugs
+### - [x] FX-3a: Fix Broken Footer Service Slugs
 **Type:** Fix | **Model:** claude-sonnet-4-6 | **Depends on:** V3
 **Error:** Footer service links `/services/kundli-reading` and `/services/horoscope-analysis` return 404. Actual slugs are `vedic-astrology-kundli-reading` and `horoscope-analysis-predictions`.
 **Root Cause:** `src/components/layout/SiteFooter.astro` lines 22-23 hardcode short slugs that don't match the content collection slugs defined in `src/content/services/en/`.
@@ -1140,10 +1140,10 @@ After each task, update `progress.md` with:
 1. In `src/components/layout/SiteFooter.astro`, change `kundli-reading` → `vedic-astrology-kundli-reading`
 2. Change `horoscope-analysis` → `horoscope-analysis-predictions`
 **Validate:**
-- [ ] Footer service links resolve to actual service pages
-- [ ] All 3 languages (/en/, /hi/, /gu/) have correct footer links
-- [ ] No regressions — `npm run build` succeeds
-- [ ] Git commit: `fix(layout): FX-3a — correct footer service slugs`
+- [x] Footer service links resolve to actual service pages
+- [x] All 3 languages (/en/, /hi/, /gu/) have correct footer links
+- [x] No regressions — `npm run build` succeeds (70 pages, 2.56s)
+- [x] Git commit: `fix(layout): FX-3a — correct footer service slugs`
 
 ---
 
