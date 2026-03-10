@@ -434,7 +434,7 @@ After each task, update `progress.md` with:
 
 ---
 
-### - [ ] T5: Build About Page — Astrologer Bio, Credentials, Experience
+### - [x] T5: Build About Page — Astrologer Bio, Credentials, Experience
 
 **Type:** Build | **Model:** claude-opus-4-6 | **Depends on:** V2
 
@@ -451,9 +451,9 @@ After each task, update `progress.md` with:
 2. All text from translation files, content in 3 languages
 
 **Validate:**
-- [ ] About page renders in all 3 languages
-- [ ] Photo placeholder is visible and properly sized
-- [ ] Content matches astrologer's actual info
+- [x] About page renders in all 3 languages
+- [x] Photo placeholder is visible and properly sized
+- [x] Content matches astrologer's actual info
 - [ ] Git commit: `feat(pages): T5 — about page with bio and credentials`
 
 ---

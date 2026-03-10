@@ -90,7 +90,64 @@
     "subtitle": "20+ Years of Vedic Wisdom & Spiritual Guidance",
     "experience": "Years of Experience",
     "consultations": "Consultations Done",
-    "clients": "Happy Clients"
+    "clients": "Happy Clients",
+    "heroTagline": "Guiding souls through the cosmic wisdom of Vedic astrology",
+    "bioTitle": "A Journey of Devotion & Wisdom",
+    "bio1": "Pandit Shree Mahadev Joshi is a renowned Vedic astrologer and spiritual consultant based in Ahmedabad, Gujarat. With over 20 years of dedicated practice, he has guided thousands of individuals and families through life's most important decisions — from marriage and career to health and spiritual well-being.",
+    "bio2": "Born into a family with deep roots in Vedic traditions, Pandit ji began his study of Jyotish Shastra at a young age under the guidance of revered scholars. His approach combines classical Vedic astrology with an intuitive understanding of modern life challenges, making his consultations both traditionally grounded and practically relevant.",
+    "bio3": "Today, Pandit ji serves clients not only across India — in Ahmedabad, Mumbai, and beyond — but also internationally through online consultations via Zoom and WhatsApp, bringing the ancient wisdom of Vedic astrology to seekers worldwide.",
+    "credentialsTitle": "Expertise & Credentials",
+    "credentials": [
+      "Vedic Astrology & Jyotish Shastra",
+      "Kundli Reading & Birth Chart Analysis",
+      "Vastu Shastra Consultation",
+      "Gemstone Science (Ratna Shastra)",
+      "Vedic Karma-Kand & Yagnas",
+      "Pancha Tatva & Chakra Balancing",
+      "Mantra Science & Spiritual Healing"
+    ],
+    "timelineTitle": "Journey & Experience",
+    "timeline": [
+      {
+        "period": "Early Years",
+        "title": "Foundation in Vedic Studies",
+        "description": "Began studying Jyotish Shastra and Vedic scriptures under revered Gurujis, building a strong foundation in classical astrology."
+      },
+      {
+        "period": "Growing Practice",
+        "title": "Establishing Believe Astrology",
+        "description": "Founded Believe Astrology in Ahmedabad, serving the local community with personalized Vedic consultations and spiritual guidance."
+      },
+      {
+        "period": "Expanding Reach",
+        "title": "National & International Presence",
+        "description": "Expanded practice to Mumbai and began serving international clients through online consultations via Zoom and WhatsApp."
+      },
+      {
+        "period": "Present Day",
+        "title": "20+ Years of Guiding Souls",
+        "description": "Continues to serve thousands of clients across 3 countries with deep, personalized Vedic astrology readings and spiritual healing."
+      }
+    ],
+    "philosophyTitle": "Philosophy",
+    "philosophy": "Astrology is not about predicting a fixed fate, but about understanding the weather of the cosmos so you can sail your boat with wisdom. I believe every soul carries its own light — my role is to help you see it clearly through the ancient lens of Vedic wisdom.",
+    "consultationTitle": "How Consultations Work",
+    "consultationModes": [
+      {
+        "mode": "In-Person",
+        "description": "Visit our Ahmedabad office for a face-to-face consultation"
+      },
+      {
+        "mode": "Zoom Video Call",
+        "description": "Connect from anywhere in the world via video consultation"
+      },
+      {
+        "mode": "WhatsApp",
+        "description": "Quick consultations and follow-ups via WhatsApp call"
+      }
+    ],
+    "ctaTitle": "Ready to Begin Your Journey?",
+    "ctaSubtitle": "Book a personalized consultation with Pandit Shree Mahadev Joshi"
   },
   "testimonials": {
     "title": "What Our Clients Say",

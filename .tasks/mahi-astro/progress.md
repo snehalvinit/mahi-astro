@@ -23,8 +23,8 @@
 
 ## Task Progress
 
-### Last Completed: T4 (Build Homepage) — 2026-03-09
-### Next Up: V3 (Verify Homepage) or T5 (About Page)
+### Last Completed: T5 (Build About Page) — 2026-03-09
+### Next Up: T6 (Service Landing Pages)
 
 ---
 
@@ -116,4 +116,14 @@
 - **Test results:** `npm run build` succeeds (4 pages, 1.64s). All 3 language routes render with correct translations — verified Hindi headline, Gujarati headline, English services/testimonials/CTA all present in HTML output. WhatsApp links with encoded prefill messages on all pages.
 - **Decisions:** Used emoji icons for services (crystal ball for Kundli, dharma wheel for Karma, etc.) — will be replaced with proper SVG icons in T18/T19 when visual assets are implemented. Testimonials use horizontal scroll on mobile (touch-friendly) and 3-col grid on desktop. Stats bar uses gold/5 background for subtle distinction. Hero uses CSS star pattern (radial gradients) instead of image for zero-dependency celestial effect.
 - **Gotchas:** Astrologer photo placeholder in hero is a circle with person icon — client must provide real photo. Service cards link to /{lang}/services (plural) — individual service pages created in T6. Testimonials are placeholder content — real reviews should be added when available. Blog posts section mentioned in task spec deferred (no blog content yet — T13/T14). Footer service links still use hardcoded English text — updated when service content collections exist (T10+).
+- **Status:** DONE
+
+---
+
+### T5: Build About Page — Astrologer Bio, Credentials, Experience — 2026-03-09T17:53Z
+- **Files:** `src/pages/[lang]/about.astro`, `src/content/i18n/en.json`, `src/content/i18n/hi.json`, `src/content/i18n/gu.json`
+- **What was done:** Created full about page with 6 sections: hero banner (dark celestial gradient with title + tagline), bio section (photo placeholder + 3 paragraphs of biography in 5-col grid), credentials section (7 expertise areas in checkmark grid), experience timeline (4 milestones with alternating layout on desktop, left-aligned on mobile), philosophy section (dark background with blockquote), consultation modes (3-card grid: in-person/Zoom/WhatsApp), and CTA section. Expanded about section in all 3 translation files with heroTagline, bio (3 paragraphs), credentials array, timeline array (4 items with period/title/description), philosophy quote, consultationModes array, and CTA text.
+- **Test results:** `npm run build` succeeds (7 pages, 1.64s). All 3 languages (/en/about, /hi/about, /gu/about) render with correct translated content — verified Hindi (भक्ति और ज्ञान की यात्रा, दर्शन), Gujarati (ભક્તિ અને જ્ઞાનની યાત્રા, દર્શન), and English section headings present.
+- **Decisions:** Built all sections inline in about.astro rather than creating separate section components — page-specific content doesn't warrant reusable components. Used SectionHeading and Button from existing UI kit. Timeline uses CSS-based alternating layout (even/odd flex-row-reverse) with gold dot markers.
+- **Gotchas:** Astrologer photo placeholder is rectangular (rounded corners) rather than circular — client must provide professional photo. Timeline line is hidden on mobile, uses left-aligned dots instead. Bio content is placeholder based on project brief — may need client review. Same layout/footer/header pattern as homepage.
 - **Status:** DONE
